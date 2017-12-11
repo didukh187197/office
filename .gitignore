@@ -1,0 +1,13 @@
+.gradle
+.studio
+*.ipr
+*.iml
+*.iws
+*.lck
+*.log
+build/*
+deploy/tomcat/*
+modules/*/build/*
+out
+test-run
+deploy/*

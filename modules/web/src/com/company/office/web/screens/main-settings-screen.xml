@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://settingsDialog.caption"
+        class="com.company.office.web.screens.MainSettingsScreen"
+        messagesPack="com.company.office.web.screens">
+    <dsContext>
+        <collectionDatasource id="groupsDs"
+                              class="com.haulmont.cuba.security.entity.Group"
+                              view="_base">
+            <query>
+                <![CDATA[select e from sec$Group e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="fileDescriptorsDs"
+                              class="com.haulmont.cuba.core.entity.FileDescriptor">
+            <query>
+                <![CDATA[select e from sys$FileDescriptor e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout>
+        <groupBox id="boxSettings"
+                  orientation="horizontal"
+                  spacing="true"
+                  width="100%">
+            <vbox id="leftBox"
+                  spacing="true">
+                <textField id="txtCompanyName"
+                           caption="msg://settingsDialog.companyName"
+                           width="300px"/>
+                <lookupField id="lookupApplicantsGroup"
+                             caption="msg://settingsDialog.applicantsGroup"
+                             nullOptionVisible="false"
+                             optionsDatasource="groupsDs"
+                             width="300px"/>
+                <lookupField id="lookupWorkersGroup"
+                             caption="msg://settingsDialog.workersGroup"
+                             nullOptionVisible="false"
+                             optionsDatasource="groupsDs"
+                             required="true"
+                             width="300px"/>
+            </vbox>
+            <vbox id="filesBox"
+                  spacing="true">
+                <hbox id="boxFile1"
+                      spacing="true">
+                    <lookupField id="lookupFile1"
+                                 caption="File1"
+                                 optionsDatasource="fileDescriptorsDs"
+                                 width="300px"/>
+                    <linkButton id="btnFile1"
+                                caption="msg://settingsDialog.btnFileDownload"
+                                invoke="onBtnFile1Click"/>
+                </hbox>
+            </vbox>
+        </groupBox>
+        <buttonsPanel>
+            <button id="btnOk"
+                    caption="msg://settingsDialog.btnOk"
+                    invoke="onBtnOkClick"/>
+            <button id="btnCancel"
+                    caption="msg://settingsDialog.btnCancel"
+                    invoke="onBtnCancelClick"/>
+        </buttonsPanel>
+    </layout>
+</window>

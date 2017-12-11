@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseWorkersCaption"
+        class="com.company.office.web.extuser.ExtUserWorkersBrowse"
+        focusComponent="extUsersTable"
+        lookupComponent="extUsersTable"
+        messagesPack="com.company.office.web.extuser">
+    <dsContext>
+        <groupDatasource id="extUsersDs"
+                         class="com.company.office.entity.ExtUser"
+                         view="extUser-browse-view">
+            <query>
+                <![CDATA[select e from office$ExtUser e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="extUsersTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="extUsersTable"
+                datasource="extUsersDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="extUsersTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="login"/>
+                <column id="name"/>
+                <column id="firstName"/>
+                <column id="lastName"/>
+                <column id="middleName"/>
+                <column id="position"/>
+                <column id="email"/>
+                <column id="language"/>
+                <column id="timeZone"/>
+                <column id="timeZoneAuto"/>
+                <column id="active"/>
+                <column id="changePasswordAtNextLogon"/>
+                <column id="group"/>
+                <column id="requestCount"/>
+                <column id="requestThreshold"/>
+            </columns>
+            <rows datasource="extUsersDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="extUsersTable.create"/>
+                <button id="editBtn"
+                        action="extUsersTable.edit"/>
+                <button id="removeBtn"
+                        action="extUsersTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

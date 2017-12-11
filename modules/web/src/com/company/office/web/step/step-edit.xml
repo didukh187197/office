@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.office.web.step.StepEdit"
+        datasource="stepDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.office.web.step">
+    <dsContext>
+        <datasource id="stepDs"
+                    class="com.company.office.entity.Step"
+                    view="step-view">
+            <collectionDatasource id="actionsDs"
+                                  property="actions"/>
+        </datasource>
+        <collectionDatasource id="extUserOptionsDs"
+                              class="com.company.office.entity.ExtUser">
+            <query>
+                <![CDATA[select e from office$ExtUser e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="stepDs">
+            <column width="250px">
+                <field property="identfier"
+                       required="true"/>
+                <field property="position"/>
+                <field optionsDatasource="extUserOptionsDs"
+                       property="user"/>
+                <field property="description"/>
+            </column>
+        </fieldGroup>
+        <groupBox id="actionsBox"
+                  caption="msg://com.company.office.entity/Step.actions">
+            <table id="actionsTable"
+                   height="200px"
+                   width="100%">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="type"/>
+                    <column id="description"/>
+                    <column id="workDays"/>
+                    <column id="resultRequired"/>
+                </columns>
+                <rows datasource="actionsDs"/>
+                <buttonsPanel>
+                    <button action="actionsTable.create"/>
+                    <button action="actionsTable.edit"/>
+                    <button action="actionsTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+    <view class="com.company.office.entity.ExtUser"
+          extends="user.edit"
+          name="user.edit">
+        <property name="requestPosition"/>
+        <property name="requestCount"/>
+        <property name="requestThreshold"/>
+        <property name="request"
+                  view="_minimal">
+            <property name="position"/>
+            <property name="worker"
+                      view="_minimal"/>
+        </property>
+    </view>
+    <view class="com.company.office.entity.ExtUser"
+          extends="user.browse"
+          name="extUser-browse-view">
+        <property name="requestPosition"/>
+        <property name="requestCount"/>
+        <property name="requestThreshold"/>
+        <property name="request"
+                  view="_minimal">
+            <property name="worker"
+                      view="_minimal"/>
+        </property>
+    </view>
+    <view class="com.company.office.entity.Step"
+          extends="_local"
+          name="step-view">
+        <property name="user"
+                  view="_minimal"/>
+        <property name="actions"
+                  view="_minimal">
+            <property name="type"/>
+            <property name="description"/>
+            <property name="workDays"/>
+            <property name="resultRequired"/>
+        </property>
+    </view>
+</views>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
+    <include file="com/company/office/screens.xml"/>
+    <screen id="main-settings-screen"
+            template="com/company/office/web/screens/main-settings-screen.xml"/>
+    <screen id="office$ExtUser.applicants-browse"
+            template="com/company/office/web/extuser/ext-user-applicants-browse.xml"/>
+    <screen id="office$ExtUser.workers-browse"
+            template="com/company/office/web/extuser/ext-user-workers-browse.xml"/>
+    <screen id="office$Step.browse"
+            template="com/company/office/web/step/step-browse.xml"/>
+    <screen id="office$Step.edit"
+            template="com/company/office/web/step/step-edit.xml"/>
+    <screen id="office$StepAction.edit"
+            template="com/company/office/web/stepaction/step-action-edit.xml"/>
+</screen-config>
