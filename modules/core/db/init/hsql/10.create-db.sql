@@ -82,6 +82,7 @@ create table OFFICE_STEP (
     IDENTFIER integer,
     POSITION_ integer not null,
     USER_ID varchar(36),
+    WORK_DAYS integer,
     DESCRIPTION varchar(100),
     --
     primary key (ID)
@@ -101,8 +102,7 @@ create table OFFICE_STEP_ACTION (
     STEP_ID varchar(36),
     TYPE_ varchar(50) not null,
     DESCRIPTION varchar(100),
-    WORK_DAYS integer not null,
-    RESULT_REQUIRED boolean,
+    TEMPLATE_ID varchar(36),
     --
     primary key (ID)
 )^

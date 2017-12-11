@@ -34,6 +34,7 @@
                 <column id="identfier"/>
                 <column id="position"/>
                 <column id="user"/>
+                <column id="workDays"/>
                 <column id="description"/>
             </columns>
             <rows datasource="stepsDs"/>

@@ -22,39 +22,21 @@
                 width="800"/>
     <layout>
         <groupBox id="boxSettings"
-                  orientation="horizontal"
-                  spacing="true"
-                  width="100%">
-            <vbox id="leftBox"
                   spacing="true">
-                <textField id="txtCompanyName"
-                           caption="msg://settingsDialog.companyName"
-                           width="300px"/>
-                <lookupField id="lookupApplicantsGroup"
-                             caption="msg://settingsDialog.applicantsGroup"
-                             nullOptionVisible="false"
-                             optionsDatasource="groupsDs"
-                             width="300px"/>
-                <lookupField id="lookupWorkersGroup"
-                             caption="msg://settingsDialog.workersGroup"
-                             nullOptionVisible="false"
-                             optionsDatasource="groupsDs"
-                             required="true"
-                             width="300px"/>
-            </vbox>
-            <vbox id="filesBox"
-                  spacing="true">
-                <hbox id="boxFile1"
-                      spacing="true">
-                    <lookupField id="lookupFile1"
-                                 caption="File1"
-                                 optionsDatasource="fileDescriptorsDs"
-                                 width="300px"/>
-                    <linkButton id="btnFile1"
-                                caption="msg://settingsDialog.btnFileDownload"
-                                invoke="onBtnFile1Click"/>
-                </hbox>
-            </vbox>
+            <textField id="txtCompanyName"
+                       caption="msg://settingsDialog.companyName"
+                       width="300px"/>
+            <lookupField id="lookupApplicantsGroup"
+                         caption="msg://settingsDialog.applicantsGroup"
+                         nullOptionVisible="false"
+                         optionsDatasource="groupsDs"
+                         width="300px"/>
+            <lookupField id="lookupWorkersGroup"
+                         caption="msg://settingsDialog.workersGroup"
+                         nullOptionVisible="false"
+                         optionsDatasource="groupsDs"
+                         required="true"
+                         width="300px"/>
         </groupBox>
         <buttonsPanel>
             <button id="btnOk"

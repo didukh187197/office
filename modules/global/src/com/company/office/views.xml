@@ -34,8 +34,18 @@
                   view="_minimal">
             <property name="type"/>
             <property name="description"/>
-            <property name="workDays"/>
-            <property name="resultRequired"/>
+            <property name="template"
+                      view="_minimal">
+                <property name="size"/>
+            </property>
+        </property>
+    </view>
+    <view class="com.company.office.entity.StepAction"
+          extends="_local"
+          name="stepAction-view">
+        <property name="template"
+                  view="_minimal">
+            <property name="size"/>
         </property>
     </view>
 </views>

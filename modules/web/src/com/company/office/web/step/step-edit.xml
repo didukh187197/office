@@ -12,10 +12,10 @@
             <collectionDatasource id="actionsDs"
                                   property="actions"/>
         </datasource>
-        <collectionDatasource id="extUserOptionsDs"
-                              class="com.company.office.entity.ExtUser">
+        <collectionDatasource id="usersDs"
+                              class="com.haulmont.cuba.security.entity.User">
             <query>
-                <![CDATA[select e from office$ExtUser e]]>
+                <![CDATA[select e from sec$User e]]>
             </query>
         </collectionDatasource>
     </dsContext>
@@ -26,11 +26,11 @@
         <fieldGroup id="fieldGroup"
                     datasource="stepDs">
             <column width="250px">
-                <field property="identfier"
-                       required="true"/>
+                <field property="identfier"/>
                 <field property="position"/>
-                <field optionsDatasource="extUserOptionsDs"
+                <field optionsDatasource="usersDs"
                        property="user"/>
+                <field property="workDays"/>
                 <field property="description"/>
             </column>
         </fieldGroup>
@@ -47,8 +47,7 @@
                 <columns>
                     <column id="type"/>
                     <column id="description"/>
-                    <column id="workDays"/>
-                    <column id="resultRequired"/>
+                    <column id="template"/>
                 </columns>
                 <rows datasource="actionsDs"/>
                 <buttonsPanel>

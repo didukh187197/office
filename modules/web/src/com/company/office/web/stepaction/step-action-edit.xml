@@ -8,21 +8,36 @@
     <dsContext>
         <datasource id="stepActionDs"
                     class="com.company.office.entity.StepAction"
-                    view="_local"/>
+                    view="stepAction-view"/>
+        <collectionDatasource id="fileDescriptorsDs"
+                              class="com.haulmont.cuba.core.entity.FileDescriptor">
+            <query>
+                <![CDATA[select e from sys$FileDescriptor e]]>
+            </query>
+        </collectionDatasource>
     </dsContext>
     <dialogMode height="600"
                 width="800"/>
     <layout expand="windowActions"
             spacing="true">
         <fieldGroup id="fieldGroup"
+                    border="visible"
                     datasource="stepActionDs">
             <column width="250px">
                 <field property="type"/>
                 <field property="description"/>
-                <field property="workDays"/>
-                <field property="resultRequired"/>
             </column>
         </fieldGroup>
+        <lookupField caption="msg://lookupFile"
+                     datasource="stepActionDs"
+                     optionsDatasource="fileDescriptorsDs"
+                     property="template"
+                     width="300px"/>
+        <upload id="uploadTemplate"
+                datasource="stepActionDs"
+                property="template"
+                showClearButton="true"
+                showFileName="true"/>
         <frame id="windowActions"
                screen="editWindowActions"/>
     </layout>

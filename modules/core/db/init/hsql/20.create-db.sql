@@ -24,6 +24,7 @@ alter table OFFICE_STEP add constraint FK_OFFICE_STEP_USER foreign key (USER_ID)
 -- end OFFICE_STEP
 -- begin OFFICE_STEP_ACTION
 alter table OFFICE_STEP_ACTION add constraint FK_OFFICE_STEP_ACTION_STEP foreign key (STEP_ID) references OFFICE_STEP(ID)^
+alter table OFFICE_STEP_ACTION add constraint FK_OFFICE_STEP_ACTION_TEMPLATE foreign key (TEMPLATE_ID) references SYS_FILE(ID)^
 create index IDX_OFFICE_STEP_ACTION_STEP on OFFICE_STEP_ACTION (STEP_ID)^
 -- end OFFICE_STEP_ACTION
 -- begin OFFICE_REQUEST_ACTION

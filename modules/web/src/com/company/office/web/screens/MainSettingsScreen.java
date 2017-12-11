@@ -19,9 +19,6 @@ public class MainSettingsScreen extends AbstractWindow {
     private LookupField lookupWorkersGroup;
 
     @Inject
-    private LookupField lookupFile1;
-
-    @Inject
     private OfficeConfig officeConfig;
 
     @Override
@@ -34,9 +31,6 @@ public class MainSettingsScreen extends AbstractWindow {
 
         if (officeConfig.getWorkersGroup() != null)
             lookupWorkersGroup.setValue(officeConfig.getWorkersGroup());
-
-        if (officeConfig.getFile1() != null)
-            lookupFile1.setValue(officeConfig.getFile1());
     }
 
     public void onBtnOkClick() {
@@ -77,9 +71,6 @@ public class MainSettingsScreen extends AbstractWindow {
                             officeConfig.setApplicantsGroup(lookupApplicantsGroup.getValue());
                             officeConfig.setWorkersGroup(lookupWorkersGroup.getValue());
 
-                            if (lookupFile1.getValue() != null)
-                                officeConfig.setFile1(lookupFile1.getValue());
-
                             this.close("");
                         }),
                         new DialogAction(DialogAction.Type.NO, Action.Status.PRIMARY)
@@ -89,13 +80,5 @@ public class MainSettingsScreen extends AbstractWindow {
 
     public void onBtnCancelClick() {
         this.close("");
-    }
-
-    @Inject
-    private ExportDisplay exportDisplay;
-
-    public void onBtnFile1Click() {
-        if (lookupFile1.getValue() != null)
-            exportDisplay.show(lookupFile1.getValue(), ExportFormat.OCTET_STREAM);
     }
 }

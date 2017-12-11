@@ -8,6 +8,11 @@ import javax.validation.constraints.NotNull;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import com.haulmont.chile.core.annotations.Composition;
+import com.haulmont.cuba.core.entity.FileDescriptor;
+import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.global.DeletePolicy;
+import javax.persistence.OneToOne;
 
 @Table(name = "OFFICE_STEP_ACTION")
 @Entity(name = "office$StepAction")
@@ -25,13 +30,20 @@ public class StepAction extends StandardEntity {
     @Column(name = "DESCRIPTION", length = 100)
     protected String description;
 
-    @NotNull
-    @Column(name = "WORK_DAYS", nullable = false)
-    protected Integer workDays;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @OnDelete(DeletePolicy.UNLINK)
+    @JoinColumn(name = "TEMPLATE_ID")
+    protected FileDescriptor template;
 
-    @Column(name = "RESULT_REQUIRED")
-    protected Boolean resultRequired;
+    public void setTemplate(FileDescriptor template) {
+        this.template = template;
+    }
+
+    public FileDescriptor getTemplate() {
+        return template;
+    }
+
 
     public void setStep(Step step) {
         this.step = step;
@@ -41,14 +53,6 @@ public class StepAction extends StandardEntity {
         return step;
     }
 
-
-    public void setResultRequired(Boolean resultRequired) {
-        this.resultRequired = resultRequired;
-    }
-
-    public Boolean getResultRequired() {
-        return resultRequired;
-    }
 
 
     public void setDescription(String description) {
@@ -66,14 +70,6 @@ public class StepAction extends StandardEntity {
 
     public ActionType getType() {
         return type == null ? null : ActionType.fromId(type);
-    }
-
-    public void setWorkDays(Integer workDays) {
-        this.workDays = workDays;
-    }
-
-    public Integer getWorkDays() {
-        return workDays;
     }
 
 

@@ -1,23 +1,27 @@
 package com.company.office.web.step;
 
+import com.company.office.OfficeConfig;
 import com.haulmont.cuba.gui.components.AbstractEditor;
 import com.company.office.entity.Step;
-import com.haulmont.cuba.gui.components.TextField;
+import com.haulmont.cuba.gui.data.CollectionDatasource;
+import com.haulmont.cuba.security.entity.User;
 
-import javax.inject.Named;
+import javax.inject.Inject;
 import java.util.Map;
+import java.util.UUID;
 
 public class StepEdit extends AbstractEditor<Step> {
 
-    @Named("fieldGroup.identfier")
-    private TextField identfierField;
+    @Inject
+    private CollectionDatasource<User, UUID> usersDs;
+
+    @Inject
+    private OfficeConfig officeConfig;
 
     @Override
     public void init(Map<String, Object> params) {
-        
-
-        identfierField.addValueChangeListener(e -> {
-
-        });
+        usersDs.setQuery(
+                String.format("select e from sec$User e where e.group.id = '%s'", officeConfig.getWorkersGroup().getId())
+        );
     }
 }

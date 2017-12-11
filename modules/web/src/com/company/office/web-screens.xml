@@ -7,10 +7,10 @@
             template="com/company/office/web/extuser/ext-user-applicants-browse.xml"/>
     <screen id="office$ExtUser.workers-browse"
             template="com/company/office/web/extuser/ext-user-workers-browse.xml"/>
+    <screen id="office$StepAction.edit"
+            template="com/company/office/web/stepaction/step-action-edit.xml"/>
     <screen id="office$Step.browse"
             template="com/company/office/web/step/step-browse.xml"/>
     <screen id="office$Step.edit"
             template="com/company/office/web/step/step-edit.xml"/>
-    <screen id="office$StepAction.edit"
-            template="com/company/office/web/stepaction/step-action-edit.xml"/>
 </screen-config>
