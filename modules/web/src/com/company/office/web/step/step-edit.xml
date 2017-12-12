@@ -30,7 +30,6 @@
                 <field property="position"/>
                 <field optionsDatasource="usersDs"
                        property="user"/>
-                <field property="workDays"/>
                 <field property="description"/>
             </column>
         </fieldGroup>
@@ -48,6 +47,7 @@
                     <column id="type"/>
                     <column id="description"/>
                     <column id="template"/>
+                    <column id="workDays"/>
                 </columns>
                 <rows datasource="actionsDs"/>
                 <buttonsPanel>

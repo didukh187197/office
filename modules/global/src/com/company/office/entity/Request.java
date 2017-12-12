@@ -17,6 +17,8 @@ import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
 import java.util.List;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 @NamePattern("%s|applicant")
 @Table(name = "OFFICE_REQUEST")
@@ -24,19 +26,26 @@ import javax.persistence.OneToMany;
 public class Request extends StandardEntity {
     private static final long serialVersionUID = 1078634413564627380L;
 
+    @NotNull
+    @Column(name = "SERIES", nullable = false, length = 10)
+    protected String series;
+
+    @NotNull
+    @Column(name = "NUMBER_", nullable = false, unique = true)
+    protected Integer number;
+
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "APPLICANT_ID", unique = true)
     protected ExtUser applicant;
 
-    @Column(name = "POSITION_", nullable = false)
-    protected Integer position;
+    @OnDelete(DeletePolicy.UNLINK)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "STEP_ID")
+    protected Step step;
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "WORKER_ID")
     protected ExtUser worker;
-
-    @Column(name = "COUNTER")
-    protected Integer counter;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "CREATED")
@@ -62,7 +71,42 @@ public class Request extends StandardEntity {
     @Composition
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "request")
-    protected List<RequestFile> files;
+    protected List<RequestCommunication> communications;
+
+    public void setSeries(String series) {
+        this.series = series;
+    }
+
+    public String getSeries() {
+        return series;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+
+    public void setStep(Step step) {
+        this.step = step;
+    }
+
+    public Step getStep() {
+        return step;
+    }
+
+
+    public void setCommunications(List<RequestCommunication> communications) {
+        this.communications = communications;
+    }
+
+    public List<RequestCommunication> getCommunications() {
+        return communications;
+    }
+
 
     public List<RequestAction> getActs() {
         return acts;
@@ -93,14 +137,6 @@ public class Request extends StandardEntity {
 
 
 
-    public void setFiles(List<RequestFile> files) {
-        this.files = files;
-    }
-
-    public List<RequestFile> getFiles() {
-        return files;
-    }
-
 
 
     public void setStates(List<RequestStatus> states) {
@@ -111,22 +147,6 @@ public class Request extends StandardEntity {
         return states;
     }
 
-
-    public void setPosition(Position position) {
-        this.position = position == null ? null : position.getId();
-    }
-
-    public Position getPosition() {
-        return position == null ? null : Position.fromId(position);
-    }
-
-    public void setCounter(Integer counter) {
-        this.counter = counter;
-    }
-
-    public Integer getCounter() {
-        return counter;
-    }
 
     public void setCreated(Date created) {
         this.created = created;

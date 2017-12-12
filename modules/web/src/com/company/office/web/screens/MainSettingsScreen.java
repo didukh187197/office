@@ -68,8 +68,16 @@ public class MainSettingsScreen extends AbstractWindow {
                             }
 
                             officeConfig.setCompanyName(txtCompanyName.getValue());
+
                             officeConfig.setApplicantsGroup(lookupApplicantsGroup.getValue());
+                            officeConfig.setApplicantsGroupQuery(
+                                    String.format("select e from sec$User e where e.group.id = '%s'", officeConfig.getApplicantsGroup().getId())
+                            );
+
                             officeConfig.setWorkersGroup(lookupWorkersGroup.getValue());
+                            officeConfig.setWorkersGroupQuery(
+                                    String.format("select e from sec$User e where e.group.id = '%s'", officeConfig.getWorkersGroup().getId())
+                            );
 
                             this.close("");
                         }),

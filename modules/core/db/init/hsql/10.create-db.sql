@@ -9,10 +9,11 @@ create table OFFICE_REQUEST (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
+    SERIES varchar(10) not null,
+    NUMBER_ integer not null,
     APPLICANT_ID varchar(36) not null,
-    POSITION_ integer not null,
+    STEP_ID varchar(36),
     WORKER_ID varchar(36) not null,
-    COUNTER integer,
     CREATED date,
     CLOSED date,
     DESCRIPTION varchar(100),
@@ -41,24 +42,7 @@ create table OFFICE_REQUEST_STATUS (
     primary key (ID)
 )^
 -- end OFFICE_REQUEST_STATUS
--- begin OFFICE_REQUEST_FILE
-create table OFFICE_REQUEST_FILE (
-    ID varchar(36) not null,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    --
-    REQUEST_ID varchar(36),
-    FILE_ID varchar(36),
-    DESCRIPTION varchar(100),
-    --
-    primary key (ID)
-)^
--- end OFFICE_REQUEST_FILE
+
 -- begin SEC_USER
 alter table SEC_USER add column REQUEST_ID varchar(36) ^
 alter table SEC_USER add column REQUEST_POSITION integer ^
@@ -82,7 +66,6 @@ create table OFFICE_STEP (
     IDENTFIER integer,
     POSITION_ integer not null,
     USER_ID varchar(36),
-    WORK_DAYS integer,
     DESCRIPTION varchar(100),
     --
     primary key (ID)
@@ -101,6 +84,7 @@ create table OFFICE_STEP_ACTION (
     --
     STEP_ID varchar(36),
     TYPE_ varchar(50) not null,
+    WORK_DAYS integer,
     DESCRIPTION varchar(100),
     TEMPLATE_ID varchar(36),
     --
@@ -119,13 +103,35 @@ create table OFFICE_REQUEST_ACTION (
     DELETED_BY varchar(50),
     --
     REQUEST_ID varchar(36),
-    ACT_ID varchar(36),
+    TYPE_ varchar(50),
     DESCRIPTION varchar(100),
-    CREATED date,
     DEADLINE date,
-    CLOSED date,
-    RESULT_ varchar(255),
+    CREATED date,
+    SUBMITTED date,
+    APPROVED date,
+    TEMPLATE_ID varchar(36),
+    FILE_ID varchar(36),
+    MESSAGE varchar(255),
     --
     primary key (ID)
 )^
 -- end OFFICE_REQUEST_ACTION
+-- begin OFFICE_REQUEST_COMMUNICATION
+create table OFFICE_REQUEST_COMMUNICATION (
+    ID varchar(36) not null,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    QUESTION varchar(255),
+    ANSWER varchar(255),
+    FILE_ID varchar(36),
+    REQUEST_ID varchar(36),
+    --
+    primary key (ID)
+)^
+-- end OFFICE_REQUEST_COMMUNICATION

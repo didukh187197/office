@@ -20,9 +20,9 @@
     </dsContext>
     <dialogMode height="600"
                 width="800"/>
-    <layout>
-        <groupBox id="boxSettings"
-                  spacing="true">
+    <layout expand="buttonsPanel">
+        <vbox margin="false,false,true,false"
+              spacing="true">
             <textField id="txtCompanyName"
                        caption="msg://settingsDialog.companyName"
                        width="300px"/>
@@ -37,8 +37,9 @@
                          optionsDatasource="groupsDs"
                          required="true"
                          width="300px"/>
-        </groupBox>
-        <buttonsPanel>
+        </vbox>
+        <buttonsPanel id="buttonsPanel"
+                      margin="true">
             <button id="btnOk"
                     caption="msg://settingsDialog.btnOk"
                     invoke="onBtnOkClick"/>

@@ -8,7 +8,6 @@
         <property name="requestThreshold"/>
         <property name="request"
                   view="_minimal">
-            <property name="position"/>
             <property name="worker"
                       view="_minimal"/>
         </property>
@@ -38,6 +37,7 @@
                       view="_minimal">
                 <property name="size"/>
             </property>
+            <property name="workDays"/>
         </property>
     </view>
     <view class="com.company.office.entity.StepAction"
@@ -47,5 +47,50 @@
                   view="_minimal">
             <property name="size"/>
         </property>
+    </view>
+    <view class="com.company.office.entity.RequestAction"
+          extends="_local"
+          name="requestAction-view">
+        <property name="template"
+                  view="_minimal">
+            <property name="size"/>
+        </property>
+        <property name="file"
+                  view="_minimal">
+            <property name="size"/>
+        </property>
+    </view>
+    <view class="com.company.office.entity.RequestCommunication"
+          extends="_local"
+          name="requestCommunication-view">
+        <property name="file"
+                  view="_minimal">
+            <property name="size"/>
+        </property>
+    </view>
+    <view class="com.company.office.entity.RequestStatus"
+          extends="_local"
+          name="requestStatus-view">
+        <property name="user"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.office.entity.Request"
+          extends="_local"
+          name="request-view">
+        <property name="applicant"
+                  view="_minimal"/>
+        <property name="step"
+                  view="_minimal">
+            <property name="position"/>
+            <property name="description"/>
+        </property>
+        <property name="worker"
+                  view="_minimal"/>
+        <property name="acts"
+                  view="requestAction-view"/>
+        <property name="states"
+                  view="requestStatus-view"/>
+        <property name="communications"
+                  view="requestCommunication-view"/>
     </view>
 </views>

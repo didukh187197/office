@@ -27,6 +27,9 @@ public class StepAction extends StandardEntity {
     @Column(name = "TYPE_", nullable = false)
     protected String type;
 
+    @Column(name = "WORK_DAYS")
+    protected Integer workDays;
+
     @Column(name = "DESCRIPTION", length = 100)
     protected String description;
 
@@ -35,6 +38,15 @@ public class StepAction extends StandardEntity {
     @OnDelete(DeletePolicy.UNLINK)
     @JoinColumn(name = "TEMPLATE_ID")
     protected FileDescriptor template;
+
+    public void setWorkDays(Integer workDays) {
+        this.workDays = workDays;
+    }
+
+    public Integer getWorkDays() {
+        return workDays;
+    }
+
 
     public void setTemplate(FileDescriptor template) {
         this.template = template;

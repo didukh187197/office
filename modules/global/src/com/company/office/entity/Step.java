@@ -33,9 +33,6 @@ public class Step extends StandardEntity {
 
 
 
-    @Column(name = "WORK_DAYS")
-    protected Integer workDays;
-
     @Column(name = "DESCRIPTION", length = 100)
     protected String description;
 
@@ -43,14 +40,6 @@ public class Step extends StandardEntity {
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "step")
     protected List<StepAction> actions;
-
-    public void setWorkDays(Integer workDays) {
-        this.workDays = workDays;
-    }
-
-    public Integer getWorkDays() {
-        return workDays;
-    }
 
 
     public void setDescription(String description) {

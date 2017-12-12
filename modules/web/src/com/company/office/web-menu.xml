@@ -7,5 +7,7 @@
         <item screen="office$Step.browse"/>
     </menu>
     <item insertBefore="administration"
+          screen="office$Request.browse"/>
+    <item insertBefore="administration"
           screen="main-settings-screen"/>
 </menu-config>

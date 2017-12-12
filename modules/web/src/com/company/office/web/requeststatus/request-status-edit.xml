@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.office.web.requeststatus.RequestStatusEdit"
+        datasource="requestStatusDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.office.web.requeststatus">
+    <dsContext>
+        <datasource id="requestStatusDs"
+                    class="com.company.office.entity.RequestStatus"
+                    view="requestStatus-view"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="requestStatusDs">
+            <column width="250px">
+                <field property="date"/>
+                <field property="position"/>
+                <field property="user"/>
+                <field property="description"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.office.web.requestcommunication.RequestCommunicationEdit"
+        datasource="requestCommunicationDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.office.web.requestcommunication">
+    <dsContext>
+        <datasource id="requestCommunicationDs"
+                    class="com.company.office.entity.RequestCommunication"
+                    view="requestCommunication-view">
+            <datasource id="fileDs"
+                        property="file"/>
+        </datasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="requestCommunicationDs">
+            <column width="250px">
+                <field property="question"/>
+                <field property="answer"/>
+                <field property="file"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

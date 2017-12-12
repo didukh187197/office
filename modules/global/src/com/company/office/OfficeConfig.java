@@ -15,9 +15,26 @@ public interface OfficeConfig extends Config {
 
     @Property("office.applicantsGroup")
     Group getApplicantsGroup();
-    void  setApplicantsGroup(Group group);
+    void setApplicantsGroup(Group group);
+
+    @Property("office.queries.applicantsGroup")
+    String getApplicantsGroupQuery();
+    void setApplicantsGroupQuery(String query);
 
     @Property("office.workersGroup")
     Group getWorkersGroup();
-    void  setWorkersGroup(Group group);
+    void setWorkersGroup(Group group);
+
+    @Property("office.queries.workersGroup")
+    String getWorkersGroupQuery();
+    void setWorkersGroupQuery(String query);
+
+    @Property("office.request.series")
+    String getRequestSeries();
+    void setRequestSeries(String series);
+
+    @Property("office.request.number")
+    Integer getRequestNumber();
+    void setRequestNumber(Integer number);
+
 }

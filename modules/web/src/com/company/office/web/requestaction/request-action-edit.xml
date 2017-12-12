@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.office.web.requestaction.RequestActionEdit"
+        datasource="requestActionDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.office.web.requestaction">
+    <dsContext>
+        <datasource id="requestActionDs"
+                    class="com.company.office.entity.RequestAction"
+                    view="requestAction-view">
+            <datasource id="fileDs"
+                        property="file"/>
+        </datasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="requestActionDs">
+            <column width="250px">
+                <field property="type"/>
+                <field property="description"/>
+                <field property="deadline"/>
+                <field property="created"/>
+                <field property="submitted"/>
+                <field property="approved"/>
+                <field property="template"/>
+                <field property="file"/>
+                <field property="message"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

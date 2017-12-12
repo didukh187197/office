@@ -8,7 +8,9 @@ import javax.annotation.Nullable;
 public enum ActionType implements EnumClass<String> {
 
     sendFile("file"),
-    sendMessage("message");
+    sendMessage("message"),
+    makeCall("call"),
+    visitOffice("visit");
 
     private String id;
 

@@ -10,6 +10,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.cuba.core.entity.FileDescriptor;
+import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.global.DeletePolicy;
+import javax.persistence.OneToOne;
+import com.haulmont.chile.core.annotations.Composition;
 
 @Table(name = "OFFICE_REQUEST_ACTION")
 @Entity(name = "office$RequestAction")
@@ -20,45 +25,95 @@ public class RequestAction extends StandardEntity {
     @JoinColumn(name = "REQUEST_ID")
     protected Request request;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ACT_ID")
-    protected StepAction act;
+    @Column(name = "TYPE_")
+    protected String type;
 
     @Column(name = "DESCRIPTION", length = 100)
     protected String description;
-
-    @Temporal(TemporalType.DATE)
-    @Column(name = "CREATED")
-    protected Date created;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "DEADLINE")
     protected Date deadline;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "CLOSED")
-    protected Date closed;
+    @Column(name = "CREATED")
+    protected Date created;
 
-    @Column(name = "RESULT_")
-    protected String result;
 
-    public StepAction getAct() {
-        return act;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "SUBMITTED")
+    protected Date submitted;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "APPROVED")
+    protected Date approved;
+
+    @OnDelete(DeletePolicy.UNLINK)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "TEMPLATE_ID")
+    protected FileDescriptor template;
+
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FILE_ID")
+    protected FileDescriptor file;
+
+    @Column(name = "MESSAGE")
+    protected String message;
+
+    public void setApproved(Date approved) {
+        this.approved = approved;
     }
 
-    public void setAct(StepAction act) {
-        this.act = act;
+    public Date getApproved() {
+        return approved;
     }
 
 
-
-    public void setResult(String result) {
-        this.result = result;
+    public void setSubmitted(Date submitted) {
+        this.submitted = submitted;
     }
 
-    public String getResult() {
-        return result;
+    public Date getSubmitted() {
+        return submitted;
     }
+
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setTemplate(FileDescriptor template) {
+        this.template = template;
+    }
+
+    public FileDescriptor getTemplate() {
+        return template;
+    }
+
+    public void setFile(FileDescriptor file) {
+        this.file = file;
+    }
+
+    public FileDescriptor getFile() {
+        return file;
+    }
+
+
+    public void setType(ActionType type) {
+        this.type = type == null ? null : type.getId();
+    }
+
+    public ActionType getType() {
+        return type == null ? null : ActionType.fromId(type);
+    }
+
 
 
     public void setRequest(Request request) {
@@ -76,14 +131,6 @@ public class RequestAction extends StandardEntity {
 
     public String getDescription() {
         return description;
-    }
-
-    public void setClosed(Date closed) {
-        this.closed = closed;
-    }
-
-    public Date getClosed() {
-        return closed;
     }
 
 

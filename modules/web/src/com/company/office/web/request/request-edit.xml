@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.office.web.request.RequestEdit"
+        datasource="requestDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.office.web.request">
+    <dsContext>
+        <datasource id="requestDs"
+                    class="com.company.office.entity.Request"
+                    view="request-view">
+            <collectionDatasource id="actsDs"
+                                  property="acts"/>
+            <collectionDatasource id="statesDs"
+                                  property="states"/>
+            <collectionDatasource id="communicationsDs"
+                                  property="communications"/>
+        </datasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="requestDs">
+            <column width="250px">
+                <field property="applicant"/>
+                <field property="step"/>
+                <field property="worker"/>
+                <field property="created"/>
+                <field property="closed"/>
+                <field property="description"/>
+                <field property="number"/>
+                <field property="series"/>
+            </column>
+        </fieldGroup>
+        <groupBox id="actsBox"
+                  caption="msg://com.company.office.entity/Request.acts">
+            <table id="actsTable"
+                   height="200px"
+                   width="100%">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="template"/>
+                    <column id="file"/>
+                </columns>
+                <rows datasource="actsDs"/>
+                <buttonsPanel>
+                    <button action="actsTable.create"/>
+                    <button action="actsTable.edit"/>
+                    <button action="actsTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <groupBox id="statesBox"
+                  caption="msg://com.company.office.entity/Request.states">
+            <table id="statesTable"
+                   height="200px"
+                   width="100%">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="user"/>
+                </columns>
+                <rows datasource="statesDs"/>
+                <buttonsPanel>
+                    <button action="statesTable.create"/>
+                    <button action="statesTable.edit"/>
+                    <button action="statesTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <groupBox id="communicationsBox"
+                  caption="msg://com.company.office.entity/Request.communications">
+            <table id="communicationsTable"
+                   height="200px"
+                   width="100%">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="file"/>
+                </columns>
+                <rows datasource="communicationsDs"/>
+                <buttonsPanel>
+                    <button action="communicationsTable.create"/>
+                    <button action="communicationsTable.edit"/>
+                    <button action="communicationsTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

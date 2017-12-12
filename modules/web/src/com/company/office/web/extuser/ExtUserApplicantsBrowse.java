@@ -19,7 +19,6 @@ public class ExtUserApplicantsBrowse extends AbstractLookup {
 
     @Override
     public void init(Map<String, Object> params) {
-        String query = String.format("select e from office$ExtUser e where e.group.id = '%s'", officeConfig.getApplicantsGroup().getId());
-        extUsersDs.setQuery(query);
+        extUsersDs.setQuery(officeConfig.getApplicantsGroupQuery());
     }
 }

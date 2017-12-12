@@ -20,8 +20,6 @@ public class StepEdit extends AbstractEditor<Step> {
 
     @Override
     public void init(Map<String, Object> params) {
-        usersDs.setQuery(
-                String.format("select e from sec$User e where e.group.id = '%s'", officeConfig.getWorkersGroup().getId())
-        );
+        usersDs.setQuery(officeConfig.getApplicantsGroupQuery());
     }
 }

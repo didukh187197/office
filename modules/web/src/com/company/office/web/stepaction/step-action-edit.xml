@@ -12,7 +12,7 @@
         <collectionDatasource id="fileDescriptorsDs"
                               class="com.haulmont.cuba.core.entity.FileDescriptor">
             <query>
-                <![CDATA[select e from sys$FileDescriptor e]]>
+                <![CDATA[select e from sys$FileDescriptor e where lower(e.name) like '%(template)']]>
             </query>
         </collectionDatasource>
     </dsContext>
@@ -21,23 +21,27 @@
     <layout expand="windowActions"
             spacing="true">
         <fieldGroup id="fieldGroup"
-                    border="visible"
                     datasource="stepActionDs">
             <column width="250px">
                 <field property="type"/>
                 <field property="description"/>
+                <field property="workDays"/>
             </column>
         </fieldGroup>
-        <lookupField caption="msg://lookupFile"
-                     datasource="stepActionDs"
-                     optionsDatasource="fileDescriptorsDs"
-                     property="template"
-                     width="300px"/>
-        <upload id="uploadTemplate"
-                datasource="stepActionDs"
-                property="template"
-                showClearButton="true"
-                showFileName="true"/>
+        <groupBox id="boxFile"
+                  caption="msg://boxTemplate"
+                  expand="lookupFile"
+                  orientation="horizontal"
+                  spacing="true"
+                  width="600px">
+            <lookupField id="lookupFile"
+                         datasource="stepActionDs"
+                         optionsDatasource="fileDescriptorsDs"
+                         property="template"/>
+            <linkButton id="btnFile"
+                        caption="msg://btnFile"
+                        invoke="onBtnFileClick"/>
+        </groupBox>
         <frame id="windowActions"
                screen="editWindowActions"/>
     </layout>
