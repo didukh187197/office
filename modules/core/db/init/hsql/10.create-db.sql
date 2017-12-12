@@ -11,9 +11,9 @@ create table OFFICE_REQUEST (
     --
     SERIES varchar(10) not null,
     NUMBER_ integer not null,
-    APPLICANT_ID varchar(36) not null,
+    APPLICANT_ID varchar(36),
     STEP_ID varchar(36),
-    WORKER_ID varchar(36) not null,
+    WORKER_ID varchar(36),
     CREATED date,
     CLOSED date,
     DESCRIPTION varchar(100),

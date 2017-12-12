@@ -16,24 +16,78 @@
             <collectionDatasource id="communicationsDs"
                                   property="communications"/>
         </datasource>
+        <collectionDatasource id="applicantsDs"
+                              class="com.company.office.entity.ExtUser">
+            <query>
+                <![CDATA[select e from office$ExtUser e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="workersDs"
+                              class="com.company.office.entity.ExtUser">
+            <query>
+                <![CDATA[select e from office$ExtUser e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="stepsDs"
+                              class="com.company.office.entity.Step">
+            <query>
+                <![CDATA[select e from office$Step e]]>
+            </query>
+        </collectionDatasource>
     </dsContext>
     <dialogMode height="600"
                 width="800"/>
     <layout expand="windowActions"
             spacing="true">
-        <fieldGroup id="fieldGroup"
-                    datasource="requestDs">
-            <column width="250px">
-                <field property="applicant"/>
-                <field property="step"/>
-                <field property="worker"/>
-                <field property="created"/>
-                <field property="closed"/>
-                <field property="description"/>
-                <field property="number"/>
-                <field property="series"/>
-            </column>
-        </fieldGroup>
+        <hbox expand="statesBox"
+              spacing="true"
+              width="100%">
+            <fieldGroup id="fieldGroup"
+                        datasource="requestDs">
+                <column width="350px">
+                    <field editable="false"
+                           property="series"
+                           width="100px"/>
+                    <field editable="false"
+                           property="number"
+                           width="100px"/>
+                    <field optionsDatasource="applicantsDs"
+                           property="applicant"
+                           required="true"/>
+                    <field optionsDatasource="stepsDs"
+                           property="step"
+                           required="true"/>
+                    <field optionsDatasource="workersDs"
+                           property="worker"
+                           required="true"/>
+                    <field property="description"
+                           rows="3"/>
+                    <field property="created"/>
+                    <field property="closed"/>
+                </column>
+            </fieldGroup>
+            <groupBox id="statesBox"
+                      caption="msg://com.company.office.entity/Request.states">
+                <table id="statesTable"
+                       height="200px"
+                       width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="user"/>
+                    </columns>
+                    <rows datasource="statesDs"/>
+                    <buttonsPanel>
+                        <button action="statesTable.create"/>
+                        <button action="statesTable.edit"/>
+                        <button action="statesTable.remove"/>
+                    </buttonsPanel>
+                </table>
+            </groupBox>
+        </hbox>
         <groupBox id="actsBox"
                   caption="msg://com.company.office.entity/Request.acts">
             <table id="actsTable"
@@ -53,27 +107,6 @@
                     <button action="actsTable.create"/>
                     <button action="actsTable.edit"/>
                     <button action="actsTable.remove"/>
-                </buttonsPanel>
-            </table>
-        </groupBox>
-        <groupBox id="statesBox"
-                  caption="msg://com.company.office.entity/Request.states">
-            <table id="statesTable"
-                   height="200px"
-                   width="100%">
-                <actions>
-                    <action id="create"/>
-                    <action id="edit"/>
-                    <action id="remove"/>
-                </actions>
-                <columns>
-                    <column id="user"/>
-                </columns>
-                <rows datasource="statesDs"/>
-                <buttonsPanel>
-                    <button action="statesTable.create"/>
-                    <button action="statesTable.edit"/>
-                    <button action="statesTable.remove"/>
                 </buttonsPanel>
             </table>
         </groupBox>

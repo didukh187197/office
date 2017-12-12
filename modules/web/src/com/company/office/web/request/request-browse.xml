@@ -10,7 +10,7 @@
                          class="com.company.office.entity.Request"
                          view="request-view">
             <query>
-                <![CDATA[select e from office$Request e]]>
+                <![CDATA[select e from office$Request e order by e.createTs]]>
             </query>
         </groupDatasource>
     </dsContext>
@@ -31,14 +31,14 @@
                 <action id="remove"/>
             </actions>
             <columns>
+                <column id="series"/>
+                <column id="number"/>
                 <column id="applicant"/>
-                <column id="step"/>
                 <column id="worker"/>
+                <column id="description"/>
+                <column id="step"/>
                 <column id="created"/>
                 <column id="closed"/>
-                <column id="description"/>
-                <column id="number"/>
-                <column id="series"/>
             </columns>
             <rows datasource="requestsDs"/>
             <rowsCount/>

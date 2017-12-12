@@ -30,7 +30,8 @@
                 <field property="position"/>
                 <field optionsDatasource="usersDs"
                        property="user"/>
-                <field property="description"/>
+                <field property="description"
+                       required="true"/>
             </column>
         </fieldGroup>
         <groupBox id="actionsBox"

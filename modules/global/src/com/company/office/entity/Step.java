@@ -14,7 +14,9 @@ import com.haulmont.cuba.core.global.DeletePolicy;
 import java.util.List;
 import javax.persistence.OneToMany;
 import com.haulmont.chile.core.annotations.NumberFormat;
+import com.haulmont.chile.core.annotations.NamePattern;
 
+@NamePattern("%s (%s) |description,position")
 @Table(name = "OFFICE_STEP")
 @Entity(name = "office$Step")
 public class Step extends StandardEntity {

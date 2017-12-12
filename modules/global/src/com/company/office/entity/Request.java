@@ -34,8 +34,9 @@ public class Request extends StandardEntity {
     @Column(name = "NUMBER_", nullable = false, unique = true)
     protected Integer number;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "APPLICANT_ID", unique = true)
+    @JoinColumn(name = "APPLICANT_ID")
+    @OnDelete(DeletePolicy.UNLINK)
+    @OneToOne(fetch = FetchType.LAZY)
     protected ExtUser applicant;
 
     @OnDelete(DeletePolicy.UNLINK)
@@ -43,8 +44,9 @@ public class Request extends StandardEntity {
     @JoinColumn(name = "STEP_ID")
     protected Step step;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "WORKER_ID")
+    @OnDelete(DeletePolicy.UNLINK)
+    @OneToOne(fetch = FetchType.LAZY)
     protected ExtUser worker;
 
     @Temporal(TemporalType.DATE)

@@ -2,7 +2,6 @@
 alter table OFFICE_REQUEST add constraint FK_OFFICE_REQUEST_APPLICANT foreign key (APPLICANT_ID) references SEC_USER(ID)^
 alter table OFFICE_REQUEST add constraint FK_OFFICE_REQUEST_STEP foreign key (STEP_ID) references OFFICE_STEP(ID)^
 alter table OFFICE_REQUEST add constraint FK_OFFICE_REQUEST_WORKER foreign key (WORKER_ID) references SEC_USER(ID)^
-create unique index IDX_OFFICE_REQUEST_UNIQ_APPLICANT_ID on OFFICE_REQUEST (APPLICANT_ID) ^
 create unique index IDX_OFFICE_REQUEST_UNIQ_NUMBER_ on OFFICE_REQUEST (NUMBER_) ^
 create index IDX_OFFICE_REQUEST_STEP on OFFICE_REQUEST (STEP_ID)^
 -- end OFFICE_REQUEST
