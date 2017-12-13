@@ -11,6 +11,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.global.DeletePolicy;
+import com.haulmont.cuba.security.entity.User;
 
 @Table(name = "OFFICE_REQUEST_STATUS")
 @Entity(name = "office$RequestStatus")
@@ -29,20 +32,22 @@ public class RequestStatus extends StandardEntity {
     @Column(name = "POSITION_", nullable = false)
     protected Integer position;
 
+    @OnDelete(DeletePolicy.UNLINK)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID")
-    protected ExtUser user;
+    protected User user;
 
     @Column(name = "DESCRIPTION", length = 100)
     protected String description;
 
-    public ExtUser getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(ExtUser user) {
+    public void setUser(User user) {
         this.user = user;
     }
+
 
 
     public void setRequest(Request request) {

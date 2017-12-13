@@ -4,11 +4,11 @@
     <persistence-unit name="office"
                       transaction-type="RESOURCE_LOCAL">
         <class>com.company.office.entity.Request</class>
-        <class>com.company.office.entity.ExtUser</class>
         <class>com.company.office.entity.StepAction</class>
         <class>com.company.office.entity.RequestAction</class>
         <class>com.company.office.entity.RequestStatus</class>
         <class>com.company.office.entity.Step</class>
         <class>com.company.office.entity.RequestCommunication</class>
+        <class>com.company.office.entity.Applicant</class>
     </persistence-unit>
 </persistence>

@@ -2,9 +2,8 @@
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
     <menu id="application-office"
           insertBefore="administration">
-        <item screen="office$ExtUser.applicants-browse"/>
-        <item screen="office$ExtUser.workers-browse"/>
         <item screen="office$Step.browse"/>
+        <item screen="office$Applicant.browse"/>
     </menu>
     <item insertBefore="administration"
           screen="office$Request.browse"/>

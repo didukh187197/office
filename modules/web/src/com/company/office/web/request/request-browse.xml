@@ -10,7 +10,7 @@
                          class="com.company.office.entity.Request"
                          view="request-view">
             <query>
-                <![CDATA[select e from office$Request e order by e.createTs]]>
+                <![CDATA[select e from office$Request e]]>
             </query>
         </groupDatasource>
     </dsContext>
@@ -26,26 +26,23 @@
         <groupTable id="requestsTable"
                     width="100%">
             <actions>
-                <action id="create"/>
                 <action id="edit"/>
                 <action id="remove"/>
             </actions>
             <columns>
+                <column id="applicant"/>
                 <column id="series"/>
                 <column id="number"/>
-                <column id="applicant"/>
-                <column id="worker"/>
-                <column id="description"/>
                 <column id="step"/>
+                <column id="user"/>
                 <column id="created"/>
                 <column id="closed"/>
+                <column id="description"/>
             </columns>
             <rows datasource="requestsDs"/>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
-                <button id="createBtn"
-                        action="requestsTable.create"/>
                 <button id="editBtn"
                         action="requestsTable.edit"/>
                 <button id="removeBtn"

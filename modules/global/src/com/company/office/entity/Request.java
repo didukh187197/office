@@ -20,34 +20,32 @@ import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
-@NamePattern("%s|applicant")
+@NamePattern("%s %s|series,number")
 @Table(name = "OFFICE_REQUEST")
 @Entity(name = "office$Request")
 public class Request extends StandardEntity {
     private static final long serialVersionUID = 1078634413564627380L;
 
-    @NotNull
-    @Column(name = "SERIES", nullable = false, length = 10)
-    protected String series;
-
-    @NotNull
-    @Column(name = "NUMBER_", nullable = false, unique = true)
-    protected Integer number;
-
-    @JoinColumn(name = "APPLICANT_ID")
     @OnDelete(DeletePolicy.UNLINK)
     @OneToOne(fetch = FetchType.LAZY)
-    protected ExtUser applicant;
+    @JoinColumn(name = "APPLICANT_ID")
+    protected Applicant applicant;
+
+    @Column(name = "SERIES", length = 10)
+    protected String series;
+
+    @Column(name = "NUMBER_")
+    protected Integer number;
 
     @OnDelete(DeletePolicy.UNLINK)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "STEP_ID")
     protected Step step;
 
-    @JoinColumn(name = "WORKER_ID")
     @OnDelete(DeletePolicy.UNLINK)
-    @OneToOne(fetch = FetchType.LAZY)
-    protected ExtUser worker;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USER_ID")
+    protected User user;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "CREATED")
@@ -74,6 +72,25 @@ public class Request extends StandardEntity {
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "request")
     protected List<RequestCommunication> communications;
+
+
+    public void setApplicant(Applicant applicant) {
+        this.applicant = applicant;
+    }
+
+    public Applicant getApplicant() {
+        return applicant;
+    }
+
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
 
     public void setSeries(String series) {
         this.series = series;
@@ -120,22 +137,6 @@ public class Request extends StandardEntity {
 
 
 
-    public ExtUser getApplicant() {
-        return applicant;
-    }
-
-    public void setApplicant(ExtUser applicant) {
-        this.applicant = applicant;
-    }
-
-
-    public ExtUser getWorker() {
-        return worker;
-    }
-
-    public void setWorker(ExtUser worker) {
-        this.worker = worker;
-    }
 
 
 

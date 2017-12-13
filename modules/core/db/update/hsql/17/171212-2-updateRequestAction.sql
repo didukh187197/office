@@ -1,9 +1,0 @@
-alter table OFFICE_REQUEST_ACTION add column TYPE_ varchar(50) ;
-alter table OFFICE_REQUEST_ACTION add column SUBMITTED date ;
-alter table OFFICE_REQUEST_ACTION add column APPROVED date ;
-alter table OFFICE_REQUEST_ACTION add column TEMPLATE_ID varchar(36) ;
-alter table OFFICE_REQUEST_ACTION add column FILE_ID varchar(36) ;
-alter table OFFICE_REQUEST_ACTION add column MESSAGE varchar(255) ;
-alter table OFFICE_REQUEST_ACTION drop column ACT_ID cascade ;
-alter table OFFICE_REQUEST_ACTION drop column CLOSED cascade ;
-alter table OFFICE_REQUEST_ACTION drop column RESULT_ cascade ;

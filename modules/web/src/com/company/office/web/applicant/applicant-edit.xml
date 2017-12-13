@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.office.web.applicant.ApplicantEdit"
+        datasource="applicantDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.office.web.applicant">
+    <dsContext>
+        <datasource id="applicantDs"
+                    class="com.company.office.entity.Applicant"
+                    view="applicant-view">
+            <datasource id="requestDs"
+                        property="request"/>
+        </datasource>
+        <collectionDatasource id="usersDs"
+                              class="com.haulmont.cuba.security.entity.User">
+            <query>
+                <![CDATA[select e from sec$User e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="applicantDs">
+            <column width="350px">
+                <field optionsDatasource="usersDs"
+                       property="user"/>
+                <field property="code"
+                       width="100px"/>
+                <field property="request"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

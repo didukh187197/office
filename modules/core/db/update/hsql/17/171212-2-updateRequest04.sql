@@ -1,1 +1,0 @@
-create unique index IDX_OFFICE_REQUEST_UNIQ_NUMBER_ on OFFICE_REQUEST (NUMBER_) ;

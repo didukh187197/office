@@ -17,27 +17,45 @@
                 <![CDATA[select e from sys$FileDescriptor e]]>
             </query>
         </collectionDatasource>
+        <collectionDatasource id="applicantsDs"
+                              class="com.company.office.entity.Applicant">
+            <query>
+                <![CDATA[select e from office$Applicant e where e.deleteTs is not null]]>
+            </query>
+        </collectionDatasource>
     </dsContext>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="buttonsPanel">
-        <vbox margin="false,false,true,false"
-              spacing="true">
-            <textField id="txtCompanyName"
-                       caption="msg://settingsDialog.companyName"
-                       width="300px"/>
-            <lookupField id="lookupApplicantsGroup"
-                         caption="msg://settingsDialog.applicantsGroup"
-                         nullOptionVisible="false"
-                         optionsDatasource="groupsDs"
-                         width="300px"/>
-            <lookupField id="lookupWorkersGroup"
-                         caption="msg://settingsDialog.workersGroup"
-                         nullOptionVisible="false"
-                         optionsDatasource="groupsDs"
-                         required="true"
-                         width="300px"/>
-        </vbox>
+    <layout expand="buttonsPanel"
+            spacing="true">
+        <textField id="txtCompanyName"
+                   caption="msg://settingsDialog.companyName"
+                   width="300px"/>
+        <lookupField id="lookupApplicantsGroup"
+                     caption="msg://settingsDialog.applicantsGroup"
+                     nullOptionVisible="false"
+                     optionsDatasource="groupsDs"
+                     width="300px"/>
+        <lookupField id="lookupWorkersGroup"
+                     caption="msg://settingsDialog.workersGroup"
+                     nullOptionVisible="false"
+                     optionsDatasource="groupsDs"
+                     required="true"
+                     width="300px"/>
+        <popupButton id="btnDelete"
+                     caption="msg://btnDelete">
+            <actions>
+                <action id="applicant"
+                        caption="msg://actionApplicant"
+                        invoke="onApplicant"/>
+                <action id="request"
+                        caption="msg://actionRequest"
+                        invoke="onRequest"/>
+            </actions>
+        </popupButton>
+        <vbox id="tableBox"
+              spacing="true"
+              width="400px"/>
         <buttonsPanel id="buttonsPanel"
                       margin="true">
             <button id="btnOk"

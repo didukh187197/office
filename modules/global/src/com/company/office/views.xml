@@ -1,29 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
-    <view class="com.company.office.entity.ExtUser"
-          extends="user.edit"
-          name="user.edit">
-        <property name="requestPosition"/>
-        <property name="requestCount"/>
-        <property name="requestThreshold"/>
-        <property name="request"
-                  view="_minimal">
-            <property name="worker"
-                      view="_minimal"/>
-        </property>
-    </view>
-    <view class="com.company.office.entity.ExtUser"
-          extends="user.browse"
-          name="extUser-browse-view">
-        <property name="requestPosition"/>
-        <property name="requestCount"/>
-        <property name="requestThreshold"/>
-        <property name="request"
-                  view="_minimal">
-            <property name="worker"
-                      view="_minimal"/>
-        </property>
-    </view>
     <view class="com.company.office.entity.Step"
           extends="_local"
           name="step-view">
@@ -77,20 +53,49 @@
     <view class="com.company.office.entity.Request"
           extends="_local"
           name="request-view">
-        <property name="applicant"
-                  view="_minimal"/>
         <property name="step"
                   view="_minimal">
-            <property name="position"/>
-            <property name="description"/>
         </property>
-        <property name="worker"
-                  view="_minimal"/>
         <property name="acts"
                   view="requestAction-view"/>
         <property name="states"
                   view="requestStatus-view"/>
         <property name="communications"
                   view="requestCommunication-view"/>
+        <property name="user"
+                  view="_minimal"/>
+        <property name="applicant"
+                  view="_minimal">
+            <property name="user"
+                      view="_minimal"/>
+            <property name="code"/>
+        </property>
+    </view>
+    <view class="com.company.office.entity.Applicant"
+          extends="_local"
+          name="applicant-view">
+        <property name="user"
+                  view="_minimal"/>
+        <property name="request"
+                  view="_minimal">
+            <property name="series"/>
+            <property name="number"/>
+            <property name="step"
+                      view="_minimal"/>
+            <property name="user"
+                      view="_minimal"/>
+            <property name="created"/>
+            <property name="closed"/>
+            <property name="description"/>
+        </property>
+    </view>
+    <view class="com.company.office.entity.Applicant"
+          extends="_local"
+          name="applicant-delete"
+          systemProperties="true">
+        <property name="user"
+                  view="_minimal"/>
+        <property name="request"
+                  view="_minimal"/>
     </view>
 </views>

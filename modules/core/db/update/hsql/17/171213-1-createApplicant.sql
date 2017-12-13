@@ -1,4 +1,4 @@
-create table OFFICE_STEP (
+create table OFFICE_APPLICANT (
     ID varchar(36) not null,
     VERSION integer not null,
     CREATE_TS timestamp,
@@ -8,9 +8,8 @@ create table OFFICE_STEP (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    POSITION_ integer not null,
-    USER_ID varchar(36),
-    TERM integer,
+    USER_ID varchar(36) not null,
+    CODE varchar(15) not null,
     --
     primary key (ID)
 );

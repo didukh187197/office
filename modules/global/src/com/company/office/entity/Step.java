@@ -15,6 +15,7 @@ import java.util.List;
 import javax.persistence.OneToMany;
 import com.haulmont.chile.core.annotations.NumberFormat;
 import com.haulmont.chile.core.annotations.NamePattern;
+import com.haulmont.cuba.security.entity.User;
 
 @NamePattern("%s (%s) |description,position")
 @Table(name = "OFFICE_STEP")
@@ -29,9 +30,10 @@ public class Step extends StandardEntity {
     @Column(name = "POSITION_", nullable = false)
     protected Integer position;
 
+    @OnDelete(DeletePolicy.UNLINK)
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID")
-    protected ExtUser user;
+    protected User user;
 
 
 
@@ -42,6 +44,15 @@ public class Step extends StandardEntity {
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "step")
     protected List<StepAction> actions;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
 
 
     public void setDescription(String description) {
@@ -71,14 +82,6 @@ public class Step extends StandardEntity {
     }
 
 
-
-    public void setUser(ExtUser user) {
-        this.user = user;
-    }
-
-    public ExtUser getUser() {
-        return user;
-    }
 
 
     public void setPosition(Position position) {
