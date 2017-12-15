@@ -35,6 +35,7 @@
                      caption="msg://settingsDialog.applicantsGroup"
                      nullOptionVisible="false"
                      optionsDatasource="groupsDs"
+                     required="true"
                      width="300px"/>
         <lookupField id="lookupWorkersGroup"
                      caption="msg://settingsDialog.workersGroup"
@@ -42,20 +43,6 @@
                      optionsDatasource="groupsDs"
                      required="true"
                      width="300px"/>
-        <popupButton id="btnDelete"
-                     caption="msg://btnDelete">
-            <actions>
-                <action id="applicant"
-                        caption="msg://actionApplicant"
-                        invoke="onApplicant"/>
-                <action id="request"
-                        caption="msg://actionRequest"
-                        invoke="onRequest"/>
-            </actions>
-        </popupButton>
-        <vbox id="tableBox"
-              spacing="true"
-              width="400px"/>
         <buttonsPanel id="buttonsPanel"
                       margin="true">
             <button id="btnOk"

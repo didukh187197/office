@@ -56,8 +56,6 @@
         <property name="step"
                   view="_minimal">
         </property>
-        <property name="acts"
-                  view="requestAction-view"/>
         <property name="states"
                   view="requestStatus-view"/>
         <property name="communications"
@@ -70,6 +68,8 @@
                       view="_minimal"/>
             <property name="code"/>
         </property>
+        <property name="actions"
+                  view="requestAction-view"/>
     </view>
     <view class="com.company.office.entity.Applicant"
           extends="_local"
@@ -88,14 +88,5 @@
             <property name="closed"/>
             <property name="description"/>
         </property>
-    </view>
-    <view class="com.company.office.entity.Applicant"
-          extends="_local"
-          name="applicant-delete"
-          systemProperties="true">
-        <property name="user"
-                  view="_minimal"/>
-        <property name="request"
-                  view="_minimal"/>
     </view>
 </views>

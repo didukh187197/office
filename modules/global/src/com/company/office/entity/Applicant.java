@@ -13,6 +13,7 @@ import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
 import com.haulmont.chile.core.annotations.NamePattern;
+import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 
 @NamePattern("%s|user")
 @Table(name = "OFFICE_APPLICANT")
@@ -20,17 +21,20 @@ import com.haulmont.chile.core.annotations.NamePattern;
 public class Applicant extends StandardEntity {
     private static final long serialVersionUID = 1580894735817378767L;
 
-    @NotNull
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @OnDeleteInverse(DeletePolicy.CASCADE)
+    @OnDelete(DeletePolicy.UNLINK)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID", unique = true)
     protected User user;
 
+    @OnDeleteInverse(DeletePolicy.UNLINK)
+    @JoinColumn(name = "REQUEST_ID")
     @Composition
     @OnDelete(DeletePolicy.CASCADE)
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "applicant")
+    @OneToOne(fetch = FetchType.LAZY)
     protected Request request;
 
-    @Column(name = "CODE", nullable = false, unique = true, length = 15)
+    @Column(name = "CODE", unique = true, length = 15)
     protected String code;
 
 

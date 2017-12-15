@@ -1,1 +1,0 @@
-drop index IDX_OFFICE_REQUEST_UNIQ_NUMBER_ ;

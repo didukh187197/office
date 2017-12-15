@@ -27,10 +27,13 @@
                     datasource="applicantDs">
             <column width="350px">
                 <field optionsDatasource="usersDs"
-                       property="user"/>
+                       property="user"
+                       required="true"/>
                 <field property="code"
+                       required="true"
                        width="100px"/>
-                <field property="request"/>
+                <field editable="false"
+                       property="request"/>
             </column>
         </fieldGroup>
         <frame id="windowActions"

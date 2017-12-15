@@ -9,8 +9,8 @@
         <datasource id="requestDs"
                     class="com.company.office.entity.Request"
                     view="request-view">
-            <collectionDatasource id="actsDs"
-                                  property="acts"/>
+            <collectionDatasource id="actionsDs"
+                                  property="actions"/>
             <collectionDatasource id="statesDs"
                                   property="states"/>
             <collectionDatasource id="communicationsDs"
@@ -74,7 +74,8 @@
                             <action id="remove"/>
                         </actions>
                         <columns>
-                            <column id="file"/>
+                            <column id="question"/>
+                            <column id="answer"/>
                         </columns>
                         <rows datasource="communicationsDs"/>
                         <buttonsPanel>
@@ -85,9 +86,9 @@
                     </table>
                 </groupBox>
             </hbox>
-            <groupBox id="actsBox"
-                      caption="msg://com.company.office.entity/Request.acts">
-                <table id="actsTable"
+            <groupBox id="actionsBox"
+                      caption="msg://com.company.office.entity/Request.actions">
+                <table id="actionsTable"
                        height="200px"
                        width="100%">
                     <actions>
@@ -96,14 +97,19 @@
                         <action id="remove"/>
                     </actions>
                     <columns>
-                        <column id="template"/>
-                        <column id="file"/>
+                        <column id="type"/>
+                        <column id="description"/>
+                        <column id="deadline"/>
+                        <column id="created"/>
+                        <column id="submitted"/>
+                        <column id="approved"/>
+                        <column id="message"/>
                     </columns>
-                    <rows datasource="actsDs"/>
+                    <rows datasource="actionsDs"/>
                     <buttonsPanel>
-                        <button action="actsTable.create"/>
-                        <button action="actsTable.edit"/>
-                        <button action="actsTable.remove"/>
+                        <button action="actionsTable.create"/>
+                        <button action="actionsTable.edit"/>
+                        <button action="actionsTable.remove"/>
                     </buttonsPanel>
                 </table>
             </groupBox>
@@ -118,7 +124,9 @@
                         <action id="remove"/>
                     </actions>
                     <columns>
-                        <column id="user"/>
+                        <column id="date"/>
+                        <column id="position"/>
+                        <column id="description"/>
                     </columns>
                     <rows datasource="statesDs"/>
                     <buttonsPanel>

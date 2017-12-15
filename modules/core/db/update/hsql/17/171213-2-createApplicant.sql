@@ -1,3 +1,0 @@
-alter table OFFICE_APPLICANT add constraint FK_OFFICE_APPLICANT_USER foreign key (USER_ID) references SEC_USER(ID);
-create unique index IDX_OFFICE_APPLICANT_UNIQ_CODE on OFFICE_APPLICANT (CODE) ;
-create unique index IDX_OFFICE_APPLICANT_UNIQ_USER_ID on OFFICE_APPLICANT (USER_ID) ;

@@ -19,16 +19,18 @@ import java.util.List;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
+import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
+import com.haulmont.cuba.core.entity.annotation.Listeners;
 
+@Listeners("office_RequestEntityListener")
 @NamePattern("%s %s|series,number")
 @Table(name = "OFFICE_REQUEST")
 @Entity(name = "office$Request")
 public class Request extends StandardEntity {
     private static final long serialVersionUID = 1078634413564627380L;
 
-    @OnDelete(DeletePolicy.UNLINK)
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "APPLICANT_ID")
+    @Composition
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "request")
     protected Applicant applicant;
 
     @Column(name = "SERIES", length = 10)
@@ -42,6 +44,7 @@ public class Request extends StandardEntity {
     @JoinColumn(name = "STEP_ID")
     protected Step step;
 
+    @OnDeleteInverse(DeletePolicy.DENY)
     @OnDelete(DeletePolicy.UNLINK)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID")
@@ -61,7 +64,7 @@ public class Request extends StandardEntity {
     @Composition
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "request")
-    protected List<RequestAction> acts;
+    protected List<RequestAction> actions;
 
     @Composition
     @OnDelete(DeletePolicy.CASCADE)
@@ -72,6 +75,15 @@ public class Request extends StandardEntity {
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "request")
     protected List<RequestCommunication> communications;
+
+
+    public void setActions(List<RequestAction> actions) {
+        this.actions = actions;
+    }
+
+    public List<RequestAction> getActions() {
+        return actions;
+    }
 
 
     public void setApplicant(Applicant applicant) {
@@ -126,14 +138,6 @@ public class Request extends StandardEntity {
         return communications;
     }
 
-
-    public List<RequestAction> getActs() {
-        return acts;
-    }
-
-    public void setActs(List<RequestAction> acts) {
-        this.acts = acts;
-    }
 
 
 

@@ -9,7 +9,6 @@ create table OFFICE_REQUEST (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    APPLICANT_ID varchar(36),
     SERIES varchar(10),
     NUMBER_ integer,
     STEP_ID varchar(36),
@@ -118,10 +117,10 @@ create table OFFICE_REQUEST_COMMUNICATION (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
+    REQUEST_ID varchar(36),
     QUESTION varchar(255),
     ANSWER varchar(255),
     FILE_ID varchar(36),
-    REQUEST_ID varchar(36),
     --
     primary key (ID)
 )^
@@ -137,8 +136,9 @@ create table OFFICE_APPLICANT (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    USER_ID varchar(36) not null,
-    CODE varchar(15) not null,
+    USER_ID varchar(36),
+    REQUEST_ID varchar(36),
+    CODE varchar(15),
     --
     primary key (ID)
 )^

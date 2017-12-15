@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://deleteScreen.caption"
+        class="com.company.office.web.screens.DeleteScreen"
+        extends="/com/haulmont/cuba/gui/app/core/restore/entity-restore.xml"
+        messagesPack="com.company.office.web.screens com.haulmont.cuba.gui.app.core.restore">
+    <dialogMode height="600"
+                width="800"/>
+    <layout>
+        <hbox>
+            <button id="btnClear"
+                    caption="msg://deleteScreen.btnClear"
+                    enable="false"
+                    invoke="onBtnClearClick"/>
+        </hbox>
+    </layout>
+</window>
