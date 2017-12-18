@@ -45,8 +45,10 @@ public class StepActionEdit extends AbstractEditor<StepAction> {
     }
 
     public void onBtnFileClick() {
-        if (getItem().getTemplate() != null)
-            exportDisplay.show(getItem().getTemplate(), ExportFormat.OCTET_STREAM);
+        if (getItem().getTemplate() == null)
+            return;
+
+        exportDisplay.show(getItem().getTemplate(), ExportFormat.OCTET_STREAM);
     }
 
     private void processActionType(ActionType type) {

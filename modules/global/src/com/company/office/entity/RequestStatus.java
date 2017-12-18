@@ -14,10 +14,12 @@ import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
 import com.haulmont.cuba.security.entity.User;
+import com.haulmont.cuba.core.entity.BaseUuidEntity;
+import com.haulmont.cuba.core.entity.Creatable;
 
 @Table(name = "OFFICE_REQUEST_STATUS")
 @Entity(name = "office$RequestStatus")
-public class RequestStatus extends StandardEntity {
+public class RequestStatus extends BaseUuidEntity implements Creatable {
     private static final long serialVersionUID = -7796625172200303124L;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -39,6 +41,29 @@ public class RequestStatus extends StandardEntity {
 
     @Column(name = "DESCRIPTION", length = 100)
     protected String description;
+
+    @Column(name = "CREATE_TS")
+    protected Date createTs;
+
+    @Column(name = "CREATED_BY", length = 50)
+    protected String createdBy;
+
+    public void setCreateTs(Date createTs) {
+        this.createTs = createTs;
+    }
+
+    public Date getCreateTs() {
+        return createTs;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
 
     public User getUser() {
         return user;

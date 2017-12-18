@@ -29,6 +29,8 @@
                 <action id="create"/>
                 <action id="edit"/>
                 <action id="remove"/>
+                <action id="request"
+                        invoke="onRequest"/>
             </actions>
             <columns>
                 <column id="user"/>
@@ -45,6 +47,10 @@
                         action="applicantsTable.edit"/>
                 <button id="removeBtn"
                         action="applicantsTable.remove"/>
+                <button id="requestBtn"
+                        action="applicantsTable.request"
+                        caption="msg://btnRequest"
+                        invoke="onRequestBtnClick"/>
             </buttonsPanel>
         </groupTable>
     </layout>

@@ -12,7 +12,7 @@
         <collectionDatasource id="fileDescriptorsDs"
                               class="com.haulmont.cuba.core.entity.FileDescriptor">
             <query>
-                <![CDATA[select e from sys$FileDescriptor e where lower(e.name) like '%(template)']]>
+                <![CDATA[select e from sys$FileDescriptor e where lower(e.name) like '%template%']]>
             </query>
         </collectionDatasource>
     </dsContext>

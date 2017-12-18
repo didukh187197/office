@@ -13,10 +13,14 @@ import com.haulmont.cuba.core.entity.FileDescriptor;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
 import javax.persistence.OneToOne;
+import java.util.Date;
+import com.haulmont.cuba.core.entity.BaseUuidEntity;
+import com.haulmont.cuba.core.entity.Creatable;
+import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 
 @Table(name = "OFFICE_STEP_ACTION")
 @Entity(name = "office$StepAction")
-public class StepAction extends StandardEntity {
+public class StepAction extends BaseUuidEntity implements Creatable {
     private static final long serialVersionUID = 8530702335739023159L;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -34,10 +38,33 @@ public class StepAction extends StandardEntity {
     protected String description;
 
 
+    @OnDeleteInverse(DeletePolicy.DENY)
     @OneToOne(fetch = FetchType.LAZY)
-    @OnDelete(DeletePolicy.UNLINK)
-    @JoinColumn(name = "TEMPLATE_ID")
+    @JoinColumn(name = "TEMPLATE_ID", unique = true)
     protected FileDescriptor template;
+
+    @Column(name = "CREATE_TS")
+    protected Date createTs;
+
+    @Column(name = "CREATED_BY", length = 50)
+    protected String createdBy;
+
+    public void setCreateTs(Date createTs) {
+        this.createTs = createTs;
+    }
+
+    public Date getCreateTs() {
+        return createTs;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
 
     public void setWorkDays(Integer workDays) {
         this.workDays = workDays;

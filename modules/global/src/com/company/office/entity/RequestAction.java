@@ -15,10 +15,13 @@ import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
 import javax.persistence.OneToOne;
 import com.haulmont.chile.core.annotations.Composition;
+import com.haulmont.cuba.core.entity.BaseUuidEntity;
+import com.haulmont.cuba.core.entity.Creatable;
+import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 
 @Table(name = "OFFICE_REQUEST_ACTION")
 @Entity(name = "office$RequestAction")
-public class RequestAction extends StandardEntity {
+public class RequestAction extends BaseUuidEntity implements Creatable {
     private static final long serialVersionUID = 1692244204168907981L;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -49,19 +52,42 @@ public class RequestAction extends StandardEntity {
     @Column(name = "APPROVED")
     protected Date approved;
 
-    @OnDelete(DeletePolicy.UNLINK)
+    @OnDeleteInverse(DeletePolicy.DENY)
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TEMPLATE_ID")
     protected FileDescriptor template;
 
+    @OnDeleteInverse(DeletePolicy.DENY)
     @Composition
-    @OnDelete(DeletePolicy.CASCADE)
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FILE_ID")
     protected FileDescriptor file;
 
     @Column(name = "MESSAGE")
     protected String message;
+
+    @Column(name = "CREATE_TS")
+    protected Date createTs;
+
+    @Column(name = "CREATED_BY", length = 50)
+    protected String createdBy;
+
+    public void setCreateTs(Date createTs) {
+        this.createTs = createTs;
+    }
+
+    public Date getCreateTs() {
+        return createTs;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
 
     public void setApproved(Date approved) {
         this.approved = approved;

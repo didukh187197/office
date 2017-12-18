@@ -12,10 +12,14 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.ManyToOne;
+import java.util.Date;
+import com.haulmont.cuba.core.entity.BaseUuidEntity;
+import com.haulmont.cuba.core.entity.Creatable;
+import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 
 @Table(name = "OFFICE_REQUEST_COMMUNICATION")
 @Entity(name = "office$RequestCommunication")
-public class RequestCommunication extends StandardEntity {
+public class RequestCommunication extends BaseUuidEntity implements Creatable {
     private static final long serialVersionUID = -6870391072272525279L;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -28,11 +32,34 @@ public class RequestCommunication extends StandardEntity {
     @Column(name = "ANSWER")
     protected String answer;
 
+    @OnDeleteInverse(DeletePolicy.DENY)
     @Composition
-    @OnDelete(DeletePolicy.CASCADE)
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FILE_ID")
     protected FileDescriptor file;
+
+    @Column(name = "CREATE_TS")
+    protected Date createTs;
+
+    @Column(name = "CREATED_BY", length = 50)
+    protected String createdBy;
+
+    public void setCreateTs(Date createTs) {
+        this.createTs = createTs;
+    }
+
+    public Date getCreateTs() {
+        return createTs;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
 
     public void setRequest(Request request) {
         this.request = request;

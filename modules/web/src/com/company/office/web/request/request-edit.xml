@@ -42,8 +42,9 @@
                 <fieldGroup id="fieldGroup"
                             datasource="requestDs">
                     <column width="350px">
-                        <field editable="false"
-                               property="applicant"/>
+                        <field caption="msg://editorUser"
+                               editable="false"
+                               property="applicant.user"/>
                         <field optionsDatasource="stepsDs"
                                property="step"
                                required="true"/>

@@ -1,13 +1,8 @@
 -- begin OFFICE_REQUEST
 create table OFFICE_REQUEST (
     ID varchar(36) not null,
-    VERSION integer not null,
     CREATE_TS timestamp,
     CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
     --
     SERIES varchar(10),
     NUMBER_ integer,
@@ -24,13 +19,8 @@ create table OFFICE_REQUEST (
 -- begin OFFICE_REQUEST_STATUS
 create table OFFICE_REQUEST_STATUS (
     ID varchar(36) not null,
-    VERSION integer not null,
     CREATE_TS timestamp,
     CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
     --
     REQUEST_ID varchar(36),
     DATE_ date not null,
@@ -45,13 +35,8 @@ create table OFFICE_REQUEST_STATUS (
 -- begin OFFICE_STEP
 create table OFFICE_STEP (
     ID varchar(36) not null,
-    VERSION integer not null,
     CREATE_TS timestamp,
     CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
     --
     IDENTFIER integer,
     POSITION_ integer not null,
@@ -64,13 +49,8 @@ create table OFFICE_STEP (
 -- begin OFFICE_STEP_ACTION
 create table OFFICE_STEP_ACTION (
     ID varchar(36) not null,
-    VERSION integer not null,
     CREATE_TS timestamp,
     CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
     --
     STEP_ID varchar(36),
     TYPE_ varchar(50) not null,
@@ -84,13 +64,8 @@ create table OFFICE_STEP_ACTION (
 -- begin OFFICE_REQUEST_ACTION
 create table OFFICE_REQUEST_ACTION (
     ID varchar(36) not null,
-    VERSION integer not null,
     CREATE_TS timestamp,
     CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
     --
     REQUEST_ID varchar(36),
     TYPE_ varchar(50),
@@ -109,13 +84,8 @@ create table OFFICE_REQUEST_ACTION (
 -- begin OFFICE_REQUEST_COMMUNICATION
 create table OFFICE_REQUEST_COMMUNICATION (
     ID varchar(36) not null,
-    VERSION integer not null,
     CREATE_TS timestamp,
     CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
     --
     REQUEST_ID varchar(36),
     QUESTION varchar(255),
@@ -128,13 +98,8 @@ create table OFFICE_REQUEST_COMMUNICATION (
 -- begin OFFICE_APPLICANT
 create table OFFICE_APPLICANT (
     ID varchar(36) not null,
-    VERSION integer not null,
     CREATE_TS timestamp,
     CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
     --
     USER_ID varchar(36),
     REQUEST_ID varchar(36),
