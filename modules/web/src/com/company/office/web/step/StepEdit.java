@@ -10,4 +10,19 @@ import javax.inject.Inject;
 import java.util.Map;
 import java.util.UUID;
 
-public class StepEdit extends AbstractEditor<Step> {}
+public class StepEdit extends AbstractEditor<Step> {
+
+    @Inject
+    private OfficeConfig officeConfig;
+
+    @Inject
+    private CollectionDatasource<User, UUID> usersDs;
+
+    @Override
+    public void init(Map<String, Object> params) {
+        if (officeConfig.getWorkersGroupQuery() != null) {
+            usersDs.setQuery(officeConfig.getWorkersGroupQuery());
+        }
+    }
+
+}

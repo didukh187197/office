@@ -10,7 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
@@ -18,7 +17,6 @@ import com.haulmont.cuba.core.global.DeletePolicy;
 import java.util.List;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
 import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 import com.haulmont.cuba.core.entity.annotation.Listeners;
 import com.haulmont.cuba.core.entity.BaseUuidEntity;
@@ -26,7 +24,7 @@ import com.haulmont.cuba.core.entity.Creatable;
 import com.haulmont.chile.core.annotations.NumberFormat;
 
 @Listeners("office_RequestEntityListener")
-@NamePattern("%s %s|series,number")
+@NamePattern("%s-%s|series,number")
 @Table(name = "OFFICE_REQUEST")
 @Entity(name = "office$Request")
 public class Request extends BaseUuidEntity implements Creatable {

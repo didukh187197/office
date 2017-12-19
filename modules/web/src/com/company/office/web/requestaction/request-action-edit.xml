@@ -12,6 +12,13 @@
             <datasource id="fileDs"
                         property="file"/>
         </datasource>
+        <collectionDatasource id="templatesDs"
+                              class="com.haulmont.cuba.core.entity.FileDescriptor"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from sys$FileDescriptor e where lower(e.name) like '%template%']]>
+            </query>
+        </collectionDatasource>
     </dsContext>
     <dialogMode height="600"
                 width="800"/>
@@ -19,18 +26,58 @@
             spacing="true">
         <fieldGroup id="fieldGroup"
                     datasource="requestActionDs">
-            <column width="250px">
-                <field property="type"/>
-                <field property="description"/>
-                <field property="deadline"/>
-                <field property="created"/>
-                <field property="submitted"/>
-                <field property="approved"/>
-                <field property="template"/>
-                <field property="file"/>
+            <column fieldCaptionWidth="90px"
+                    width="400px">
+                <field property="type"
+                       required="true"/>
+                <field property="description"
+                       rows="3"/>
                 <field property="message"/>
             </column>
+            <column width="150px">
+                <field editable="false"
+                       property="created"
+                       required="true"/>
+                <field property="deadline"/>
+                <field property="submitted"/>
+                <field property="approved"/>
+            </column>
         </fieldGroup>
+        <groupBox id="boxFiles"
+                  spacing="true">
+            <hbox expand="btnShowTemplate"
+                  spacing="true"
+                  width="100%">
+                <label id="labelTemplate"
+                       align="MIDDLE_CENTER"
+                       value="msg://lblTemplate"
+                       width="70px"/>
+                <lookupField id="lookupTemplate"
+                             datasource="requestActionDs"
+                             optionsDatasource="templatesDs"
+                             property="template"
+                             width="400px"/>
+                <linkButton id="btnShowTemplate"
+                            align="MIDDLE_CENTER"
+                            caption="msg://btnShowTemplate"
+                            invoke="onBtnShowTemplateClick"/>
+            </hbox>
+            <hbox expand="uploadFile"
+                  spacing="true"
+                  width="100%">
+                <label id="labelFile"
+                       align="MIDDLE_CENTER"
+                       value="msg://lblFile"
+                       width="70px"/>
+                <upload id="uploadFile"
+                        clearButtonIcon="icons/remove.png"
+                        datasource="requestActionDs"
+                        property="file"
+                        showClearButton="true"
+                        showFileName="true"
+                        uploadButtonIcon="icons/upload.png"/>
+            </hbox>
+        </groupBox>
         <frame id="windowActions"
                screen="editWindowActions"/>
     </layout>

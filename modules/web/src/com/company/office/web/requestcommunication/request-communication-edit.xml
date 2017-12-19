@@ -19,9 +19,11 @@
             spacing="true">
         <fieldGroup id="fieldGroup"
                     datasource="requestCommunicationDs">
-            <column width="250px">
-                <field property="question"/>
-                <field property="answer"/>
+            <column width="400px">
+                <field property="question"
+                       rows="6"/>
+                <field property="answer"
+                       rows="6"/>
                 <field property="file"/>
             </column>
         </fieldGroup>

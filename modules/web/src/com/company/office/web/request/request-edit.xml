@@ -49,8 +49,7 @@
                                property="step"
                                required="true"/>
                         <field optionsDatasource="usersDs"
-                               property="user"
-                               required="true"/>
+                               property="user"/>
                         <field property="description"
                                rows="3"/>
                     </column>
@@ -70,13 +69,16 @@
                            height="200px"
                            width="100%">
                         <actions>
-                            <action id="create"/>
-                            <action id="edit"/>
+                            <action id="create"
+                                    openType="DIALOG"/>
+                            <action id="edit"
+                                    openType="DIALOG"/>
                             <action id="remove"/>
                         </actions>
                         <columns>
                             <column id="question"/>
                             <column id="answer"/>
+                            <column id="file"/>
                         </columns>
                         <rows datasource="communicationsDs"/>
                         <buttonsPanel>
@@ -93,8 +95,10 @@
                        height="200px"
                        width="100%">
                     <actions>
-                        <action id="create"/>
-                        <action id="edit"/>
+                        <action id="create"
+                                openType="DIALOG"/>
+                        <action id="edit"
+                                openType="DIALOG"/>
                         <action id="remove"/>
                     </actions>
                     <columns>
@@ -120,8 +124,10 @@
                        height="200px"
                        width="100%">
                     <actions>
-                        <action id="create"/>
-                        <action id="edit"/>
+                        <action id="create"
+                                openType="DIALOG"/>
+                        <action id="edit"
+                                openType="DIALOG"/>
                         <action id="remove"/>
                     </actions>
                     <columns>

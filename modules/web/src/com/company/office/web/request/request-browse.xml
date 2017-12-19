@@ -12,11 +12,17 @@
             <query>
                 <![CDATA[select e from office$Request e]]>
             </query>
+            <collectionDatasource id="actionsDs"
+                                  property="actions"/>
+            <collectionDatasource id="statesDs"
+                                  property="states"/>
+            <collectionDatasource id="communicationsDs"
+                                  property="communications"/>
         </groupDatasource>
     </dsContext>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="requestsTable"
+    <layout expand="detailsBox"
             spacing="true">
         <filter id="filter"
                 applyTo="requestsTable"
@@ -24,6 +30,7 @@
             <properties include=".*"/>
         </filter>
         <groupTable id="requestsTable"
+                    height="400px"
                     width="100%">
             <actions>
                 <action id="edit"/>
@@ -49,5 +56,46 @@
                         action="requestsTable.remove"/>
             </buttonsPanel>
         </groupTable>
+        <groupBox id="detailsBox"
+                  orientation="horizontal"
+                  spacing="true"
+                  width="100%">
+            <table id="actionsTable"
+                   caption="msg://tableActions"
+                   height="100%"
+                   width="100%">
+                <columns>
+                    <column id="type"/>
+                    <column id="description"/>
+                    <column id="deadline"/>
+                    <column id="created"/>
+                    <column id="submitted"/>
+                    <column id="approved"/>
+                    <column id="message"/>
+                </columns>
+                <rows datasource="actionsDs"/>
+            </table>
+            <table id="communicationsTable"
+                   caption="msg://tableCommunications"
+                   height="100%"
+                   width="100%">
+                <columns>
+                    <column id="question"/>
+                    <column id="answer"/>
+                </columns>
+                <rows datasource="communicationsDs"/>
+            </table>
+            <table id="statesTable"
+                   caption="msg://tableStates"
+                   height="100%"
+                   width="100%">
+                <columns>
+                    <column id="date"/>
+                    <column id="position"/>
+                    <column id="description"/>
+                </columns>
+                <rows datasource="statesDs"/>
+            </table>
+        </groupBox>
     </layout>
 </window>

@@ -22,23 +22,26 @@
             spacing="true">
         <fieldGroup id="fieldGroup"
                     datasource="stepActionDs">
-            <column width="250px">
+            <column width="400px">
                 <field property="type"/>
-                <field property="description"/>
+                <field property="description" rows="3"/>
                 <field property="workDays"/>
             </column>
         </fieldGroup>
         <groupBox id="boxFile"
-                  caption="msg://boxTemplate"
                   expand="lookupFile"
                   orientation="horizontal"
                   spacing="true"
-                  width="600px">
+                  width="580px">
+            <label id="labelTemplate"
+                   align="MIDDLE_CENTER"
+                   value="msg://boxTemplate"/>
             <lookupField id="lookupFile"
                          datasource="stepActionDs"
                          optionsDatasource="fileDescriptorsDs"
                          property="template"/>
             <linkButton id="btnFile"
+                        align="MIDDLE_CENTER"
                         caption="msg://btnFile"
                         invoke="onBtnFileClick"/>
         </groupBox>

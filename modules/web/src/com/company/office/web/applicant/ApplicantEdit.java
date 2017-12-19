@@ -36,7 +36,7 @@ public class ApplicantEdit extends AbstractEditor<Applicant> {
 
     @Override
     protected boolean postCommit(boolean committed, boolean close) {
-        if (super.postCommit(committed, close)) {
+        if (committed) {
             requestField.setVisible(true);
         }
         return super.postCommit(committed, close);

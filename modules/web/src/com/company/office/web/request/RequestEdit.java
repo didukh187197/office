@@ -1,6 +1,7 @@
 package com.company.office.web.request;
 
 import com.company.office.OfficeConfig;
+import com.haulmont.cuba.core.global.PersistenceHelper;
 import com.haulmont.cuba.gui.components.AbstractEditor;
 import com.company.office.entity.Request;
 import com.haulmont.cuba.gui.components.DateField;
@@ -24,21 +25,14 @@ public class RequestEdit extends AbstractEditor<Request> {
     @Inject
     private CollectionDatasource<User, UUID> usersDs;
 
-    boolean isNew = false;
-
     @Override
     public void init(Map<String, Object> params) {
         usersDs.setQuery(officeConfig.getWorkersGroupQuery());
     }
 
     @Override
-    protected void initNewItem(Request item) {
-        isNew = true;
-    }
-
-    @Override
     protected void postInit() {
-        if (isNew) {
+        if (PersistenceHelper.isNew(getItem())) {
             createdField.setValue(new Date());
         }
     }

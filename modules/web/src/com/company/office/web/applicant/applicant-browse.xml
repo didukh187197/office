@@ -12,46 +12,67 @@
             <query>
                 <![CDATA[select e from office$Applicant e]]>
             </query>
+            <datasource id="requestDs"
+                        property="request"/>
         </groupDatasource>
     </dsContext>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="applicantsTable"
+    <layout expand="applicantsBox"
             spacing="true">
         <filter id="filter"
                 applyTo="applicantsTable"
                 datasource="applicantsDs">
             <properties include=".*"/>
         </filter>
-        <groupTable id="applicantsTable"
-                    width="100%">
-            <actions>
-                <action id="create"/>
-                <action id="edit"/>
-                <action id="remove"/>
-                <action id="request"
-                        invoke="onRequest"/>
-            </actions>
-            <columns>
-                <column id="user"/>
-                <column id="request"/>
-                <column id="code"/>
-            </columns>
-            <rows datasource="applicantsDs"/>
-            <rowsCount/>
-            <buttonsPanel id="buttonsPanel"
-                          alwaysVisible="true">
-                <button id="createBtn"
-                        action="applicantsTable.create"/>
-                <button id="editBtn"
-                        action="applicantsTable.edit"/>
-                <button id="removeBtn"
-                        action="applicantsTable.remove"/>
-                <button id="requestBtn"
-                        action="applicantsTable.request"
-                        caption="msg://btnRequest"
-                        invoke="onRequestBtnClick"/>
-            </buttonsPanel>
-        </groupTable>
+        <hbox id="applicantsBox"
+              expand="applicantsTable"
+              spacing="true"
+              width="100%">
+            <groupTable id="applicantsTable"
+                        height="100%">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="user"/>
+                    <column id="request"/>
+                    <column id="code"/>
+                </columns>
+                <rows datasource="applicantsDs"/>
+                <rowsCount/>
+                <buttonsPanel id="buttonsPanel"
+                              alwaysVisible="true">
+                    <button id="createBtn"
+                            action="applicantsTable.create"/>
+                    <button id="editBtn"
+                            action="applicantsTable.edit"/>
+                    <button id="removeBtn"
+                            action="applicantsTable.remove"/>
+                </buttonsPanel>
+            </groupTable>
+            <groupBox id="requestBox"
+                      caption="msg://fieldsRequest"
+                      height="100%"
+                      spacing="true"
+                      width="600px">
+                <fieldGroup id="requestFields"
+                            datasource="requestDs"
+                            editable="false">
+                    <column width="400px">
+                        <field property="series"/>
+                        <field property="number"/>
+                        <field property="created"/>
+                        <field property="closed"/>
+                        <field property="description"
+                               rows="3"/>
+                        <field property="step"/>
+                        <field property="user"/>
+                    </column>
+                </fieldGroup>
+            </groupBox>
+        </hbox>
     </layout>
 </window>

@@ -2,10 +2,8 @@ package com.company.office.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.cuba.core.entity.FileDescriptor;
-import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
 import javax.persistence.Column;
 import javax.persistence.FetchType;
@@ -22,6 +20,7 @@ import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 public class RequestCommunication extends BaseUuidEntity implements Creatable {
     private static final long serialVersionUID = -6870391072272525279L;
 
+    @OnDeleteInverse(DeletePolicy.CASCADE)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "REQUEST_ID")
     protected Request request;

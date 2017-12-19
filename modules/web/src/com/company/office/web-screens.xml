@@ -17,12 +17,12 @@
             template="com/company/office/web/requeststatus/request-status-edit.xml"/>
     <screen id="office$RequestCommunication.edit"
             template="com/company/office/web/requestcommunication/request-communication-edit.xml"/>
-    <screen id="office$RequestAction.edit"
-            template="com/company/office/web/requestaction/request-action-edit.xml"/>
     <screen id="office$Request.browse"
             template="com/company/office/web/request/request-browse.xml"/>
     <screen id="office$Request.edit"
             template="com/company/office/web/request/request-edit.xml"/>
     <screen id="delete-screen"
             template="com/company/office/web/screens/delete-screen.xml"/>
+    <screen id="office$RequestAction.edit"
+            template="com/company/office/web/requestaction/request-action-edit.xml"/>
 </screen-config>

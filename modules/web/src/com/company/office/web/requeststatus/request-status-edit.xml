@@ -3,24 +3,39 @@
         caption="msg://editorCaption"
         class="com.company.office.web.requeststatus.RequestStatusEdit"
         datasource="requestStatusDs"
-        focusComponent="fieldGroup"
+        focusComponent="fieldGroupLarge"
         messagesPack="com.company.office.web.requeststatus">
     <dsContext>
         <datasource id="requestStatusDs"
                     class="com.company.office.entity.RequestStatus"
                     view="requestStatus-view"/>
+        <collectionDatasource id="usersDs"
+                              class="com.haulmont.cuba.security.entity.User">
+            <query>
+                <![CDATA[select e from sec$User e]]>
+            </query>
+        </collectionDatasource>
     </dsContext>
     <dialogMode height="600"
                 width="800"/>
     <layout expand="windowActions"
             spacing="true">
-        <fieldGroup id="fieldGroup"
+        <fieldGroup id="fieldGroupNarrow"
                     datasource="requestStatusDs">
-            <column width="250px">
+            <column fieldCaptionWidth="75px"
+                    width="150px">
                 <field property="date"/>
+            </column>
+        </fieldGroup>
+        <fieldGroup id="fieldGroupLarge"
+                    datasource="requestStatusDs">
+            <column fieldCaptionWidth="75px"
+                    width="400px">
                 <field property="position"/>
-                <field property="user"/>
-                <field property="description"/>
+                <field optionsDatasource="usersDs"
+                       property="user"/>
+                <field property="description"
+                       rows="3"/>
             </column>
         </fieldGroup>
         <frame id="windowActions"
