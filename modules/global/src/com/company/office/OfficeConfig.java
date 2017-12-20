@@ -1,5 +1,6 @@
 package com.company.office;
 
+import com.company.office.entity.Step;
 import com.haulmont.cuba.core.config.Config;
 import com.haulmont.cuba.core.config.Property;
 import com.haulmont.cuba.core.config.Source;
@@ -29,12 +30,8 @@ public interface OfficeConfig extends Config {
     String getWorkersGroupQuery();
     void setWorkersGroupQuery(String query);
 
-    @Property("office.request.series")
-    String getRequestSeries();
-    void setRequestSeries(String series);
-
-    @Property("office.request.number")
-    Integer getRequestNumber();
-    void setRequestNumber(Integer number);
+    @Property("office.initStep")
+    Step getInitStep();
+    void setInitStep(Step step);
 
 }

@@ -14,12 +14,14 @@ import java.util.Date;
 import com.haulmont.cuba.core.entity.BaseUuidEntity;
 import com.haulmont.cuba.core.entity.Creatable;
 import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
+import com.haulmont.cuba.core.entity.Updatable;
 
 @Table(name = "OFFICE_STEP_ACTION")
 @Entity(name = "office$StepAction")
-public class StepAction extends BaseUuidEntity implements Creatable {
+public class StepAction extends BaseUuidEntity implements Creatable, Updatable {
     private static final long serialVersionUID = 8530702335739023159L;
 
+    @OnDeleteInverse(DeletePolicy.CASCADE)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "STEP_ID")
     protected Step step;
@@ -45,6 +47,33 @@ public class StepAction extends BaseUuidEntity implements Creatable {
 
     @Column(name = "CREATED_BY", length = 50)
     protected String createdBy;
+
+    @Column(name = "UPDATE_TS")
+    protected Date updateTs;
+
+    @Column(name = "UPDATED_BY", length = 50)
+    protected String updatedBy;
+
+    @Override
+    public void setUpdateTs(Date updateTs) {
+        this.updateTs = updateTs;
+    }
+
+    @Override
+    public Date getUpdateTs() {
+        return updateTs;
+    }
+
+    @Override
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    @Override
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
 
     public void setCreateTs(Date createTs) {
         this.createTs = createTs;

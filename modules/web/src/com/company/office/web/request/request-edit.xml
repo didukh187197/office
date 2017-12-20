@@ -3,7 +3,7 @@
         caption="msg://editorCaption"
         class="com.company.office.web.request.RequestEdit"
         datasource="requestDs"
-        focusComponent="fieldGroup"
+        focusComponent="fieldsMain"
         messagesPack="com.company.office.web.request">
     <dsContext>
         <datasource id="requestDs"
@@ -22,63 +22,126 @@
                 <![CDATA[select e from sec$User e]]>
             </query>
         </collectionDatasource>
-        <collectionDatasource id="stepsDs"
-                              class="com.company.office.entity.Step">
-            <query>
-                <![CDATA[select e from office$Step e]]>
-            </query>
-        </collectionDatasource>
     </dsContext>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="scrollBox"
+    <layout expand="windowActions"
             spacing="true">
-        <scrollBox id="scrollBox"
-                   spacing="true">
-            <hbox id="titleBox"
-                  expand="communicationsBox"
+        <groupBox id="titleBox"
+                  expand="fieldsAdditional"
+                  orientation="horizontal"
                   spacing="true"
                   width="100%">
-                <fieldGroup id="fieldGroup"
-                            datasource="requestDs">
-                    <column width="350px">
-                        <field caption="msg://editorUser"
-                               editable="false"
-                               property="applicant.user"/>
-                        <field optionsDatasource="stepsDs"
-                               property="step"
-                               required="true"/>
-                        <field optionsDatasource="usersDs"
-                               property="user"/>
-                        <field property="description"
-                               rows="3"/>
-                    </column>
-                    <column width="150px">
-                        <field property="series"
-                               required="true"/>
-                        <field property="number"
-                               required="true"/>
-                        <field editable="false"
-                               property="created"/>
-                        <field property="closed"/>
-                    </column>
-                </fieldGroup>
+            <fieldGroup id="fieldsMain"
+                        datasource="requestDs">
+                <column width="350px">
+                    <field optionsDatasource="usersDs"
+                           property="applicant"
+                           required="true"/>
+                    <field property="applicantCode"
+                           required="true"
+                           width="120px"/>
+                </column>
+                <column width="75px">
+                    <field property="series"
+                           required="true"/>
+                    <field property="number"
+                           required="true"/>
+                </column>
+            </fieldGroup>
+            <fieldGroup id="fieldsAdditional"
+                        datasource="requestDs">
+                <column width="350px">
+                    <field property="description"
+                           rows="3"/>
+                </column>
+            </fieldGroup>
+        </groupBox>
+        <groupBox id="currentBox"
+                  orientation="horizontal"
+                  spacing="true"
+                  width="100%">
+            <fieldGroup id="fieldsCurrent"
+                        datasource="requestDs">
+                <column width="250px">
+                    <field editable="false"
+                           property="step"/>
+                </column>
+                <column>
+                    <field editable="false"
+                           property="user"/>
+                </column>
+                <column>
+                    <field editable="false"
+                           property="closed"
+                           width="100px"/>
+                </column>
+            </fieldGroup>
+        </groupBox>
+        <tabSheet stylename="framed">
+            <tab id="actionsTab"
+                 caption="msg://actionsTab"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <groupBox id="actionsBox"
+                          caption="msg://com.company.office.entity/Request.actions">
+                    <table id="actionsTable"
+                           height="200px"
+                           width="100%">
+                        <actions>
+                            <action id="create"/>
+                            <action id="edit"/>
+                            <action id="remove"/>
+                        </actions>
+                        <columns>
+                            <column id="type"/>
+                            <column id="description"/>
+                            <column id="createTs"
+                                    caption="mainMsg://field.created"/>
+                            <column id="createdBy"
+                                    caption="mainMsg://field.author"/>
+                            <column id="updatedTs"
+                                    caption="mainMsg://field.updated"/>
+                            <column id="updatedBy"
+                                    caption="mainMsg://field.editor"/>
+                            <column id="deadline"/>
+                            <column id="submitted"/>
+                            <column id="approved"/>
+                        </columns>
+                        <rows datasource="actionsDs"/>
+                        <buttonsPanel>
+                            <button action="actionsTable.create"/>
+                            <button action="actionsTable.edit"/>
+                            <button action="actionsTable.remove"/>
+                        </buttonsPanel>
+                    </table>
+                </groupBox>
+            </tab>
+            <tab id="communicationsTab"
+                 caption="msg://communicationsTab"
+                 margin="true,false,false,false"
+                 spacing="true">
                 <groupBox id="communicationsBox"
                           caption="msg://com.company.office.entity/Request.communications">
                     <table id="communicationsTable"
                            height="200px"
                            width="100%">
                         <actions>
-                            <action id="create"
-                                    openType="DIALOG"/>
-                            <action id="edit"
-                                    openType="DIALOG"/>
+                            <action id="create"/>
+                            <action id="edit"/>
                             <action id="remove"/>
                         </actions>
                         <columns>
+                            <column id="createTs"
+                                    caption="mainMsg://field.created"/>
+                            <column id="createdBy"
+                                    caption="mainMsg://field.author"/>
                             <column id="question"/>
+                            <column id="updatedTs"
+                                    caption="mainMsg://field.updated"/>
+                            <column id="updatedBy"
+                                    caption="mainMsg://field.editor"/>
                             <column id="answer"/>
-                            <column id="file"/>
                         </columns>
                         <rows datasource="communicationsDs"/>
                         <buttonsPanel>
@@ -88,62 +151,40 @@
                         </buttonsPanel>
                     </table>
                 </groupBox>
-            </hbox>
-            <groupBox id="actionsBox"
-                      caption="msg://com.company.office.entity/Request.actions">
-                <table id="actionsTable"
-                       height="200px"
-                       width="100%">
-                    <actions>
-                        <action id="create"
-                                openType="DIALOG"/>
-                        <action id="edit"
-                                openType="DIALOG"/>
-                        <action id="remove"/>
-                    </actions>
-                    <columns>
-                        <column id="type"/>
-                        <column id="description"/>
-                        <column id="deadline"/>
-                        <column id="created"/>
-                        <column id="submitted"/>
-                        <column id="approved"/>
-                        <column id="message"/>
-                    </columns>
-                    <rows datasource="actionsDs"/>
-                    <buttonsPanel>
-                        <button action="actionsTable.create"/>
-                        <button action="actionsTable.edit"/>
-                        <button action="actionsTable.remove"/>
-                    </buttonsPanel>
-                </table>
-            </groupBox>
-            <groupBox id="statesBox"
-                      caption="msg://com.company.office.entity/Request.states">
-                <table id="statesTable"
-                       height="200px"
-                       width="100%">
-                    <actions>
-                        <action id="create"
-                                openType="DIALOG"/>
-                        <action id="edit"
-                                openType="DIALOG"/>
-                        <action id="remove"/>
-                    </actions>
-                    <columns>
-                        <column id="date"/>
-                        <column id="position"/>
-                        <column id="description"/>
-                    </columns>
-                    <rows datasource="statesDs"/>
-                    <buttonsPanel>
-                        <button action="statesTable.create"/>
-                        <button action="statesTable.edit"/>
-                        <button action="statesTable.remove"/>
-                    </buttonsPanel>
-                </table>
-            </groupBox>
-        </scrollBox>
+            </tab>
+            <tab id="statesTab"
+                 caption="msg://statesTab"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <groupBox id="statesBox"
+                          caption="msg://com.company.office.entity/Request.states">
+                    <table id="statesTable"
+                           height="200px"
+                           width="100%">
+                        <actions>
+                            <action id="create"/>
+                            <action id="edit"/>
+                            <action id="remove"/>
+                        </actions>
+                        <columns>
+                            <column id="createTs"
+                                    caption="mainMsg://field.created"/>
+                            <column id="step"/>
+                            <column id="user"/>
+                            <column id="description"/>
+                            <column id="createdBy"
+                                    caption="mainMsg://field.author"/>
+                        </columns>
+                        <rows datasource="statesDs"/>
+                        <buttonsPanel>
+                            <button action="statesTable.create"/>
+                            <button action="statesTable.edit"/>
+                            <button action="statesTable.remove"/>
+                        </buttonsPanel>
+                    </table>
+                </groupBox>
+            </tab>
+        </tabSheet>
         <frame id="windowActions"
                screen="editWindowActions"/>
     </layout>

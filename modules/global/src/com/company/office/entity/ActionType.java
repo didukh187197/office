@@ -10,7 +10,8 @@ public enum ActionType implements EnumClass<String> {
     sendFile("file"),
     sendMessage("message"),
     makeCall("call"),
-    visitOffice("visit");
+    visitOffice("visit"),
+    closeRequest("close");
 
     private String id;
 

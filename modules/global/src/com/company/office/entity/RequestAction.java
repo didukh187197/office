@@ -18,10 +18,11 @@ import com.haulmont.cuba.core.entity.Creatable;
 import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
+import com.haulmont.cuba.core.entity.Updatable;
 
 @Table(name = "OFFICE_REQUEST_ACTION")
 @Entity(name = "office$RequestAction")
-public class RequestAction extends BaseUuidEntity implements Creatable {
+public class RequestAction extends BaseUuidEntity implements Creatable, Updatable {
     private static final long serialVersionUID = 1692244204168907981L;
 
     @OnDeleteInverse(DeletePolicy.CASCADE)
@@ -38,10 +39,6 @@ public class RequestAction extends BaseUuidEntity implements Creatable {
     @Temporal(TemporalType.DATE)
     @Column(name = "DEADLINE")
     protected Date deadline;
-
-    @Temporal(TemporalType.DATE)
-    @Column(name = "CREATED")
-    protected Date created;
 
 
 
@@ -73,6 +70,33 @@ public class RequestAction extends BaseUuidEntity implements Creatable {
 
     @Column(name = "CREATED_BY", length = 50)
     protected String createdBy;
+
+    @Column(name = "UPDATE_TS")
+    protected Date updateTs;
+
+    @Column(name = "UPDATED_BY", length = 50)
+    protected String updatedBy;
+
+    @Override
+    public void setUpdateTs(Date updateTs) {
+        this.updateTs = updateTs;
+    }
+
+    @Override
+    public Date getUpdateTs() {
+        return updateTs;
+    }
+
+    @Override
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    @Override
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
 
     public void setCreateTs(Date createTs) {
         this.createTs = createTs;
@@ -170,14 +194,6 @@ public class RequestAction extends BaseUuidEntity implements Creatable {
         return deadline;
     }
 
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-
-    public Date getCreated() {
-        return created;
-    }
 
 
 }

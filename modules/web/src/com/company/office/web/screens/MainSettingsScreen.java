@@ -9,6 +9,9 @@ import java.util.*;
 public class MainSettingsScreen extends AbstractWindow {
 
     @Inject
+    private OfficeConfig officeConfig;
+
+    @Inject
     private TextField txtCompanyName;
 
     @Inject
@@ -18,7 +21,7 @@ public class MainSettingsScreen extends AbstractWindow {
     private LookupField lookupWorkersGroup;
 
     @Inject
-    private OfficeConfig officeConfig;
+    private LookupField lookupInitStep;
 
     @Override
     public void init(Map<String, Object> params) {
@@ -30,6 +33,9 @@ public class MainSettingsScreen extends AbstractWindow {
 
         if (officeConfig.getWorkersGroup() != null)
             lookupWorkersGroup.setValue(officeConfig.getWorkersGroup());
+
+        if (officeConfig.getInitStep() != null)
+            lookupInitStep.setValue(officeConfig.getInitStep());
     }
 
     public void onBtnOkClick() {
@@ -42,7 +48,7 @@ public class MainSettingsScreen extends AbstractWindow {
                             if (lookupApplicantsGroup.getValue() == null) {
                                 showMessageDialog(
                                         getMessage("settingsDialog.warning.empty.title"),
-                                        String.format(getMessage("settingsDialog.warning.empty.msg"),"Applicant"),
+                                        String.format(getMessage("settingsDialog.warning.empty.msg"), getMessage("settingsDialog.applicantsGroup")),
                                         MessageType.WARNING.modal(true).closeOnClickOutside(true)
                                 );
                                 return;
@@ -51,7 +57,7 @@ public class MainSettingsScreen extends AbstractWindow {
                             if (lookupWorkersGroup.getValue() == null) {
                                 showMessageDialog(
                                         getMessage("settingsDialog.warning.empty.title"),
-                                        String.format(getMessage("settingsDialog.warning.empty.msg"),"Worker"),
+                                        String.format(getMessage("settingsDialog.warning.empty.msg"), getMessage("settingsDialog.workersGroup")),
                                         MessageType.WARNING.modal(true).closeOnClickOutside(true)
                                 );
                                 return;
@@ -61,6 +67,15 @@ public class MainSettingsScreen extends AbstractWindow {
                                 showMessageDialog(
                                         getMessage("settingsDialog.warning.equals.title"),
                                         getMessage("settingsDialog.warning.equals.msg"),
+                                        MessageType.WARNING.modal(true).closeOnClickOutside(true)
+                                );
+                                return;
+                            }
+
+                            if (lookupInitStep.getValue() == null) {
+                                showMessageDialog(
+                                        getMessage("settingsDialog.warning.empty.title"),
+                                        String.format(getMessage("settingsDialog.warning.empty.msg"), getMessage("settingsDialog.initStep")),
                                         MessageType.WARNING.modal(true).closeOnClickOutside(true)
                                 );
                                 return;
@@ -77,6 +92,8 @@ public class MainSettingsScreen extends AbstractWindow {
                             officeConfig.setWorkersGroupQuery(
                                     String.format("select e from sec$User e where e.group.id = '%s'", officeConfig.getWorkersGroup().getId())
                             );
+
+                            officeConfig.setInitStep(lookupInitStep.getValue());
 
                             this.close("");
                         }),

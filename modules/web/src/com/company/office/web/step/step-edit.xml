@@ -11,13 +11,9 @@
                     view="step-view">
             <collectionDatasource id="actionsDs"
                                   property="actions"/>
+            <collectionDatasource id="usersDs"
+                                  property="users"/>
         </datasource>
-        <collectionDatasource id="usersDs"
-                              class="com.haulmont.cuba.security.entity.User">
-            <query>
-                <![CDATA[select e from sec$User e]]>
-            </query>
-        </collectionDatasource>
     </dsContext>
     <dialogMode height="600"
                 width="800"/>
@@ -25,15 +21,35 @@
             spacing="true">
         <fieldGroup id="fieldGroup"
                     datasource="stepDs">
-            <column width="250px">
+            <column width="400px">
                 <field property="identfier"/>
-                <field property="position"/>
-                <field optionsDatasource="usersDs"
-                       property="user"/>
                 <field property="description"
-                       required="true"/>
+                       required="true"
+                       rows="3"/>
             </column>
         </fieldGroup>
+        <groupBox id="usersBox"
+                  caption="msg://com.company.office.entity/Step.users">
+            <table id="usersTable"
+                   height="200px"
+                   width="100%">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="requests"/>
+                    <column id="threshold"/>
+                </columns>
+                <rows datasource="usersDs"/>
+                <buttonsPanel>
+                    <button action="usersTable.create"/>
+                    <button action="usersTable.edit"/>
+                    <button action="usersTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
         <groupBox id="actionsBox"
                   caption="msg://com.company.office.entity/Step.actions">
             <table id="actionsTable"

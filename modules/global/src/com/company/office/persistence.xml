@@ -9,6 +9,6 @@
         <class>com.company.office.entity.RequestStatus</class>
         <class>com.company.office.entity.Step</class>
         <class>com.company.office.entity.RequestCommunication</class>
-        <class>com.company.office.entity.Applicant</class>
+        <class>com.company.office.entity.StepUser</class>
     </persistence-unit>
 </persistence>

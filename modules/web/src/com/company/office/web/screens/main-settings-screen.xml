@@ -11,16 +11,10 @@
                 <![CDATA[select e from sec$Group e]]>
             </query>
         </collectionDatasource>
-        <collectionDatasource id="fileDescriptorsDs"
-                              class="com.haulmont.cuba.core.entity.FileDescriptor">
+        <collectionDatasource id="stepsDs"
+                              class="com.company.office.entity.Step">
             <query>
-                <![CDATA[select e from sys$FileDescriptor e]]>
-            </query>
-        </collectionDatasource>
-        <collectionDatasource id="applicantsDs"
-                              class="com.company.office.entity.Applicant">
-            <query>
-                <![CDATA[select e from office$Applicant e where e.deleteTs is not null]]>
+                <![CDATA[select e from office$Step e]]>
             </query>
         </collectionDatasource>
     </dsContext>
@@ -41,6 +35,12 @@
                      caption="msg://settingsDialog.workersGroup"
                      nullOptionVisible="false"
                      optionsDatasource="groupsDs"
+                     required="true"
+                     width="300px"/>
+        <lookupField id="lookupInitStep"
+                     caption="msg://settingsDialog.initStep"
+                     nullOptionVisible="false"
+                     optionsDatasource="stepsDs"
                      required="true"
                      width="300px"/>
         <buttonsPanel id="buttonsPanel"

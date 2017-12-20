@@ -22,17 +22,21 @@ import com.haulmont.cuba.core.entity.annotation.Listeners;
 import com.haulmont.cuba.core.entity.BaseUuidEntity;
 import com.haulmont.cuba.core.entity.Creatable;
 import com.haulmont.chile.core.annotations.NumberFormat;
+import com.haulmont.cuba.core.entity.Updatable;
 
-@Listeners("office_RequestEntityListener")
-@NamePattern("%s-%s|series,number")
+@NamePattern("%s, %s-%s|applicant,series,number")
 @Table(name = "OFFICE_REQUEST")
 @Entity(name = "office$Request")
-public class Request extends BaseUuidEntity implements Creatable {
+public class Request extends BaseUuidEntity implements Creatable, Updatable {
     private static final long serialVersionUID = 1078634413564627380L;
 
-    @Composition
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "request")
-    protected Applicant applicant;
+    @JoinColumn(name = "APPLICANT_ID", unique = true)
+    @OnDeleteInverse(DeletePolicy.CASCADE)
+    @OneToOne(fetch = FetchType.LAZY)
+    protected User applicant;
+
+    @Column(name = "APPLICANT_CODE", unique = true, length = 15)
+    protected String applicantCode;
 
     @Column(name = "SERIES", length = 10)
     protected String series;
@@ -40,6 +44,9 @@ public class Request extends BaseUuidEntity implements Creatable {
     @NumberFormat(pattern = "#")
     @Column(name = "NUMBER_")
     protected Integer number;
+
+    @Column(name = "DESCRIPTION", length = 100)
+    protected String description;
 
     @OnDeleteInverse(DeletePolicy.DENY)
     @ManyToOne(fetch = FetchType.LAZY)
@@ -52,28 +59,18 @@ public class Request extends BaseUuidEntity implements Creatable {
     protected User user;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "CREATED")
-    protected Date created;
-
-    @Temporal(TemporalType.DATE)
     @Column(name = "CLOSED")
     protected Date closed;
 
-    @Column(name = "DESCRIPTION", length = 100)
-    protected String description;
-
     @Composition
-    @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "request")
     protected List<RequestAction> actions;
 
     @Composition
-    @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "request")
     protected List<RequestStatus> states;
 
     @Composition
-    @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "request")
     protected List<RequestCommunication> communications;
 
@@ -83,6 +80,51 @@ public class Request extends BaseUuidEntity implements Creatable {
 
     @Column(name = "CREATED_BY", length = 50)
     protected String createdBy;
+
+    @Column(name = "UPDATE_TS")
+    protected Date updateTs;
+
+    @Column(name = "UPDATED_BY", length = 50)
+    protected String updatedBy;
+
+    public void setApplicantCode(String applicantCode) {
+        this.applicantCode = applicantCode;
+    }
+
+    public String getApplicantCode() {
+        return applicantCode;
+    }
+
+
+    public User getApplicant() {
+        return applicant;
+    }
+
+    public void setApplicant(User applicant) {
+        this.applicant = applicant;
+    }
+
+
+    @Override
+    public void setUpdateTs(Date updateTs) {
+        this.updateTs = updateTs;
+    }
+
+    @Override
+    public Date getUpdateTs() {
+        return updateTs;
+    }
+
+    @Override
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    @Override
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
 
     public void setCreateTs(Date createTs) {
         this.createTs = createTs;
@@ -109,14 +151,6 @@ public class Request extends BaseUuidEntity implements Creatable {
         return actions;
     }
 
-
-    public void setApplicant(Applicant applicant) {
-        this.applicant = applicant;
-    }
-
-    public Applicant getApplicant() {
-        return applicant;
-    }
 
 
     public void setUser(User user) {
@@ -178,14 +212,6 @@ public class Request extends BaseUuidEntity implements Creatable {
         return states;
     }
 
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-
-    public Date getCreated() {
-        return created;
-    }
 
     public void setClosed(Date closed) {
         this.closed = closed;

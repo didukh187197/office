@@ -3,8 +3,6 @@
     <view class="com.company.office.entity.Step"
           extends="_local"
           name="step-view">
-        <property name="user"
-                  view="_minimal"/>
         <property name="actions"
                   view="_minimal">
             <property name="type"/>
@@ -15,6 +13,12 @@
             </property>
             <property name="workDays"/>
         </property>
+        <property name="createTs"/>
+        <property name="createdBy"/>
+        <property name="updateTs"/>
+        <property name="updatedBy"/>
+        <property name="users"
+                  view="_local"/>
     </view>
     <view class="com.company.office.entity.StepAction"
           extends="_local"
@@ -23,6 +27,10 @@
                   view="_minimal">
             <property name="size"/>
         </property>
+        <property name="createTs"/>
+        <property name="createdBy"/>
+        <property name="updateTs"/>
+        <property name="updatedBy"/>
     </view>
     <view class="com.company.office.entity.RequestAction"
           extends="_local"
@@ -35,6 +43,10 @@
                   view="_minimal">
             <property name="size"/>
         </property>
+        <property name="createTs"/>
+        <property name="createdBy"/>
+        <property name="updateTs"/>
+        <property name="updatedBy"/>
     </view>
     <view class="com.company.office.entity.RequestCommunication"
           extends="_local"
@@ -43,11 +55,21 @@
                   view="_minimal">
             <property name="size"/>
         </property>
+        <property name="createTs"/>
+        <property name="createdBy"/>
+        <property name="updateTs"/>
+        <property name="updatedBy"/>
     </view>
     <view class="com.company.office.entity.RequestStatus"
           extends="_local"
           name="requestStatus-view">
         <property name="user"
+                  view="_minimal"/>
+        <property name="createTs"/>
+        <property name="createdBy"/>
+        <property name="updateTs"/>
+        <property name="updatedBy"/>
+        <property name="step"
                   view="_minimal"/>
     </view>
     <view class="com.company.office.entity.Request"
@@ -64,29 +86,22 @@
                   view="_minimal"/>
         <property name="applicant"
                   view="_minimal">
-            <property name="user"
-                      view="_minimal"/>
-            <property name="code"/>
         </property>
         <property name="actions"
                   view="requestAction-view"/>
+        <property name="createTs"/>
+        <property name="createdBy"/>
+        <property name="updateTs"/>
+        <property name="updatedBy"/>
     </view>
-    <view class="com.company.office.entity.Applicant"
+    <view class="com.company.office.entity.StepUser"
           extends="_local"
-          name="applicant-view">
+          name="stepUser-view">
         <property name="user"
                   view="_minimal"/>
-        <property name="request"
-                  view="_minimal">
-            <property name="series"/>
-            <property name="number"/>
-            <property name="step"
-                      view="_minimal"/>
-            <property name="user"
-                      view="_minimal"/>
-            <property name="created"/>
-            <property name="closed"/>
-            <property name="description"/>
-        </property>
+        <property name="createTs"/>
+        <property name="createdBy"/>
+        <property name="updateTs"/>
+        <property name="updatedBy"/>
     </view>
 </views>

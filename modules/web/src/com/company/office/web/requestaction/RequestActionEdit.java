@@ -1,7 +1,6 @@
 package com.company.office.web.requestaction;
 
 import com.company.office.entity.ActionType;
-import com.haulmont.cuba.core.global.PersistenceHelper;
 import com.haulmont.cuba.gui.components.*;
 import com.company.office.entity.RequestAction;
 import com.haulmont.cuba.gui.export.ExportDisplay;
@@ -9,7 +8,6 @@ import com.haulmont.cuba.gui.export.ExportFormat;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.util.Date;
 import java.util.Map;
 
 public class RequestActionEdit extends AbstractEditor<RequestAction> {
@@ -20,11 +18,11 @@ public class RequestActionEdit extends AbstractEditor<RequestAction> {
     @Named("fieldGroup.type")
     private LookupField typeField;
 
-    @Named("fieldGroup.created")
-    private DateField createdField;
+    @Named("fieldGroup.message")
+    private ResizableTextArea messageField;
 
     @Inject
-    private GroupBoxLayout boxFiles;
+    private VBoxLayout boxFiles;
 
     @Inject
     private LookupField lookupTemplate;
@@ -40,7 +38,7 @@ public class RequestActionEdit extends AbstractEditor<RequestAction> {
 
     @Override
     public void init(Map<String, Object> params) {
-        getDialogOptions().setWidth(fieldGroup.getWidth()).setHeight("380px");
+        getDialogOptions().setWidth(fieldGroup.getWidth()).setHeight("330px");;
         uploadFile.setClearButtonCaption("");
         uploadFile.setUploadButtonCaption("");
 
@@ -50,10 +48,6 @@ public class RequestActionEdit extends AbstractEditor<RequestAction> {
 
     @Override
     protected void postInit() {
-        if (PersistenceHelper.isNew(getItem())) {
-            createdField.setValue(new Date());
-        }
-
         if (typeField.getValue() == null) {
             typeField.setValue(ActionType.fromId("file"));
         }
@@ -61,14 +55,12 @@ public class RequestActionEdit extends AbstractEditor<RequestAction> {
     }
 
     private void processActionType(ActionType type) {
-        if (type == ActionType.fromId("file")) {
-            boxFiles.setVisible(true);
-            lookupTemplate.setRequired(true);
-        } else {
-            boxFiles.setVisible(false);
-            lookupTemplate.setRequired(false);
-            getItem().setTemplate(null);
-        }
+        String actionType = type.getId();
+
+        boxFiles.setVisible(actionType.equals("file"));
+        lookupTemplate.setRequired(actionType.equals("file"));
+        messageField.setVisible(actionType.equals("message"));
+        messageField.setRequired(actionType.equals("message"));
 
         setButtonParams();
     }

@@ -14,10 +14,11 @@ import java.util.Date;
 import com.haulmont.cuba.core.entity.BaseUuidEntity;
 import com.haulmont.cuba.core.entity.Creatable;
 import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
+import com.haulmont.cuba.core.entity.Updatable;
 
 @Table(name = "OFFICE_REQUEST_COMMUNICATION")
 @Entity(name = "office$RequestCommunication")
-public class RequestCommunication extends BaseUuidEntity implements Creatable {
+public class RequestCommunication extends BaseUuidEntity implements Creatable, Updatable {
     private static final long serialVersionUID = -6870391072272525279L;
 
     @OnDeleteInverse(DeletePolicy.CASCADE)
@@ -42,6 +43,33 @@ public class RequestCommunication extends BaseUuidEntity implements Creatable {
 
     @Column(name = "CREATED_BY", length = 50)
     protected String createdBy;
+
+    @Column(name = "UPDATE_TS")
+    protected Date updateTs;
+
+    @Column(name = "UPDATED_BY", length = 50)
+    protected String updatedBy;
+
+    @Override
+    public void setUpdateTs(Date updateTs) {
+        this.updateTs = updateTs;
+    }
+
+    @Override
+    public Date getUpdateTs() {
+        return updateTs;
+    }
+
+    @Override
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    @Override
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
 
     public void setCreateTs(Date createTs) {
         this.createTs = createTs;

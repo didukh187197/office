@@ -32,8 +32,6 @@
             </actions>
             <columns>
                 <column id="identfier"/>
-                <column id="position"/>
-                <column id="user"/>
                 <column id="description"/>
             </columns>
             <rows datasource="stepsDs"/>

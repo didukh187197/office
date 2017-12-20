@@ -3,14 +3,17 @@ create table OFFICE_REQUEST (
     ID varchar(36) not null,
     CREATE_TS timestamp,
     CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
     --
+    APPLICANT_ID varchar(36),
+    APPLICANT_CODE varchar(15),
     SERIES varchar(10),
     NUMBER_ integer,
+    DESCRIPTION varchar(100),
     STEP_ID varchar(36),
     USER_ID varchar(36),
-    CREATED date,
     CLOSED date,
-    DESCRIPTION varchar(100),
     --
     primary key (ID)
 )^
@@ -21,10 +24,11 @@ create table OFFICE_REQUEST_STATUS (
     ID varchar(36) not null,
     CREATE_TS timestamp,
     CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
     --
     REQUEST_ID varchar(36),
-    DATE_ date not null,
-    POSITION_ integer not null,
+    STEP_ID varchar(36),
     USER_ID varchar(36),
     DESCRIPTION varchar(100),
     --
@@ -37,10 +41,10 @@ create table OFFICE_STEP (
     ID varchar(36) not null,
     CREATE_TS timestamp,
     CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
     --
     IDENTFIER integer,
-    POSITION_ integer not null,
-    USER_ID varchar(36),
     DESCRIPTION varchar(100),
     --
     primary key (ID)
@@ -51,6 +55,8 @@ create table OFFICE_STEP_ACTION (
     ID varchar(36) not null,
     CREATE_TS timestamp,
     CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
     --
     STEP_ID varchar(36),
     TYPE_ varchar(50) not null,
@@ -66,12 +72,13 @@ create table OFFICE_REQUEST_ACTION (
     ID varchar(36) not null,
     CREATE_TS timestamp,
     CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
     --
     REQUEST_ID varchar(36),
     TYPE_ varchar(50),
     DESCRIPTION varchar(100),
     DEADLINE date,
-    CREATED date,
     SUBMITTED date,
     APPROVED date,
     TEMPLATE_ID varchar(36),
@@ -86,6 +93,8 @@ create table OFFICE_REQUEST_COMMUNICATION (
     ID varchar(36) not null,
     CREATE_TS timestamp,
     CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
     --
     REQUEST_ID varchar(36),
     QUESTION varchar(255),
@@ -95,16 +104,20 @@ create table OFFICE_REQUEST_COMMUNICATION (
     primary key (ID)
 )^
 -- end OFFICE_REQUEST_COMMUNICATION
--- begin OFFICE_APPLICANT
-create table OFFICE_APPLICANT (
+
+-- begin OFFICE_STEP_USER
+create table OFFICE_STEP_USER (
     ID varchar(36) not null,
     CREATE_TS timestamp,
     CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
     --
+    STEP_ID varchar(36),
     USER_ID varchar(36),
-    REQUEST_ID varchar(36),
-    CODE varchar(15),
+    REQUESTS integer,
+    THRESHOLD integer,
     --
     primary key (ID)
 )^
--- end OFFICE_APPLICANT
+-- end OFFICE_STEP_USER

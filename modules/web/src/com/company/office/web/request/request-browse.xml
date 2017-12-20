@@ -12,17 +12,11 @@
             <query>
                 <![CDATA[select e from office$Request e]]>
             </query>
-            <collectionDatasource id="actionsDs"
-                                  property="actions"/>
-            <collectionDatasource id="statesDs"
-                                  property="states"/>
-            <collectionDatasource id="communicationsDs"
-                                  property="communications"/>
         </groupDatasource>
     </dsContext>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="detailsBox"
+    <layout expand="requestsTable"
             spacing="true">
         <filter id="filter"
                 applyTo="requestsTable"
@@ -30,72 +24,33 @@
             <properties include=".*"/>
         </filter>
         <groupTable id="requestsTable"
-                    height="400px"
                     width="100%">
             <actions>
+                <action id="create"/>
                 <action id="edit"/>
                 <action id="remove"/>
             </actions>
             <columns>
                 <column id="applicant"/>
+                <column id="applicantCode"/>
                 <column id="series"/>
                 <column id="number"/>
+                <column id="description"/>
                 <column id="step"/>
                 <column id="user"/>
-                <column id="created"/>
                 <column id="closed"/>
-                <column id="description"/>
             </columns>
             <rows datasource="requestsDs"/>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
+                <button id="createBtn"
+                        action="requestsTable.create"/>
                 <button id="editBtn"
                         action="requestsTable.edit"/>
                 <button id="removeBtn"
                         action="requestsTable.remove"/>
             </buttonsPanel>
         </groupTable>
-        <groupBox id="detailsBox"
-                  orientation="horizontal"
-                  spacing="true"
-                  width="100%">
-            <table id="actionsTable"
-                   caption="msg://tableActions"
-                   height="100%"
-                   width="100%">
-                <columns>
-                    <column id="type"/>
-                    <column id="description"/>
-                    <column id="deadline"/>
-                    <column id="created"/>
-                    <column id="submitted"/>
-                    <column id="approved"/>
-                    <column id="message"/>
-                </columns>
-                <rows datasource="actionsDs"/>
-            </table>
-            <table id="communicationsTable"
-                   caption="msg://tableCommunications"
-                   height="100%"
-                   width="100%">
-                <columns>
-                    <column id="question"/>
-                    <column id="answer"/>
-                </columns>
-                <rows datasource="communicationsDs"/>
-            </table>
-            <table id="statesTable"
-                   caption="msg://tableStates"
-                   height="100%"
-                   width="100%">
-                <columns>
-                    <column id="date"/>
-                    <column id="position"/>
-                    <column id="description"/>
-                </columns>
-                <rows datasource="statesDs"/>
-            </table>
-        </groupBox>
     </layout>
 </window>

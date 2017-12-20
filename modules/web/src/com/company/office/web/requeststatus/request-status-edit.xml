@@ -3,7 +3,7 @@
         caption="msg://editorCaption"
         class="com.company.office.web.requeststatus.RequestStatusEdit"
         datasource="requestStatusDs"
-        focusComponent="fieldGroupLarge"
+        focusComponent="fieldGroup"
         messagesPack="com.company.office.web.requeststatus">
     <dsContext>
         <datasource id="requestStatusDs"
@@ -15,23 +15,25 @@
                 <![CDATA[select e from sec$User e]]>
             </query>
         </collectionDatasource>
+        <collectionDatasource id="stepsDs"
+                              class="com.company.office.entity.Step">
+            <query>
+                <![CDATA[select e from office$Step e]]>
+            </query>
+        </collectionDatasource>
     </dsContext>
-    <dialogMode height="600"
+    <dialogMode forceDialog="true"
+                height="600"
                 width="800"/>
     <layout expand="windowActions"
             spacing="true">
-        <fieldGroup id="fieldGroupNarrow"
-                    datasource="requestStatusDs">
-            <column fieldCaptionWidth="75px"
-                    width="150px">
-                <field property="date"/>
-            </column>
-        </fieldGroup>
-        <fieldGroup id="fieldGroupLarge"
+        <fieldGroup id="fieldGroup"
                     datasource="requestStatusDs">
             <column fieldCaptionWidth="75px"
                     width="400px">
-                <field property="position"/>
+                <field optionsDatasource="stepsDs"
+                       property="step"
+                       required="true"/>
                 <field optionsDatasource="usersDs"
                        property="user"/>
                 <field property="description"

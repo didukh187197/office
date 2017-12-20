@@ -18,25 +18,17 @@ import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 import java.util.Date;
 import com.haulmont.cuba.core.entity.BaseUuidEntity;
 import com.haulmont.cuba.core.entity.Creatable;
+import com.haulmont.cuba.core.entity.Updatable;
 
-@NamePattern("%s (%s) |description,position")
+@NamePattern("%s|description")
 @Table(name = "OFFICE_STEP")
 @Entity(name = "office$Step")
-public class Step extends BaseUuidEntity implements Creatable {
+public class Step extends BaseUuidEntity implements Creatable, Updatable {
     private static final long serialVersionUID = -762436337912584846L;
 
     @NumberFormat(pattern = "#")
     @Column(name = "IDENTFIER")
     protected Integer identfier;
-
-    @NotNull
-    @Column(name = "POSITION_", nullable = false)
-    protected Integer position;
-
-    @OnDeleteInverse(DeletePolicy.DENY)
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID")
-    protected User user;
 
 
 
@@ -47,11 +39,51 @@ public class Step extends BaseUuidEntity implements Creatable {
     @OneToMany(mappedBy = "step")
     protected List<StepAction> actions;
 
+    @Composition
+    @OneToMany(mappedBy = "step")
+    protected List<StepUser> users;
+
     @Column(name = "CREATE_TS")
     protected Date createTs;
 
     @Column(name = "CREATED_BY", length = 50)
     protected String createdBy;
+
+    @Column(name = "UPDATE_TS")
+    protected Date updateTs;
+
+    @Column(name = "UPDATED_BY", length = 50)
+    protected String updatedBy;
+
+    public void setUsers(List<StepUser> users) {
+        this.users = users;
+    }
+
+    public List<StepUser> getUsers() {
+        return users;
+    }
+
+
+    @Override
+    public void setUpdateTs(Date updateTs) {
+        this.updateTs = updateTs;
+    }
+
+    @Override
+    public Date getUpdateTs() {
+        return updateTs;
+    }
+
+    @Override
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    @Override
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
 
     public void setCreateTs(Date createTs) {
         this.createTs = createTs;
@@ -69,14 +101,6 @@ public class Step extends BaseUuidEntity implements Creatable {
         return createdBy;
     }
 
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
 
 
@@ -108,14 +132,6 @@ public class Step extends BaseUuidEntity implements Creatable {
 
 
 
-
-    public void setPosition(Position position) {
-        this.position = position == null ? null : position.getId();
-    }
-
-    public Position getPosition() {
-        return position == null ? null : Position.fromId(position);
-    }
 
 
 }
