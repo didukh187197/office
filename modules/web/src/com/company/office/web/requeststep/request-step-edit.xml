@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
         caption="msg://editorCaption"
-        class="com.company.office.web.requeststatus.RequestStatusEdit"
-        datasource="requestStatusDs"
+        class="com.company.office.web.requeststep.RequestStepEdit"
+        datasource="requestStepDs"
         focusComponent="fieldGroup"
-        messagesPack="com.company.office.web.requeststatus">
+        messagesPack="com.company.office.web.requeststep">
     <dsContext>
-        <datasource id="requestStatusDs"
-                    class="com.company.office.entity.RequestStatus"
-                    view="requestStatus-view"/>
-        <collectionDatasource id="usersDs"
-                              class="com.haulmont.cuba.security.entity.User">
-            <query>
-                <![CDATA[select e from sec$User e]]>
-            </query>
-        </collectionDatasource>
+        <datasource id="requestStepDs"
+                    class="com.company.office.entity.RequestStep"
+                    view="requestStep-view"/>
         <collectionDatasource id="stepsDs"
                               class="com.company.office.entity.Step">
             <query>
                 <![CDATA[select e from office$Step e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="usersDs"
+                              class="com.haulmont.cuba.security.entity.User">
+            <query>
+                <![CDATA[select e from sec$User e]]>
             </query>
         </collectionDatasource>
     </dsContext>
@@ -28,9 +28,8 @@
     <layout expand="windowActions"
             spacing="true">
         <fieldGroup id="fieldGroup"
-                    datasource="requestStatusDs">
-            <column fieldCaptionWidth="75px"
-                    width="400px">
+                    datasource="requestStepDs">
+            <column width="400px">
                 <field optionsDatasource="stepsDs"
                        property="step"
                        required="true"/>

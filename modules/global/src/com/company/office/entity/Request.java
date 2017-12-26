@@ -8,17 +8,13 @@ import javax.persistence.Column;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.chile.core.annotations.Composition;
-import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
 import java.util.List;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
 import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
-import com.haulmont.cuba.core.entity.annotation.Listeners;
 import com.haulmont.cuba.core.entity.BaseUuidEntity;
 import com.haulmont.cuba.core.entity.Creatable;
 import com.haulmont.chile.core.annotations.NumberFormat;
@@ -58,9 +54,16 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
     @JoinColumn(name = "USER_ID")
     protected User user;
 
-    @Temporal(TemporalType.DATE)
-    @Column(name = "CLOSED")
-    protected Date closed;
+    @Column(name = "STATE")
+    protected String state;
+
+    @NumberFormat(pattern = "#")
+    @Column(name = "PENALTY")
+    protected Integer penalty;
+
+    @Composition
+    @OneToMany(mappedBy = "request")
+    protected List<RequestStep> steps;
 
     @Composition
     @OneToMany(mappedBy = "request")
@@ -68,12 +71,7 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
 
     @Composition
     @OneToMany(mappedBy = "request")
-    protected List<RequestStatus> states;
-
-    @Composition
-    @OneToMany(mappedBy = "request")
     protected List<RequestCommunication> communications;
-
 
     @Column(name = "CREATE_TS")
     protected Date createTs;
@@ -87,6 +85,30 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
     @Column(name = "UPDATED_BY", length = 50)
     protected String updatedBy;
 
+    public void setPenalty(Integer penalty) {
+        this.penalty = penalty;
+    }
+
+    public Integer getPenalty() {
+        return penalty;
+    }
+
+    public void setState(State state) {
+        this.state = state == null ? null : state.getId();
+    }
+
+    public State getState() {
+        return state == null ? null : State.fromId(state);
+    }
+
+    public void setSteps(List<RequestStep> steps) {
+        this.steps = steps;
+    }
+
+    public List<RequestStep> getSteps() {
+        return steps;
+    }
+
     public void setApplicantCode(String applicantCode) {
         this.applicantCode = applicantCode;
     }
@@ -95,7 +117,6 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
         return applicantCode;
     }
 
-
     public User getApplicant() {
         return applicant;
     }
@@ -103,7 +124,6 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
     public void setApplicant(User applicant) {
         this.applicant = applicant;
     }
-
 
     @Override
     public void setUpdateTs(Date updateTs) {
@@ -125,7 +145,6 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
         return updatedBy;
     }
 
-
     public void setCreateTs(Date createTs) {
         this.createTs = createTs;
     }
@@ -142,7 +161,6 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
         return createdBy;
     }
 
-
     public void setActions(List<RequestAction> actions) {
         this.actions = actions;
     }
@@ -151,8 +169,6 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
         return actions;
     }
 
-
-
     public void setUser(User user) {
         this.user = user;
     }
@@ -160,7 +176,6 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
     public User getUser() {
         return user;
     }
-
 
     public void setSeries(String series) {
         this.series = series;
@@ -178,7 +193,6 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
         return number;
     }
 
-
     public void setStep(Step step) {
         this.step = step;
     }
@@ -186,7 +200,6 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
     public Step getStep() {
         return step;
     }
-
 
     public void setCommunications(List<RequestCommunication> communications) {
         this.communications = communications;
@@ -196,31 +209,6 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
         return communications;
     }
 
-
-
-
-
-
-
-
-
-    public void setStates(List<RequestStatus> states) {
-        this.states = states;
-    }
-
-    public List<RequestStatus> getStates() {
-        return states;
-    }
-
-
-    public void setClosed(Date closed) {
-        this.closed = closed;
-    }
-
-    public Date getClosed() {
-        return closed;
-    }
-
     public void setDescription(String description) {
         this.description = description;
     }
@@ -228,6 +216,5 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
     public String getDescription() {
         return description;
     }
-
 
 }

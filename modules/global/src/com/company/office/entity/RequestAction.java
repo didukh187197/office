@@ -19,6 +19,7 @@ import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
 import com.haulmont.cuba.core.entity.Updatable;
+import com.haulmont.chile.core.annotations.NumberFormat;
 
 @Table(name = "OFFICE_REQUEST_ACTION")
 @Entity(name = "office$RequestAction")
@@ -39,8 +40,6 @@ public class RequestAction extends BaseUuidEntity implements Creatable, Updatabl
     @Temporal(TemporalType.DATE)
     @Column(name = "DEADLINE")
     protected Date deadline;
-
-
 
     @Temporal(TemporalType.DATE)
     @Column(name = "SUBMITTED")
@@ -65,6 +64,10 @@ public class RequestAction extends BaseUuidEntity implements Creatable, Updatabl
     @Column(name = "MESSAGE")
     protected String message;
 
+    @NumberFormat(pattern = "#")
+    @Column(name = "PENALTY")
+    protected Integer penalty;
+
     @Column(name = "CREATE_TS")
     protected Date createTs;
 
@@ -76,6 +79,14 @@ public class RequestAction extends BaseUuidEntity implements Creatable, Updatabl
 
     @Column(name = "UPDATED_BY", length = 50)
     protected String updatedBy;
+
+    public void setPenalty(Integer penalty) {
+        this.penalty = penalty;
+    }
+
+    public Integer getPenalty() {
+        return penalty;
+    }
 
     @Override
     public void setUpdateTs(Date updateTs) {
@@ -97,7 +108,6 @@ public class RequestAction extends BaseUuidEntity implements Creatable, Updatabl
         return updatedBy;
     }
 
-
     public void setCreateTs(Date createTs) {
         this.createTs = createTs;
     }
@@ -114,7 +124,6 @@ public class RequestAction extends BaseUuidEntity implements Creatable, Updatabl
         return createdBy;
     }
 
-
     public void setApproved(Date approved) {
         this.approved = approved;
     }
@@ -123,7 +132,6 @@ public class RequestAction extends BaseUuidEntity implements Creatable, Updatabl
         return approved;
     }
 
-
     public void setSubmitted(Date submitted) {
         this.submitted = submitted;
     }
@@ -131,7 +139,6 @@ public class RequestAction extends BaseUuidEntity implements Creatable, Updatabl
     public Date getSubmitted() {
         return submitted;
     }
-
 
     public void setMessage(String message) {
         this.message = message;
@@ -157,7 +164,6 @@ public class RequestAction extends BaseUuidEntity implements Creatable, Updatabl
         return file;
     }
 
-
     public void setType(ActionType type) {
         this.type = type == null ? null : type.getId();
     }
@@ -165,8 +171,6 @@ public class RequestAction extends BaseUuidEntity implements Creatable, Updatabl
     public ActionType getType() {
         return type == null ? null : ActionType.fromId(type);
     }
-
-
 
     public void setRequest(Request request) {
         this.request = request;
@@ -176,7 +180,6 @@ public class RequestAction extends BaseUuidEntity implements Creatable, Updatabl
         return request;
     }
 
-
     public void setDescription(String description) {
         this.description = description;
     }
@@ -185,7 +188,6 @@ public class RequestAction extends BaseUuidEntity implements Creatable, Updatabl
         return description;
     }
 
-
     public void setDeadline(Date deadline) {
         this.deadline = deadline;
     }
@@ -193,7 +195,5 @@ public class RequestAction extends BaseUuidEntity implements Creatable, Updatabl
     public Date getDeadline() {
         return deadline;
     }
-
-
 
 }

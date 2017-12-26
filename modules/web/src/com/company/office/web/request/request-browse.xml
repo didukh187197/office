@@ -32,13 +32,13 @@
             </actions>
             <columns>
                 <column id="applicant"/>
-                <column id="applicantCode"/>
-                <column id="series"/>
-                <column id="number"/>
+                <column id="sn"
+                        generator="snGenerator"/>
                 <column id="description"/>
                 <column id="step"/>
                 <column id="user"/>
-                <column id="closed"/>
+                <column id="state"/>
+                <column id="penalty"/>
             </columns>
             <rows datasource="requestsDs"/>
             <rowsCount/>

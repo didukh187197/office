@@ -13,28 +13,12 @@ create table OFFICE_REQUEST (
     DESCRIPTION varchar(100),
     STEP_ID varchar(36),
     USER_ID varchar(36),
-    CLOSED date,
+    STATE varchar(50),
+    PENALTY integer,
     --
     primary key (ID)
 )^
 -- end OFFICE_REQUEST
-
--- begin OFFICE_REQUEST_STATUS
-create table OFFICE_REQUEST_STATUS (
-    ID varchar(36) not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    --
-    REQUEST_ID varchar(36),
-    STEP_ID varchar(36),
-    USER_ID varchar(36),
-    DESCRIPTION varchar(100),
-    --
-    primary key (ID)
-)^
--- end OFFICE_REQUEST_STATUS
 
 -- begin OFFICE_STEP
 create table OFFICE_STEP (
@@ -84,6 +68,7 @@ create table OFFICE_REQUEST_ACTION (
     TEMPLATE_ID varchar(36),
     FILE_ID varchar(36),
     MESSAGE varchar(255),
+    PENALTY integer,
     --
     primary key (ID)
 )^
@@ -121,3 +106,19 @@ create table OFFICE_STEP_USER (
     primary key (ID)
 )^
 -- end OFFICE_STEP_USER
+-- begin OFFICE_REQUEST_STEP
+create table OFFICE_REQUEST_STEP (
+    ID varchar(36) not null,
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    --
+    STEP_ID varchar(36),
+    USER_ID varchar(36),
+    DESCRIPTION varchar(100),
+    REQUEST_ID varchar(36),
+    --
+    primary key (ID)
+)^
+-- end OFFICE_REQUEST_STEP

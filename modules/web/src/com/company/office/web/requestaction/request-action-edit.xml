@@ -38,6 +38,7 @@
                        width="150px"/>
                 <field property="message"
                        rows="3"/>
+                <field property="penalty"/>
             </column>
         </fieldGroup>
         <vbox id="boxFiles"

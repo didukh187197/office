@@ -2,31 +2,22 @@ package com.company.office.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
+import com.haulmont.cuba.core.global.DeletePolicy;
+import com.haulmont.cuba.security.entity.User;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
-import com.haulmont.cuba.core.entity.annotation.OnDelete;
-import com.haulmont.cuba.core.global.DeletePolicy;
-import com.haulmont.cuba.security.entity.User;
 import com.haulmont.cuba.core.entity.BaseUuidEntity;
-import com.haulmont.cuba.core.entity.Creatable;
-import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 import com.haulmont.cuba.core.entity.Updatable;
+import com.haulmont.cuba.core.entity.Creatable;
 
-@Table(name = "OFFICE_REQUEST_STATUS")
-@Entity(name = "office$RequestStatus")
-public class RequestStatus extends BaseUuidEntity implements Creatable, Updatable {
-    private static final long serialVersionUID = -7796625172200303124L;
-
-    @OnDeleteInverse(DeletePolicy.CASCADE)
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "REQUEST_ID")
-    protected Request request;
+@Table(name = "OFFICE_REQUEST_STEP")
+@Entity(name = "office$RequestStep")
+public class RequestStep extends BaseUuidEntity implements Updatable, Creatable {
+    private static final long serialVersionUID = 3776301119152373188L;
 
     @OnDeleteInverse(DeletePolicy.DENY)
     @ManyToOne(fetch = FetchType.LAZY)
@@ -41,17 +32,30 @@ public class RequestStatus extends BaseUuidEntity implements Creatable, Updatabl
     @Column(name = "DESCRIPTION", length = 100)
     protected String description;
 
+    @Column(name = "UPDATE_TS")
+    protected Date updateTs;
+
+    @Column(name = "UPDATED_BY", length = 50)
+    protected String updatedBy;
+
     @Column(name = "CREATE_TS")
     protected Date createTs;
 
     @Column(name = "CREATED_BY", length = 50)
     protected String createdBy;
 
-    @Column(name = "UPDATE_TS")
-    protected Date updateTs;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "REQUEST_ID")
+    protected Request request;
 
-    @Column(name = "UPDATED_BY", length = 50)
-    protected String updatedBy;
+    public void setRequest(Request request) {
+        this.request = request;
+    }
+
+    public Request getRequest() {
+        return request;
+    }
+
 
     public void setStep(Step step) {
         this.step = step;
@@ -61,6 +65,21 @@ public class RequestStatus extends BaseUuidEntity implements Creatable, Updatabl
         return step;
     }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
 
     @Override
     public void setUpdateTs(Date updateTs) {
@@ -82,49 +101,24 @@ public class RequestStatus extends BaseUuidEntity implements Creatable, Updatabl
         return updatedBy;
     }
 
-
+    @Override
     public void setCreateTs(Date createTs) {
         this.createTs = createTs;
     }
 
+    @Override
     public Date getCreateTs() {
         return createTs;
     }
 
+    @Override
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
 
+    @Override
     public String getCreatedBy() {
         return createdBy;
-    }
-
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-
-
-    public void setRequest(Request request) {
-        this.request = request;
-    }
-
-    public Request getRequest() {
-        return request;
-    }
-
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getDescription() {
-        return description;
     }
 
 
