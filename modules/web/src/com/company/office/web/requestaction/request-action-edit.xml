@@ -39,6 +39,7 @@
                 <field property="message"
                        rows="3"/>
                 <field property="penalty"/>
+                <field property="createTs"/>
             </column>
         </fieldGroup>
         <vbox id="boxFiles"

@@ -4,7 +4,6 @@
 *.iml
 *.iws
 *.lck
-*.log
 build/*
 deploy/tomcat/*
 modules/*/build/*

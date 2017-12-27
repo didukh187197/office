@@ -38,7 +38,8 @@ public class RequestActionEdit extends AbstractEditor<RequestAction> {
 
     @Override
     public void init(Map<String, Object> params) {
-        getDialogOptions().setWidth(fieldGroup.getWidth()).setHeight("330px");;
+        //getDialogOptions().setWidth(fieldGroup.getWidth()).setHeight("330px");
+        getDialogOptions().setWidth(fieldGroup.getWidth());
         uploadFile.setClearButtonCaption("");
         uploadFile.setUploadButtonCaption("");
 

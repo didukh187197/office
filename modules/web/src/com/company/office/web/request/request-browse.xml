@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2017 Haulmont Technology Ltd. All Rights Reserved.
+  ~ Haulmont Technology proprietary and confidential.
+  ~ Use is subject to license terms.
+  -->
 <window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
-        caption="msg://browseCaption"
+        caption="msg://caption"
         class="com.company.office.web.request.RequestBrowse"
-        focusComponent="requestsTable"
-        lookupComponent="requestsTable"
+        focusComponent="table"
+        lookupComponent="table"
         messagesPack="com.company.office.web.request">
     <dsContext>
+        <datasource id="requestDs"
+                    class="com.company.office.entity.Request"
+                    view="request-view">
+            <collectionDatasource id="stepsDs"
+                                  property="steps"/>
+            <collectionDatasource id="actionsDs"
+                                  property="actions"/>
+            <collectionDatasource id="communicationsDs"
+                                  property="communications"/>
+        </datasource>
         <groupDatasource id="requestsDs"
                          class="com.company.office.entity.Request"
                          view="request-view">
@@ -13,44 +28,245 @@
                 <![CDATA[select e from office$Request e]]>
             </query>
         </groupDatasource>
+        <collectionDatasource id="applicantDs"
+                              class="com.haulmont.cuba.security.entity.User">
+            <query>
+                <![CDATA[select e from sec$User e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="workerDs"
+                              class="com.haulmont.cuba.security.entity.User">
+            <query>
+                <![CDATA[select e from sec$User e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="stepDs"
+                              class="com.company.office.entity.Step">
+            <query>
+                <![CDATA[select e from office$Step e]]>
+            </query>
+        </collectionDatasource>
     </dsContext>
+    <actions>
+        <action id="save"
+                caption="mainMsg://actions.Ok"
+                icon="icons/ok.png"
+                invoke="save"
+                shortcut="CTRL-ENTER"/>
+        <action id="cancel"
+                caption="mainMsg://actions.Cancel"
+                description="Esc"
+                icon="icons/cancel.png"
+                invoke="cancel"/>
+    </actions>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="requestsTable"
-            spacing="true">
-        <filter id="filter"
-                applyTo="requestsTable"
-                datasource="requestsDs">
-            <properties include=".*"/>
-        </filter>
-        <groupTable id="requestsTable"
-                    width="100%">
-            <actions>
-                <action id="create"/>
-                <action id="edit"/>
-                <action id="remove"/>
-            </actions>
-            <columns>
-                <column id="applicant"/>
-                <column id="sn"
-                        generator="snGenerator"/>
-                <column id="description"/>
-                <column id="step"/>
-                <column id="user"/>
-                <column id="state"/>
-                <column id="penalty"/>
-            </columns>
-            <rows datasource="requestsDs"/>
-            <rowsCount/>
-            <buttonsPanel id="buttonsPanel"
-                          alwaysVisible="true">
-                <button id="createBtn"
-                        action="requestsTable.create"/>
-                <button id="editBtn"
-                        action="requestsTable.edit"/>
-                <button id="removeBtn"
-                        action="requestsTable.remove"/>
-            </buttonsPanel>
-        </groupTable>
+    <layout>
+        <split id="split"
+               height="100%"
+               orientation="horizontal"
+               reversePosition="true"
+               width="100%">
+            <vbox id="lookupBox"
+                  expand="table"
+                  height="100%"
+                  margin="false,true,false,false"
+                  spacing="true">
+                <filter id="filter"
+                        applyTo="table"
+                        datasource="requestsDs">
+                    <properties include=".*"/>
+                </filter>
+                <groupTable id="table"
+                            width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="applicant"/>
+                        <column id="sn"
+                                caption="#"
+                                generator="snGenerator"/>
+                        <column id="description"/>
+                        <column id="step"/>
+                        <column id="user"/>
+                        <column id="state"/>
+                        <column id="penalty"/>
+                    </columns>
+                    <rows datasource="requestsDs"/>
+                    <rowsCount/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createBtn"
+                                action="table.create"/>
+                        <button id="editBtn"
+                                action="table.edit"/>
+                        <button id="removeBtn"
+                                action="table.remove"/>
+                    </buttonsPanel>
+                </groupTable>
+            </vbox>
+            <vbox id="editBox"
+                  expand="tabSheetBox"
+                  height="100%"
+                  margin="false,false,false,true"
+                  spacing="true">
+                <vbox id="tabSheetBox">
+                    <tabSheet id="tabSheet"
+                              height="100%">
+                        <tab id="mainTab"
+                             caption="msg://mainTab"
+                             margin="true">
+                            <fieldGroup id="fieldGroup"
+                                        datasource="requestDs">
+                                <column width="400px">
+                                    <field optionsDatasource="applicantDs"
+                                           property="applicant"/>
+                                    <field property="applicantCode"
+                                           width="100px"/>
+                                    <field property="series"
+                                           width="100px"/>
+                                    <field property="number"
+                                           width="100px"/>
+                                    <field property="description"
+                                           rows="2"/>
+                                </column>
+                            </fieldGroup>
+                        </tab>
+                        <tab id="stepsTab"
+                             caption="msg://com.company.office.entity/Request.steps"
+                             expand="stepsTable"
+                             margin="true,false,false,false"
+                             spacing="true">
+                            <table id="stepsTable"
+                                   height="400px"
+                                   width="100%">
+                                <actions>
+                                    <action id="create"/>
+                                    <action id="edit"/>
+                                    <action id="remove"/>
+                                </actions>
+                                <columns>
+                                    <column id="createTs"
+                                            caption="mainMsg://field.created"/>
+                                    <column id="createdBy"
+                                            caption="mainMsg://field.author"/>
+                                    <column id="step"/>
+                                    <column id="user"/>
+                                </columns>
+                                <rows datasource="stepsDs"/>
+                                <buttonsPanel>
+                                    <button action="stepsTable.create"/>
+                                    <button action="stepsTable.edit"/>
+                                    <button action="stepsTable.remove"/>
+                                </buttonsPanel>
+                            </table>
+                            <fieldGroup id="fieldsStep"
+                                        datasource="stepsDs"
+                                        editable="false">
+                                <column width="400px">
+                                    <field property="description"
+                                           rows="2"/>
+                                </column>
+                            </fieldGroup>
+                        </tab>
+                        <tab id="actionsTab"
+                             caption="msg://com.company.office.entity/Request.actions"
+                             expand="actionsTable"
+                             margin="true,false,false,false"
+                             spacing="true">
+                            <table id="actionsTable"
+                                   height="400px"
+                                   width="100%">
+                                <actions>
+                                    <action id="create"/>
+                                    <action id="edit"/>
+                                    <action id="remove"/>
+                                </actions>
+                                <columns>
+                                    <column id="createTs"
+                                            caption="mainMsg://field.created"/>
+                                    <column id="createdBy"
+                                            caption="mainMsg://field.author"/>
+                                    <column id="type"/>
+                                    <column id="deadline"/>
+                                    <column id="submitted"/>
+                                    <column id="approved"/>
+                                    <column id="penalty"/>
+                                </columns>
+                                <rows datasource="actionsDs"/>
+                                <buttonsPanel>
+                                    <button action="actionsTable.create"/>
+                                    <button action="actionsTable.edit"/>
+                                    <button action="actionsTable.remove"/>
+                                </buttonsPanel>
+                            </table>
+                            <fieldGroup id="fieldsAction"
+                                        datasource="actionsDs"
+                                        editable="false">
+                                <column width="400px">
+                                    <field property="description"
+                                           rows="2"/>
+                                    <field description="3"
+                                           property="message"
+                                           rows="2"/>
+                                </column>
+                            </fieldGroup>
+                        </tab>
+                        <tab id="communicationsTab"
+                             caption="msg://com.company.office.entity/Request.communications"
+                             expand="communicationsTable"
+                             margin="true,false,false,false"
+                             spacing="true">
+                            <table id="communicationsTable"
+                                   height="400px"
+                                   width="100%">
+                                <actions>
+                                    <action id="create"/>
+                                    <action id="edit"/>
+                                    <action id="remove"/>
+                                </actions>
+                                <columns>
+                                    <column id="createTs"
+                                            caption="mainMsg://field.created"/>
+                                    <column id="createdBy"
+                                            caption="mainMsg://field.author"/>
+                                    <column id="updateTs"
+                                            caption="mainMsg://field.updated"/>
+                                    <column id="updatedBy"
+                                            caption="mainMsg://field.editor"/>
+                                </columns>
+                                <rows datasource="communicationsDs"/>
+                                <buttonsPanel>
+                                    <button action="communicationsTable.create"/>
+                                    <button action="communicationsTable.edit"/>
+                                    <button action="communicationsTable.remove"/>
+                                </buttonsPanel>
+                            </table>
+                            <fieldGroup id="fieldsCommunications"
+                                        datasource="communicationsDs"
+                                        editable="false">
+                                <column width="400px">
+                                    <field property="question"
+                                           rows="2"/>
+                                    <field property="answer"
+                                           rows="2"/>
+                                </column>
+                            </fieldGroup>
+                        </tab>
+                    </tabSheet>
+                </vbox>
+                <hbox id="actionsPane"
+                      spacing="true"
+                      visible="false">
+                    <button id="saveBtn"
+                            action="save"/>
+                    <button id="cancelBtn"
+                            action="cancel"/>
+                </hbox>
+            </vbox>
+        </split>
     </layout>
 </window>
