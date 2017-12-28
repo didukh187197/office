@@ -12,9 +12,6 @@ import java.util.Map;
 
 public class StepActionEdit extends AbstractEditor<StepAction> {
 
-    @Inject
-    private FieldGroup fieldGroup;
-
     @Named("fieldGroup.type")
     private LookupField typeField;
 
@@ -32,7 +29,7 @@ public class StepActionEdit extends AbstractEditor<StepAction> {
 
     @Override
     public void init(Map<String, Object> params) {
-        getDialogOptions().setWidth(fieldGroup.getWidth()).setHeight("270px");
+        getDialogOptions().setWidth(getComponentNN("fieldGroup").getWidth());
 
         typeField.addValueChangeListener(e -> processActionType((ActionType) e.getValue()));
         lookupFile.addValueChangeListener(e -> setButtonParams());

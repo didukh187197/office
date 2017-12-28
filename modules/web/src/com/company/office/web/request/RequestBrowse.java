@@ -1,14 +1,15 @@
 package com.company.office.web.request;
 
 import com.company.office.OfficeConfig;
-import com.haulmont.cuba.gui.components.EntityCombinedScreen;
+import com.company.office.entity.ActionType;
+import com.company.office.entity.RequestAction;
+import com.haulmont.cuba.gui.components.*;
 import com.company.office.entity.Request;
-import com.haulmont.cuba.gui.components.Component;
-import com.haulmont.cuba.gui.components.Table;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
 import com.haulmont.cuba.security.entity.User;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.util.Map;
 import java.util.UUID;
 
@@ -23,6 +24,15 @@ public class RequestBrowse extends EntityCombinedScreen {
     @Inject
     private CollectionDatasource<User, UUID> workerDs;
 
+    @Inject
+    private CollectionDatasource<RequestAction, UUID> actionsDs;
+
+    @Named("fieldsAction.file")
+    private FileUploadField fileField;
+
+    @Named("fieldsAction.message")
+    private ResizableTextArea messageField;
+
     @Override
     public void init(Map<String, Object> params) {
         super.init(params);
@@ -34,6 +44,15 @@ public class RequestBrowse extends EntityCombinedScreen {
         if (officeConfig.getWorkersGroupQuery() != null) {
             workerDs.setQuery(officeConfig.getWorkersGroupQuery());
         }
+
+        actionsDs.addItemChangeListener(e -> {
+            if (actionsDs.getItem() != null) {
+                ActionType actionType = actionsDs.getItem().getType();
+
+                fileField.setVisible(actionType.equals(ActionType.sendFile));
+                messageField.setVisible(actionType.equals(ActionType.sendMessage));
+            }
+        });
 
     }
 

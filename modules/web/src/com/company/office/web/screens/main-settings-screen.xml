@@ -22,34 +22,81 @@
                 width="800"/>
     <layout expand="buttonsPanel"
             spacing="true">
-        <textField id="txtCompanyName"
-                   caption="msg://settingsDialog.companyName"
-                   width="300px"/>
-        <lookupField id="lookupApplicantsGroup"
-                     caption="msg://settingsDialog.applicantsGroup"
-                     nullOptionVisible="false"
-                     optionsDatasource="groupsDs"
-                     required="true"
-                     width="300px"/>
-        <lookupField id="lookupWorkersGroup"
-                     caption="msg://settingsDialog.workersGroup"
-                     nullOptionVisible="false"
-                     optionsDatasource="groupsDs"
-                     required="true"
-                     width="300px"/>
-        <lookupField id="lookupInitStep"
-                     caption="msg://settingsDialog.initStep"
-                     nullOptionVisible="false"
-                     optionsDatasource="stepsDs"
-                     required="true"
-                     width="300px"/>
+        <hbox id="companyBox"
+              expand="txtCompanyName"
+              spacing="true"
+              width="500px">
+            <label align="MIDDLE_LEFT"
+                   value="msg://settingsDialog.companyName"
+                   width="110px"/>
+            <textField id="txtCompanyName"/>
+        </hbox>
+        <groupBox id="groupsBox"
+                  caption="msg://settingsDialog.groupsBox"
+                  spacing="true"
+                  width="500px">
+            <hbox id="applicantsBox"
+                  expand="lookupApplicantsGroup"
+                  spacing="true"
+                  width="100%">
+                <label align="MIDDLE_LEFT"
+                       value="msg://settingsDialog.applicantsGroup"
+                       width="80px"/>
+                <lookupField id="lookupApplicantsGroup"
+                             nullOptionVisible="false"
+                             optionsDatasource="groupsDs"
+                             required="true"/>
+            </hbox>
+            <hbox id="workersBox"
+                  expand="lookupWorkersGroup"
+                  spacing="true"
+                  width="100%">
+                <label align="MIDDLE_LEFT"
+                       value="msg://settingsDialog.workersGroup"
+                       width="80px"/>
+                <lookupField id="lookupWorkersGroup"
+                             nullOptionVisible="false"
+                             optionsDatasource="groupsDs"
+                             required="true"/>
+            </hbox>
+        </groupBox>
+        <groupBox id="stepsBox"
+                  caption="msg://settingsDialog.stepsBox"
+                  spacing="true"
+                  width="500px">
+            <hbox id="initStepBox"
+                  expand="lookupInitStep"
+                  spacing="true"
+                  width="100%">
+                <label align="MIDDLE_LEFT"
+                       value="msg://settingsDialog.initStep"
+                       width="80px"/>
+                <lookupField id="lookupInitStep"
+                             nullOptionVisible="false"
+                             optionsDatasource="stepsDs"
+                             required="true"/>
+            </hbox>
+            <hbox id="finalStepBox"
+                  expand="lookupFinalStep"
+                  spacing="true"
+                  width="100%">
+                <label value="msg://settingsDialog.finalStep"
+                       width="80px"/>
+                <lookupField id="lookupFinalStep"
+                             optionsDatasource="stepsDs"
+                             required="true"/>
+            </hbox>
+        </groupBox>
         <buttonsPanel id="buttonsPanel"
                       margin="true">
             <button id="btnOk"
-                    caption="msg://settingsDialog.btnOk"
+                    caption="mainMsg://actions.Ok"
+                    icon="icons/ok.png"
                     invoke="onBtnOkClick"/>
             <button id="btnCancel"
-                    caption="msg://settingsDialog.btnCancel"
+                    caption="mainMsg://actions.Cancel"
+                    description="Esc"
+                    icon="icons/cancel.png"
                     invoke="onBtnCancelClick"/>
         </buttonsPanel>
     </layout>

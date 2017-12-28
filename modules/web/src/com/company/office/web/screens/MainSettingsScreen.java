@@ -1,6 +1,7 @@
 package com.company.office.web.screens;
 
 import com.company.office.OfficeConfig;
+import com.haulmont.cuba.core.global.Messages;
 import com.haulmont.cuba.gui.components.*;
 
 import javax.inject.Inject;
@@ -23,6 +24,12 @@ public class MainSettingsScreen extends AbstractWindow {
     @Inject
     private LookupField lookupInitStep;
 
+    @Inject
+    private LookupField lookupFinalStep;
+
+    @Inject
+    protected Messages messages;
+
     @Override
     public void init(Map<String, Object> params) {
         if (officeConfig.getCompanyName() != null)
@@ -40,8 +47,8 @@ public class MainSettingsScreen extends AbstractWindow {
 
     public void onBtnOkClick() {
         showOptionDialog(
-                getMessage("settingsDialog.saveAndClose.title"),
-                getMessage("settingsDialog.saveAndClose.msg"),
+                messages.getMainMessage("dialog.saveAndClose.title"),
+                messages.getMainMessage("dialog.saveAndClose.msg"),
                 MessageType.CONFIRMATION,
                 new Action[] {
                         new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
@@ -81,6 +88,15 @@ public class MainSettingsScreen extends AbstractWindow {
                                 return;
                             }
 
+                            if (lookupFinalStep.getValue() == null) {
+                                showMessageDialog(
+                                        getMessage("settingsDialog.warning.empty.title"),
+                                        String.format(getMessage("settingsDialog.warning.empty.msg"), getMessage("settingsDialog.finalStep")),
+                                        MessageType.WARNING.modal(true).closeOnClickOutside(true)
+                                );
+                                return;
+                            }
+
                             officeConfig.setCompanyName(txtCompanyName.getValue());
 
                             officeConfig.setApplicantsGroup(lookupApplicantsGroup.getValue());
@@ -94,6 +110,7 @@ public class MainSettingsScreen extends AbstractWindow {
                             );
 
                             officeConfig.setInitStep(lookupInitStep.getValue());
+                            officeConfig.setFinalStep(lookupFinalStep.getValue());
 
                             this.close("");
                         }),

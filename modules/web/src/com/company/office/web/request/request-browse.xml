@@ -209,6 +209,7 @@
                                 <column width="400px">
                                     <field property="description"
                                            rows="2"/>
+                                    <field property="file"/>
                                     <field description="3"
                                            property="message"
                                            rows="2"/>

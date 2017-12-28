@@ -28,7 +28,7 @@ create table OFFICE_STEP (
     UPDATE_TS timestamp,
     UPDATED_BY varchar(50),
     --
-    IDENTFIER integer,
+    IDENTIFIER integer,
     DESCRIPTION varchar(100),
     --
     primary key (ID)

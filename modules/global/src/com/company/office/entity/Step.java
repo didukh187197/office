@@ -19,6 +19,7 @@ import java.util.Date;
 import com.haulmont.cuba.core.entity.BaseUuidEntity;
 import com.haulmont.cuba.core.entity.Creatable;
 import com.haulmont.cuba.core.entity.Updatable;
+import javax.persistence.OrderBy;
 
 @NamePattern("%s|description")
 @Table(name = "OFFICE_STEP")
@@ -26,19 +27,21 @@ import com.haulmont.cuba.core.entity.Updatable;
 public class Step extends BaseUuidEntity implements Creatable, Updatable {
     private static final long serialVersionUID = -762436337912584846L;
 
+
+
     @NumberFormat(pattern = "#")
-    @Column(name = "IDENTFIER")
-    protected Integer identfier;
-
-
+    @Column(name = "IDENTIFIER")
+    protected Integer identifier;
 
     @Column(name = "DESCRIPTION", length = 100)
     protected String description;
 
+    @OrderBy("createTs")
     @Composition
     @OneToMany(mappedBy = "step")
     protected List<StepAction> actions;
 
+    @OrderBy("createTs")
     @Composition
     @OneToMany(mappedBy = "step")
     protected List<StepUser> users;
@@ -54,6 +57,15 @@ public class Step extends BaseUuidEntity implements Creatable, Updatable {
 
     @Column(name = "UPDATED_BY", length = 50)
     protected String updatedBy;
+
+    public void setIdentifier(Integer identifier) {
+        this.identifier = identifier;
+    }
+
+    public Integer getIdentifier() {
+        return identifier;
+    }
+
 
     public void setUsers(List<StepUser> users) {
         this.users = users;
@@ -112,14 +124,6 @@ public class Step extends BaseUuidEntity implements Creatable, Updatable {
         return description;
     }
 
-
-    public void setIdentfier(Integer identfier) {
-        this.identfier = identfier;
-    }
-
-    public Integer getIdentfier() {
-        return identfier;
-    }
 
 
     public void setActions(List<StepAction> actions) {

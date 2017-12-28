@@ -4,9 +4,10 @@
           screen="office$Step.browse"/>
     <item insertBefore="administration"
           screen="office$Request.browse"/>
+    <item insertBefore="administration"
+          screen="main-settings-screen"/>
     <menu id="service"
           insertBefore="administration">
-        <item screen="main-settings-screen"/>
         <item screen="delete-screen"/>
     </menu>
 </menu-config>

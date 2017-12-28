@@ -16,7 +16,8 @@
             </query>
         </collectionDatasource>
     </dsContext>
-    <dialogMode height="600"
+    <dialogMode forceDialog="true"
+                height="600"
                 width="800"/>
     <layout expand="windowActions"
             spacing="true">
@@ -24,8 +25,13 @@
                     datasource="stepActionDs">
             <column width="400px">
                 <field property="type"/>
-                <field property="description" rows="3"/>
-                <field property="workDays"/>
+                <field property="description"
+                       rows="3"/>
+                <field property="workDays"
+                       required="true"
+                       width="100px"/>
+                <field property="createTs"
+                       width="200px"/>
             </column>
         </fieldGroup>
         <groupBox id="boxFile"

@@ -34,4 +34,8 @@ public interface OfficeConfig extends Config {
     Step getInitStep();
     void setInitStep(Step step);
 
+    @Property("office.finalStep")
+    Step getFinalStep();
+    void setFinalStep(Step step);
+
 }

@@ -1,8 +1,8 @@
-package com.company.office.web.requeststep;
+package com.company.office.web.stepuser;
 
 import com.company.office.OfficeConfig;
 import com.haulmont.cuba.gui.components.AbstractEditor;
-import com.company.office.entity.RequestStep;
+import com.company.office.entity.StepUser;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
 import com.haulmont.cuba.security.entity.User;
 
@@ -10,7 +10,7 @@ import javax.inject.Inject;
 import java.util.Map;
 import java.util.UUID;
 
-public class RequestStepEdit extends AbstractEditor<RequestStep> {
+public class StepUserEdit extends AbstractEditor<StepUser> {
 
     @Inject
     private OfficeConfig officeConfig;
@@ -26,5 +26,4 @@ public class RequestStepEdit extends AbstractEditor<RequestStep> {
             usersDs.setQuery(officeConfig.getWorkersGroupQuery());
         }
     }
-
 }
