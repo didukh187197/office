@@ -51,7 +51,7 @@
         <action id="save"
                 caption="mainMsg://actions.Ok"
                 icon="icons/ok.png"
-                invoke="save"
+                invoke="saveWithPrompt"
                 shortcut="CTRL-ENTER"/>
         <action id="cancel"
                 caption="mainMsg://actions.Cancel"
@@ -254,6 +254,31 @@
                                            rows="2"/>
                                     <field property="answer"
                                            rows="2"/>
+                                </column>
+                            </fieldGroup>
+                        </tab>
+                        <tab id="tabSystem"
+                             caption="System"
+                             margin="true,false,false,false"
+                             spacing="true">
+                            <fieldGroup id="fieldsSystem"
+                                        datasource="requestDs">
+                                <column width="350px">
+                                    <field optionsDatasource="stepDs"
+                                            property="step"/>
+                                    <field optionsDatasource="workerDs"
+                                            property="user"/>
+                                    <field property="penalty"/>
+                                    <field caption="mainMsg://field.created"
+                                           property="createTs"
+                                           resolution="SEC"/>
+                                    <field caption="mainMsg://field.author"
+                                           property="createdBy"/>
+                                    <field caption="mainMsg://field.updated"
+                                           property="updateTs"
+                                           resolution="SEC"/>
+                                    <field caption="mainMsg://field.editor"
+                                           property="updatedBy"/>
                                 </column>
                             </fieldGroup>
                         </tab>

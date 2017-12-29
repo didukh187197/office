@@ -27,18 +27,49 @@
                 width="800"/>
     <layout expand="windowActions"
             spacing="true">
-        <fieldGroup id="fieldGroup"
-                    datasource="requestStepDs">
-            <column width="400px">
-                <field optionsDatasource="stepsDs"
-                       property="step"
-                       required="true"/>
-                <field optionsDatasource="usersDs"
-                       property="user"/>
-                <field property="description"
-                       rows="3"/>
-            </column>
-        </fieldGroup>
+        <tabSheet id="tabSheet">
+            <tab id="tabMain"
+                 caption="Main"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <fieldGroup id="fieldGroup"
+                            datasource="requestStepDs">
+                    <column width="400px">
+                        <field optionsDatasource="stepsDs"
+                               property="step"
+                               required="true"/>
+                        <field optionsDatasource="usersDs"
+                               property="user"/>
+                        <field property="description"
+                               rows="3"/>
+                    </column>
+                </fieldGroup>
+            </tab>
+            <tab id="tabSystem"
+                 caption="System"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <fieldGroup id="fieldsSystem"
+                            datasource="requestStepDs">
+                    <column width="350px">
+                        <field optionsDatasource="stepsDs"
+                               property="step"/>
+                        <field optionsDatasource="usersDs"
+                               property="user"/>
+                        <field caption="mainMsg://field.created"
+                               property="createTs"
+                               resolution="SEC"/>
+                        <field caption="mainMsg://field.author"
+                               property="createdBy"/>
+                        <field caption="mainMsg://field.updated"
+                               property="updateTs"
+                               resolution="SEC"/>
+                        <field caption="mainMsg://field.editor"
+                               property="updatedBy"/>
+                    </column>
+                </fieldGroup>
+            </tab>
+        </tabSheet>
         <frame id="windowActions"
                screen="editWindowActions"/>
     </layout>

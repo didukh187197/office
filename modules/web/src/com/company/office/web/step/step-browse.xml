@@ -166,6 +166,26 @@
                                 </buttonsPanel>
                             </table>
                         </tab>
+                        <tab id="tabSystem"
+                             caption="System"
+                             margin="true,false,false,false"
+                             spacing="true">
+                            <fieldGroup id="fieldsSystem"
+                                        datasource="stepDs">
+                                <column width="250px">
+                                    <field caption="mainMsg://field.created"
+                                           property="createTs"
+                                           resolution="SEC"/>
+                                    <field caption="mainMsg://field.author"
+                                           property="createdBy"/>
+                                    <field caption="mainMsg://field.updated"
+                                           property="updateTs"
+                                           resolution="SEC"/>
+                                    <field caption="mainMsg://field.editor"
+                                           property="updatedBy"/>
+                                </column>
+                            </fieldGroup>
+                        </tab>
                     </tabSheet>
                 </vbox>
                 <hbox id="actionsPane"

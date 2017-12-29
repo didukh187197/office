@@ -3,11 +3,9 @@ package com.company.office.web.step;
 import com.company.office.entity.ActionType;
 import com.company.office.entity.Step;
 import com.company.office.entity.StepAction;
+import com.company.office.service.ToolsService;
 import com.haulmont.cuba.core.global.Messages;
-import com.haulmont.cuba.gui.components.Action;
-import com.haulmont.cuba.gui.components.DialogAction;
-import com.haulmont.cuba.gui.components.EntityCombinedScreen;
-import com.haulmont.cuba.gui.components.FileUploadField;
+import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
 
 import javax.inject.Inject;
@@ -16,6 +14,9 @@ import java.util.Map;
 import java.util.UUID;
 
 public class StepBrowse extends EntityCombinedScreen {
+
+    @Inject
+    private ToolsService toolsService;
 
     @Inject
     private CollectionDatasource<StepAction, UUID> actionsDs;
@@ -36,6 +37,10 @@ public class StepBrowse extends EntityCombinedScreen {
                 templateField.setVisible(actionType.equals(ActionType.sendFile));
             }
         });
+
+        if (!toolsService.isSuperUser()) {
+            ((TabSheet) getComponentNN("tabSheet")).getTab("tabSystem").setVisible(false);
+        }
     }
 
     public void saveWithPrompt() {
@@ -64,8 +69,7 @@ public class StepBrowse extends EntityCombinedScreen {
                             }
 
                             super.save();
-                            CollectionDatasource browseDs = getTable().getDatasource();
-                            browseDs.refresh();
+                            getTable().getDatasource().refresh();
                         }),
                         new DialogAction(DialogAction.Type.NO, Action.Status.PRIMARY)
                 }

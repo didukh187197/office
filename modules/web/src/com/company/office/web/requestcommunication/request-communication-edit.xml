@@ -18,16 +18,43 @@
                 width="800"/>
     <layout expand="windowActions"
             spacing="true">
-        <fieldGroup id="fieldGroup"
-                    datasource="requestCommunicationDs">
-            <column width="400px">
-                <field property="question"
-                       rows="6"/>
-                <field property="answer"
-                       rows="6"/>
-                <field property="file"/>
-            </column>
-        </fieldGroup>
+        <tabSheet id="tabSheet">
+            <tab id="tabMain"
+                 caption="Main"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <fieldGroup id="fieldGroup"
+                            datasource="requestCommunicationDs">
+                    <column width="400px">
+                        <field property="question"
+                               rows="6"/>
+                        <field property="answer"
+                               rows="6"/>
+                        <field property="file"/>
+                    </column>
+                </fieldGroup>
+            </tab>
+            <tab id="tabSystem"
+                 caption="System"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <fieldGroup id="fieldsSystem"
+                            datasource="requestCommunicationDs">
+                    <column width="400px">
+                        <field caption="mainMsg://field.created"
+                               property="createTs"
+                               resolution="SEC"/>
+                        <field caption="mainMsg://field.author"
+                               property="createdBy"/>
+                        <field caption="mainMsg://field.updated"
+                               property="updateTs"
+                               resolution="SEC"/>
+                        <field caption="mainMsg://field.editor"
+                               property="updatedBy"/>
+                    </column>
+                </fieldGroup>
+            </tab>
+        </tabSheet>
         <frame id="windowActions"
                screen="editWindowActions"/>
     </layout>

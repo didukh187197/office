@@ -1,5 +1,6 @@
 package com.company.office.web.requestaction;
 
+import com.company.office.web.officeeditor.OfficeEditor;
 import com.company.office.entity.ActionType;
 import com.haulmont.cuba.gui.components.*;
 import com.company.office.entity.RequestAction;
@@ -10,7 +11,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Map;
 
-public class RequestActionEdit extends AbstractEditor<RequestAction> {
+public class RequestActionEdit extends OfficeEditor<RequestAction> {
 
     @Named("fieldGroup.type")
     private LookupField typeField;
@@ -35,13 +36,13 @@ public class RequestActionEdit extends AbstractEditor<RequestAction> {
 
     @Override
     public void init(Map<String, Object> params) {
-        getDialogOptions().setWidth(getComponentNN("fieldGroup").getWidth());
-
         uploadFile.setClearButtonCaption("");
         uploadFile.setUploadButtonCaption("");
 
         typeField.addValueChangeListener(e -> processActionType((ActionType) e.getValue()));
         lookupTemplate.addValueChangeListener(e -> setButtonParams());
+
+        super.additional();
     }
 
     @Override

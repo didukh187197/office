@@ -1,7 +1,7 @@
 package com.company.office.web.stepuser;
 
 import com.company.office.OfficeConfig;
-import com.haulmont.cuba.gui.components.AbstractEditor;
+import com.company.office.web.officeeditor.OfficeEditor;
 import com.company.office.entity.StepUser;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
 import com.haulmont.cuba.security.entity.User;
@@ -10,7 +10,7 @@ import javax.inject.Inject;
 import java.util.Map;
 import java.util.UUID;
 
-public class StepUserEdit extends AbstractEditor<StepUser> {
+public class StepUserEdit extends OfficeEditor<StepUser> {
 
     @Inject
     private OfficeConfig officeConfig;
@@ -20,10 +20,11 @@ public class StepUserEdit extends AbstractEditor<StepUser> {
 
     @Override
     public void init(Map<String, Object> params) {
-        getDialogOptions().setWidth(getComponentNN("fieldGroup").getWidth());
-
         if (officeConfig.getWorkersGroupQuery() != null) {
             usersDs.setQuery(officeConfig.getWorkersGroupQuery());
         }
+
+        super.additional();
     }
+
 }

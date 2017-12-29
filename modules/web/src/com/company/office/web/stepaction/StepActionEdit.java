@@ -1,5 +1,6 @@
 package com.company.office.web.stepaction;
 
+import com.company.office.web.officeeditor.OfficeEditor;
 import com.company.office.entity.ActionType;
 import com.haulmont.cuba.gui.components.*;
 import com.company.office.entity.StepAction;
@@ -10,7 +11,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Map;
 
-public class StepActionEdit extends AbstractEditor<StepAction> {
+public class StepActionEdit extends OfficeEditor<StepAction> {
 
     @Named("fieldGroup.type")
     private LookupField typeField;
@@ -29,10 +30,10 @@ public class StepActionEdit extends AbstractEditor<StepAction> {
 
     @Override
     public void init(Map<String, Object> params) {
-        getDialogOptions().setWidth(getComponentNN("fieldGroup").getWidth());
-
         typeField.addValueChangeListener(e -> processActionType((ActionType) e.getValue()));
         lookupFile.addValueChangeListener(e -> setButtonParams());
+
+        super.additional();
     }
 
     @Override

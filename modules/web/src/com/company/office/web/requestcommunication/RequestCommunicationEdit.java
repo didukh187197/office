@@ -1,15 +1,15 @@
 package com.company.office.web.requestcommunication;
 
-import com.haulmont.cuba.gui.components.AbstractEditor;
+import com.company.office.web.officeeditor.OfficeEditor;
 import com.company.office.entity.RequestCommunication;
 
 import java.util.Map;
 
-public class RequestCommunicationEdit extends AbstractEditor<RequestCommunication> {
+public class RequestCommunicationEdit extends OfficeEditor<RequestCommunication> {
 
     @Override
     public void init(Map<String, Object> params) {
-        getDialogOptions().setWidth(getComponentNN("fieldGroup").getWidth());
+        super.additional();
     }
 
 }

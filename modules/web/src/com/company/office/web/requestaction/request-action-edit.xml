@@ -25,58 +25,89 @@
                 width="800"/>
     <layout expand="windowActions"
             spacing="true">
-        <fieldGroup id="fieldGroup"
-                    datasource="requestActionDs">
-            <column fieldCaptionWidth="90px"
-                    width="400px">
-                <field property="type"
-                       required="true"/>
-                <field property="description"
-                       rows="3"/>
-                <field property="deadline"
-                       required="true"
-                       width="150px"/>
-                <field property="message"
-                       rows="3"/>
-                <field property="penalty"/>
-                <field property="createTs"/>
-            </column>
-        </fieldGroup>
-        <vbox id="boxFiles"
-              spacing="true">
-            <hbox expand="btnShowTemplate"
-                  spacing="true"
-                  width="100%">
-                <label id="labelTemplate"
-                       align="MIDDLE_CENTER"
-                       value="msg://lblTemplate"
-                       width="85px"/>
-                <lookupField id="lookupTemplate"
-                             datasource="requestActionDs"
-                             optionsDatasource="templatesDs"
-                             property="template"
-                             width="400px"/>
-                <linkButton id="btnShowTemplate"
-                            align="MIDDLE_CENTER"
-                            caption="msg://btnShowTemplate"
-                            invoke="onBtnShowTemplateClick"/>
-            </hbox>
-            <hbox expand="uploadFile"
-                  spacing="true"
-                  width="100%">
-                <label id="labelFile"
-                       align="MIDDLE_CENTER"
-                       value="msg://lblFile"
-                       width="85px"/>
-                <upload id="uploadFile"
-                        clearButtonIcon="icons/remove.png"
-                        datasource="requestActionDs"
-                        property="file"
-                        showClearButton="true"
-                        showFileName="true"
-                        uploadButtonIcon="icons/upload.png"/>
-            </hbox>
-        </vbox>
+        <tabSheet id="tabSheet">
+            <tab id="tabMain"
+                 caption="Main"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <fieldGroup id="fieldGroup"
+                            datasource="requestActionDs">
+                    <column fieldCaptionWidth="90px"
+                            width="400px">
+                        <field property="type"
+                               required="true"/>
+                        <field property="description"
+                               rows="3"/>
+                        <field property="deadline"
+                               required="true"
+                               width="150px"/>
+                        <field property="message"
+                               rows="3"/>
+                    </column>
+                </fieldGroup>
+                <vbox id="boxFiles"
+                      spacing="true">
+                    <hbox expand="btnShowTemplate"
+                          spacing="true"
+                          width="100%">
+                        <label id="labelTemplate"
+                               align="MIDDLE_CENTER"
+                               value="msg://lblTemplate"
+                               width="85px"/>
+                        <lookupField id="lookupTemplate"
+                                     datasource="requestActionDs"
+                                     optionsDatasource="templatesDs"
+                                     property="template"
+                                     width="400px"/>
+                        <linkButton id="btnShowTemplate"
+                                    align="MIDDLE_CENTER"
+                                    caption="msg://btnShowTemplate"
+                                    invoke="onBtnShowTemplateClick"/>
+                    </hbox>
+                    <hbox expand="uploadFile"
+                          spacing="true"
+                          width="100%">
+                        <label id="labelFile"
+                               align="MIDDLE_CENTER"
+                               value="msg://lblFile"
+                               width="85px"/>
+                        <upload id="uploadFile"
+                                clearButtonIcon="icons/remove.png"
+                                datasource="requestActionDs"
+                                property="file"
+                                showClearButton="true"
+                                showFileName="true"
+                                uploadButtonIcon="icons/upload.png"/>
+                    </hbox>
+                </vbox>
+            </tab>
+            <tab id="tabSystem"
+                 caption="System"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <fieldGroup id="fieldsSystem"
+                            datasource="requestActionDs">
+                    <column width="400px">
+                        <field property="submitted"
+                               width="120px"/>
+                        <field property="approved"
+                               width="120px"/>
+                        <field property="penalty"
+                               width="70px"/>
+                        <field caption="mainMsg://field.created"
+                               property="createTs"
+                               resolution="SEC"/>
+                        <field caption="mainMsg://field.author"
+                               property="createdBy"/>
+                        <field caption="mainMsg://field.updated"
+                               property="updateTs"
+                               resolution="SEC"/>
+                        <field caption="mainMsg://field.editor"
+                               property="updatedBy"/>
+                    </column>
+                </fieldGroup>
+            </tab>
+        </tabSheet>
         <frame id="windowActions"
                screen="editWindowActions"/>
     </layout>

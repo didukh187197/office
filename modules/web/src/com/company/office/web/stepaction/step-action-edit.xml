@@ -21,37 +21,63 @@
                 width="800"/>
     <layout expand="windowActions"
             spacing="true">
-        <fieldGroup id="fieldGroup"
-                    datasource="stepActionDs">
-            <column width="400px">
-                <field property="type"/>
-                <field property="description"
-                       rows="3"/>
-                <field property="workDays"
-                       required="true"
-                       width="100px"/>
-                <field property="createTs"
-                       width="200px"/>
-            </column>
-        </fieldGroup>
-        <groupBox id="boxFile"
-                  expand="lookupFile"
-                  orientation="horizontal"
-                  spacing="true"
-                  width="580px">
-            <label id="labelTemplate"
-                   align="MIDDLE_CENTER"
-                   value="msg://boxTemplate"/>
-            <lookupField id="lookupFile"
-                         datasource="stepActionDs"
-                         optionsDatasource="fileDescriptorsDs"
-                         property="template"/>
-            <linkButton id="btnFile"
-                        align="MIDDLE_CENTER"
-                        caption="msg://btnFile"
-                        invoke="onBtnFileClick"/>
-        </groupBox>
+        <tabSheet id="tabSheet">
+            <tab id="tabMain"
+                 caption="Main"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <fieldGroup id="fieldGroup"
+                            datasource="stepActionDs">
+                    <column width="400px">
+                        <field property="type"/>
+                        <field property="description"
+                               rows="3"/>
+                        <field property="workDays"
+                               required="true"
+                               width="100px"/>
+                    </column>
+                </fieldGroup>
+                <groupBox id="boxFile"
+                          expand="lookupFile"
+                          orientation="horizontal"
+                          spacing="true"
+                          width="580px">
+                    <label id="labelTemplate"
+                           align="MIDDLE_CENTER"
+                           value="msg://boxTemplate"/>
+                    <lookupField id="lookupFile"
+                                 datasource="stepActionDs"
+                                 optionsDatasource="fileDescriptorsDs"
+                                 property="template"/>
+                    <linkButton id="btnFile"
+                                align="MIDDLE_CENTER"
+                                caption="msg://btnFile"
+                                invoke="onBtnFileClick"/>
+                </groupBox>
+            </tab>
+            <tab id="tabSystem"
+                 caption="System"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <fieldGroup id="fieldsSystem"
+                            datasource="stepActionDs">
+                    <column width="400px">
+                        <field caption="mainMsg://field.created"
+                               property="createTs"
+                               resolution="SEC"/>
+                        <field caption="mainMsg://field.author"
+                               property="createdBy"/>
+                        <field caption="mainMsg://field.updated"
+                               property="updateTs"
+                               resolution="SEC"/>
+                        <field caption="mainMsg://field.editor"
+                               property="updatedBy"/>
+                    </column>
+                </fieldGroup>
+            </tab>
+        </tabSheet>
         <frame id="windowActions"
+               height="50px"
                screen="editWindowActions"/>
     </layout>
 </window>
