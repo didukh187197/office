@@ -16,6 +16,12 @@ public class MainSettingsScreen extends AbstractWindow {
     private TextField txtCompanyName;
 
     @Inject
+    private LookupField lookupManagersGroup;
+
+    @Inject
+    private LookupField lookupRegistratorsGroup;
+
+    @Inject
     private LookupField lookupApplicantsGroup;
 
     @Inject
@@ -35,6 +41,12 @@ public class MainSettingsScreen extends AbstractWindow {
         if (officeConfig.getCompanyName() != null)
             txtCompanyName.setValue(officeConfig.getCompanyName());
 
+        if (officeConfig.getManagersGroup() != null)
+            lookupManagersGroup.setValue(officeConfig.getManagersGroup());
+
+        if (officeConfig.getRegistratorsGroup() != null)
+            lookupRegistratorsGroup.setValue(officeConfig.getRegistratorsGroup());
+
         if (officeConfig.getApplicantsGroup() != null)
             lookupApplicantsGroup.setValue(officeConfig.getApplicantsGroup());
 
@@ -43,6 +55,17 @@ public class MainSettingsScreen extends AbstractWindow {
 
         if (officeConfig.getInitStep() != null)
             lookupInitStep.setValue(officeConfig.getInitStep());
+
+        if (officeConfig.getFinalStep() != null)
+            lookupFinalStep.setValue(officeConfig.getFinalStep());
+    }
+
+    private void warnEmptyField(String groupName) {
+        showMessageDialog(
+                getMessage("settingsDialog.warning.empty.title"),
+                String.format(getMessage("settingsDialog.warning.empty.msg"), getMessage("settingsDialog." + groupName)),
+                MessageType.WARNING.modal(true).closeOnClickOutside(true)
+        );
     }
 
     public void onBtnOkClick() {
@@ -52,63 +75,47 @@ public class MainSettingsScreen extends AbstractWindow {
                 MessageType.CONFIRMATION,
                 new Action[] {
                         new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
+                            if (lookupManagersGroup.getValue() == null) {
+                                warnEmptyField("managersGroup");
+                                return;
+                            }
+
+                            if (lookupRegistratorsGroup.getValue() == null) {
+                                warnEmptyField("registratorsGroup");
+                                return;
+                            }
+
                             if (lookupApplicantsGroup.getValue() == null) {
-                                showMessageDialog(
-                                        getMessage("settingsDialog.warning.empty.title"),
-                                        String.format(getMessage("settingsDialog.warning.empty.msg"), getMessage("settingsDialog.applicantsGroup")),
-                                        MessageType.WARNING.modal(true).closeOnClickOutside(true)
-                                );
+                                warnEmptyField("applicantsGroup");
                                 return;
                             }
 
                             if (lookupWorkersGroup.getValue() == null) {
-                                showMessageDialog(
-                                        getMessage("settingsDialog.warning.empty.title"),
-                                        String.format(getMessage("settingsDialog.warning.empty.msg"), getMessage("settingsDialog.workersGroup")),
-                                        MessageType.WARNING.modal(true).closeOnClickOutside(true)
-                                );
-                                return;
-                            }
-
-                            if (lookupApplicantsGroup.getValue() == lookupWorkersGroup.getValue()) {
-                                showMessageDialog(
-                                        getMessage("settingsDialog.warning.equals.title"),
-                                        getMessage("settingsDialog.warning.equals.msg"),
-                                        MessageType.WARNING.modal(true).closeOnClickOutside(true)
-                                );
+                                warnEmptyField("workersGroup");
                                 return;
                             }
 
                             if (lookupInitStep.getValue() == null) {
-                                showMessageDialog(
-                                        getMessage("settingsDialog.warning.empty.title"),
-                                        String.format(getMessage("settingsDialog.warning.empty.msg"), getMessage("settingsDialog.initStep")),
-                                        MessageType.WARNING.modal(true).closeOnClickOutside(true)
-                                );
+                                warnEmptyField("initStep");
                                 return;
                             }
 
                             if (lookupFinalStep.getValue() == null) {
-                                showMessageDialog(
-                                        getMessage("settingsDialog.warning.empty.title"),
-                                        String.format(getMessage("settingsDialog.warning.empty.msg"), getMessage("settingsDialog.finalStep")),
-                                        MessageType.WARNING.modal(true).closeOnClickOutside(true)
-                                );
+                                warnEmptyField("finalStep");
                                 return;
                             }
 
                             officeConfig.setCompanyName(txtCompanyName.getValue());
-
+                            officeConfig.setManagersGroup(lookupManagersGroup.getValue());
+                            officeConfig.setRegistratorsGroup(lookupRegistratorsGroup.getValue());
                             officeConfig.setApplicantsGroup(lookupApplicantsGroup.getValue());
                             officeConfig.setApplicantsGroupQuery(
                                     String.format("select e from sec$User e where e.group.id = '%s'", officeConfig.getApplicantsGroup().getId())
                             );
-
                             officeConfig.setWorkersGroup(lookupWorkersGroup.getValue());
                             officeConfig.setWorkersGroupQuery(
                                     String.format("select e from sec$User e where e.group.id = '%s'", officeConfig.getWorkersGroup().getId())
                             );
-
                             officeConfig.setInitStep(lookupInitStep.getValue());
                             officeConfig.setFinalStep(lookupFinalStep.getValue());
 

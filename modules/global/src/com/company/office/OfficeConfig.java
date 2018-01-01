@@ -14,6 +14,14 @@ public interface OfficeConfig extends Config {
     String getCompanyName();
     void setCompanyName(String name);
 
+    @Property("office.managersGroup")
+    Group getManagersGroup();
+    void setManagersGroup(Group group);
+
+    @Property("office.registratorsGroup")
+    Group getRegistratorsGroup();
+    void setRegistratorsGroup(Group group);
+
     @Property("office.applicantsGroup")
     Group getApplicantsGroup();
     void setApplicantsGroup(Group group);

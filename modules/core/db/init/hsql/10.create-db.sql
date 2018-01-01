@@ -114,10 +114,10 @@ create table OFFICE_REQUEST_STEP (
     CREATE_TS timestamp,
     CREATED_BY varchar(50),
     --
+    REQUEST_ID varchar(36),
     STEP_ID varchar(36),
     USER_ID varchar(36),
     DESCRIPTION varchar(100),
-    REQUEST_ID varchar(36),
     --
     primary key (ID)
 )^

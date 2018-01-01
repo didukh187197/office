@@ -1,0 +1,1 @@
+alter table OFFICE_REQUEST_STEP drop constraint FK_OFFICE_REQUEST_STEP_REQUEST;

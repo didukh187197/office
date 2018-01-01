@@ -35,6 +35,30 @@
                   caption="msg://settingsDialog.groupsBox"
                   spacing="true"
                   width="500px">
+            <hbox id="managersBox"
+                  expand="lookupManagersGroup"
+                  spacing="true"
+                  width="100%">
+                <label align="MIDDLE_LEFT"
+                       value="msg://settingsDialog.managersGroup"
+                       width="80px"/>
+                <lookupField id="lookupManagersGroup"
+                             nullOptionVisible="false"
+                             optionsDatasource="groupsDs"
+                             required="true"/>
+            </hbox>
+            <hbox id="registratorsBox"
+                  expand="lookupRegistratorsGroup"
+                  spacing="true"
+                  width="100%">
+                <label align="MIDDLE_LEFT"
+                       value="msg://settingsDialog.registratorsGroup"
+                       width="80px"/>
+                <lookupField id="lookupRegistratorsGroup"
+                             nullOptionVisible="false"
+                             optionsDatasource="groupsDs"
+                             required="true"/>
+            </hbox>
             <hbox id="applicantsBox"
                   expand="lookupApplicantsGroup"
                   spacing="true"

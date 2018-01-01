@@ -19,6 +19,11 @@ import com.haulmont.cuba.core.entity.Creatable;
 public class RequestStep extends BaseUuidEntity implements Updatable, Creatable {
     private static final long serialVersionUID = 3776301119152373188L;
 
+    @OnDeleteInverse(DeletePolicy.CASCADE)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "REQUEST_ID")
+    protected Request request;
+
     @OnDeleteInverse(DeletePolicy.DENY)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "STEP_ID")
@@ -43,10 +48,6 @@ public class RequestStep extends BaseUuidEntity implements Updatable, Creatable 
 
     @Column(name = "CREATED_BY", length = 50)
     protected String createdBy;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "REQUEST_ID")
-    protected Request request;
 
     public void setRequest(Request request) {
         this.request = request;
