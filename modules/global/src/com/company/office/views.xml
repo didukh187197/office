@@ -40,6 +40,10 @@
         <property name="createdBy"/>
         <property name="updateTs"/>
         <property name="updatedBy"/>
+        <property name="step"
+                  view="_minimal"/>
+        <property name="user"
+                  view="_minimal"/>
     </view>
     <view class="com.company.office.entity.RequestCommunication"
           extends="_local"

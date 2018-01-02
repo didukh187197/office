@@ -12,7 +12,7 @@ public class OfficeEditor<T extends Entity> extends AbstractEditor {
     private ToolsService toolsService;
 
     private void checkSystemTab() {
-        if (!toolsService.isSuperUser()) {
+        if (!toolsService.isActiveSuper()) {
             ((TabSheet) getComponentNN("tabSheet")).getTab("tabSystem").setVisible(false);
         }
     }

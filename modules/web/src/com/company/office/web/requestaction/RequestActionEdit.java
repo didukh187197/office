@@ -48,7 +48,7 @@ public class RequestActionEdit extends OfficeEditor<RequestAction> {
     @Override
     protected void postInit() {
         if (typeField.getValue() == null) {
-            typeField.setValue(ActionType.fromId("file"));
+            typeField.setValue(ActionType.sendFile);
         }
         processActionType(typeField.getValue());
     }

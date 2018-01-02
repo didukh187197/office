@@ -20,6 +20,7 @@ import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
 import com.haulmont.cuba.core.entity.Updatable;
 import com.haulmont.chile.core.annotations.NumberFormat;
+import com.haulmont.cuba.security.entity.User;
 
 @Table(name = "OFFICE_REQUEST_ACTION")
 @Entity(name = "office$RequestAction")
@@ -30,6 +31,16 @@ public class RequestAction extends BaseUuidEntity implements Creatable, Updatabl
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "REQUEST_ID")
     protected Request request;
+
+    @OnDeleteInverse(DeletePolicy.DENY)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "STEP_ID")
+    protected Step step;
+
+    @OnDeleteInverse(DeletePolicy.DENY)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USER_ID")
+    protected User user;
 
     @Column(name = "TYPE_")
     protected String type;
@@ -79,6 +90,23 @@ public class RequestAction extends BaseUuidEntity implements Creatable, Updatabl
 
     @Column(name = "UPDATED_BY", length = 50)
     protected String updatedBy;
+
+    public void setStep(Step step) {
+        this.step = step;
+    }
+
+    public Step getStep() {
+        return step;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
 
     public void setPenalty(Integer penalty) {
         this.penalty = penalty;

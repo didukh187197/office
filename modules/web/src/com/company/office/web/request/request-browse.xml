@@ -43,7 +43,7 @@
         <collectionDatasource id="stepDs"
                               class="com.company.office.entity.Step">
             <query>
-                <![CDATA[select e from office$Step e]]>
+                <![CDATA[select e from office$Step e order by e.identifier]]>
             </query>
         </collectionDatasource>
     </dsContext>
@@ -83,9 +83,14 @@
                         <action id="create"/>
                         <action id="edit"/>
                         <action id="remove"/>
+                        <action id="setStep"
+                                caption="msg://setStepBtn"
+                                enable="false"
+                                invoke="onSetStep"/>
                     </actions>
                     <columns>
                         <column id="applicant"/>
+                        <column id="applicantCode"/>
                         <column id="sn"
                                 caption="#"
                                 generator="snGenerator"/>
@@ -105,6 +110,8 @@
                                 action="table.edit"/>
                         <button id="removeBtn"
                                 action="table.remove"/>
+                        <button id="setStepBtn"
+                                action="table.setStep"/>
                     </buttonsPanel>
                 </groupTable>
             </vbox>
@@ -191,8 +198,8 @@
                                 <columns>
                                     <column id="createTs"
                                             caption="mainMsg://field.created"/>
-                                    <column id="createdBy"
-                                            caption="mainMsg://field.author"/>
+                                    <column id="step"/>
+                                    <column id="user"/>
                                     <column id="type"/>
                                     <column id="deadline"/>
                                     <column id="submitted"/>
@@ -267,6 +274,7 @@
                             <fieldGroup id="fieldsSystem"
                                         datasource="requestDs">
                                 <column width="350px">
+                                    <field property="state"/>
                                     <field optionsDatasource="stepDs"
                                            property="step"/>
                                     <field optionsDatasource="workerDs"

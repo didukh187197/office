@@ -8,8 +8,10 @@ import javax.annotation.Nullable;
 public enum State implements EnumClass<String> {
 
     Waiting("waiting"),
-    Processed("processed"),
-    Closed("closed");
+    Processing("processing"),
+    Closed("closed"),
+    Archived("archived"),
+    Cancelled("cancelled");
 
     private String id;
 

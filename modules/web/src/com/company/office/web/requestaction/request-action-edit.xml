@@ -43,6 +43,8 @@
                                width="150px"/>
                         <field property="message"
                                rows="3"/>
+                        <field property="user"/>
+                        <field property="step"/>
                     </column>
                 </fieldGroup>
                 <vbox id="boxFiles"
@@ -104,6 +106,8 @@
                                resolution="SEC"/>
                         <field caption="mainMsg://field.editor"
                                property="updatedBy"/>
+                        <field property="step"/>
+                        <field property="user"/>
                     </column>
                 </fieldGroup>
             </tab>

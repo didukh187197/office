@@ -38,7 +38,7 @@ public class StepBrowse extends EntityCombinedScreen {
             }
         });
 
-        if (!toolsService.isSuperUser()) {
+        if (!toolsService.isActiveSuper()) {
             ((TabSheet) getComponentNN("tabSheet")).getTab("tabSystem").setVisible(false);
         }
     }
@@ -46,7 +46,7 @@ public class StepBrowse extends EntityCombinedScreen {
     public void saveWithPrompt() {
         showOptionDialog(
                 messages.getMainMessage("dialog.saveAndClose.title"),
-                messages.getMainMessage("dialog.saveAndClose.msg"),
+                messages.getMainMessage("dialog.msg"),
                 MessageType.CONFIRMATION,
                 new Action[] {
                         new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {

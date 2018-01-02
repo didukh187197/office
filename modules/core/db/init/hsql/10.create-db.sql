@@ -60,6 +60,8 @@ create table OFFICE_REQUEST_ACTION (
     UPDATED_BY varchar(50),
     --
     REQUEST_ID varchar(36),
+    STEP_ID varchar(36),
+    USER_ID varchar(36),
     TYPE_ varchar(50),
     DESCRIPTION varchar(100),
     DEADLINE date,

@@ -39,7 +39,7 @@ public class StepActionEdit extends OfficeEditor<StepAction> {
     @Override
     protected void postInit() {
         if (typeField.getValue() == null)
-            typeField.setValue(ActionType.fromId("file"));
+            typeField.setValue(ActionType.sendFile);
 
         processActionType(typeField.getValue());
     }
@@ -52,7 +52,7 @@ public class StepActionEdit extends OfficeEditor<StepAction> {
     }
 
     private void processActionType(ActionType type) {
-        if (type == ActionType.fromId("file")) {
+        if (type.equals(ActionType.sendFile)) {
             boxFile.setVisible(true);
             lookupFile.setRequired(true);
         } else {

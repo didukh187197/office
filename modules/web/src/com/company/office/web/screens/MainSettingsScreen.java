@@ -61,17 +61,20 @@ public class MainSettingsScreen extends AbstractWindow {
     }
 
     private void warnEmptyField(String groupName) {
+        showNotification(String.format(getMessage("settingsDialog.warning.empty.msg"), getMessage("settingsDialog." + groupName)), NotificationType.ERROR);
+        /*
         showMessageDialog(
                 getMessage("settingsDialog.warning.empty.title"),
                 String.format(getMessage("settingsDialog.warning.empty.msg"), getMessage("settingsDialog." + groupName)),
                 MessageType.WARNING.modal(true).closeOnClickOutside(true)
         );
+        */
     }
 
     public void onBtnOkClick() {
         showOptionDialog(
                 messages.getMainMessage("dialog.saveAndClose.title"),
-                messages.getMainMessage("dialog.saveAndClose.msg"),
+                messages.getMainMessage("dialog.msg"),
                 MessageType.CONFIRMATION,
                 new Action[] {
                         new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
