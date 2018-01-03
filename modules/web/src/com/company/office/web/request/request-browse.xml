@@ -110,8 +110,16 @@
                                 action="table.edit"/>
                         <button id="removeBtn"
                                 action="table.remove"/>
-                        <button id="setStepBtn"
-                                action="table.setStep"/>
+                        <hbox id="probaBox"
+                              spacing="true">
+                            <button id="setStepBtn"
+                                    action="table.setStep"/>
+                            <button id="razBtn"
+                                    caption="Raz"
+                                    invoke="onRazBtnClick"/>
+                            <button caption="Dva"/>
+                            <button caption="Tri"/>
+                        </hbox>
                     </buttonsPanel>
                 </groupTable>
             </vbox>

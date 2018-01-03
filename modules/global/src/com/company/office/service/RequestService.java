@@ -1,10 +1,10 @@
 package com.company.office.service;
 
-
 import com.company.office.entity.Request;
 
 public interface RequestService {
     String NAME = "office_RequestService";
 
-    void newRequestStep(Request request);
+    void nextStep(Request request);
+    boolean setWorker(Request request);
 }

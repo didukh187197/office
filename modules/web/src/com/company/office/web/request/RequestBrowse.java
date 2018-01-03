@@ -101,14 +101,18 @@ public class RequestBrowse extends EntityCombinedScreen {
     }
 
     private void setUserInterface() {
+        //getComponentNN("probaBox").setVisible(false);
+
+        TabSheet tabSheet = (TabSheet) getComponentNN("tabSheet");
+
         if (!toolsService.isActiveSuper()) {
-            ((TabSheet) getComponentNN("tabSheet")).getTab("tabSystem").setVisible(false);
+            tabSheet.getTab("tabSystem").setVisible(false);
         }
 
         if (toolsService.getActiveGroup().equals(officeConfig.getRegistratorsGroup())) {
-            ((TabSheet) getComponentNN("tabSheet")).getTab("stepsTab").setVisible(false);
-            ((TabSheet) getComponentNN("tabSheet")).getTab("actionsTab").setVisible(false);
-            ((TabSheet) getComponentNN("tabSheet")).getTab("communicationsTab").setVisible(false);
+            tabSheet.getTab("stepsTab").setVisible(false);
+            tabSheet.getTab("actionsTab").setVisible(false);
+            tabSheet.getTab("communicationsTab").setVisible(false);
         }
     }
 
@@ -130,12 +134,6 @@ public class RequestBrowse extends EntityCombinedScreen {
             showNotification(getMessage("warning.notApplicant"), NotificationType.ERROR);
             return false;
         }
-
-        Request request = (Request) getFieldGroup().getDatasource().getItem();
-        if (PersistenceHelper.isNew(request)) {
-            request.setState(State.Waiting);
-        }
-
         return true;
     }
 
@@ -147,7 +145,16 @@ public class RequestBrowse extends EntityCombinedScreen {
                 new Action[] {
                         new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
                             if (preSave()) {
+                                boolean isNew = PersistenceHelper.isNew(getFieldGroup().getDatasource().getItem());
+
                                 super.save();
+
+                                if (isNew) {
+                                    requestService.nextStep(requestsDs.getItem());
+                                    if (!requestService.setWorker(requestsDs.getItem())) {
+                                        showMessage("No available users on step: " + requestsDs.getItem());
+                                    }
+                                }
                                 requestsDs.refresh();
                             }
                         }),
@@ -156,8 +163,6 @@ public class RequestBrowse extends EntityCombinedScreen {
         );
     }
 
-
-
     public void onSetStep(Component source) {
         showOptionDialog(
                 "",
@@ -165,14 +170,18 @@ public class RequestBrowse extends EntityCombinedScreen {
                 MessageType.CONFIRMATION,
                 new Action[] {
                         new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
-                            requestService.newRequestStep(requestsDs.getItem());
+                            requestService.nextStep(requestsDs.getItem());
                             requestsDs.refresh();
                         }),
                         new DialogAction(DialogAction.Type.NO, Action.Status.PRIMARY)
                 }
         );
+    }
 
+    public void onRazBtnClick() {}
 
+    private void showMessage(String msg) {
+        showMessageDialog("", msg, MessageType.CONFIRMATION);
 
     }
 }

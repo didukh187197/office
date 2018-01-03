@@ -27,4 +27,13 @@ public class StepUserEdit extends OfficeEditor<StepUser> {
         super.additional();
     }
 
+    @Override
+    protected boolean preCommit() {
+        if (getItem().getThreshold() <= 0) {
+            showNotification(getMessage("warn.wrongThreshold"), NotificationType.ERROR);
+            return false;
+        }
+
+        return true;
+    }
 }
