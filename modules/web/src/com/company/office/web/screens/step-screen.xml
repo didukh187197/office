@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://caption"
+        class="com.company.office.web.screens.StepScreen"
+        focusComponent="table"
+        lookupComponent="table"
+        messagesPack="com.company.office.web.screens">
+    <dsContext>
+        <collectionDatasource id="stepsDs"
+                              class="com.company.office.entity.Step">
+            <query>
+                <![CDATA[select e from office$Step e order by e.identifier]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode forceDialog="true"
+                height="300"
+                width="400"/>
+    <layout expand="table"
+            spacing="true">
+        <table id="table"
+               width="100%">
+            <columns>
+                <column id="identifier"/>
+                <column id="description"/>
+            </columns>
+            <rows datasource="stepsDs"/>
+        </table>
+    </layout>
+</window>

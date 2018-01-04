@@ -28,12 +28,6 @@
                 <![CDATA[select e from office$Request e]]>
             </query>
         </groupDatasource>
-        <collectionDatasource id="applicantDs"
-                              class="com.haulmont.cuba.security.entity.User">
-            <query>
-                <![CDATA[select e from sec$User e]]>
-            </query>
-        </collectionDatasource>
         <collectionDatasource id="workerDs"
                               class="com.haulmont.cuba.security.entity.User">
             <query>
@@ -83,10 +77,6 @@
                         <action id="create"/>
                         <action id="edit"/>
                         <action id="remove"/>
-                        <action id="setStep"
-                                caption="msg://setStepBtn"
-                                enable="false"
-                                invoke="onSetStep"/>
                     </actions>
                     <columns>
                         <column id="applicant"/>
@@ -94,10 +84,9 @@
                         <column id="sn"
                                 caption="#"
                                 generator="snGenerator"/>
-                        <column id="description"/>
                         <column id="step"/>
-                        <column id="user"/>
                         <column id="state"/>
+                        <column id="user"/>
                         <column id="penalty"/>
                     </columns>
                     <rows datasource="requestsDs"/>
@@ -110,16 +99,30 @@
                                 action="table.edit"/>
                         <button id="removeBtn"
                                 action="table.remove"/>
-                        <hbox id="probaBox"
-                              spacing="true">
-                            <button id="setStepBtn"
-                                    action="table.setStep"/>
-                            <button id="razBtn"
-                                    caption="Raz"
-                                    invoke="onRazBtnClick"/>
-                            <button caption="Dva"/>
-                            <button caption="Tri"/>
-                        </hbox>
+                        <popupButton id="extraActionsBtn"
+                                     caption="msg://extraActionsBtn"
+                                     enable="false">
+                            <actions>
+                                <action id="findUser"
+                                        caption="msg://extraActionsBtn.findUser"
+                                        invoke="onFindUser"/>
+                                <action id="changeStep"
+                                        caption="msg://extraActionsBtn.changeStep"
+                                        invoke="onChangeStep"/>
+                                <action id="suspend"
+                                        caption="msg://extraActionsBtn.suspend"
+                                        invoke="onSuspend"/>
+                                <action id="resume"
+                                        caption="msg://extraActionsBtn.resume"
+                                        invoke="onResume"/>
+                                <action id="cancel"
+                                        caption="msg://extraActionsBtn.cancel"
+                                        invoke="onCancel"/>
+                                <action id="archive"
+                                        caption="msg://extraActionsBtn.archive"
+                                        invoke="onArchive"/>
+                            </actions>
+                        </popupButton>
                     </buttonsPanel>
                 </groupTable>
             </vbox>

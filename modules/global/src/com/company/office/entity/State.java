@@ -11,7 +11,8 @@ public enum State implements EnumClass<String> {
     Processing("processing"),
     Closed("closed"),
     Archived("archived"),
-    Cancelled("cancelled");
+    Cancelled("cancelled"),
+    Suspended("suspended");
 
     private String id;
 

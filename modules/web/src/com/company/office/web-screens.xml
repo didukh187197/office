@@ -21,4 +21,8 @@
             template="com/company/office/web/step/step-browse.xml"/>
     <screen id="office$StepUser.edit"
             template="com/company/office/web/stepuser/step-user-edit.xml"/>
+    <screen id="step-screen"
+            template="com/company/office/web/screens/step-screen.xml"/>
+    <screen id="office$StepAction.browse"
+            template="com/company/office/web/stepaction/step-action-browse.xml"/>
 </screen-config>

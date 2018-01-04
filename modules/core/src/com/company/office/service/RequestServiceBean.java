@@ -2,9 +2,11 @@ package com.company.office.service;
 
 import com.company.office.OfficeConfig;
 import com.company.office.entity.*;
+import com.haulmont.cuba.core.entity.Entity;
 import com.haulmont.cuba.core.global.CommitContext;
 import com.haulmont.cuba.core.global.DataManager;
 import com.haulmont.cuba.core.global.LoadContext;
+import com.haulmont.cuba.core.global.Messages;
 import com.haulmont.cuba.security.entity.User;
 import org.springframework.stereotype.Service;
 
@@ -21,21 +23,22 @@ public class RequestServiceBean implements RequestService {
     @Inject
     private DataManager dataManager;
 
+    @Inject
+    private Messages messages;
+
     @Override
     public void nextStep(Request request) {
         Step step = request.getStep();
+        State state;
 
-        if (step != null) {
-            if (step.equals(officeConfig.getFinalStep())) {
-                request.setState(State.Closed);
-                saveRequest(request);
-                return;
-            }
+        if ( (step != null) && (step.equals(officeConfig.getFinalStep())) ) {
+            state = State.Closed;
+        } else {
+            request.setStep(getNextStep(step));
+            state = State.Waiting;
         }
 
-        request.setState(State.Waiting);
-        request.setStep(getNextStep(step));
-        saveRequest(request);
+        stepChangeFixing(request, null, state);
     }
 
     @Override
@@ -47,14 +50,8 @@ public class RequestServiceBean implements RequestService {
             return false;
         }
 
-        setStepAndUser(rq, worker);
+        stepChangeFixing(rq, worker, State.Processing);
         return true;
-    }
-
-    private void saveRequest(Request request) {
-        CommitContext commitContext = new CommitContext();
-        commitContext.addInstanceToCommit(request);
-        dataManager.commit(commitContext);
     }
 
     private Step getNextStep(Step step) {
@@ -92,34 +89,45 @@ public class RequestServiceBean implements RequestService {
         return dataManager.load(loadContext);
     }
 
-    private void setStepAndUser(Request request, User user) {
+    private void commitEntity(Entity entity) {
+        CommitContext commitContext = new CommitContext();
+        commitContext.addInstanceToCommit(entity);
+        dataManager.commit(commitContext);
+    }
+
+    private void stepChangeFixing(Request request, User worker, State state) {
         Step step = request.getStep();
+
+        request.setStep(step);
+        request.setUser(worker);
+        request.setState(state);
+        request.setPenalty(null);
 
         RequestStep requestStep = new RequestStep();
         requestStep.setRequest(request);
         requestStep.setStep(step);
-        requestStep.setUser(user);
-        requestStep.setDescription(step.getDescription());
+        requestStep.setUser(worker);
+        requestStep.setDescription(messages.getMessage(state));
 
-        List<StepAction> stepActions = getStepByID(step.getId()).getActions();
-        for (StepAction sa: stepActions) {
-            RequestAction requestAction = new RequestAction();
-            requestAction.setRequest(request);
-            requestAction.setStep(step);
-            requestAction.setUser(user);
-            requestAction.setDescription(step.getDescription());
-            requestAction.setType(sa.getType());
-            if (sa.getType().equals(ActionType.sendFile)) {
-                requestAction.setTemplate(sa.getTemplate());
+        if (worker != null) {
+            List<StepAction> stepActions = getStepByID(step.getId()).getActions();
+            for (StepAction sa : stepActions) {
+                RequestAction requestAction = new RequestAction();
+                requestAction.setRequest(request);
+                requestAction.setStep(step);
+                requestAction.setUser(worker);
+                requestAction.setDescription(sa.getDescription());
+                requestAction.setType(sa.getType());
+                if (sa.getType().equals(ActionType.sendFile)) {
+                    requestAction.setTemplate(sa.getTemplate());
+                }
+                request.getActions().add(requestAction);
             }
-            request.getActions().add(requestAction);
+            requestStep.setDescription("Assigned to " + worker.getName() + (stepActions.size() != 0 ? ". Actions added" : "") );
         }
-
         request.getSteps().add(requestStep);
-        request.setState(State.Processing);
-        request.setStep(step);
 
-        saveRequest(request);
+        commitEntity(request);
     }
 
     private User getFreeUser(Step step) {
@@ -128,7 +136,7 @@ public class RequestServiceBean implements RequestService {
                 .setView("stepUser-view");
 
         double minRate = Double.MAX_VALUE;
-        User resUser = null;
+        StepUser resStepUser = null;
 
         List<StepUser> stepsUsers = dataManager.loadList(loadContext);
         for (StepUser su : stepsUsers) {
@@ -137,12 +145,20 @@ public class RequestServiceBean implements RequestService {
                 double suRate = count / su.getThreshold();
                 if (suRate < minRate) {
                     minRate = suRate;
-                    resUser = su.getUser();
+                    resStepUser = su;
                 }
             }
         }
 
-        return resUser;
+        if (resStepUser != null) {
+            int count = resStepUser.getRequests() == null ? 0 : resStepUser.getRequests();
+            resStepUser.setRequests(count + 1);
+            commitEntity(resStepUser);
+
+            return resStepUser.getUser();
+        } else {
+            return null;
+        }
     }
 
 }

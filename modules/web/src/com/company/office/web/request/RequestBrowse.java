@@ -4,6 +4,9 @@ import com.company.office.OfficeConfig;
 import com.company.office.entity.*;
 import com.company.office.service.RequestService;
 import com.company.office.service.ToolsService;
+import com.haulmont.bali.util.ParamsMap;
+import com.haulmont.cuba.core.global.DataManager;
+import com.haulmont.cuba.core.global.LoadContext;
 import com.haulmont.cuba.core.global.PersistenceHelper;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
@@ -27,11 +30,6 @@ public class RequestBrowse extends EntityCombinedScreen {
     @Inject
     private OfficeConfig officeConfig;
 
-    /*
-    @Inject
-    private CollectionDatasource<User, UUID> applicantDs;
-    */
-
     @Inject
     private GroupDatasource<Request, UUID> requestsDs;
 
@@ -41,8 +39,8 @@ public class RequestBrowse extends EntityCombinedScreen {
     @Inject
     private CollectionDatasource<RequestAction, UUID> actionsDs;
 
-    @Named("table.setStep")
-    private Action tableSetStep;
+    @Named("extraActionsBtn.findUser")
+    private Action extraActionsBtnFindUser;
 
     @Named("fieldGroup.applicant")
     private PickerField applicantField;
@@ -63,11 +61,6 @@ public class RequestBrowse extends EntityCombinedScreen {
     }
 
     private void tuneFields() {
-        /*
-        if (officeConfig.getApplicantsGroup() != null) {
-            applicantDs.setQuery(officeConfig.getApplicantsGroupQuery());
-        }
-        */
         applicantField.getLookupAction().setLookupScreenOpenType(WindowManager.OpenType.DIALOG);
 
         if (officeConfig.getWorkersGroupQuery() != null) {
@@ -75,9 +68,12 @@ public class RequestBrowse extends EntityCombinedScreen {
         }
     }
 
+    @Inject
+    private GroupTable<Request> table;
+
     private void addDsListeners() {
         requestsDs.addItemChangeListener(e -> {
-            tableSetStep.setEnabled(false);
+            //extraActionsBtnFindUser.setEnabled(false);
 
             if (e.getItem() == null)
                 return;
@@ -85,7 +81,8 @@ public class RequestBrowse extends EntityCombinedScreen {
             if (e.getItem().getState() == null)
                 return;
 
-            tableSetStep.setEnabled(e.getItem().getState().equals(State.Waiting));
+            getComponentNN("extraActionsBtn").setEnabled(table.getSelected() != null);
+            extraActionsBtnFindUser.setEnabled(e.getItem().getState().equals(State.Waiting));
         });
 
         actionsDs.addItemChangeListener(e -> {
@@ -101,12 +98,11 @@ public class RequestBrowse extends EntityCombinedScreen {
     }
 
     private void setUserInterface() {
-        //getComponentNN("probaBox").setVisible(false);
-
         TabSheet tabSheet = (TabSheet) getComponentNN("tabSheet");
 
         if (!toolsService.isActiveSuper()) {
             tabSheet.getTab("tabSystem").setVisible(false);
+            getComponentNN("extraActionsBtn").setVisible(false);
         }
 
         if (toolsService.getActiveGroup().equals(officeConfig.getRegistratorsGroup())) {
@@ -137,6 +133,22 @@ public class RequestBrowse extends EntityCombinedScreen {
         return true;
     }
 
+    @Inject
+    private DataManager dataManager;
+
+    private Request getSelectedRequest() {
+        LoadContext<Request> loadContext = LoadContext.create(Request.class).setId(requestsDs.getItem().getId()).setView("request-view");
+        return dataManager.load(loadContext);
+    }
+
+    private void tryToAssignUser() {
+        if (requestService.setWorker(requestsDs.getItem())) {
+            showMessage("The request is assigned to " + getSelectedRequest().getUser().getName());
+        } else {
+            showMessage("No available workers on step: " + getSelectedRequest().getStep().getDescription());
+        }
+    }
+
     public void saveWithPrompt() {
         showOptionDialog(
                 "",
@@ -151,9 +163,7 @@ public class RequestBrowse extends EntityCombinedScreen {
 
                                 if (isNew) {
                                     requestService.nextStep(requestsDs.getItem());
-                                    if (!requestService.setWorker(requestsDs.getItem())) {
-                                        showMessage("No available users on step: " + requestsDs.getItem());
-                                    }
+                                    tryToAssignUser();
                                 }
                                 requestsDs.refresh();
                             }
@@ -163,25 +173,47 @@ public class RequestBrowse extends EntityCombinedScreen {
         );
     }
 
-    public void onSetStep(Component source) {
-        showOptionDialog(
-                "",
-                getMessage("dialog.nextStep.title"),
-                MessageType.CONFIRMATION,
-                new Action[] {
-                        new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
-                            requestService.nextStep(requestsDs.getItem());
-                            requestsDs.refresh();
-                        }),
-                        new DialogAction(DialogAction.Type.NO, Action.Status.PRIMARY)
-                }
-        );
-    }
-
-    public void onRazBtnClick() {}
-
     private void showMessage(String msg) {
         showMessageDialog("", msg, MessageType.CONFIRMATION);
+    }
 
+    public void onFindUser(Component source) {
+        tryToAssignUser();
+        requestsDs.refresh();
+    }
+
+    public void onChangeStep(Component source) {
+    }
+
+    public void onSuspend(Component source) {
+    }
+
+    public void onResume(Component source) {
+    }
+
+    public void onCancel(Component source) {
+        showMessage(messages.getMessage(getSelectedRequest().getState()));
+    }
+
+    private void showStep(Step step) {
+        if (step == null) {
+            showMessage("null");
+        } else {
+            showMessage(step.getDescription());
+        }
+    }
+
+    public void onArchive(Component source) {
+        openLookup("step-screen",
+                items -> {
+                    if (!items.isEmpty()) {
+                        for (Object item : items) {
+                            showStep(((Step) item));
+                        }
+                    }
+                },
+                WindowManager.OpenType.DIALOG,
+                ParamsMap.of("selectedStep", getSelectedRequest().getStep())
+        );
     }
 }
