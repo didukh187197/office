@@ -64,7 +64,6 @@ public class RequestBrowse extends EntityCombinedScreen {
 
     private void addDsListeners() {
         PopupButton extraActionsBtn = (PopupButton) getComponentNN("extraActionsBtn");
-        CollectionDatasource<RequestAction, UUID> actionsDs = ((Table) getComponentNN("actionsTable")).getDatasource();
 
         requestsDs.addItemChangeListener(e -> {
             extraActionsBtn.setEnabled(false);
@@ -72,78 +71,64 @@ public class RequestBrowse extends EntityCombinedScreen {
             if (e.getItem() == null)
                 return;
 
-            if (e.getItem().getState() == null)
+            if (e.getItem().getStep() == null)
+                return;
+
+            if (e.getItem().getStep().getState() == null)
                 return;
 
             if (!getTable().getSelected().isEmpty()) {
                 extraActionsBtn.setEnabled(true);
-                extraActionsBtn.getAction("findUser").setEnabled(e.getItem().getState().equals(State.Waiting));
-            }
-        });
-
-        FieldGroup fieldsAction = (FieldGroup) getComponentNN("fieldsAction");
-        Component fileField = fieldsAction.getFieldNN("file").getComponent();
-        Component messageField = fieldsAction.getFieldNN("message").getComponent();
-
-        actionsDs.addItemChangeListener(e -> {
-            if (actionsDs.getItem() != null) {
-                ActionType actionType = actionsDs.getItem().getType();
-
-                if (actionType != null) {
-                    fileField.setVisible(actionType.equals(ActionType.sendFile));
-                    messageField.setVisible(actionType.equals(ActionType.sendMessage));
-                }
+                extraActionsBtn.getAction("findUser").setEnabled(e.getItem().getStep().getState().equals(State.Waiting));
             }
         });
     }
 
     private void setUserInterface() {
+        if (toolsService.isActiveSuper())
+            return;
+
         TabSheet tabSheet = (TabSheet) getComponentNN("tabSheet");
+        tabSheet.getTab("systemTab").setVisible(false);
 
-        Table actionsTable = (Table) getComponentNN("actionsTable");
-        CollectionDatasource<RequestAction, UUID> actionsDs = actionsTable.getDatasource();
-        EditAction actionsTableEdit = (EditAction) actionsTable.getAction("edit");
-        RemoveAction actionsTableRemove = (RemoveAction) actionsTable.getAction("remove");
-
-        Table communicationsTable = (Table) getComponentNN("communicationsTable");
-        CollectionDatasource<RequestCommunication, UUID> communicationsDs = communicationsTable.getDatasource();
-        EditAction communicationsTableEdit = (EditAction) communicationsTable.getAction("edit");
-        RemoveAction communicationsTableRemove = (RemoveAction) communicationsTable.getAction("remove");
-
-        if (!toolsService.isActiveSuper()) {
-            tabSheet.getTab("tabSystem").setVisible(false);
-        }
+        Table requestsTable = (Table) getTable();
+        Table stepsTable = (Table) getComponentNN("stepsTable");
+        Table logsTable = (Table) getComponentNN("logsTable");
+        logsTable.getButtonsPanel().setVisible(false);
 
         Group userGroup = toolsService.getActiveGroup();
 
         if (userGroup.equals(officeConfig.getRegistratorsGroup())) {
-            tabSheet.getTab("stepsTab").setVisible(false);
-            tabSheet.getTab("actionsTab").setVisible(false);
-            tabSheet.getTab("communicationsTab").setVisible(false);
-
+            requestsTable.getActionNN("remove").setVisible(false);
             getComponentNN("extraActionsBtn").setVisible(false);
+
+            tabSheet.getTab("stepsTab").setVisible(false);
+            tabSheet.getTab("communicationsTab").setVisible(false);
+            tabSheet.getTab("logsTab").setVisible(false);
         }
+
         else if (userGroup.equals(officeConfig.getManagersGroup())) {
+            requestsTable.getActionNN("create").setVisible(false);
+            requestsTable.getActionNN("edit").setVisible(false);
+            requestsTable.getActionNN("remove").setVisible(false);
             getComponentNN("extraActionsBtn").setVisible(true);
+
+            stepsTable.getButtonsPanel().setVisible(false);
         }
+
         else if (userGroup.equals(officeConfig.getWorkersGroup())) {
+            getComponentNN("buttonsPanel").setVisible(false);
+            stepsTable.getButtonsPanel().setVisible(false);
+
             requestsDs.setQuery(String.format("select e from office$Request e where e.user.id = '%s'", toolsService.getActiveUser().getId()));
             getComponentNN("buttonsPanel").setVisible(false);
 
-            actionsTableRemove.setBeforeActionPerformedHandler(() -> {
-                showMessage("" + actionsDs.getItem().getCreatedBy());
-                return false;
-            });
-
-            communicationsTableRemove.setBeforeActionPerformedHandler(() -> {
-                showMessage("" + communicationsDs.getItem().getCreatedBy());
-                return false;
-            });
-
-            tabSheet.setSelectedTab("actionsTab");
+            tabSheet.setSelectedTab("stepsTab");
         }
-        else if (userGroup.equals(officeConfig.getWorkersGroup())) {
 
+        else if (userGroup.equals(officeConfig.getApplicantsGroup())) {
+            getComponentNN("buttonsPanel").setVisible(false);
+            stepsTable.getButtonsPanel().setVisible(false);
         }
     }
 
@@ -192,7 +177,7 @@ public class RequestBrowse extends EntityCombinedScreen {
 
     private void tryToAssignUser() {
         if (requestService.setWorker(requestsDs.getItem())) {
-            showMessage("The request is assigned to " + getSelectedRequest().getUser().getName());
+            showMessage("The request is assigned to " + getSelectedRequest().getStep().getUser().getName());
         } else {
             showMessage("No available workers on step: " + getSelectedRequest().getStep().getDescription());
         }
@@ -242,7 +227,7 @@ public class RequestBrowse extends EntityCombinedScreen {
     }
 
     public void onCancel(Component source) {
-        showMessage(messages.getMessage(getSelectedRequest().getState()));
+        showMessage(messages.getMessage(getSelectedRequest().getStep().getState()));
     }
 
     private void showStep(Step step) {

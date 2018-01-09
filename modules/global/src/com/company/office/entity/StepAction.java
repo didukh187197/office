@@ -30,9 +30,6 @@ public class StepAction extends BaseUuidEntity implements Creatable, Updatable {
     @Column(name = "TYPE_", nullable = false)
     protected String type;
 
-    @Column(name = "WORK_DAYS")
-    protected Integer workDays;
-
     @Column(name = "DESCRIPTION", length = 100)
     protected String description;
 
@@ -91,14 +88,6 @@ public class StepAction extends BaseUuidEntity implements Creatable, Updatable {
         return createdBy;
     }
 
-
-    public void setWorkDays(Integer workDays) {
-        this.workDays = workDays;
-    }
-
-    public Integer getWorkDays() {
-        return workDays;
-    }
 
 
     public void setTemplate(FileDescriptor template) {

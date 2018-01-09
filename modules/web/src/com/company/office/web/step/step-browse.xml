@@ -67,6 +67,8 @@
                     <columns>
                         <column id="identifier"/>
                         <column id="description"/>
+                        <column id="daysForSubmission"/>
+                        <column id="daysForApproval"/>
                     </columns>
                     <rows datasource="stepsDs"/>
                     <rowsCount/>
@@ -101,6 +103,10 @@
                                     <field property="description"
                                            required="true"
                                            rows="2"/>
+                                    <field property="daysForSubmit"
+                                           width="75px"/>
+                                    <field property="daysForApprove"
+                                           width="75px"/>
                                 </column>
                             </fieldGroup>
                         </tab>
@@ -120,10 +126,7 @@
                                 </actions>
                                 <columns>
                                     <column id="type"/>
-                                    <column id="workDays"
-                                            width="100"/>
                                     <column id="description"/>
-                                    <column id="createTs"/>
                                 </columns>
                                 <rows datasource="actionsDs"/>
                                 <buttonsPanel>

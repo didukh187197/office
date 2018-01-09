@@ -3,23 +3,17 @@ package com.company.office.entity;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Column;
-import javax.validation.constraints.NotNull;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import com.haulmont.chile.core.annotations.Composition;
-import com.haulmont.cuba.core.global.DeletePolicy;
 import java.util.List;
 import javax.persistence.OneToMany;
 import com.haulmont.chile.core.annotations.NumberFormat;
 import com.haulmont.chile.core.annotations.NamePattern;
-import com.haulmont.cuba.security.entity.User;
-import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 import java.util.Date;
 import com.haulmont.cuba.core.entity.BaseUuidEntity;
 import com.haulmont.cuba.core.entity.Creatable;
 import com.haulmont.cuba.core.entity.Updatable;
 import javax.persistence.OrderBy;
+import javax.validation.constraints.Min;
 
 @NamePattern("%s|description")
 @Table(name = "OFFICE_STEP")
@@ -27,14 +21,22 @@ import javax.persistence.OrderBy;
 public class Step extends BaseUuidEntity implements Creatable, Updatable {
     private static final long serialVersionUID = -762436337912584846L;
 
-
-
     @NumberFormat(pattern = "#")
     @Column(name = "IDENTIFIER")
     protected Integer identifier;
 
     @Column(name = "DESCRIPTION", length = 100)
     protected String description;
+
+    @NumberFormat(pattern = "#")
+    @Min(0)
+    @Column(name = "DAYS_FOR_SUBMISSION")
+    protected Integer daysForSubmission;
+
+    @NumberFormat(pattern = "#")
+    @Min(0)
+    @Column(name = "DAYS_FOR_APPROVAL")
+    protected Integer daysForApproval;
 
     @OrderBy("createTs")
     @Composition
@@ -58,6 +60,23 @@ public class Step extends BaseUuidEntity implements Creatable, Updatable {
     @Column(name = "UPDATED_BY", length = 50)
     protected String updatedBy;
 
+    public void setDaysForSubmission(Integer daysForSubmission) {
+        this.daysForSubmission = daysForSubmission;
+    }
+
+    public Integer getDaysForSubmission() {
+        return daysForSubmission;
+    }
+
+    public void setDaysForApproval(Integer daysForApproval) {
+        this.daysForApproval = daysForApproval;
+    }
+
+    public Integer getDaysForApproval() {
+        return daysForApproval;
+    }
+
+
     public void setIdentifier(Integer identifier) {
         this.identifier = identifier;
     }
@@ -66,7 +85,6 @@ public class Step extends BaseUuidEntity implements Creatable, Updatable {
         return identifier;
     }
 
-
     public void setUsers(List<StepUser> users) {
         this.users = users;
     }
@@ -74,7 +92,6 @@ public class Step extends BaseUuidEntity implements Creatable, Updatable {
     public List<StepUser> getUsers() {
         return users;
     }
-
 
     @Override
     public void setUpdateTs(Date updateTs) {
@@ -113,9 +130,6 @@ public class Step extends BaseUuidEntity implements Creatable, Updatable {
         return createdBy;
     }
 
-
-
-
     public void setDescription(String description) {
         this.description = description;
     }
@@ -124,8 +138,6 @@ public class Step extends BaseUuidEntity implements Creatable, Updatable {
         return description;
     }
 
-
-
     public void setActions(List<StepAction> actions) {
         this.actions = actions;
     }
@@ -133,9 +145,5 @@ public class Step extends BaseUuidEntity implements Creatable, Updatable {
     public List<StepAction> getActions() {
         return actions;
     }
-
-
-
-
 
 }

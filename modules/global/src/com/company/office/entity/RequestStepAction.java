@@ -21,44 +21,26 @@ import com.haulmont.cuba.core.entity.annotation.LookupType;
 import com.haulmont.cuba.core.entity.Updatable;
 import com.haulmont.chile.core.annotations.NumberFormat;
 import com.haulmont.cuba.security.entity.User;
+import java.util.UUID;
 
-@Table(name = "OFFICE_REQUEST_ACTION")
-@Entity(name = "office$RequestAction")
-public class RequestAction extends BaseUuidEntity implements Creatable, Updatable {
+@Table(name = "OFFICE_REQUEST_STEP_ACTION")
+@Entity(name = "office$RequestStepAction")
+public class RequestStepAction extends BaseUuidEntity implements Creatable, Updatable {
     private static final long serialVersionUID = 1692244204168907981L;
 
     @OnDeleteInverse(DeletePolicy.CASCADE)
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "REQUEST_ID")
-    protected Request request;
+    @JoinColumn(name = "REQUEST_STEP_ID")
+    protected RequestStep requestStep;
 
-    @OnDeleteInverse(DeletePolicy.DENY)
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "STEP_ID")
-    protected Step step;
-
-    @OnDeleteInverse(DeletePolicy.DENY)
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID")
-    protected User user;
+    @Column(name = "REQUEST_ID")
+    protected UUID requestId;
 
     @Column(name = "TYPE_")
     protected String type;
 
     @Column(name = "DESCRIPTION", length = 100)
     protected String description;
-
-    @Temporal(TemporalType.DATE)
-    @Column(name = "DEADLINE")
-    protected Date deadline;
-
-    @Temporal(TemporalType.DATE)
-    @Column(name = "SUBMITTED")
-    protected Date submitted;
-
-    @Temporal(TemporalType.DATE)
-    @Column(name = "APPROVED")
-    protected Date approved;
 
     @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open", "clear"})
     @OnDeleteInverse(DeletePolicy.DENY)
@@ -75,9 +57,13 @@ public class RequestAction extends BaseUuidEntity implements Creatable, Updatabl
     @Column(name = "MESSAGE")
     protected String message;
 
-    @NumberFormat(pattern = "#")
-    @Column(name = "PENALTY")
-    protected Integer penalty;
+    @Temporal(TemporalType.DATE)
+    @Column(name = "SUBMITTED")
+    protected Date submitted;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "APPROVED")
+    protected Date approved;
 
     @Column(name = "CREATE_TS")
     protected Date createTs;
@@ -91,30 +77,41 @@ public class RequestAction extends BaseUuidEntity implements Creatable, Updatabl
     @Column(name = "UPDATED_BY", length = 50)
     protected String updatedBy;
 
-    public void setStep(Step step) {
-        this.step = step;
+    public void setRequestId(UUID requestId) {
+        this.requestId = requestId;
     }
 
-    public Step getStep() {
-        return step;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public User getUser() {
-        return user;
+    public UUID getRequestId() {
+        return requestId;
     }
 
 
-    public void setPenalty(Integer penalty) {
-        this.penalty = penalty;
+    public void setSubmitted(Date submitted) {
+        this.submitted = submitted;
     }
 
-    public Integer getPenalty() {
-        return penalty;
+    public Date getSubmitted() {
+        return submitted;
     }
+
+    public void setApproved(Date approved) {
+        this.approved = approved;
+    }
+
+    public Date getApproved() {
+        return approved;
+    }
+
+
+    public void setRequestStep(RequestStep requestStep) {
+        this.requestStep = requestStep;
+    }
+
+    public RequestStep getRequestStep() {
+        return requestStep;
+    }
+
+
 
     @Override
     public void setUpdateTs(Date updateTs) {
@@ -152,22 +149,6 @@ public class RequestAction extends BaseUuidEntity implements Creatable, Updatabl
         return createdBy;
     }
 
-    public void setApproved(Date approved) {
-        this.approved = approved;
-    }
-
-    public Date getApproved() {
-        return approved;
-    }
-
-    public void setSubmitted(Date submitted) {
-        this.submitted = submitted;
-    }
-
-    public Date getSubmitted() {
-        return submitted;
-    }
-
     public void setMessage(String message) {
         this.message = message;
     }
@@ -200,28 +181,12 @@ public class RequestAction extends BaseUuidEntity implements Creatable, Updatabl
         return type == null ? null : ActionType.fromId(type);
     }
 
-    public void setRequest(Request request) {
-        this.request = request;
-    }
-
-    public Request getRequest() {
-        return request;
-    }
-
     public void setDescription(String description) {
         this.description = description;
     }
 
     public String getDescription() {
         return description;
-    }
-
-    public void setDeadline(Date deadline) {
-        this.deadline = deadline;
-    }
-
-    public Date getDeadline() {
-        return deadline;
     }
 
 }

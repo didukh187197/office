@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.office.web.requeststepcommunication.RequestStepCommunicationEdit"
+        datasource="requestStepCommunicationDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.office.web.requeststepcommunication">
+    <dsContext>
+        <datasource id="requestStepCommunicationDs"
+                    class="com.company.office.entity.RequestStepCommunication"
+                    view="requestStepCommunication-view">
+            <datasource id="questionFileDs"
+                        property="questionFile"/>
+            <datasource id="answerFileDs"
+                        property="answerFile"/>
+        </datasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <tabSheet id="tabSheet">
+            <tab id="tabMain"
+                 caption="Main"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <fieldGroup id="fieldGroup"
+                            datasource="requestStepCommunicationDs">
+                    <column width="400px">
+                        <field property="question"
+                               required="true"
+                               rows="6"/>
+                        <field property="questionFile"/>
+                        <field property="answer"
+                               rows="6"/>
+                        <field property="answerFile"/>
+                    </column>
+                </fieldGroup>
+            </tab>
+            <tab id="tabSystem"
+                 caption="System"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <fieldGroup id="fieldsSystem"
+                            datasource="requestStepCommunicationDs">
+                    <column width="400px">
+                        <field caption="mainMsg://field.created"
+                               property="createTs"
+                               resolution="SEC"/>
+                        <field caption="mainMsg://field.author"
+                               property="createdBy"/>
+                        <field caption="mainMsg://field.updated"
+                               property="updateTs"
+                               resolution="SEC"/>
+                        <field caption="mainMsg://field.editor"
+                               property="updatedBy"/>
+                    </column>
+                </fieldGroup>
+            </tab>
+        </tabSheet>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

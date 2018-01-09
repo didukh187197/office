@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
         caption="msg://editorCaption"
-        class="com.company.office.web.requestcommunication.RequestCommunicationEdit"
-        datasource="requestCommunicationDs"
+        class="com.company.office.web.requestlog.RequestLogEdit"
+        datasource="requestLogDs"
         focusComponent="fieldGroup"
-        messagesPack="com.company.office.web.requestcommunication">
+        messagesPack="com.company.office.web.requestlog">
     <dsContext>
-        <datasource id="requestCommunicationDs"
-                    class="com.company.office.entity.RequestCommunication"
-                    view="requestCommunication-view">
-            <datasource id="fileDs"
-                        property="file"/>
-        </datasource>
+        <datasource id="requestLogDs"
+                    class="com.company.office.entity.RequestLog"
+                    view="requestLog-view"/>
     </dsContext>
     <dialogMode forceDialog="true"
                 height="600"
@@ -24,13 +21,10 @@
                  margin="true,false,false,false"
                  spacing="true">
                 <fieldGroup id="fieldGroup"
-                            datasource="requestCommunicationDs">
+                            datasource="requestLogDs">
                     <column width="400px">
-                        <field property="question"
-                               rows="6"/>
-                        <field property="answer"
-                               rows="6"/>
-                        <field property="file"/>
+                        <field property="info"
+                               rows="3"/>
                     </column>
                 </fieldGroup>
             </tab>
@@ -39,7 +33,7 @@
                  margin="true,false,false,false"
                  spacing="true">
                 <fieldGroup id="fieldsSystem"
-                            datasource="requestCommunicationDs">
+                            datasource="requestLogDs">
                     <column width="400px">
                         <field caption="mainMsg://field.created"
                                property="createTs"
@@ -51,6 +45,8 @@
                                resolution="SEC"/>
                         <field caption="mainMsg://field.editor"
                                property="updatedBy"/>
+                        <field property="className"/>
+                        <field property="uuid"/>
                     </column>
                 </fieldGroup>
             </tab>

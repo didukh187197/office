@@ -34,6 +34,9 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
     @Column(name = "APPLICANT_CODE", unique = true, length = 15)
     protected String applicantCode;
 
+    @Column(name = "APPLICANT_PHONE", length = 100)
+    protected String applicantPhone;
+
     @Column(name = "SERIES", length = 10)
     protected String series;
 
@@ -44,34 +47,18 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
     @Column(name = "DESCRIPTION", length = 100)
     protected String description;
 
-    @OnDeleteInverse(DeletePolicy.DENY)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "STEP_ID")
-    protected Step step;
-
-    @OnDeleteInverse(DeletePolicy.DENY)
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID")
-    protected User user;
-
-    @Column(name = "STATE")
-    protected String state;
-
-    @NumberFormat(pattern = "#")
-    @Column(name = "PENALTY")
-    protected Integer penalty;
+    protected RequestStep step;
 
     @Composition
     @OneToMany(mappedBy = "request")
     protected List<RequestStep> steps;
 
     @Composition
+    @OnDeleteInverse(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "request")
-    protected List<RequestAction> actions;
-
-    @Composition
-    @OneToMany(mappedBy = "request")
-    protected List<RequestCommunication> communications;
+    protected List<RequestLog> logs;
 
     @Column(name = "CREATE_TS")
     protected Date createTs;
@@ -85,20 +72,29 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
     @Column(name = "UPDATED_BY", length = 50)
     protected String updatedBy;
 
-    public void setPenalty(Integer penalty) {
-        this.penalty = penalty;
+    public RequestStep getStep() {
+        return step;
     }
 
-    public Integer getPenalty() {
-        return penalty;
+    public void setStep(RequestStep step) {
+        this.step = step;
     }
 
-    public void setState(State state) {
-        this.state = state == null ? null : state.getId();
+
+    public void setApplicantPhone(String applicantPhone) {
+        this.applicantPhone = applicantPhone;
     }
 
-    public State getState() {
-        return state == null ? null : State.fromId(state);
+    public String getApplicantPhone() {
+        return applicantPhone;
+    }
+
+    public void setLogs(List<RequestLog> logs) {
+        this.logs = logs;
+    }
+
+    public List<RequestLog> getLogs() {
+        return logs;
     }
 
     public void setSteps(List<RequestStep> steps) {
@@ -161,22 +157,6 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
         return createdBy;
     }
 
-    public void setActions(List<RequestAction> actions) {
-        this.actions = actions;
-    }
-
-    public List<RequestAction> getActions() {
-        return actions;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
     public void setSeries(String series) {
         this.series = series;
     }
@@ -191,22 +171,6 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
 
     public Integer getNumber() {
         return number;
-    }
-
-    public void setStep(Step step) {
-        this.step = step;
-    }
-
-    public Step getStep() {
-        return step;
-    }
-
-    public void setCommunications(List<RequestCommunication> communications) {
-        this.communications = communications;
-    }
-
-    public List<RequestCommunication> getCommunications() {
-        return communications;
     }
 
     public void setDescription(String description) {

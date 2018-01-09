@@ -9,5 +9,6 @@
     <menu id="service"
           insertBefore="administration">
         <item screen="delete-screen"/>
+        <item screen="office$RequestStepAction.browse"/>
     </menu>
 </menu-config>

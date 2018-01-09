@@ -1,9 +1,7 @@
 package com.company.office.entity;
 
 import com.haulmont.chile.core.datatypes.impl.EnumClass;
-
 import javax.annotation.Nullable;
-
 
 public enum ActionType implements EnumClass<String> {
 

@@ -34,14 +34,23 @@
                  spacing="true">
                 <fieldGroup id="fieldGroup"
                             datasource="requestStepDs">
-                    <column width="400px">
-                        <field optionsDatasource="stepsDs"
-                               property="step"
-                               required="true"/>
-                        <field optionsDatasource="usersDs"
-                               property="user"/>
+                    <column fieldCaptionWidth="75px"
+                            width="390px">
                         <field property="description"
                                rows="3"/>
+                        <field property="state"/>
+                    </column>
+                </fieldGroup>
+                <fieldGroup id="fieldGroupDates"
+                            datasource="requestStepDs">
+                    <column fieldCaptionWidth="75px"
+                            width="150px">
+                        <field property="submissionTerm"/>
+                        <field property="submitted"/>
+                    </column>
+                    <column width="150px">
+                        <field property="approvalTerm"/>
+                        <field property="approved"/>
                     </column>
                 </fieldGroup>
             </tab>

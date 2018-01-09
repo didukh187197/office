@@ -15,11 +15,14 @@
                     class="com.company.office.entity.Request"
                     view="request-view">
             <collectionDatasource id="stepsDs"
-                                  property="steps"/>
-            <collectionDatasource id="actionsDs"
-                                  property="actions"/>
-            <collectionDatasource id="communicationsDs"
-                                  property="communications"/>
+                                  property="steps">
+                <collectionDatasource id="actionsDs"
+                                      property="actions"/>
+                <collectionDatasource id="communicationsDs"
+                                      property="communications"/>
+            </collectionDatasource>
+            <collectionDatasource id="logsDs"
+                                  property="logs"/>
         </datasource>
         <groupDatasource id="requestsDs"
                          class="com.company.office.entity.Request"
@@ -85,9 +88,6 @@
                                 caption="#"
                                 generator="snGenerator"/>
                         <column id="step"/>
-                        <column id="state"/>
-                        <column id="user"/>
-                        <column id="penalty"/>
                     </columns>
                     <rows datasource="requestsDs"/>
                     <rowsCount/>
@@ -145,6 +145,7 @@
                                     <field property="applicantCode"
                                            required="true"
                                            width="100px"/>
+                                    <field property="applicantPhone"/>
                                     <field property="series"
                                            required="true"
                                            width="100px"/>
@@ -170,12 +171,11 @@
                                     <action id="remove"/>
                                 </actions>
                                 <columns>
-                                    <column id="createTs"
-                                            caption="mainMsg://field.created"/>
-                                    <column id="createdBy"
-                                            caption="mainMsg://field.author"/>
                                     <column id="step"/>
+                                    <column id="state"/>
                                     <column id="user"/>
+                                    <column id="submitted"/>
+                                    <column id="approved"/>
                                 </columns>
                                 <rows datasource="stepsDs"/>
                                 <buttonsPanel>
@@ -185,20 +185,33 @@
                                 </buttonsPanel>
                             </table>
                             <fieldGroup id="fieldsStep"
-                                        datasource="stepsDs"
-                                        editable="false">
-                                <column width="400px">
+                                        datasource="stepsDs">
+                                <column fieldCaptionWidth="75px"
+                                        width="385px">
                                     <field property="description"
-                                           rows="2"/>
+                                           rows="3"/>
+                                </column>
+                            </fieldGroup>
+                            <fieldGroup id="fieldsStepDates"
+                                        datasource="stepsDs">
+                                <column fieldCaptionWidth="75px"
+                                        width="150px">
+                                    <field property="submissionTerm"/>
+                                    <field property="submitted"/>
+                                </column>
+                                <column fieldCaptionWidth="75px"
+                                        width="150px">
+                                    <field property="approvalTerm"/>
+                                    <field property="approved"/>
                                 </column>
                             </fieldGroup>
                         </tab>
-                        <tab id="actionsTab"
-                             caption="msg://com.company.office.entity/Request.actions"
-                             expand="actionsTable"
+                        <tab id="logsTab"
+                             caption="msg://com.company.office.entity/Request.logs"
+                             expand="logsTable"
                              margin="true,false,false,false"
                              spacing="true">
-                            <table id="actionsTable"
+                            <table id="logsTable"
                                    height="400px"
                                    width="100%">
                                 <actions>
@@ -209,88 +222,35 @@
                                 <columns>
                                     <column id="createTs"
                                             caption="mainMsg://field.created"/>
-                                    <column id="step"/>
-                                    <column id="user"/>
-                                    <column id="type"/>
-                                    <column id="deadline"/>
-                                    <column id="submitted"/>
-                                    <column id="approved"/>
-                                    <column id="penalty"/>
-                                </columns>
-                                <rows datasource="actionsDs"/>
-                                <buttonsPanel>
-                                    <button action="actionsTable.create"/>
-                                    <button action="actionsTable.edit"/>
-                                    <button action="actionsTable.remove"/>
-                                </buttonsPanel>
-                            </table>
-                            <fieldGroup id="fieldsAction"
-                                        datasource="actionsDs"
-                                        editable="false">
-                                <column width="400px">
-                                    <field property="description"
-                                           rows="2"/>
-                                    <field property="file"/>
-                                    <field description="3"
-                                           property="message"
-                                           rows="2"/>
-                                </column>
-                            </fieldGroup>
-                        </tab>
-                        <tab id="communicationsTab"
-                             caption="msg://com.company.office.entity/Request.communications"
-                             expand="communicationsTable"
-                             margin="true,false,false,false"
-                             spacing="true">
-                            <table id="communicationsTable"
-                                   height="400px"
-                                   width="100%">
-                                <actions>
-                                    <action id="create"/>
-                                    <action id="edit"/>
-                                    <action id="remove"/>
-                                </actions>
-                                <columns>
-                                    <column id="createTs"
-                                            caption="mainMsg://field.created"/>
-                                    <column id="createdBy"
+                                    <column id="created"
                                             caption="mainMsg://field.author"/>
-                                    <column id="updateTs"
-                                            caption="mainMsg://field.updated"/>
-                                    <column id="updatedBy"
-                                            caption="mainMsg://field.editor"/>
+                                    <column id="info"/>
                                 </columns>
-                                <rows datasource="communicationsDs"/>
+                                <rows datasource="logsDs"/>
                                 <buttonsPanel>
-                                    <button action="communicationsTable.create"/>
-                                    <button action="communicationsTable.edit"/>
-                                    <button action="communicationsTable.remove"/>
+                                    <button action="logsTable.create"/>
+                                    <button action="logsTable.edit"/>
+                                    <button action="logsTable.remove"/>
                                 </buttonsPanel>
                             </table>
-                            <fieldGroup id="fieldsCommunications"
-                                        datasource="communicationsDs"
+                            <fieldGroup id="fieldsLogs"
+                                        datasource="logsDs"
                                         editable="false">
                                 <column width="400px">
-                                    <field property="question"
-                                           rows="2"/>
-                                    <field property="answer"
+                                    <field property="info"
                                            rows="2"/>
                                 </column>
                             </fieldGroup>
                         </tab>
-                        <tab id="tabSystem"
+                        <tab id="systemTab"
                              caption="System"
                              margin="true,false,false,false"
                              spacing="true">
                             <fieldGroup id="fieldsSystem"
                                         datasource="requestDs">
                                 <column width="350px">
-                                    <field property="state"/>
                                     <field optionsDatasource="stepDs"
                                            property="step"/>
-                                    <field optionsDatasource="workerDs"
-                                           property="user"/>
-                                    <field property="penalty"/>
                                     <field caption="mainMsg://field.created"
                                            property="createTs"
                                            resolution="SEC"/>

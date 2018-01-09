@@ -1,9 +1,9 @@
-package com.company.office.web.requestaction;
+package com.company.office.web.requeststepaction;
 
-import com.company.office.web.officeeditor.OfficeEditor;
 import com.company.office.entity.ActionType;
+import com.company.office.web.officeeditor.OfficeEditor;
+import com.company.office.entity.RequestStepAction;
 import com.haulmont.cuba.gui.components.*;
-import com.company.office.entity.RequestAction;
 import com.haulmont.cuba.gui.export.ExportDisplay;
 import com.haulmont.cuba.gui.export.ExportFormat;
 
@@ -11,7 +11,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Map;
 
-public class RequestActionEdit extends OfficeEditor<RequestAction> {
+public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
 
     @Named("fieldGroup.type")
     private LookupField typeField;

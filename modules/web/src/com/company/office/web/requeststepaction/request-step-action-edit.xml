@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
         caption="msg://editorCaption"
-        class="com.company.office.web.requestaction.RequestActionEdit"
-        datasource="requestActionDs"
+        class="com.company.office.web.requeststepaction.RequestStepActionEdit"
+        datasource="requestStepActionDs"
         focusComponent="fieldGroup"
-        messagesPack="com.company.office.web.requestaction">
+        messagesPack="com.company.office.web.requeststepaction">
     <dsContext>
-        <datasource id="requestActionDs"
-                    class="com.company.office.entity.RequestAction"
-                    view="requestAction-view">
+        <datasource id="requestStepActionDs"
+                    class="com.company.office.entity.RequestStepAction"
+                    view="requestStepAction-view">
             <datasource id="fileDs"
                         property="file"/>
         </datasource>
@@ -16,12 +16,11 @@
                               class="com.haulmont.cuba.core.entity.FileDescriptor"
                               view="_minimal">
             <query>
-                <![CDATA[select e from sys$FileDescriptor e where lower(e.name) like '%template%']]>
+                <![CDATA[select e from sys$FileDescriptor e]]>
             </query>
         </collectionDatasource>
     </dsContext>
-    <dialogMode forceDialog="true"
-                height="600"
+    <dialogMode height="600"
                 width="800"/>
     <layout expand="windowActions"
             spacing="true">
@@ -31,20 +30,19 @@
                  margin="true,false,false,false"
                  spacing="true">
                 <fieldGroup id="fieldGroup"
-                            datasource="requestActionDs">
+                            datasource="requestStepActionDs">
                     <column fieldCaptionWidth="90px"
                             width="400px">
                         <field property="type"
                                required="true"/>
                         <field property="description"
                                rows="3"/>
-                        <field property="deadline"
-                               required="true"
-                               width="150px"/>
                         <field property="message"
                                rows="3"/>
-                        <field property="user"/>
-                        <field property="step"/>
+                        <field property="submitted"
+                               width="100px"/>
+                        <field property="approved"
+                               width="100px"/>
                     </column>
                 </fieldGroup>
                 <vbox id="boxFiles"
@@ -57,7 +55,7 @@
                                value="msg://lblTemplate"
                                width="85px"/>
                         <lookupField id="lookupTemplate"
-                                     datasource="requestActionDs"
+                                     datasource="requestStepActionDs"
                                      optionsDatasource="templatesDs"
                                      property="template"
                                      width="400px"/>
@@ -75,7 +73,7 @@
                                width="85px"/>
                         <upload id="uploadFile"
                                 clearButtonIcon="icons/remove.png"
-                                datasource="requestActionDs"
+                                datasource="requestStepActionDs"
                                 property="file"
                                 showClearButton="true"
                                 showFileName="true"
@@ -88,14 +86,8 @@
                  margin="true,false,false,false"
                  spacing="true">
                 <fieldGroup id="fieldsSystem"
-                            datasource="requestActionDs">
+                            datasource="requestStepActionDs">
                     <column width="400px">
-                        <field property="submitted"
-                               width="120px"/>
-                        <field property="approved"
-                               width="120px"/>
-                        <field property="penalty"
-                               width="70px"/>
                         <field caption="mainMsg://field.created"
                                property="createTs"
                                resolution="SEC"/>
@@ -106,8 +98,6 @@
                                resolution="SEC"/>
                         <field caption="mainMsg://field.editor"
                                property="updatedBy"/>
-                        <field property="step"/>
-                        <field property="user"/>
                     </column>
                 </fieldGroup>
             </tab>

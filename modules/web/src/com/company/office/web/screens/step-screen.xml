@@ -23,6 +23,8 @@
             <columns>
                 <column id="identifier"/>
                 <column id="description"/>
+                <column id="daysForSubmission"/>
+                <column id="daysForApproval"/>
             </columns>
             <rows datasource="stepsDs"/>
         </table>

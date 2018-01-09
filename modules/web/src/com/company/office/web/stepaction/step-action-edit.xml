@@ -32,9 +32,6 @@
                         <field property="type"/>
                         <field property="description"
                                rows="3"/>
-                        <field property="workDays"
-                               required="true"
-                               width="100px"/>
                     </column>
                 </fieldGroup>
                 <groupBox id="boxFile"

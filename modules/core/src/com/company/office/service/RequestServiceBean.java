@@ -28,29 +28,30 @@ public class RequestServiceBean implements RequestService {
 
     @Override
     public void nextStep(Request request) {
-        Step step = request.getStep();
+        Step step = request.getStep().getStep();
         State state;
 
         if ( (step != null) && (step.equals(officeConfig.getFinalStep())) ) {
             state = State.Closed;
         } else {
-            request.setStep(getNextStep(step));
+            //request.setStep(getNextStep(step));
             state = State.Waiting;
         }
 
-        stepChangeFixing(request, null, state);
+        fixStepChange(request, null, state);
     }
 
     @Override
     public boolean setWorker(Request request) {
         Request rq = getRequestByID(request.getId());
 
-        User worker = getFreeUser(rq.getStep());
+        //User worker = getFreeUser(rq.getStep());
+        User worker = getFreeUser(null);
         if (worker == null) {
             return false;
         }
 
-        stepChangeFixing(rq, worker, State.Processing);
+        fixStepChange(rq, worker, State.Processing);
         return true;
     }
 
@@ -95,7 +96,8 @@ public class RequestServiceBean implements RequestService {
         dataManager.commit(commitContext);
     }
 
-    private void stepChangeFixing(Request request, User worker, State state) {
+    private void fixStepChange(Request request, User worker, State state) {
+        /*
         Step step = request.getStep();
 
         request.setStep(step);
@@ -128,6 +130,7 @@ public class RequestServiceBean implements RequestService {
         request.getSteps().add(requestStep);
 
         commitEntity(request);
+        */
     }
 
     private User getFreeUser(Step step) {

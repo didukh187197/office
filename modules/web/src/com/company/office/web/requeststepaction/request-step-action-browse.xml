@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.office.web.requeststepaction.RequestStepActionBrowse"
+        focusComponent="requestStepActionsTable"
+        lookupComponent="requestStepActionsTable"
+        messagesPack="com.company.office.web.requeststepaction">
+    <dsContext>
+        <groupDatasource id="requestStepActionsDs"
+                         class="com.company.office.entity.RequestStepAction"
+                         view="requestStepAction-view">
+            <query>
+                <![CDATA[select e from office$RequestStepAction e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode forceDialog="true"
+                height="700"
+                width="1000"/>
+    <layout expand="requestStepActionsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="requestStepActionsTable"
+                datasource="requestStepActionsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="requestStepActionsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="type"/>
+                <column id="description"/>
+                <column id="submitted"/>
+                <column id="approved"/>
+            </columns>
+            <rows datasource="requestStepActionsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="requestStepActionsTable.create"/>
+                <button id="editBtn"
+                        action="requestStepActionsTable.edit"/>
+                <button id="removeBtn"
+                        action="requestStepActionsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <fieldGroup id="fieldsAction"
+                    datasource="requestStepActionsDs"
+                    editable="false">
+            <column width="400px">
+                <field property="description"
+                       rows="2"/>
+                <field property="file"/>
+                <field description="3"
+                       property="message"
+                       rows="2"/>
+            </column>
+        </fieldGroup>
+    </layout>
+</window>

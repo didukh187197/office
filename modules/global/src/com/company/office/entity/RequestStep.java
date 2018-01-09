@@ -13,6 +13,13 @@ import javax.persistence.ManyToOne;
 import com.haulmont.cuba.core.entity.BaseUuidEntity;
 import com.haulmont.cuba.core.entity.Updatable;
 import com.haulmont.cuba.core.entity.Creatable;
+import com.haulmont.chile.core.annotations.Composition;
+import com.haulmont.chile.core.annotations.NumberFormat;
+import javax.persistence.OneToOne;
+import java.util.List;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Table(name = "OFFICE_REQUEST_STEP")
 @Entity(name = "office$RequestStep")
@@ -29,6 +36,9 @@ public class RequestStep extends BaseUuidEntity implements Updatable, Creatable 
     @JoinColumn(name = "STEP_ID")
     protected Step step;
 
+    @Column(name = "STATE")
+    protected String state;
+
     @OnDeleteInverse(DeletePolicy.DENY)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID")
@@ -36,6 +46,35 @@ public class RequestStep extends BaseUuidEntity implements Updatable, Creatable 
 
     @Column(name = "DESCRIPTION", length = 100)
     protected String description;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "SUBMISSION_TERM")
+    protected Date submissionTerm;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "SUBMITTED")
+    protected Date submitted;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "APPROVAL_TERM")
+    protected Date approvalTerm;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "APPROVED")
+    protected Date approved;
+
+    @NumberFormat(pattern = "#")
+    @Column(name = "PENALTY")
+    protected Integer penalty;
+
+    @OneToMany(mappedBy = "requestStep")
+    @Composition
+    protected List<RequestStepAction> actions;
+
+    @Composition
+    @OnDeleteInverse(DeletePolicy.CASCADE)
+    @OneToMany(mappedBy = "requestStep")
+    protected List<RequestStepCommunication> communications;
 
     @Column(name = "UPDATE_TS")
     protected Date updateTs;
@@ -48,6 +87,76 @@ public class RequestStep extends BaseUuidEntity implements Updatable, Creatable 
 
     @Column(name = "CREATED_BY", length = 50)
     protected String createdBy;
+
+    public void setSubmissionTerm(Date submissionTerm) {
+        this.submissionTerm = submissionTerm;
+    }
+
+    public Date getSubmissionTerm() {
+        return submissionTerm;
+    }
+
+    public void setApprovalTerm(Date approvalTerm) {
+        this.approvalTerm = approvalTerm;
+    }
+
+    public Date getApprovalTerm() {
+        return approvalTerm;
+    }
+
+
+    public void setCommunications(List<RequestStepCommunication> communications) {
+        this.communications = communications;
+    }
+
+    public List<RequestStepCommunication> getCommunications() {
+        return communications;
+    }
+
+
+    public void setState(State state) {
+        this.state = state == null ? null : state.getId();
+    }
+
+    public State getState() {
+        return state == null ? null : State.fromId(state);
+    }
+
+
+    public void setSubmitted(Date submitted) {
+        this.submitted = submitted;
+    }
+
+    public Date getSubmitted() {
+        return submitted;
+    }
+
+    public void setApproved(Date approved) {
+        this.approved = approved;
+    }
+
+    public Date getApproved() {
+        return approved;
+    }
+
+
+    public List<RequestStepAction> getActions() {
+        return actions;
+    }
+
+    public void setActions(List<RequestStepAction> actions) {
+        this.actions = actions;
+    }
+
+
+    public void setPenalty(Integer penalty) {
+        this.penalty = penalty;
+    }
+
+    public Integer getPenalty() {
+        return penalty;
+    }
+
 
     public void setRequest(Request request) {
         this.request = request;

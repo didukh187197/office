@@ -25,9 +25,9 @@
         <property name="updateTs"/>
         <property name="updatedBy"/>
     </view>
-    <view class="com.company.office.entity.RequestAction"
+    <view class="com.company.office.entity.RequestStepAction"
           extends="_local"
-          name="requestAction-view">
+          name="requestStepAction-view">
         <property name="template"
                   view="_minimal">
             <property name="size"/>
@@ -40,45 +40,76 @@
         <property name="createdBy"/>
         <property name="updateTs"/>
         <property name="updatedBy"/>
-        <property name="step"
-                  view="_minimal"/>
-        <property name="user"
-                  view="_minimal"/>
     </view>
-    <view class="com.company.office.entity.RequestCommunication"
+    <view class="com.company.office.entity.RequestStepCommunication"
           extends="_local"
-          name="requestCommunication-view">
-        <property name="file"
-                  view="_minimal">
-            <property name="size"/>
-        </property>
+          name="requestStepCommunication-view">
         <property name="createTs"/>
         <property name="createdBy"/>
         <property name="updateTs"/>
         <property name="updatedBy"/>
+        <property name="questionFile"
+                  view="_minimal">
+            <property name="size"/>
+        </property>
+        <property name="answerFile"
+                  view="_minimal"/>
     </view>
     <view class="com.company.office.entity.Request"
           extends="_local"
           name="request-view">
         <property name="step"
                   view="_minimal">
+            <property name="step"
+                      view="_minimal"/>
+            <property name="state"/>
+            <property name="user"
+                      view="_minimal"/>
+            <property name="description"/>
+            <property name="submitted"/>
+            <property name="approved"/>
+            <property name="penalty"/>
+            <property name="updateTs"/>
+            <property name="updatedBy"/>
+            <property name="createTs"/>
+            <property name="createdBy"/>
+            <property name="submissionTerm"/>
+            <property name="approvalTerm"/>
         </property>
-        <property name="communications"
-                  view="requestCommunication-view"/>
-        <property name="user"
-                  view="_minimal"/>
         <property name="applicant"
                   view="_minimal">
+            <property name="email"/>
         </property>
-        <property name="actions"
-                  view="requestAction-view"/>
         <property name="steps"
                   view="requestStep-view">
+            <property name="actions"
+                      view="_minimal">
+                <property name="type"/>
+                <property name="description"/>
+                <property name="template"
+                          view="_minimal">
+                    <property name="size"/>
+                </property>
+                <property name="file"
+                          view="_minimal">
+                    <property name="size"/>
+                </property>
+                <property name="message"/>
+                <property name="submitted"/>
+                <property name="approved"/>
+                <property name="createTs"/>
+                <property name="createdBy"/>
+                <property name="updateTs"/>
+                <property name="updatedBy"/>
+            </property>
         </property>
         <property name="createTs"/>
         <property name="createdBy"/>
         <property name="updateTs"/>
         <property name="updatedBy"/>
+        <property name="logs"
+                  view="requestLog-view">
+        </property>
     </view>
     <view class="com.company.office.entity.StepUser"
           extends="_local"
@@ -101,5 +132,13 @@
         <property name="updatedBy"/>
         <property name="createTs"/>
         <property name="createdBy"/>
+    </view>
+    <view class="com.company.office.entity.RequestLog"
+          extends="_local"
+          name="requestLog-view">
+        <property name="createTs"/>
+        <property name="createdBy"/>
+        <property name="updateTs"/>
+        <property name="updatedBy"/>
     </view>
 </views>
