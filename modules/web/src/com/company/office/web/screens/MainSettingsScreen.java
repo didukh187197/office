@@ -1,6 +1,7 @@
 package com.company.office.web.screens;
 
 import com.company.office.OfficeConfig;
+import com.company.office.service.ToolsService;
 import com.haulmont.cuba.core.global.Messages;
 import com.haulmont.cuba.gui.components.*;
 
@@ -28,10 +29,10 @@ public class MainSettingsScreen extends AbstractWindow {
     private LookupField lookupWorkersGroup;
 
     @Inject
-    private LookupField lookupInitStep;
+    private LookupField lookupInitPosition;
 
     @Inject
-    private LookupField lookupFinalStep;
+    private LookupField lookupFinalPosition;
 
     @Inject
     protected Messages messages;
@@ -53,11 +54,11 @@ public class MainSettingsScreen extends AbstractWindow {
         if (officeConfig.getWorkersGroup() != null)
             lookupWorkersGroup.setValue(officeConfig.getWorkersGroup());
 
-        if (officeConfig.getInitStep() != null)
-            lookupInitStep.setValue(officeConfig.getInitStep());
+        if (officeConfig.getInitPosition() != null)
+            lookupInitPosition.setValue(officeConfig.getInitPosition());
 
-        if (officeConfig.getFinalStep() != null)
-            lookupFinalStep.setValue(officeConfig.getFinalStep());
+        if (officeConfig.getFinalPosition() != null)
+            lookupFinalPosition.setValue(officeConfig.getFinalPosition());
     }
 
     private void warnEmptyField(String groupName) {
@@ -98,13 +99,13 @@ public class MainSettingsScreen extends AbstractWindow {
                                 return;
                             }
 
-                            if (lookupInitStep.getValue() == null) {
-                                warnEmptyField("initStep");
+                            if (lookupInitPosition.getValue() == null) {
+                                warnEmptyField("initPosition");
                                 return;
                             }
 
-                            if (lookupFinalStep.getValue() == null) {
-                                warnEmptyField("finalStep");
+                            if (lookupFinalPosition.getValue() == null) {
+                                warnEmptyField("finalPosition");
                                 return;
                             }
 
@@ -112,15 +113,15 @@ public class MainSettingsScreen extends AbstractWindow {
                             officeConfig.setManagersGroup(lookupManagersGroup.getValue());
                             officeConfig.setRegistratorsGroup(lookupRegistratorsGroup.getValue());
                             officeConfig.setApplicantsGroup(lookupApplicantsGroup.getValue());
-                            officeConfig.setApplicantsGroupQuery(
-                                    String.format("select e from sec$User e where e.group.id = '%s'", officeConfig.getApplicantsGroup().getId())
-                            );
                             officeConfig.setWorkersGroup(lookupWorkersGroup.getValue());
                             officeConfig.setWorkersGroupQuery(
                                     String.format("select e from sec$User e where e.group.id = '%s'", officeConfig.getWorkersGroup().getId())
                             );
-                            officeConfig.setInitStep(lookupInitStep.getValue());
-                            officeConfig.setFinalStep(lookupFinalStep.getValue());
+                            officeConfig.setApplicantsGroupQuery(
+                                    String.format("select e from sec$User e where e.group.id = '%s'", officeConfig.getApplicantsGroup().getId())
+                            );
+                            officeConfig.setInitPosition(lookupInitPosition.getValue());
+                            officeConfig.setFinalPosition(lookupFinalPosition.getValue());
 
                             this.close("");
                         }),
@@ -132,4 +133,5 @@ public class MainSettingsScreen extends AbstractWindow {
     public void onBtnCancelClick() {
         this.close("");
     }
+
 }

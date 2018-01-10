@@ -1,6 +1,6 @@
 package com.company.office.service;
 
-import com.haulmont.cuba.core.entity.StandardEntity;
+import com.company.office.entity.GroupType;
 import com.haulmont.cuba.security.entity.Group;
 import com.haulmont.cuba.security.entity.User;
 
@@ -9,9 +9,9 @@ public interface ToolsService {
 
     User getActiveUser();
     Group getActiveGroup();
-    boolean isActiveSuper();
+    GroupType getActiveGroupType();
+    GroupType getGroupType(User user);
 
-    boolean isApplicant(StandardEntity user);
-    boolean isWorker(StandardEntity user);
+    boolean isAdmin();
 
 }

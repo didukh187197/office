@@ -3,8 +3,6 @@
     <include file="com/company/office/screens.xml"/>
     <screen id="main-settings-screen"
             template="com/company/office/web/screens/main-settings-screen.xml"/>
-    <screen id="office$StepAction.edit"
-            template="com/company/office/web/stepaction/step-action-edit.xml"/>
     <screen id="delete-screen"
             template="com/company/office/web/screens/delete-screen.xml"/>
     <screen id="office$RequestStep.edit"
@@ -13,12 +11,8 @@
             template="com/company/office/web/screens/ext-mainwindow.xml"/>
     <screen id="office$Request.browse"
             template="com/company/office/web/request/request-browse.xml"/>
-    <screen id="office$Step.browse"
-            template="com/company/office/web/step/step-browse.xml"/>
-    <screen id="office$StepUser.edit"
-            template="com/company/office/web/stepuser/step-user-edit.xml"/>
     <screen id="step-screen"
-            template="com/company/office/web/screens/step-screen.xml"/>
+            template="com/company/office/web/screens/positions-screen.xml"/>
     <screen id="office$RequestLog.edit"
             template="com/company/office/web/requestlog/request-log-edit.xml"/>
     <screen id="office$RequestStepAction.browse"
@@ -27,4 +21,10 @@
             template="com/company/office/web/requeststepaction/request-step-action-edit.xml"/>
     <screen id="office$RequestStepCommunication.edit"
             template="com/company/office/web/requeststepcommunication/request-step-communication-edit.xml"/>
+    <screen id="office$Position.browse"
+            template="com/company/office/web/position/position-browse.xml"/>
+    <screen id="office$PositionAction.edit"
+            template="com/company/office/web/positionaction/position-action-edit.xml"/>
+    <screen id="office$PositionUser.edit"
+            template="com/company/office/web/positionuser/position-user-edit.xml"/>
 </screen-config>

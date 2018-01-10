@@ -27,57 +27,57 @@ public class RequestServiceBean implements RequestService {
     private Messages messages;
 
     @Override
-    public void nextStep(Request request) {
-        Step step = request.getStep().getStep();
+    public void nextPosition(Request request) {
+        Position position = request.getStep().getPosition();
         State state;
 
-        if ( (step != null) && (step.equals(officeConfig.getFinalStep())) ) {
+        if ( (position != null) && (position.equals(officeConfig.getFinalPosition())) ) {
             state = State.Closed;
         } else {
-            //request.setStep(getNextStep(step));
+            //request.setStep(getNextStep(position));
             state = State.Waiting;
         }
 
-        fixStepChange(request, null, state);
+        fixPositionChange(request, null, state);
     }
 
     @Override
     public boolean setWorker(Request request) {
         Request rq = getRequestByID(request.getId());
 
-        //User worker = getFreeUser(rq.getStep());
+        //User worker = getFreeUser(rq.getPosition());
         User worker = getFreeUser(null);
         if (worker == null) {
             return false;
         }
 
-        fixStepChange(rq, worker, State.Processing);
+        fixPositionChange(rq, worker, State.Processing);
         return true;
     }
 
-    private Step getNextStep(Step step) {
-        if (step == null) {
-            return officeConfig.getInitStep();
+    private Position getNextPosition(Position position) {
+        if (position == null) {
+            return officeConfig.getInitPosition();
         }
 
-        if (step.equals(officeConfig.getFinalStep())) {
-            return officeConfig.getFinalStep();
+        if (position.equals(officeConfig.getFinalPosition())) {
+            return officeConfig.getFinalPosition();
         }
 
-        LoadContext<Step> loadContext = LoadContext.create(Step.class)
-                .setQuery(LoadContext.createQuery("select s from office$Step s order by s.identifier"))
-                .setView("step-view");
+        LoadContext<Position> loadContext = LoadContext.create(Position.class)
+                .setQuery(LoadContext.createQuery("select s from office$Position s order by s.identifier"))
+                .setView("position-view");
 
-        Step resStep = null;
-        List<Step> steps = dataManager.loadList(loadContext);
-        for (Step st :steps) {
-            if (st.equals(step)) {
-                resStep = steps.get(steps.indexOf(st) + 1);
+        Position resPosition = null;
+        List<Position> positions = dataManager.loadList(loadContext);
+        for (Position st :positions) {
+            if (st.equals(position)) {
+                resPosition = positions.get(positions.indexOf(st) + 1);
                 break;
             }
         }
 
-        return resStep;
+        return resPosition;
     }
 
     private Request getRequestByID(UUID requestId) {
@@ -85,8 +85,8 @@ public class RequestServiceBean implements RequestService {
         return dataManager.load(loadContext);
     }
 
-    private Step getStepByID(UUID stepId) {
-        LoadContext<Step> loadContext = LoadContext.create(Step.class).setId(stepId).setView("step-view");
+    private Position getPositionByID(UUID positionId) {
+        LoadContext<Position> loadContext = LoadContext.create(Position.class).setId(positionId).setView("position-view");
         return dataManager.load(loadContext);
     }
 
@@ -96,11 +96,11 @@ public class RequestServiceBean implements RequestService {
         dataManager.commit(commitContext);
     }
 
-    private void fixStepChange(Request request, User worker, State state) {
+    private void fixPositionChange(Request request, User worker, State state) {
         /*
-        Step step = request.getStep();
+        Position step = request.getPosition();
 
-        request.setStep(step);
+        request.setPosition(step);
         request.setUser(worker);
         request.setState(state);
         request.setPenalty(null);
@@ -112,8 +112,8 @@ public class RequestServiceBean implements RequestService {
         requestStep.setDescription(messages.getMessage(state));
 
         if (worker != null) {
-            List<StepAction> stepActions = getStepByID(step.getId()).getActions();
-            for (StepAction sa : stepActions) {
+            List<PositionAction> stepActions = getPositionByID(step.getId()).getActions();
+            for (PositionAction sa : stepActions) {
                 RequestAction requestAction = new RequestAction();
                 requestAction.setRequest(request);
                 requestAction.setStep(step);
@@ -133,32 +133,32 @@ public class RequestServiceBean implements RequestService {
         */
     }
 
-    private User getFreeUser(Step step) {
-        LoadContext<StepUser> loadContext = LoadContext.create(StepUser.class)
-                .setQuery(LoadContext.createQuery("select su from office$StepUser su where su.step.id = :st").setParameter("st", step))
-                .setView("stepUser-view");
+    private User getFreeUser(Position position) {
+        LoadContext<PositionUser> loadContext = LoadContext.create(PositionUser.class)
+                .setQuery(LoadContext.createQuery("select su from office$PositionUser su where su.position.id = :st").setParameter("st", position))
+                .setView("positionUser-view");
 
         double minRate = Double.MAX_VALUE;
-        StepUser resStepUser = null;
+        PositionUser resPositionUser = null;
 
-        List<StepUser> stepsUsers = dataManager.loadList(loadContext);
-        for (StepUser su : stepsUsers) {
-            double count = su.getRequests() == null ? 0.0 : su.getRequests();
-            if (count < su.getThreshold()) {
-                double suRate = count / su.getThreshold();
+        List<PositionUser> positionsUsers = dataManager.loadList(loadContext);
+        for (PositionUser pu : positionsUsers) {
+            double count = pu.getRequests() == null ? 0.0 : pu.getRequests();
+            if (count < pu.getThreshold()) {
+                double suRate = count / pu.getThreshold();
                 if (suRate < minRate) {
                     minRate = suRate;
-                    resStepUser = su;
+                    resPositionUser = pu;
                 }
             }
         }
 
-        if (resStepUser != null) {
-            int count = resStepUser.getRequests() == null ? 0 : resStepUser.getRequests();
-            resStepUser.setRequests(count + 1);
-            commitEntity(resStepUser);
+        if (resPositionUser != null) {
+            int count = resPositionUser.getRequests() == null ? 0 : resPositionUser.getRequests();
+            resPositionUser.setRequests(count + 1);
+            commitEntity(resPositionUser);
 
-            return resStepUser.getUser();
+            return resPositionUser.getUser();
         } else {
             return null;
         }

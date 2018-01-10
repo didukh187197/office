@@ -14,9 +14,11 @@ public class ExtAppMainWindow extends AppMainWindow {
     public void ready() {
         super.ready();
 
-        if (!toolsService.isActiveSuper()) {
+        /*
+        if (!toolsService.isAdmin()) {
             openWindow("office$Request.browse", WindowManager.OpenType.NEW_TAB);
         }
+        */
     }
 
 }

@@ -5,13 +5,9 @@ import com.company.office.entity.*;
 import com.company.office.service.RequestService;
 import com.company.office.service.ToolsService;
 import com.haulmont.bali.util.ParamsMap;
-import com.haulmont.cuba.core.global.DataManager;
-import com.haulmont.cuba.core.global.LoadContext;
-import com.haulmont.cuba.core.global.PersistenceHelper;
+import com.haulmont.cuba.core.global.*;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
-import com.haulmont.cuba.gui.components.actions.EditAction;
-import com.haulmont.cuba.gui.components.actions.RemoveAction;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
 import com.haulmont.cuba.gui.data.GroupDatasource;
 import com.haulmont.cuba.security.entity.Group;
@@ -54,14 +50,6 @@ public class RequestBrowse extends EntityCombinedScreen {
         */
     }
 
-    private void tuneFields() {
-        ((PickerField) getFieldGroup().getField("applicant").getComponent()).getLookupAction().setLookupScreenOpenType(WindowManager.OpenType.DIALOG);
-
-        if (officeConfig.getWorkersGroupQuery() != null) {
-            ((CollectionDatasource) getDsContext().getNN("workerDs")).setQuery(officeConfig.getWorkersGroupQuery());
-        }
-    }
-
     private void addDsListeners() {
         PopupButton extraActionsBtn = (PopupButton) getComponentNN("extraActionsBtn");
 
@@ -84,8 +72,16 @@ public class RequestBrowse extends EntityCombinedScreen {
         });
     }
 
+    private void tuneFields() {
+        ((PickerField) getFieldGroup().getField("applicant").getComponent()).getLookupAction().setLookupScreenOpenType(WindowManager.OpenType.DIALOG);
+
+        if (officeConfig.getWorkersGroupQuery() != null) {
+            ((CollectionDatasource) getDsContext().getNN("workersDs")).setQuery(officeConfig.getWorkersGroupQuery());
+        }
+    }
+
     private void setUserInterface() {
-        if (toolsService.isActiveSuper())
+        if (toolsService.isAdmin())
             return;
 
         TabSheet tabSheet = (TabSheet) getComponentNN("tabSheet");
@@ -96,39 +92,38 @@ public class RequestBrowse extends EntityCombinedScreen {
         Table logsTable = (Table) getComponentNN("logsTable");
         logsTable.getButtonsPanel().setVisible(false);
 
-        Group userGroup = toolsService.getActiveGroup();
+        switch (toolsService.getActiveGroupType()) {
+            case Registrators:
+                requestsTable.getActionNN("remove").setVisible(false);
+                getComponentNN("extraActionsBtn").setVisible(false);
 
-        if (userGroup.equals(officeConfig.getRegistratorsGroup())) {
-            requestsTable.getActionNN("remove").setVisible(false);
-            getComponentNN("extraActionsBtn").setVisible(false);
+                tabSheet.getTab("stepsTab").setVisible(false);
+                tabSheet.getTab("logsTab").setVisible(false);
+            break;
 
-            tabSheet.getTab("stepsTab").setVisible(false);
-            tabSheet.getTab("communicationsTab").setVisible(false);
-            tabSheet.getTab("logsTab").setVisible(false);
-        }
+            case Managers:
+                requestsTable.getActionNN("create").setVisible(false);
+                requestsTable.getActionNN("edit").setVisible(false);
+                requestsTable.getActionNN("remove").setVisible(false);
+                getComponentNN("extraActionsBtn").setVisible(true);
 
-        else if (userGroup.equals(officeConfig.getManagersGroup())) {
-            requestsTable.getActionNN("create").setVisible(false);
-            requestsTable.getActionNN("edit").setVisible(false);
-            requestsTable.getActionNN("remove").setVisible(false);
-            getComponentNN("extraActionsBtn").setVisible(true);
+                stepsTable.getButtonsPanel().setVisible(false);
+            break;
 
-            stepsTable.getButtonsPanel().setVisible(false);
-        }
+            case Workers:
+                getComponentNN("buttonsPanel").setVisible(false);
+                stepsTable.getButtonsPanel().setVisible(false);
 
-        else if (userGroup.equals(officeConfig.getWorkersGroup())) {
-            getComponentNN("buttonsPanel").setVisible(false);
-            stepsTable.getButtonsPanel().setVisible(false);
+                requestsDs.setQuery(String.format("select e from office$Request e where e.step.user.id = '%s'", toolsService.getActiveUser().getId()));
+                getComponentNN("buttonsPanel").setVisible(false);
 
-            requestsDs.setQuery(String.format("select e from office$Request e where e.user.id = '%s'", toolsService.getActiveUser().getId()));
-            getComponentNN("buttonsPanel").setVisible(false);
+                tabSheet.setSelectedTab("stepsTab");
+            break;
 
-            tabSheet.setSelectedTab("stepsTab");
-        }
-
-        else if (userGroup.equals(officeConfig.getApplicantsGroup())) {
-            getComponentNN("buttonsPanel").setVisible(false);
-            stepsTable.getButtonsPanel().setVisible(false);
+            case Applicants:
+                getComponentNN("buttonsPanel").setVisible(false);
+                stepsTable.getButtonsPanel().setVisible(false);
+            break;
         }
     }
 
@@ -162,7 +157,7 @@ public class RequestBrowse extends EntityCombinedScreen {
         if (getComponentNN("mainTab").isVisible()) {
             User applicant = ((PickerField) getFieldGroup().getField("applicant").getComponent()).getValue();
 
-            if ( (applicant != null) && !(toolsService.isApplicant(applicant)) ) {
+            if ( (applicant != null) && !(toolsService.getGroupType(applicant).equals(GroupType.Applicants)) ) {
                 showNotification(getMessage("warning.notApplicant"), NotificationType.ERROR);
                 return false;
             }
@@ -196,7 +191,7 @@ public class RequestBrowse extends EntityCombinedScreen {
                                 super.save();
 
                                 if (isNew) {
-                                    requestService.nextStep(requestsDs.getItem());
+                                    requestService.nextPosition(requestsDs.getItem());
                                     tryToAssignUser();
                                 }
                                 requestsDs.refresh();
@@ -230,20 +225,20 @@ public class RequestBrowse extends EntityCombinedScreen {
         showMessage(messages.getMessage(getSelectedRequest().getStep().getState()));
     }
 
-    private void showStep(Step step) {
-        if (step == null) {
+    private void showStep(Position position) {
+        if (position == null) {
             showMessage("null");
         } else {
-            showMessage(step.getDescription());
+            showMessage(position.getDescription());
         }
     }
 
     public void onArchive(Component source) {
-        openLookup("step-screen",
+        openLookup("positions-screen.xml",
                 items -> {
                     if (!items.isEmpty()) {
                         for (Object item : items) {
-                            showStep(((Step) item));
+                            showStep(((Position) item));
                         }
                     }
                 },

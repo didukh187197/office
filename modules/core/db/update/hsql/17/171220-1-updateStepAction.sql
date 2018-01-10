@@ -1,1 +1,0 @@
-alter table OFFICE_STEP_ACTION drop constraint FK_OFFICE_STEP_ACTION_STEP;

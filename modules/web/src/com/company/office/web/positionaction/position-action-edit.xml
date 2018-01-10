@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
         caption="msg://editorCaption"
-        class="com.company.office.web.requeststep.RequestStepEdit"
-        datasource="requestStepDs"
+        class="com.company.office.web.positionaction.PositionActionEdit"
+        datasource="positionActionDs"
         focusComponent="fieldGroup"
-        messagesPack="com.company.office.web.requeststep">
+        messagesPack="com.company.office.web.positionaction">
     <dsContext>
-        <datasource id="requestStepDs"
-                    class="com.company.office.entity.RequestStep"
-                    view="requestStep-view"/>
-        <collectionDatasource id="positionsDs"
-                              class="com.company.office.entity.Position">
+        <datasource id="positionActionDs"
+                    class="com.company.office.entity.PositionAction"
+                    view="positionAction-view"/>
+        <collectionDatasource id="fileDescriptorsDs"
+                              class="com.haulmont.cuba.core.entity.FileDescriptor">
             <query>
-                <![CDATA[select e from office$Position e order by e.createTs]]>
-            </query>
-        </collectionDatasource>
-        <collectionDatasource id="usersDs"
-                              class="com.haulmont.cuba.security.entity.User">
-            <query>
-                <![CDATA[select e from sec$User e]]>
+                <![CDATA[select e from sys$FileDescriptor e where lower(e.name) like '%template%']]>
             </query>
         </collectionDatasource>
     </dsContext>
@@ -33,37 +27,38 @@
                  margin="true,false,false,false"
                  spacing="true">
                 <fieldGroup id="fieldGroup"
-                            datasource="requestStepDs">
-                    <column fieldCaptionWidth="75px"
-                            width="390px">
+                            datasource="positionActionDs">
+                    <column width="400px">
+                        <field property="type"/>
                         <field property="description"
                                rows="3"/>
-                        <field property="state"/>
                     </column>
                 </fieldGroup>
-                <fieldGroup id="fieldGroupDates"
-                            datasource="requestStepDs">
-                    <column fieldCaptionWidth="75px"
-                            width="150px">
-                        <field property="submissionTerm"/>
-                        <field property="submitted"/>
-                    </column>
-                    <column width="150px">
-                        <field property="approvalTerm"/>
-                        <field property="approved"/>
-                    </column>
-                </fieldGroup>
+                <groupBox id="boxFile"
+                          expand="lookupFile"
+                          orientation="horizontal"
+                          spacing="true"
+                          width="580px">
+                    <label id="labelTemplate"
+                           align="MIDDLE_CENTER"
+                           value="msg://boxTemplate"/>
+                    <lookupField id="lookupFile"
+                                 datasource="positionActionDs"
+                                 optionsDatasource="fileDescriptorsDs"
+                                 property="template"/>
+                    <linkButton id="btnFile"
+                                align="MIDDLE_CENTER"
+                                caption="msg://btnFile"
+                                invoke="onBtnFileClick"/>
+                </groupBox>
             </tab>
             <tab id="tabSystem"
                  caption="System"
                  margin="true,false,false,false"
                  spacing="true">
                 <fieldGroup id="fieldsSystem"
-                            datasource="requestDs">
-                    <column width="350px">
-                        <field property="step"/>
-                        <field optionsDatasource="usersDs"
-                               property="user"/>
+                            datasource="positionActionDs">
+                    <column width="400px">
                         <field caption="mainMsg://field.created"
                                property="createTs"
                                resolution="SEC"/>
@@ -79,6 +74,7 @@
             </tab>
         </tabSheet>
         <frame id="windowActions"
+               height="50px"
                screen="editWindowActions"/>
     </layout>
 </window>

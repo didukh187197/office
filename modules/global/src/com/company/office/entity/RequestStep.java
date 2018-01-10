@@ -33,8 +33,8 @@ public class RequestStep extends BaseUuidEntity implements Updatable, Creatable 
 
     @OnDeleteInverse(DeletePolicy.DENY)
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "STEP_ID")
-    protected Step step;
+    @JoinColumn(name = "POSITION_ID")
+    protected Position position;
 
     @Column(name = "STATE")
     protected String state;
@@ -87,6 +87,16 @@ public class RequestStep extends BaseUuidEntity implements Updatable, Creatable 
 
     @Column(name = "CREATED_BY", length = 50)
     protected String createdBy;
+
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
 
     public void setSubmissionTerm(Date submissionTerm) {
         this.submissionTerm = submissionTerm;
@@ -166,14 +176,6 @@ public class RequestStep extends BaseUuidEntity implements Updatable, Creatable 
         return request;
     }
 
-
-    public void setStep(Step step) {
-        this.step = step;
-    }
-
-    public Step getStep() {
-        return step;
-    }
 
     public void setUser(User user) {
         this.user = user;

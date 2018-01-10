@@ -18,55 +18,6 @@ create table OFFICE_REQUEST (
 )^
 -- end OFFICE_REQUEST
 
--- begin OFFICE_STEP
-create table OFFICE_STEP (
-    ID varchar(36) not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    --
-    IDENTIFIER integer,
-    DESCRIPTION varchar(100),
-    DAYS_FOR_SUBMISSION integer,
-    DAYS_FOR_APPROVAL integer,
-    --
-    primary key (ID)
-)^
--- end OFFICE_STEP
--- begin OFFICE_STEP_ACTION
-create table OFFICE_STEP_ACTION (
-    ID varchar(36) not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    --
-    STEP_ID varchar(36),
-    TYPE_ varchar(50) not null,
-    DESCRIPTION varchar(100),
-    TEMPLATE_ID varchar(36),
-    --
-    primary key (ID)
-)^
--- end OFFICE_STEP_ACTION
-
--- begin OFFICE_STEP_USER
-create table OFFICE_STEP_USER (
-    ID varchar(36) not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    --
-    STEP_ID varchar(36),
-    USER_ID varchar(36),
-    REQUESTS integer,
-    THRESHOLD integer,
-    --
-    primary key (ID)
-)^
--- end OFFICE_STEP_USER
 -- begin OFFICE_REQUEST_STEP
 create table OFFICE_REQUEST_STEP (
     ID varchar(36) not null,
@@ -76,7 +27,7 @@ create table OFFICE_REQUEST_STEP (
     CREATED_BY varchar(50),
     --
     REQUEST_ID varchar(36),
-    STEP_ID varchar(36),
+    POSITION_ID varchar(36),
     STATE varchar(50),
     USER_ID varchar(36),
     DESCRIPTION varchar(100),
@@ -144,3 +95,51 @@ create table OFFICE_REQUEST_STEP_COMMUNICATION (
     primary key (ID)
 )^
 -- end OFFICE_REQUEST_STEP_COMMUNICATION
+-- begin OFFICE_POSITION_ACTION
+create table OFFICE_POSITION_ACTION (
+    ID varchar(36) not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    --
+    POSITION_ID varchar(36),
+    TYPE_ varchar(50) not null,
+    DESCRIPTION varchar(100),
+    TEMPLATE_ID varchar(36),
+    --
+    primary key (ID)
+)^
+-- end OFFICE_POSITION_ACTION
+-- begin OFFICE_POSITION
+create table OFFICE_POSITION (
+    ID varchar(36) not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    --
+    IDENTIFIER integer,
+    DESCRIPTION varchar(100),
+    DAYS_FOR_SUBMISSION integer,
+    DAYS_FOR_APPROVAL integer,
+    --
+    primary key (ID)
+)^
+-- end OFFICE_POSITION
+-- begin OFFICE_POSITION_USER
+create table OFFICE_POSITION_USER (
+    ID varchar(36) not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    --
+    POSITION_ID varchar(36),
+    USER_ID varchar(36),
+    REQUESTS integer,
+    THRESHOLD integer,
+    --
+    primary key (ID)
+)^
+-- end OFFICE_POSITION_USER

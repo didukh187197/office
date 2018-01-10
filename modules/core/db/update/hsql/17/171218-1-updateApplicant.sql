@@ -1,1 +1,0 @@
-alter table OFFICE_APPLICANT drop constraint FK_OFFICE_APPLICANT_REQUEST;

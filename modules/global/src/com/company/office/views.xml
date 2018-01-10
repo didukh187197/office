@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
-    <view class="com.company.office.entity.Step"
+    <view class="com.company.office.entity.Position"
           extends="_local"
-          name="step-view">
+          name="position-view">
         <property name="actions"
-                  view="stepAction-view">
+                  view="positionAction-view">
         </property>
         <property name="createTs"/>
         <property name="createdBy"/>
         <property name="updateTs"/>
         <property name="updatedBy"/>
         <property name="users"
-                  view="stepUser-view"/>
+                  view="positionUser-view"/>
     </view>
-    <view class="com.company.office.entity.StepAction"
+    <view class="com.company.office.entity.PositionAction"
           extends="_local"
-          name="stepAction-view">
+          name="positionAction-view">
         <property name="template"
                   view="_minimal">
             <property name="size"/>
@@ -60,8 +60,6 @@
           name="request-view">
         <property name="step"
                   view="_minimal">
-            <property name="step"
-                      view="_minimal"/>
             <property name="state"/>
             <property name="user"
                       view="_minimal"/>
@@ -75,6 +73,8 @@
             <property name="createdBy"/>
             <property name="submissionTerm"/>
             <property name="approvalTerm"/>
+            <property name="position"
+                      view="_minimal"/>
         </property>
         <property name="applicant"
                   view="_minimal">
@@ -111,9 +111,9 @@
                   view="requestLog-view">
         </property>
     </view>
-    <view class="com.company.office.entity.StepUser"
+    <view class="com.company.office.entity.PositionUser"
           extends="_local"
-          name="stepUser-view">
+          name="positionUser-view">
         <property name="user"
                   view="_minimal"/>
         <property name="createTs"/>
@@ -124,14 +124,14 @@
     <view class="com.company.office.entity.RequestStep"
           extends="_local"
           name="requestStep-view">
-        <property name="step"
-                  view="_minimal"/>
         <property name="user"
                   view="_minimal"/>
         <property name="updateTs"/>
         <property name="updatedBy"/>
         <property name="createTs"/>
         <property name="createdBy"/>
+        <property name="position"
+                  view="_minimal"/>
     </view>
     <view class="com.company.office.entity.RequestLog"
           extends="_local"

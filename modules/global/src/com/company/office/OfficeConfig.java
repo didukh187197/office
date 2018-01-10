@@ -1,6 +1,6 @@
 package com.company.office;
 
-import com.company.office.entity.Step;
+import com.company.office.entity.Position;
 import com.haulmont.cuba.core.config.Config;
 import com.haulmont.cuba.core.config.Property;
 import com.haulmont.cuba.core.config.Source;
@@ -38,12 +38,12 @@ public interface OfficeConfig extends Config {
     String getWorkersGroupQuery();
     void setWorkersGroupQuery(String query);
 
-    @Property("office.initStep")
-    Step getInitStep();
-    void setInitStep(Step step);
+    @Property("office.initPosition")
+    Position getInitPosition();
+    void setInitPosition(Position position);
 
-    @Property("office.finalStep")
-    Step getFinalStep();
-    void setFinalStep(Step step);
+    @Property("office.finalPosition")
+    Position getFinalPosition();
+    void setFinalPosition(Position position);
 
 }

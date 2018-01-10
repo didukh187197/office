@@ -1,7 +1,7 @@
 package com.company.office.service;
 
 import com.company.office.OfficeConfig;
-import com.haulmont.cuba.core.entity.StandardEntity;
+import com.company.office.entity.GroupType;
 import com.haulmont.cuba.core.global.AppBeans;
 import com.haulmont.cuba.core.global.DataManager;
 import com.haulmont.cuba.core.global.LoadContext;
@@ -13,7 +13,9 @@ import com.haulmont.cuba.security.entity.UserRole;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Service(ToolsService.NAME)
@@ -45,7 +47,26 @@ public class ToolsServiceBean implements ToolsService {
     }
 
     @Override
-    public boolean isActiveSuper() {
+    public GroupType getActiveGroupType() {
+        return getGroupType(getCurrentUser());
+    }
+
+    @Override
+    public GroupType getGroupType(User user) {
+        Map<Group, GroupType> map = new HashMap<>();
+        map.put(officeConfig.getRegistratorsGroup(), GroupType.Registrators);
+        map.put(officeConfig.getManagersGroup(), GroupType.Managers);
+        map.put(officeConfig.getWorkersGroup(), GroupType.Workers);
+        map.put(officeConfig.getApplicantsGroup(), GroupType.Applicants);
+
+        if (map.containsKey(user.getGroup())) {
+            return map.get(user.getGroup());
+        }
+        return null;
+    }
+
+    @Override
+    public boolean isAdmin() {
         List<UserRole> roles = getCurrentUser().getUserRoles();
 
         boolean superUser = false;
@@ -57,18 +78,6 @@ public class ToolsServiceBean implements ToolsService {
         }
 
         return superUser;
-    }
-
-    @Override
-    public boolean isApplicant(StandardEntity user) {
-        User usr = getUser(user.getId());
-        return usr.getGroup().equals(officeConfig.getApplicantsGroup());
-    }
-
-    @Override
-    public boolean isWorker(StandardEntity user) {
-        User usr = getUser(user.getId());
-        return usr.getGroup().equals(officeConfig.getWorkersGroup());
     }
 
 }

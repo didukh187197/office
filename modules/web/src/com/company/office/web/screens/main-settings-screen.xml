@@ -6,15 +6,21 @@
     <dsContext>
         <collectionDatasource id="groupsDs"
                               class="com.haulmont.cuba.security.entity.Group"
-                              view="_base">
+                              view="_local">
             <query>
                 <![CDATA[select e from sec$Group e]]>
             </query>
         </collectionDatasource>
-        <collectionDatasource id="stepsDs"
-                              class="com.company.office.entity.Step">
+        <collectionDatasource id="positionsDs"
+                              class="com.company.office.entity.Position">
             <query>
-                <![CDATA[select e from office$Step e]]>
+                <![CDATA[select e from office$Position e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="usersDs"
+                              class="com.haulmont.cuba.security.entity.User">
+            <query>
+                <![CDATA[select e from sec$User e]]>
             </query>
         </collectionDatasource>
     </dsContext>
@@ -84,35 +90,34 @@
                              required="true"/>
             </hbox>
         </groupBox>
-        <groupBox id="stepsBox"
-                  caption="msg://settingsDialog.stepsBox"
+        <groupBox id="positionsBox"
+                  caption="msg://settingsDialog.positionsBox"
                   spacing="true"
                   width="500px">
-            <hbox id="initStepBox"
-                  expand="lookupInitStep"
+            <hbox id="initPositionBox"
+                  expand="lookupInitPosition"
                   spacing="true"
                   width="100%">
                 <label align="MIDDLE_LEFT"
-                       value="msg://settingsDialog.initStep"
+                       value="msg://settingsDialog.initPosition"
                        width="80px"/>
-                <lookupField id="lookupInitStep"
+                <lookupField id="lookupInitPosition"
                              nullOptionVisible="false"
-                             optionsDatasource="stepsDs"
+                             optionsDatasource="positionsDs"
                              required="true"/>
             </hbox>
-            <hbox id="finalStepBox"
-                  expand="lookupFinalStep"
+            <hbox id="finalPositionBox"
+                  expand="lookupFinalPosition"
                   spacing="true"
                   width="100%">
-                <label value="msg://settingsDialog.finalStep"
+                <label value="msg://settingsDialog.finalPosition"
                        width="80px"/>
-                <lookupField id="lookupFinalStep"
-                             optionsDatasource="stepsDs"
+                <lookupField id="lookupFinalPosition"
+                             optionsDatasource="positionsDs"
                              required="true"/>
             </hbox>
         </groupBox>
-        <buttonsPanel id="buttonsPanel"
-                      margin="true">
+        <buttonsPanel id="buttonsPanel">
             <button id="btnOk"
                     caption="mainMsg://actions.Ok"
                     icon="icons/ok.png"

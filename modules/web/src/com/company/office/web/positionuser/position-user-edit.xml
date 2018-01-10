@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
         caption="msg://editorCaption"
-        class="com.company.office.web.requeststep.RequestStepEdit"
-        datasource="requestStepDs"
+        class="com.company.office.web.positionuser.PositionUserEdit"
+        datasource="positionUserDs"
         focusComponent="fieldGroup"
-        messagesPack="com.company.office.web.requeststep">
+        messagesPack="com.company.office.web.positionuser">
     <dsContext>
-        <datasource id="requestStepDs"
-                    class="com.company.office.entity.RequestStep"
-                    view="requestStep-view"/>
-        <collectionDatasource id="positionsDs"
-                              class="com.company.office.entity.Position">
-            <query>
-                <![CDATA[select e from office$Position e order by e.createTs]]>
-            </query>
-        </collectionDatasource>
+        <datasource id="positionUserDs"
+                    class="com.company.office.entity.PositionUser"
+                    view="positionUser-view"/>
         <collectionDatasource id="usersDs"
                               class="com.haulmont.cuba.security.entity.User">
             <query>
@@ -33,24 +27,16 @@
                  margin="true,false,false,false"
                  spacing="true">
                 <fieldGroup id="fieldGroup"
-                            datasource="requestStepDs">
-                    <column fieldCaptionWidth="75px"
-                            width="390px">
-                        <field property="description"
-                               rows="3"/>
-                        <field property="state"/>
-                    </column>
-                </fieldGroup>
-                <fieldGroup id="fieldGroupDates"
-                            datasource="requestStepDs">
-                    <column fieldCaptionWidth="75px"
-                            width="150px">
-                        <field property="submissionTerm"/>
-                        <field property="submitted"/>
-                    </column>
-                    <column width="150px">
-                        <field property="approvalTerm"/>
-                        <field property="approved"/>
+                            datasource="positionUserDs">
+                    <column width="350px">
+                        <field optionsDatasource="usersDs"
+                               property="user"/>
+                        <field editable="false"
+                               property="requests"
+                               width="75px"/>
+                        <field property="threshold"
+                               required="true"
+                               width="75px"/>
                     </column>
                 </fieldGroup>
             </tab>
@@ -59,11 +45,9 @@
                  margin="true,false,false,false"
                  spacing="true">
                 <fieldGroup id="fieldsSystem"
-                            datasource="requestDs">
+                            datasource="positionUserDs">
                     <column width="350px">
-                        <field property="step"/>
-                        <field optionsDatasource="usersDs"
-                               property="user"/>
+                        <field property="requests"/>
                         <field caption="mainMsg://field.created"
                                property="createTs"
                                resolution="SEC"/>

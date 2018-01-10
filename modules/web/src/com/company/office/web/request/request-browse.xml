@@ -31,16 +31,16 @@
                 <![CDATA[select e from office$Request e]]>
             </query>
         </groupDatasource>
-        <collectionDatasource id="workerDs"
+        <collectionDatasource id="workersDs"
                               class="com.haulmont.cuba.security.entity.User">
             <query>
                 <![CDATA[select e from sec$User e]]>
             </query>
         </collectionDatasource>
-        <collectionDatasource id="stepDs"
-                              class="com.company.office.entity.Step">
+        <collectionDatasource id="positionsDs"
+                              class="com.company.office.entity.Position">
             <query>
-                <![CDATA[select e from office$Step e order by e.identifier]]>
+                <![CDATA[select e from office$Position e order by e.identifier]]>
             </query>
         </collectionDatasource>
     </dsContext>
@@ -159,11 +159,11 @@
                         </tab>
                         <tab id="stepsTab"
                              caption="msg://com.company.office.entity/Request.steps"
-                             expand="stepsTable"
+                             expand="tabSheetStep"
                              margin="true,false,false,false"
                              spacing="true">
                             <table id="stepsTable"
-                                   height="400px"
+                                   height="300px"
                                    width="100%">
                                 <actions>
                                     <action id="create"/>
@@ -171,7 +171,7 @@
                                     <action id="remove"/>
                                 </actions>
                                 <columns>
-                                    <column id="step"/>
+                                    <column id="position"/>
                                     <column id="state"/>
                                     <column id="user"/>
                                     <column id="submitted"/>
@@ -185,26 +185,78 @@
                                 </buttonsPanel>
                             </table>
                             <fieldGroup id="fieldsStep"
-                                        datasource="stepsDs">
+                                        datasource="stepsDs"
+                                        width="100%">
                                 <column fieldCaptionWidth="75px"
-                                        width="385px">
-                                    <field property="description"
-                                           rows="3"/>
+                                        width="100%">
+                                    <field property="description"/>
                                 </column>
                             </fieldGroup>
                             <fieldGroup id="fieldsStepDates"
                                         datasource="stepsDs">
-                                <column fieldCaptionWidth="75px"
-                                        width="150px">
+                                <column width="150px">
                                     <field property="submissionTerm"/>
-                                    <field property="submitted"/>
                                 </column>
-                                <column fieldCaptionWidth="75px"
-                                        width="150px">
+                                <column width="150px">
                                     <field property="approvalTerm"/>
-                                    <field property="approved"/>
                                 </column>
                             </fieldGroup>
+                            <tabSheet id="tabSheetStep">
+                                <tab id="actionsTab"
+                                     caption="msg://com.company.office.entity/RequestStep.actions"
+                                     margin="true,false,false,false"
+                                     spacing="true">
+                                    <table id="actionsTable"
+                                           height="100%"
+                                           width="100%">
+                                        <actions>
+                                            <action id="create"/>
+                                            <action id="edit"/>
+                                            <action id="remove"/>
+                                        </actions>
+                                        <columns>
+                                            <column id="createTs"
+                                                    caption="mainMsg://field.created"/>
+                                            <column id="type"/>
+                                            <column id="submitted"/>
+                                            <column id="approved"/>
+                                        </columns>
+                                        <rows datasource="actionsDs"/>
+                                        <buttonsPanel>
+                                            <button action="actionsTable.create"/>
+                                            <button action="actionsTable.edit"/>
+                                            <button action="actionsTable.remove"/>
+                                        </buttonsPanel>
+                                    </table>
+                                </tab>
+                                <tab id="communicationsTab"
+                                     caption="msg://com.company.office.entity/RequestStep.communications"
+                                     margin="true,false,false,false"
+                                     spacing="true">
+                                    <table id="communicationsTable"
+                                           height="100%"
+                                           width="100%">
+                                        <actions>
+                                            <action id="create"/>
+                                            <action id="edit"/>
+                                            <action id="remove"/>
+                                        </actions>
+                                        <columns>
+                                            <column id="createTs"
+                                                    caption="mainMsg://field.created"/>
+                                            <column id="updateTs"
+                                                    caption="mainMsg://field.updated"/>
+                                            <column id="question"/>
+                                        </columns>
+                                        <rows datasource="communicationsDs"/>
+                                        <buttonsPanel>
+                                            <button action="communicationsTable.create"/>
+                                            <button action="communicationsTable.edit"/>
+                                            <button action="communicationsTable.remove"/>
+                                        </buttonsPanel>
+                                    </table>
+                                </tab>
+                            </tabSheet>
                         </tab>
                         <tab id="logsTab"
                              caption="msg://com.company.office.entity/Request.logs"
@@ -249,7 +301,7 @@
                             <fieldGroup id="fieldsSystem"
                                         datasource="requestDs">
                                 <column width="350px">
-                                    <field optionsDatasource="stepDs"
+                                    <field optionsDatasource="stepsDs"
                                            property="step"/>
                                     <field caption="mainMsg://field.created"
                                            property="createTs"
