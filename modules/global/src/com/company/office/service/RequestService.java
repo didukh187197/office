@@ -7,4 +7,5 @@ public interface RequestService {
 
     void nextPosition(Request request);
     boolean setWorker(Request request);
+    void addLogItem(Request request, String info);
 }

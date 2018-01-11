@@ -33,9 +33,6 @@ public class RequestStepAction extends BaseUuidEntity implements Creatable, Upda
     @JoinColumn(name = "REQUEST_STEP_ID")
     protected RequestStep requestStep;
 
-    @Column(name = "REQUEST_ID")
-    protected UUID requestId;
-
     @Column(name = "TYPE_")
     protected String type;
 
@@ -76,14 +73,6 @@ public class RequestStepAction extends BaseUuidEntity implements Creatable, Upda
 
     @Column(name = "UPDATED_BY", length = 50)
     protected String updatedBy;
-
-    public void setRequestId(UUID requestId) {
-        this.requestId = requestId;
-    }
-
-    public UUID getRequestId() {
-        return requestId;
-    }
 
 
     public void setSubmitted(Date submitted) {

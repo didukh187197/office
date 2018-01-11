@@ -24,12 +24,6 @@ public class RequestLog extends BaseUuidEntity implements Updatable, Creatable {
     @Column(name = "INFO")
     protected String info;
 
-    @Column(name = "CLASS_NAME", length = 50)
-    protected String className;
-
-    @Column(name = "UUID")
-    protected UUID uuid;
-
     @Column(name = "CREATE_TS")
     protected Date createTs;
 
@@ -41,22 +35,6 @@ public class RequestLog extends BaseUuidEntity implements Updatable, Creatable {
 
     @Column(name = "UPDATED_BY", length = 50)
     protected String updatedBy;
-
-    public void setClassName(String className) {
-        this.className = className;
-    }
-
-    public String getClassName() {
-        return className;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public UUID getUuid() {
-        return uuid;
-    }
 
 
     public void setRequest(Request request) {

@@ -49,7 +49,6 @@ create table OFFICE_REQUEST_STEP_ACTION (
     UPDATED_BY varchar(50),
     --
     REQUEST_STEP_ID varchar(36),
-    REQUEST_ID varchar(36),
     TYPE_ varchar(50),
     DESCRIPTION varchar(100),
     TEMPLATE_ID varchar(36),
@@ -71,8 +70,6 @@ create table OFFICE_REQUEST_LOG (
     --
     REQUEST_ID varchar(36),
     INFO varchar(255),
-    CLASS_NAME varchar(50),
-    UUID varchar(36),
     --
     primary key (ID)
 )^
@@ -86,7 +83,6 @@ create table OFFICE_REQUEST_STEP_COMMUNICATION (
     UPDATED_BY varchar(50),
     --
     REQUEST_STEP_ID varchar(36),
-    REQUEST_ID varchar(36),
     QUESTION varchar(255),
     QUESTION_FILE_ID varchar(36),
     ANSWER varchar(255),

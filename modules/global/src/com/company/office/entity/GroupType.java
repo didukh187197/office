@@ -10,7 +10,8 @@ public enum GroupType implements EnumClass<String> {
     Registrators("registrators"),
     Managers("managers"),
     Workers("workers"),
-    Applicants("applicants");
+    Applicants("applicants"),
+    Others("others");
 
     private String id;
 

@@ -11,7 +11,7 @@
             template="com/company/office/web/screens/ext-mainwindow.xml"/>
     <screen id="office$Request.browse"
             template="com/company/office/web/request/request-browse.xml"/>
-    <screen id="step-screen"
+    <screen id="positions-screen"
             template="com/company/office/web/screens/positions-screen.xml"/>
     <screen id="office$RequestLog.edit"
             template="com/company/office/web/requestlog/request-log-edit.xml"/>

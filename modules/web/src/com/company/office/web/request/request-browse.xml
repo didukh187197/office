@@ -37,12 +37,6 @@
                 <![CDATA[select e from sec$User e]]>
             </query>
         </collectionDatasource>
-        <collectionDatasource id="positionsDs"
-                              class="com.company.office.entity.Position">
-            <query>
-                <![CDATA[select e from office$Position e order by e.identifier]]>
-            </query>
-        </collectionDatasource>
     </dsContext>
     <actions>
         <action id="save"
@@ -87,7 +81,9 @@
                         <column id="sn"
                                 caption="#"
                                 generator="snGenerator"/>
-                        <column id="step"/>
+                        <column id="step.position"/>
+                        <column id="step.state"/>
+                        <column id="step.user"/>
                     </columns>
                     <rows datasource="requestsDs"/>
                     <rowsCount/>
@@ -165,12 +161,9 @@
                             <table id="stepsTable"
                                    height="300px"
                                    width="100%">
-                                <actions>
-                                    <action id="create"/>
-                                    <action id="edit"/>
-                                    <action id="remove"/>
-                                </actions>
                                 <columns>
+                                    <column id="createTs"
+                                            caption="mainMsg://field.created"/>
                                     <column id="position"/>
                                     <column id="state"/>
                                     <column id="user"/>
@@ -178,11 +171,6 @@
                                     <column id="approved"/>
                                 </columns>
                                 <rows datasource="stepsDs"/>
-                                <buttonsPanel>
-                                    <button action="stepsTable.create"/>
-                                    <button action="stepsTable.edit"/>
-                                    <button action="stepsTable.remove"/>
-                                </buttonsPanel>
                             </table>
                             <fieldGroup id="fieldsStep"
                                         datasource="stepsDs"
@@ -210,22 +198,16 @@
                                            height="100%"
                                            width="100%">
                                         <actions>
-                                            <action id="create"/>
                                             <action id="edit"/>
-                                            <action id="remove"/>
                                         </actions>
                                         <columns>
-                                            <column id="createTs"
-                                                    caption="mainMsg://field.created"/>
                                             <column id="type"/>
                                             <column id="submitted"/>
                                             <column id="approved"/>
                                         </columns>
                                         <rows datasource="actionsDs"/>
                                         <buttonsPanel>
-                                            <button action="actionsTable.create"/>
                                             <button action="actionsTable.edit"/>
-                                            <button action="actionsTable.remove"/>
                                         </buttonsPanel>
                                     </table>
                                 </tab>
@@ -266,11 +248,6 @@
                             <table id="logsTable"
                                    height="400px"
                                    width="100%">
-                                <actions>
-                                    <action id="create"/>
-                                    <action id="edit"/>
-                                    <action id="remove"/>
-                                </actions>
                                 <columns>
                                     <column id="createTs"
                                             caption="mainMsg://field.created"/>
@@ -279,11 +256,6 @@
                                     <column id="info"/>
                                 </columns>
                                 <rows datasource="logsDs"/>
-                                <buttonsPanel>
-                                    <button action="logsTable.create"/>
-                                    <button action="logsTable.edit"/>
-                                    <button action="logsTable.remove"/>
-                                </buttonsPanel>
                             </table>
                             <fieldGroup id="fieldsLogs"
                                         datasource="logsDs"
@@ -300,9 +272,10 @@
                              spacing="true">
                             <fieldGroup id="fieldsSystem"
                                         datasource="requestDs">
-                                <column width="350px">
+                                <column>
                                     <field optionsDatasource="stepsDs"
-                                           property="step"/>
+                                           property="step"
+                                           width="500px"/>
                                     <field caption="mainMsg://field.created"
                                            property="createTs"
                                            resolution="SEC"/>

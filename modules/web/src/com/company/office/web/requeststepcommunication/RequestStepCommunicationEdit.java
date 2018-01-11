@@ -11,4 +11,5 @@ public class RequestStepCommunicationEdit extends OfficeEditor<RequestStepCommun
     public void init(Map<String, Object> params) {
         super.additional();
     }
+
 }

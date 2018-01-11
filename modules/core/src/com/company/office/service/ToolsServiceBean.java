@@ -4,7 +4,6 @@ import com.company.office.OfficeConfig;
 import com.company.office.entity.GroupType;
 import com.haulmont.cuba.core.global.AppBeans;
 import com.haulmont.cuba.core.global.DataManager;
-import com.haulmont.cuba.core.global.LoadContext;
 import com.haulmont.cuba.core.global.UserSessionSource;
 import com.haulmont.cuba.security.entity.Group;
 import com.haulmont.cuba.security.entity.RoleType;
@@ -16,7 +15,6 @@ import javax.inject.Inject;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 @Service(ToolsService.NAME)
 public class ToolsServiceBean implements ToolsService {
@@ -24,16 +22,8 @@ public class ToolsServiceBean implements ToolsService {
     @Inject
     private OfficeConfig officeConfig;
 
-    @Inject
-    private DataManager dataManager;
-
     private User getCurrentUser() {
         return AppBeans.get(UserSessionSource.class).getUserSession().getUser();
-    }
-
-    private User getUser(UUID userId) {
-        LoadContext<User> loadContext = LoadContext.create(User.class).setId(userId).setView("user.browse");
-        return dataManager.load(loadContext);
     }
 
     @Override
@@ -62,7 +52,7 @@ public class ToolsServiceBean implements ToolsService {
         if (map.containsKey(user.getGroup())) {
             return map.get(user.getGroup());
         }
-        return null;
+        return GroupType.Others;
     }
 
     @Override

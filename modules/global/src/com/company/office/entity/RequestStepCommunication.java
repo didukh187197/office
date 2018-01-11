@@ -27,9 +27,6 @@ public class RequestStepCommunication extends BaseUuidEntity implements Creatabl
     @JoinColumn(name = "REQUEST_STEP_ID")
     protected RequestStep requestStep;
 
-    @Column(name = "REQUEST_ID")
-    protected UUID requestId;
-
     @Column(name = "QUESTION")
     protected String question;
 
@@ -59,14 +56,6 @@ public class RequestStepCommunication extends BaseUuidEntity implements Creatabl
 
     @Column(name = "UPDATED_BY", length = 50)
     protected String updatedBy;
-
-    public void setRequestId(UUID requestId) {
-        this.requestId = requestId;
-    }
-
-    public UUID getRequestId() {
-        return requestId;
-    }
 
 
     public void setRequestStep(RequestStep requestStep) {
