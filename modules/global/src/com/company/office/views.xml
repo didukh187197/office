@@ -30,11 +30,9 @@
           name="requestStepAction-view">
         <property name="template"
                   view="_minimal">
-            <property name="size"/>
         </property>
         <property name="file"
                   view="_minimal">
-            <property name="size"/>
         </property>
         <property name="createTs"/>
         <property name="createdBy"/>
@@ -42,14 +40,6 @@
         <property name="updatedBy"/>
         <property name="requestStep"
                   view="_minimal">
-            <property name="user"
-                      view="_minimal">
-                <property name="group"
-                          view="_minimal"/>
-            </property>
-            <property name="request"
-                      view="_minimal">
-            </property>
         </property>
     </view>
     <view class="com.company.office.entity.RequestStepCommunication"
@@ -77,43 +67,7 @@
           extends="_local"
           name="request-view">
         <property name="step"
-                  view="_minimal">
-            <property name="description"/>
-            <property name="submitted"/>
-            <property name="approved"/>
-            <property name="penalty"/>
-            <property name="updateTs"/>
-            <property name="updatedBy"/>
-            <property name="createTs"/>
-            <property name="createdBy"/>
-            <property name="submissionTerm"/>
-            <property name="approvalTerm"/>
-            <property name="actions"
-                      view="requestStepAction-view">
-                <property name="requestStep"
-                          view="_minimal">
-                    <property name="description"/>
-                </property>
-            </property>
-            <property name="communications"
-                      view="requestStepCommunication-view">
-                <property name="requestStep"
-                          view="_minimal">
-                    <property name="description"/>
-                </property>
-            </property>
-            <property name="position"
-                      view="_minimal">
-                <property name="daysForSubmission"/>
-                <property name="daysForApproval"/>
-                <property name="actions"
-                          view="_minimal">
-                    <property name="type"/>
-                    <property name="description"/>
-                    <property name="template"
-                              view="_minimal"/>
-                </property>
-            </property>
+                  view="requestStep-view">
         </property>
         <property name="applicant"
                   view="_minimal">
@@ -142,13 +96,6 @@
                 <property name="createdBy"/>
                 <property name="updateTs"/>
                 <property name="updatedBy"/>
-            </property>
-            <property name="communications"
-                      view="requestStepCommunication-view">
-                <property name="requestStep"
-                          view="_minimal">
-                    <property name="description"/>
-                </property>
             </property>
         </property>
         <property name="createTs"/>
@@ -183,11 +130,23 @@
         <property name="createTs"/>
         <property name="createdBy"/>
         <property name="position"
-                  view="_minimal"/>
+                  view="position-view"/>
         <property name="actions"
-                  view="requestStepAction-view"/>
+                  view="requestStepAction-view">
+            <property name="requestStep"
+                      view="_minimal">
+                <property name="description"/>
+            </property>
+        </property>
         <property name="communications"
-                  view="requestStepCommunication-view"/>
+                  view="requestStepCommunication-view">
+            <property name="requestStep"
+                      view="_minimal">
+                <property name="description"/>
+            </property>
+        </property>
+        <property name="request"
+                  view="_minimal"/>
     </view>
     <view class="com.company.office.entity.RequestLog"
           extends="_local"
@@ -196,5 +155,7 @@
         <property name="createdBy"/>
         <property name="updateTs"/>
         <property name="updatedBy"/>
+        <property name="request"
+                  view="_minimal"/>
     </view>
 </views>

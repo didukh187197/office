@@ -26,53 +26,46 @@ public class RequestServiceBean implements RequestService {
     private Messages messages;
 
     @Override
-    public void nextPosition(Request request) {
+    public Request nextPosition(Request request) {
         Position position = getNextPosition(request.getStep());
         State state;
 
-        if ( (position != null) && (position.equals(officeConfig.getFinalPosition())) ) {
+        if (position.equals(officeConfig.getFinalPosition())) {
             state = State.Closed;
         } else {
             state = State.Suspended;
         }
 
-        fixStepChange(request, position, state, null);
+        request = fixStepChange(request, position, state, null);
+        request = addLogItem(request, "New position set: " + position.getDescription());
+
+        return request;
     }
 
     @Override
-    public boolean setWorker(Request request) {
+    public Request setWorker(Request request) {
         if (request.getStep() == null) {
-            return false;
+            return request;
         }
 
         if (request.getStep().getPosition() == null) {
-            return false;
+            return request;
         }
 
-        User newWorker = getNextUser(request.getStep().getPosition());
-        if (newWorker == null) {
-            return false;
+        User worker = getNextUser(request.getStep().getPosition());
+        if (worker == null) {
+            return request;
         }
-        User oldWorker = request.getStep().getUser();
+
         Position position = request.getStep().getPosition();
+        request = fixStepChange(request, position, State.Waiting, worker);
+        request = addLogItem(request, "New worker set: " + worker.getName());
 
-        fixStepChange(request, position, State.Waiting, newWorker);
-
-        if (oldWorker != null) {
-            PositionUser oldPU = getPositionUser(position, oldWorker);
-            oldPU.setRequests(getCountInt(oldPU.getRequests()) - 1);
-            commitEntity(oldPU);
-        }
-
-        PositionUser newPU = getPositionUser(position, newWorker);
-        newPU.setRequests(getCountInt(newPU.getRequests()) + 1);
-        commitEntity(newPU);
-
-        return true;
+        return request;
     }
 
     @Override
-    public void addLogItem(Request request, String info) {
+    public Request addLogItem(Request request, String info) {
         RequestLog requestLog = new RequestLog();
         requestLog.setRequest(request);
         requestLog.setInfo(info);
@@ -83,25 +76,7 @@ public class RequestServiceBean implements RequestService {
         } else {
             request.getLogs().add(requestLog);
         }
-        commitEntity(request);
-    }
-
-    private PositionUser getPositionUser(Position position, User user) {
-        LoadContext<PositionUser> loadContext = LoadContext.create(PositionUser.class)
-                .setQuery(LoadContext.createQuery("select pu from office$PositionUser pu where pu.position.id = :pos and pu.user.id = :usr")
-                        .setParameter("pos", position.getId())
-                        .setParameter("usr", user.getId())
-                )
-                .setView("positionUser-view");
-        return dataManager.load(loadContext);
-    }
-
-    private int getCountInt(Integer value) {
-        return value == null ? 0 : value;
-    }
-
-    private double getCountDouble(Integer value) {
-        return value == null ? 0 : value;
+        return request;
     }
 
     private Position getNextPosition(RequestStep step) {
@@ -129,20 +104,14 @@ public class RequestServiceBean implements RequestService {
         return resPosition;
     }
 
-    /*
-    private Position getPosition(Position position) {
+    private Position getPositionFromDB(Position position) {
         LoadContext<Position> loadContext = LoadContext.create(Position.class).setId(position.getId()).setView("position-view");
         return dataManager.load(loadContext);
     }
-    */
 
-    private void commitEntity(Entity entity) {
-        CommitContext commitContext = new CommitContext();
-        commitContext.addInstanceToCommit(entity);
-        dataManager.commit(commitContext);
-    }
+    private Request fixStepChange(Request request, Position position, State state, User worker) {
+        changePositionUserRequestCount(request, -1);
 
-    private void fixStepChange(Request request, Position position, State state, User worker) {
         RequestStep requestStep = new RequestStep();
         requestStep.setRequest(request);
         requestStep.setPosition(position);
@@ -151,8 +120,8 @@ public class RequestServiceBean implements RequestService {
         requestStep.setDescription(messages.getMessage(state));
 
         if (worker != null) {
-            //List<PositionAction> positionActions = getPosition(position).getActions();
-            List<PositionAction> positionActions = position.getActions();
+
+            List<PositionAction> positionActions = getPositionFromDB(position).getActions();
             for (PositionAction pa : positionActions) {
                 RequestStepAction requestStepAction = new RequestStepAction();
                 requestStepAction.setRequestStep(requestStep);
@@ -173,7 +142,8 @@ public class RequestServiceBean implements RequestService {
             GregorianCalendar calendar = new GregorianCalendar();
             calendar.add(Calendar.DAY_OF_YEAR, getCountInt(position.getDaysForSubmission()));
             requestStep.setSubmissionTerm(calendar.getTime());
-            requestStep.setDescription("Assigned to " + worker.getName() + (positionActions.size() != 0 ? ". Actions added" : "") );
+            requestStep.setDescription("Assigned to " + worker.getName() + (positionActions.size() != 0 ? ". Actions added" : ""));
+
         }
 
         if (request.getSteps() == null) {
@@ -185,12 +155,48 @@ public class RequestServiceBean implements RequestService {
         }
 
         request.setStep(requestStep);
-        commitEntity(request);
+        changePositionUserRequestCount(request, 1);
+
+        return request;
+    }
+
+    private void changePositionUserRequestCount(Request request, int count) {
+        if (request.getStep() == null)
+            return;
+
+        User user = request.getStep().getUser();
+        if (user == null)
+            return;
+
+        Position position = request.getStep().getPosition();
+        if (position == null)
+            return;
+
+        LoadContext<PositionUser> loadContext = LoadContext.create(PositionUser.class)
+                .setQuery(LoadContext.createQuery("select pu from office$PositionUser pu where pu.position.id = :pos and pu.user.id = :usr")
+                        .setParameter("pos", position.getId())
+                        .setParameter("usr", user.getId())
+                )
+                .setView("positionUser-view");
+        PositionUser positionUser = dataManager.load(loadContext);
+
+        if (positionUser != null) {
+            positionUser.setRequests(getCountInt(positionUser.getRequests()) + count);
+            commitEntity(positionUser);
+        }
+    }
+
+    private void commitEntity(Entity entity) {
+        CommitContext commitContext = new CommitContext();
+        commitContext.addInstanceToCommit(entity);
+        dataManager.commit(commitContext);
     }
 
     private User getNextUser(Position position) {
         LoadContext<PositionUser> loadContext = LoadContext.create(PositionUser.class)
-                .setQuery(LoadContext.createQuery("select pu from office$PositionUser pu where pu.position.id = :st").setParameter("st", position))
+                .setQuery(LoadContext.createQuery("select pu from office$PositionUser pu where pu.position.id = :st")
+                        .setParameter("st", position)
+                )
                 .setView("positionUser-view");
 
         double minRate = Double.MAX_VALUE;
@@ -209,8 +215,15 @@ public class RequestServiceBean implements RequestService {
                 }
             }
         }
-
         return resPositionUser != null ? resPositionUser.getUser() : null;
+    }
+
+    private int getCountInt(Integer value) {
+        return value == null ? 0 : value;
+    }
+
+    private double getCountDouble(Integer value) {
+        return value == null ? 0 : value;
     }
 
 }

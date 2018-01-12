@@ -3,7 +3,6 @@ package com.company.office.service;
 import com.company.office.OfficeConfig;
 import com.company.office.entity.GroupType;
 import com.haulmont.cuba.core.global.AppBeans;
-import com.haulmont.cuba.core.global.DataManager;
 import com.haulmont.cuba.core.global.UserSessionSource;
 import com.haulmont.cuba.security.entity.Group;
 import com.haulmont.cuba.security.entity.RoleType;
@@ -32,11 +31,6 @@ public class ToolsServiceBean implements ToolsService {
     }
 
     @Override
-    public Group getActiveGroup() {
-        return getCurrentUser().getGroup();
-    }
-
-    @Override
     public GroupType getActiveGroupType() {
         return getGroupType(getCurrentUser());
     }
@@ -58,7 +52,6 @@ public class ToolsServiceBean implements ToolsService {
     @Override
     public boolean isAdmin() {
         List<UserRole> roles = getCurrentUser().getUserRoles();
-
         boolean superUser = false;
         for (UserRole role: roles) {
             if (role.getRole().getType().equals(RoleType.SUPER)) {
@@ -66,7 +59,6 @@ public class ToolsServiceBean implements ToolsService {
                 break;
             }
         }
-
         return superUser;
     }
 

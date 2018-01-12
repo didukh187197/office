@@ -5,7 +5,7 @@ import com.company.office.entity.Request;
 public interface RequestService {
     String NAME = "office_RequestService";
 
-    void nextPosition(Request request);
-    boolean setWorker(Request request);
-    void addLogItem(Request request, String info);
+    Request nextPosition(Request request);
+    Request setWorker(Request request);
+    Request addLogItem(Request request, String info);
 }

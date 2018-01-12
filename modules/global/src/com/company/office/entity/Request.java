@@ -19,6 +19,7 @@ import com.haulmont.cuba.core.entity.BaseUuidEntity;
 import com.haulmont.cuba.core.entity.Creatable;
 import com.haulmont.chile.core.annotations.NumberFormat;
 import com.haulmont.cuba.core.entity.Updatable;
+import javax.persistence.OrderBy;
 
 @NamePattern("%s, %s-%s|applicant,series,number")
 @Table(name = "OFFICE_REQUEST")
@@ -55,6 +56,7 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
     @OneToMany(mappedBy = "request")
     protected List<RequestStep> steps;
 
+    @OrderBy("createTs")
     @Composition
     @OnDeleteInverse(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "request")

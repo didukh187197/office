@@ -11,12 +11,15 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.util.UUID;
+import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
+import com.haulmont.cuba.core.global.DeletePolicy;
 
 @Table(name = "OFFICE_REQUEST_LOG")
 @Entity(name = "office$RequestLog")
 public class RequestLog extends BaseUuidEntity implements Updatable, Creatable {
     private static final long serialVersionUID = 8281849904778881851L;
 
+    @OnDeleteInverse(DeletePolicy.CASCADE)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "REQUEST_ID")
     protected Request request;

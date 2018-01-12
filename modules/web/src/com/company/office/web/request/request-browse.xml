@@ -159,7 +159,7 @@
                              margin="true,false,false,false"
                              spacing="true">
                             <table id="stepsTable"
-                                   height="300px"
+                                   height="200px"
                                    width="100%">
                                 <columns>
                                     <column id="createTs"
