@@ -4,15 +4,16 @@ import com.company.office.OfficeConfig;
 import com.company.office.entity.*;
 import com.company.office.service.RequestService;
 import com.company.office.service.ToolsService;
+import com.company.office.web.requeststep.RequestStepEdit;
 import com.haulmont.bali.util.ParamsMap;
 import com.haulmont.cuba.gui.ComponentsHelper;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
-import com.haulmont.cuba.gui.components.actions.BaseAction;
 import com.haulmont.cuba.gui.components.actions.EditAction;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
 import com.haulmont.cuba.gui.data.Datasource;
 import com.haulmont.cuba.gui.data.GroupDatasource;
+import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
 import com.haulmont.cuba.security.entity.User;
 
 import javax.inject.Inject;
@@ -32,6 +33,9 @@ public class RequestBrowse extends EntityCombinedScreen {
 
     @Inject
     private GroupDatasource<Request, UUID> requestsDs;
+
+    @Inject
+    private ComponentsFactory componentsFactory;
 
     @Override
     public void init(Map<String, Object> params) {
@@ -74,6 +78,9 @@ public class RequestBrowse extends EntityCombinedScreen {
                     return false;
                 }
             }
+
+            Request request = (Request) getFieldGroup().getDatasource().getItem();
+            editStepActionAction.setWindowParams(ParamsMap.of("logs", request.getLogs()));
             return true;
         });
     }
@@ -127,7 +134,7 @@ public class RequestBrowse extends EntityCombinedScreen {
         tabSheet.getTab("systemTab").setVisible(false);
 
         Table requestsTable = (Table) getTable();
-
+        requestsTable.getActionNN("step").setVisible(false);
         switch (toolsService.getActiveGroupType()) {
             case Registrators:
                 requestsTable.getActionNN("remove").setVisible(false);
@@ -146,14 +153,18 @@ public class RequestBrowse extends EntityCombinedScreen {
             break;
 
             case Workers:
-                getComponentNN("buttonsPanel").setVisible(false);
+                requestsTable.getActionNN("create").setVisible(false);
+                requestsTable.getActionNN("remove").setVisible(false);
+                getComponentNN("extraActionsBtn").setVisible(false);
                 requestsDs.setQuery(String.format("select e from office$Request e where e.step.user.id = '%s'", toolsService.getActiveUser().getId()));
                 getComponentNN("buttonsPanel").setVisible(false);
                 focusOnStep();
             break;
 
             case Applicants:
-                getComponentNN("buttonsPanel").setVisible(false);
+                requestsTable.getActionNN("create").setVisible(false);
+                requestsTable.getActionNN("remove").setVisible(false);
+                getComponentNN("extraActionsBtn").setVisible(false);
                 requestsDs.setQuery(String.format("select e from office$Request e where e.applicant.id = '%s'", toolsService.getActiveUser().getId()));
                 focusOnStep();
             break;
@@ -185,23 +196,13 @@ public class RequestBrowse extends EntityCombinedScreen {
                 tabSheet.getTab("mainTab").setVisible(!enabled);
                 tabSheet.getTab("logsTab").setVisible(!enabled);
                 getComponentNN("stepsTable").setEnabled(!enabled);
+                getComponentNN("stepsTable").setVisible(!enabled);
+                getComponentNN("fieldsStep").setVisible(!enabled);
+                getComponentNN("fieldsStepDates").setVisible(!enabled);
             break;
             default:
                 tabSheet.setSelectedTab("mainTab");
         }
-    }
-
-    public Component snGenerator(Request request) {
-        String res = "";
-        if (request.getSeries() != null) {
-            res += request.getSeries() + "-";
-        }
-
-        if (request.getNumber() != null) {
-            res += request.getNumber();
-        }
-
-        return new Table.PlainTextCell(res);
     }
 
     private boolean preSave() {
@@ -235,11 +236,11 @@ public class RequestBrowse extends EntityCombinedScreen {
                             if (preSave()) {
                                 Request request = (Request) getFieldGroup().getDatasource().getItem();
                                 if (creating) {
-                                    request = requestService.addLogItem(request, "New request is created by " + toolsService.getActiveUser().getName());
+                                    request = requestService.addLogItem(request, toolsService.getActiveUser().getName() + " created the new request");
                                     request = requestService.nextPosition(request);
                                     request = requestService.setWorker(request);
                                 } else {
-                                    request = requestService.addLogItem(request, "The request is edited by " + toolsService.getActiveUser().getName());
+                                    request = requestService.addLogItem(request, toolsService.getActiveUser().getName() + " edited the request");
                                 }
 
                                 getFieldGroup().getDatasource().setItem(request);
@@ -258,6 +259,10 @@ public class RequestBrowse extends EntityCombinedScreen {
                         new DialogAction(DialogAction.Type.NO, Action.Status.PRIMARY)
                 }
         );
+    }
+
+    public void cancelEdit() {
+        super.cancel();
     }
 
     private void showMessage(String msg) {
@@ -303,5 +308,47 @@ public class RequestBrowse extends EntityCombinedScreen {
                 WindowManager.OpenType.DIALOG,
                 ParamsMap.of("selectedStep", requestsDs.getItem().getStep().getPosition())
         );
+    }
+
+    public Component snGenerator(Request request) {
+        String res = "";
+        if (request.getSeries() != null) {
+            res += request.getSeries() + "-";
+        }
+
+        if (request.getNumber() != null) {
+            res += request.getNumber();
+        }
+
+        return new Table.PlainTextCell(res);
+    }
+
+    public Component performedGenerator(RequestStepAction requestStepAction) {
+        CheckBox checkBox = componentsFactory.createComponent(CheckBox.class);
+
+        checkBox.setValue(false);
+
+        if (requestStepAction.getType() == ActionType.sendFile) {
+            if (requestStepAction.getFile() != null) {
+                checkBox.setValue(true);
+            }
+        } else
+        if (requestStepAction.getType() == ActionType.sendMessage) {
+            if (requestStepAction.getMessage() != null) {
+                checkBox.setValue(true);
+            }
+        }
+
+		return checkBox;
+    }
+
+    public void onStep(Component source) {
+        RequestStepEdit requestStepEdit = (RequestStepEdit) openEditor("office$RequestStep.edit", requestsDs.getItem().getStep(), WindowManager.OpenType.DIALOG);
+
+        /*
+        requestStepEdit.addCloseListener((String actionId) -> {
+            // do something
+        });
+        */
     }
 }

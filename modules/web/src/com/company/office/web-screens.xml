@@ -5,8 +5,6 @@
             template="com/company/office/web/screens/main-settings-screen.xml"/>
     <screen id="delete-screen"
             template="com/company/office/web/screens/delete-screen.xml"/>
-    <screen id="office$RequestStep.edit"
-            template="com/company/office/web/requeststep/request-step-edit.xml"/>
     <screen id="mainWindow"
             template="com/company/office/web/screens/ext-mainwindow.xml"/>
     <screen id="office$Request.browse"
@@ -15,8 +13,6 @@
             template="com/company/office/web/screens/positions-screen.xml"/>
     <screen id="office$RequestLog.edit"
             template="com/company/office/web/requestlog/request-log-edit.xml"/>
-    <screen id="office$RequestStepAction.browse"
-            template="com/company/office/web/requeststepaction/request-step-action-browse.xml"/>
     <screen id="office$RequestStepAction.edit"
             template="com/company/office/web/requeststepaction/request-step-action-edit.xml"/>
     <screen id="office$RequestStepCommunication.edit"
@@ -27,4 +23,6 @@
             template="com/company/office/web/positionaction/position-action-edit.xml"/>
     <screen id="office$PositionUser.edit"
             template="com/company/office/web/positionuser/position-user-edit.xml"/>
+    <screen id="office$RequestStep.edit"
+            template="com/company/office/web/requeststep/request-step-edit.xml"/>
 </screen-config>

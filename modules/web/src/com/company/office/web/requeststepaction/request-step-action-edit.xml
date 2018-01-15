@@ -23,8 +23,7 @@
     <dialogMode forceDialog="true"
                 height="600"
                 width="800"/>
-    <layout expand="windowActions"
-            spacing="true">
+    <layout spacing="true">
         <tabSheet id="tabSheet">
             <tab id="tabMain"
                  caption="Main"
@@ -32,7 +31,7 @@
                  spacing="true">
                 <fieldGroup id="fieldGroup"
                             datasource="requestStepActionDs">
-                    <column fieldCaptionWidth="90px"
+                    <column fieldCaptionWidth="80px"
                             width="400px">
                         <field property="type"
                                required="true"/>
@@ -40,10 +39,17 @@
                                rows="3"/>
                         <field property="message"
                                rows="3"/>
-                        <field property="submitted"
-                               width="100px"/>
-                        <field property="approved"
-                               width="100px"/>
+                    </column>
+                </fieldGroup>
+                <fieldGroup id="fieldGroupDates"
+                            datasource="requestStepActionDs">
+                    <column fieldCaptionWidth="80px"
+                            width="130px">
+                        <field property="submitted"/>
+                    </column>
+                    <column fieldCaptionWidth="80px"
+                            width="130px">
+                        <field property="approved"/>
                     </column>
                 </fieldGroup>
                 <vbox id="boxFiles"
@@ -54,7 +60,7 @@
                         <label id="labelTemplate"
                                align="MIDDLE_CENTER"
                                value="msg://lblTemplate"
-                               width="85px"/>
+                               width="75px"/>
                         <lookupField id="lookupTemplate"
                                      datasource="requestStepActionDs"
                                      optionsDatasource="templatesDs"
@@ -71,10 +77,11 @@
                         <label id="labelFile"
                                align="MIDDLE_CENTER"
                                value="msg://lblFile"
-                               width="85px"/>
+                               width="75px"/>
                         <upload id="uploadFile"
                                 clearButtonIcon="icons/remove.png"
                                 datasource="requestStepActionDs"
+                                fileSizeLimit="2097152"
                                 property="file"
                                 showClearButton="true"
                                 showFileName="true"
@@ -103,7 +110,28 @@
                 </fieldGroup>
             </tab>
         </tabSheet>
-        <frame id="windowActions"
-               screen="editWindowActions"/>
+        <buttonsPanel>
+            <button id="okBtn"
+                    action="windowCommit"
+                    caption="mainMsg://actions.Ok"
+                    icon="icons/ok.png"/>
+            <button id="closeBtn"
+                    action="windowClose"
+                    caption="mainMsg://actions.Cancel"
+                    description="Esc"
+                    icon="icons/cancel.png"/>
+            <button id="releaseBtn"
+                    caption="msg://btnRelease"
+                    invoke="onReleaseBtnClick"/>
+            <button id="submitBtn"
+                    caption="msg://btnSubmit"
+                    invoke="onSubmitBtnClick"/>
+            <button id="rejectBtn"
+                    caption="msg://btnReject"
+                    invoke="onRejectBtnClick"/>
+            <button id="approveBtn"
+                    caption="msg://btnApprove"
+                    invoke="onApproveBtnClick"/>
+        </buttonsPanel>
     </layout>
 </window>

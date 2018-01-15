@@ -40,6 +40,8 @@
         <property name="updatedBy"/>
         <property name="requestStep"
                   view="_minimal">
+            <property name="request"
+                      view="_minimal"/>
         </property>
     </view>
     <view class="com.company.office.entity.RequestStepCommunication"

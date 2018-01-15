@@ -48,7 +48,7 @@
                 caption="mainMsg://actions.Cancel"
                 description="Esc"
                 icon="icons/cancel.png"
-                invoke="cancel"/>
+                invoke="cancelEdit"/>
     </actions>
     <dialogMode height="600"
                 width="800"/>
@@ -74,6 +74,10 @@
                         <action id="create"/>
                         <action id="edit"/>
                         <action id="remove"/>
+                        <action id="step"
+                                caption="Step"
+                                invoke="onStep"
+                                trackSelection="true"/>
                     </actions>
                     <columns>
                         <column id="applicant"/>
@@ -95,6 +99,9 @@
                                 action="table.edit"/>
                         <button id="removeBtn"
                                 action="table.remove"/>
+                        <button id="stepBtn"
+                                action="table.step"
+                                visible="false"/>
                         <popupButton id="extraActionsBtn"
                                      caption="msg://extraActionsBtn"
                                      enable="false">
@@ -202,8 +209,12 @@
                                         </actions>
                                         <columns>
                                             <column id="type"/>
+                                            <column id="description"/>
                                             <column id="submitted"/>
                                             <column id="approved"/>
+                                            <column id="performed"
+                                                    caption="msg://actionsTable.column.performed"
+                                                    generator="performedGenerator"/>
                                         </columns>
                                         <rows datasource="actionsDs"/>
                                         <buttonsPanel>

@@ -8,76 +8,93 @@
     <dsContext>
         <datasource id="requestStepDs"
                     class="com.company.office.entity.RequestStep"
-                    view="requestStep-view"/>
-        <collectionDatasource id="positionsDs"
-                              class="com.company.office.entity.Position">
-            <query>
-                <![CDATA[select e from office$Position e order by e.createTs]]>
-            </query>
-        </collectionDatasource>
-        <collectionDatasource id="usersDs"
-                              class="com.haulmont.cuba.security.entity.User">
-            <query>
-                <![CDATA[select e from sec$User e]]>
-            </query>
-        </collectionDatasource>
+                    view="requestStep-view">
+            <collectionDatasource id="actionsDs"
+                                  property="actions"/>
+            <collectionDatasource id="communicationsDs"
+                                  property="communications"/>
+        </datasource>
     </dsContext>
-    <dialogMode forceDialog="true"
-                height="600"
-                width="800"/>
+    <dialogMode height="768"
+                maximized="true"
+                width="1024"/>
     <layout expand="windowActions"
             spacing="true">
-        <tabSheet id="tabSheet">
-            <tab id="tabMain"
-                 caption="Main"
-                 margin="true,false,false,false"
-                 spacing="true">
-                <fieldGroup id="fieldGroup"
-                            datasource="requestStepDs">
-                    <column fieldCaptionWidth="75px"
-                            width="390px">
-                        <field property="description"
-                               rows="3"/>
-                        <field property="state"/>
-                    </column>
-                </fieldGroup>
-                <fieldGroup id="fieldGroupDates"
-                            datasource="requestStepDs">
-                    <column fieldCaptionWidth="75px"
-                            width="150px">
-                        <field property="submissionTerm"/>
-                        <field property="submitted"/>
-                    </column>
-                    <column width="150px">
-                        <field property="approvalTerm"/>
-                        <field property="approved"/>
-                    </column>
-                </fieldGroup>
-            </tab>
-            <tab id="tabSystem"
-                 caption="System"
-                 margin="true,false,false,false"
-                 spacing="true">
-                <fieldGroup id="fieldsSystem"
-                            datasource="requestDs">
-                    <column width="350px">
-                        <field property="step"/>
-                        <field optionsDatasource="usersDs"
-                               property="user"/>
-                        <field caption="mainMsg://field.created"
-                               property="createTs"
-                               resolution="SEC"/>
-                        <field caption="mainMsg://field.author"
-                               property="createdBy"/>
-                        <field caption="mainMsg://field.updated"
-                               property="updateTs"
-                               resolution="SEC"/>
-                        <field caption="mainMsg://field.editor"
-                               property="updatedBy"/>
-                    </column>
-                </fieldGroup>
-            </tab>
-        </tabSheet>
+        <hbox expand="tabSheet"
+              spacing="true"
+              width="100%">
+            <fieldGroup id="fieldGroup"
+                        datasource="requestStepDs"
+                        editable="false">
+                <column width="250px">
+                    <field property="request"/>
+                    <field property="position"/>
+                    <field property="state"/>
+                    <field property="user"/>
+                    <field property="description"/>
+                    <field property="submissionTerm"/>
+                    <field property="submitted"/>
+                    <field property="approvalTerm"/>
+                    <field property="approved"/>
+                    <field property="penalty"/>
+                </column>
+            </fieldGroup>
+            <tabSheet id="tabSheet"
+                      height="100%">
+                <tab id="actionsTab"
+                     caption="msg://com.company.office.entity/RequestStep.actions"
+                     margin="true,false,false,false"
+                     spacing="true">
+                    <table id="actionsTable"
+                           height="100%"
+                           width="100%">
+                        <actions>
+                            <action id="edit"/>
+                        </actions>
+                        <columns>
+                            <column id="type"/>
+                            <column id="description"/>
+                            <column id="submitted"/>
+                            <column id="approved"/>
+                            <column id="performed"
+                                    caption="msg://performed"
+                                    generator="performedGenerator"/>
+                        </columns>
+                        <rows datasource="actionsDs"/>
+                        <buttonsPanel>
+                            <button action="actionsTable.edit"/>
+                        </buttonsPanel>
+                    </table>
+                </tab>
+                <tab id="communicationsTab"
+                     caption="msg://com.company.office.entity/RequestStep.communications"
+                     margin="true,false,false,false"
+                     spacing="true">
+                    <table id="communicationsTable"
+                           height="100%"
+                           width="100%">
+                        <actions>
+                            <action id="create"/>
+                            <action id="edit"/>
+                            <action id="remove"/>
+                        </actions>
+                        <columns>
+                            <column id="createTs"
+                                    caption="mainMsg://field.created"/>
+                            <column id="updateTs"
+                                    caption="mainMsg://field.updated"/>
+                            <column id="question"/>
+                        </columns>
+                        <rows datasource="communicationsDs"/>
+                        <buttonsPanel>
+                            <button action="communicationsTable.create"/>
+                            <button action="communicationsTable.edit"/>
+                            <button action="communicationsTable.remove"/>
+                        </buttonsPanel>
+                    </table>
+                </tab>
+            </tabSheet>
+        </hbox>
         <frame id="windowActions"
                screen="editWindowActions"/>
     </layout>
