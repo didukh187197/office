@@ -39,7 +39,6 @@
                                rows="3"/>
                         <field property="message"
                                rows="3"/>
-                        <field property="moment"/>
                     </column>
                 </fieldGroup>
                 <fieldGroup id="fieldGroupDates"
@@ -107,6 +106,7 @@
                                resolution="SEC"/>
                         <field caption="mainMsg://field.editor"
                                property="updatedBy"/>
+                        <field property="moment"/>
                     </column>
                 </fieldGroup>
             </tab>

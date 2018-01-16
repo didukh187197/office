@@ -59,7 +59,6 @@
                 <fieldGroup id="fieldsSystem"
                             datasource="positionActionDs">
                     <column width="400px">
-                        <field property="moment"/>
                         <field caption="mainMsg://field.created"
                                property="createTs"
                                resolution="SEC"/>
@@ -70,6 +69,7 @@
                                resolution="SEC"/>
                         <field caption="mainMsg://field.editor"
                                property="updatedBy"/>
+                        <field property="moment"/>
                         </column>
                 </fieldGroup>
             </tab>

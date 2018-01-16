@@ -47,7 +47,6 @@
                 <fieldGroup id="fieldsSystem"
                             datasource="positionUserDs">
                     <column width="350px">
-                        <field property="moment"/>
                         <field property="requests"/>
                         <field caption="mainMsg://field.created"
                                property="createTs"
@@ -59,6 +58,7 @@
                                resolution="SEC"/>
                         <field caption="mainMsg://field.editor"
                                property="updatedBy"/>
+                        <field property="moment"/>
                     </column>
                 </fieldGroup>
             </tab>

@@ -40,7 +40,7 @@ public class RequestServiceBean implements RequestService {
         }
 
         request = fixStepChange(request, position, state, null);
-        request = addLogItem(request, request.getApplicant(), "The new position set: " + position.getDescription());
+        request = addLogItemInt(request, request.getApplicant(), "The new position set: " + position.getDescription());
 
         return request;
     }
@@ -62,26 +62,26 @@ public class RequestServiceBean implements RequestService {
 
         Position position = request.getStep().getPosition();
         request = fixStepChange(request, position, State.Waiting, worker);
-        request = addLogItem(request, request.getApplicant(), "The new worker set: " + worker.getName());
+        request = addLogItemInt(request, request.getApplicant(), "The new worker set: " + worker.getName());
+        request = addLogItemInt(request, worker, "The new worker set: " + worker.getName());
 
         return request;
     }
 
     @Override
-    public Request addLogItem(Request request, User recepient, String info) {
+    public RequestLog newLogItem(Request request, User recepient, String info) {
         RequestLog requestLog = new RequestLog();
         requestLog.setRequest(request);
         requestLog.setMoment(toolsService.getMoment());
         requestLog.setSender(toolsService.getActiveUser());
-        requestLog.setRecepient(recepient);
+        requestLog.setRecepient(recepient == null ? getRecepient(request) : recepient);
         requestLog.setInfo(info);
-        if (request.getLogs() == null) {
-            List<RequestLog> logs = new ArrayList<>();
-            logs.add(requestLog);
-            request.setLogs(logs);
-        } else {
-            request.getLogs().add(requestLog);
-        }
+        return requestLog;
+    }
+
+    private Request addLogItemInt(Request request, User recepient, String info) {
+        RequestLog requestLog = newLogItem(request, recepient, info);
+        request.getLogs().add(requestLog);
         return request;
     }
 
@@ -124,15 +124,16 @@ public class RequestServiceBean implements RequestService {
         requestStep.setPosition(position);
         requestStep.setState(state);
         requestStep.setUser(worker);
-        requestStep.setDescription(messages.getMessage(state));
+        requestStep.setDescription(position.getDescription() + ", " + messages.getMessage(state));
 
         if (worker != null) {
+            long tm = toolsService.getMoment();
 
             List<PositionAction> positionActions = getPositionFromDB(position).getActions();
             for (PositionAction pa : positionActions) {
                 RequestStepAction requestStepAction = new RequestStepAction();
                 requestStepAction.setRequestStep(requestStep);
-                requestStepAction.setMoment(toolsService.getMoment());
+                requestStepAction.setMoment(tm++);
                 requestStepAction.setDescription(pa.getDescription());
                 requestStepAction.setType(pa.getType());
                 if (pa.getType().equals(ActionType.sendFile)) {
@@ -151,7 +152,6 @@ public class RequestServiceBean implements RequestService {
             calendar.add(Calendar.DAY_OF_YEAR, getCountInt(position.getDaysForSubmission()));
             requestStep.setSubmissionTerm(calendar.getTime());
             requestStep.setDescription("Assigned to " + worker.getName() + (positionActions.size() != 0 ? ". Actions added" : ""));
-
         }
 
         if (request.getSteps() == null) {
@@ -232,6 +232,21 @@ public class RequestServiceBean implements RequestService {
 
     private double getCountDouble(Integer value) {
         return value == null ? 0 : value;
+    }
+
+    private User getRecepient(Request request) {
+        User recepient;
+        switch (toolsService.getActiveGroupType()) {
+            case Workers:
+                recepient = request.getApplicant();
+                break;
+            case Applicants:
+                recepient = request.getStep().getUser();
+                break;
+            default:
+                recepient = request.getApplicant();
+        }
+        return recepient;
     }
 
 }

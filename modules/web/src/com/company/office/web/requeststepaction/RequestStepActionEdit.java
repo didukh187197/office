@@ -8,20 +8,20 @@ import com.haulmont.cuba.gui.WindowParam;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.export.ExportDisplay;
 import com.haulmont.cuba.gui.export.ExportFormat;
-import com.haulmont.cuba.security.entity.User;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
 
-    @Inject
-    private ToolsService toolsService;
-
     @WindowParam
     private Request request;
+
+    @WindowParam
+    private List<RequestLog> logs;
 
     @Named("fieldGroup.type")
     private LookupField typeField;
@@ -48,7 +48,12 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
     private ExportDisplay exportDisplay;
 
     @Inject
+    private ToolsService toolsService;
+
+    @Inject
     private RequestService requestService;
+
+    boolean closeFromExtraActions = false;
 
     @Override
     public void init(Map<String, Object> params) {
@@ -70,7 +75,11 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
     @Override
     protected boolean postCommit(boolean committed, boolean close) {
         super.postCommit(committed, close);
-        request = requestService.addLogItem(request, getRecepient(), "The action edited: " + getItem().getDescription());
+
+        if (!closeFromExtraActions) {
+            logs.add(requestService.newLogItem(request, null, makeName() + "edited"));
+        }
+
         return true;
     }
 
@@ -158,21 +167,6 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
         getComponentNN("btnShowTemplate").setEnabled(getItem().getTemplate() != null);
     }
 
-    private User getRecepient() {
-        User recepient;
-        switch (toolsService.getActiveGroupType()) {
-            case Workers:
-                recepient = request.getApplicant();
-                break;
-            case Applicants:
-                recepient = request.getStep().getUser();
-                break;
-            default:
-                recepient = request.getApplicant();
-        }
-        return recepient;
-    }
-
     public void onBtnShowTemplateClick() {
         if (getItem().getTemplate() == null)
             return;
@@ -196,6 +190,10 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
         onExtraBtnClick("dialog.approve", "approved", approvedField, true);
     }
 
+    private String makeName() {
+        return "Action <" + getItem().getDescription() + "> ";
+    }
+
     private void onExtraBtnClick(String msg, String info, DateField field, boolean setValue) {
         showOptionDialog(
                 "",
@@ -204,7 +202,8 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
                 new Action[] {
                         new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
                             field.setValue(setValue ? new Date() : null);
-                            request = requestService.addLogItem(request, getRecepient(), "The action " + info);
+                            logs.add(requestService.newLogItem(request, null, makeName() + info));
+                            closeFromExtraActions = true;
                             commitAndClose();
                         }),
                         new DialogAction(DialogAction.Type.NO, Action.Status.PRIMARY)

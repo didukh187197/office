@@ -152,5 +152,7 @@
                   view="_minimal">
             <property name="email"/>
         </property>
+        <property name="request"
+                  view="_minimal"/>
     </view>
 </views>

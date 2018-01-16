@@ -1,1 +1,0 @@
-alter table OFFICE_REQUEST_LOG drop constraint FK_OFFICE_REQUEST_LOG_REQUEST;

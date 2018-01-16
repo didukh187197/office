@@ -34,6 +34,11 @@ public class OfficeEditor<T extends Entity> extends AbstractEditor {
         }
     }
 
+    @Override
+    public T getItem() {
+        return (T) super.getItem();
+    }
+
     private void checkSystemTab() {
         if (!toolsService.isAdmin()) {
             ((TabSheet) getComponentNN("tabSheet")).getTab("tabSystem").setVisible(false);
@@ -47,11 +52,6 @@ public class OfficeEditor<T extends Entity> extends AbstractEditor {
     protected void additional() {
         checkSystemTab();
         setDialogWidth("fieldGroup");
-    }
-
-    @Override
-    public T getItem() {
-        return (T) super.getItem();
     }
 
 }

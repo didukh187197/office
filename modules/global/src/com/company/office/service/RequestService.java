@@ -1,6 +1,7 @@
 package com.company.office.service;
 
 import com.company.office.entity.Request;
+import com.company.office.entity.RequestLog;
 import com.haulmont.cuba.security.entity.User;
 
 public interface RequestService {
@@ -8,5 +9,5 @@ public interface RequestService {
 
     Request nextPosition(Request request);
     Request setWorker(Request request);
-    Request addLogItem(Request request, User recepient, String info);
+    RequestLog newLogItem(Request request, User recepient, String info);
 }

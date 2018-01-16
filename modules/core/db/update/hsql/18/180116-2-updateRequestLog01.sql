@@ -1,2 +1,0 @@
-alter table OFFICE_REQUEST_LOG add constraint FK_OFFICE_REQUEST_LOG_SENDER foreign key (SENDER_ID) references SEC_USER(ID);
-create index IDX_OFFICE_REQUEST_LOG_SENDER on OFFICE_REQUEST_LOG (SENDER_ID);

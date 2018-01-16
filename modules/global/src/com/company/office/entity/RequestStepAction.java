@@ -22,7 +22,9 @@ import com.haulmont.cuba.core.entity.Updatable;
 import com.haulmont.chile.core.annotations.NumberFormat;
 import com.haulmont.cuba.security.entity.User;
 import java.util.UUID;
+import com.haulmont.chile.core.annotations.NamePattern;
 
+@NamePattern("The action <%s> |description")
 @Table(name = "OFFICE_REQUEST_STEP_ACTION")
 @Entity(name = "office$RequestStepAction")
 public class RequestStepAction extends BaseUuidEntity implements Creatable, Updatable {

@@ -6,6 +6,7 @@ import com.company.office.service.RequestService;
 import com.company.office.service.ToolsService;
 import com.company.office.web.requeststep.RequestStepEdit;
 import com.haulmont.bali.util.ParamsMap;
+import com.haulmont.cuba.core.global.PersistenceHelper;
 import com.haulmont.cuba.gui.ComponentsHelper;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
@@ -17,6 +18,8 @@ import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
 import com.haulmont.cuba.security.entity.User;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -74,7 +77,7 @@ public class RequestBrowse extends EntityCombinedScreen {
             }
 
             Request request = (Request) getFieldGroup().getDatasource().getItem();
-            editStepActionAction.setWindowParams(ParamsMap.of("request", request));
+            editStepActionAction.setWindowParams(ParamsMap.of("request", request, "logs", request.getLogs()));
             return true;
         });
     }
@@ -193,7 +196,7 @@ public class RequestBrowse extends EntityCombinedScreen {
 
     private boolean preSave() {
         if (getComponentNN("mainTab").isVisible()) {
-            User applicant = ((PickerField) getFieldGroup().getField("applicant").getComponent()).getValue();
+            User applicant = ((PickerField) getFieldGroup().getFieldNN("applicant").getComponent()).getValue();
 
             if ( (applicant != null) && !(toolsService.getGroupType(applicant).equals(GroupType.Applicants)) ) {
                 showNotification(getMessage("warning.notApplicant"), NotificationType.ERROR);
@@ -201,15 +204,6 @@ public class RequestBrowse extends EntityCombinedScreen {
             }
         }
         return true;
-    }
-
-    private void tryToAssignUser() {
-        if (requestService.setWorker(requestsDs.getItem()) != null) {
-            requestsDs.refresh();
-            showMessage("The request is assigned to: " + requestsDs.getItem().getStep().getUser().getName());
-        } else {
-            showMessage("No available workers on the step: " + requestsDs.getItem().getStep().getDescription());
-        }
     }
 
     public void saveWithPrompt() {
@@ -222,11 +216,23 @@ public class RequestBrowse extends EntityCombinedScreen {
                             if (preSave()) {
                                 Request request = (Request) getFieldGroup().getDatasource().getItem();
                                 if (creating) {
-                                    request = requestService.addLogItem(request, request.getApplicant(), "The new request created");
+                                    List<RequestLog> logs = new ArrayList<>();
+                                    logs.add(requestService.newLogItem(request, request.getApplicant(), "The new request created"));
+                                    request.setLogs(logs);
                                     request = requestService.nextPosition(request);
                                     request = requestService.setWorker(request);
                                 } else {
-                                    request = requestService.addLogItem(request, request.getApplicant(), "The request edited");
+                                    switch (toolsService.getActiveGroupType()) {
+                                        case Workers:
+                                        case Applicants:
+                                            break;
+                                        default:
+                                            request.getLogs().add(requestService.newLogItem(request, request.getApplicant(), "The request edited"));
+                                            if (request.getStep().getUser() != null) {
+                                                request.getLogs().add(requestService.newLogItem(request, request.getStep().getUser(), "The request edited"));
+                                            }
+                                            break;
+                                    }
                                 }
 
                                 getFieldGroup().getDatasource().setItem(request);
@@ -236,7 +242,7 @@ public class RequestBrowse extends EntityCombinedScreen {
                                         if (request.getStep().getUser() != null) {
                                             showMessage("The request is assigned to: " + request.getStep().getUser().getName());
                                         } else {
-                                            showMessage("No available workers on the step: " + request.getStep().getDescription());
+                                            showMessage("No available workers on the position: " + request.getStep().getPosition().getDescription());
                                         }
                                     }
                                 }
@@ -257,8 +263,6 @@ public class RequestBrowse extends EntityCombinedScreen {
     }
 
     public void onFindUser(Component source) {
-        tryToAssignUser();
-        requestsDs.refresh();
     }
 
     public void onChangeStep(Component source) {
