@@ -262,8 +262,9 @@
                                 <columns>
                                     <column id="createTs"
                                             caption="mainMsg://field.created"/>
-                                    <column id="created"
+                                    <column id="sender"
                                             caption="mainMsg://field.author"/>
+                                    <column id="recepient"/>
                                     <column id="info"/>
                                 </columns>
                                 <rows datasource="logsDs"/>

@@ -62,6 +62,9 @@ public class RequestStepAction extends BaseUuidEntity implements Creatable, Upda
     @Column(name = "APPROVED")
     protected Date approved;
 
+    @Column(name = "MOMENT")
+    protected Long moment;
+
     @Column(name = "CREATE_TS")
     protected Date createTs;
 
@@ -73,6 +76,15 @@ public class RequestStepAction extends BaseUuidEntity implements Creatable, Upda
 
     @Column(name = "UPDATED_BY", length = 50)
     protected String updatedBy;
+
+
+    public void setMoment(Long moment) {
+        this.moment = moment;
+    }
+
+    public Long getMoment() {
+        return moment;
+    }
 
 
     public void setSubmitted(Date submitted) {

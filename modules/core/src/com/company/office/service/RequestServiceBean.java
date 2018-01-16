@@ -20,6 +20,9 @@ public class RequestServiceBean implements RequestService {
     private OfficeConfig officeConfig;
 
     @Inject
+    private ToolsService toolsService;
+
+    @Inject
     private DataManager dataManager;
 
     @Inject
@@ -37,7 +40,7 @@ public class RequestServiceBean implements RequestService {
         }
 
         request = fixStepChange(request, position, state, null);
-        request = addLogItem(request, "New position set: " + position.getDescription());
+        request = addLogItem(request, request.getApplicant(), "The new position set: " + position.getDescription());
 
         return request;
     }
@@ -59,15 +62,18 @@ public class RequestServiceBean implements RequestService {
 
         Position position = request.getStep().getPosition();
         request = fixStepChange(request, position, State.Waiting, worker);
-        request = addLogItem(request, "New worker set: " + worker.getName());
+        request = addLogItem(request, request.getApplicant(), "The new worker set: " + worker.getName());
 
         return request;
     }
 
     @Override
-    public Request addLogItem(Request request, String info) {
+    public Request addLogItem(Request request, User recepient, String info) {
         RequestLog requestLog = new RequestLog();
         requestLog.setRequest(request);
+        requestLog.setMoment(toolsService.getMoment());
+        requestLog.setSender(toolsService.getActiveUser());
+        requestLog.setRecepient(recepient);
         requestLog.setInfo(info);
         if (request.getLogs() == null) {
             List<RequestLog> logs = new ArrayList<>();
@@ -114,6 +120,7 @@ public class RequestServiceBean implements RequestService {
 
         RequestStep requestStep = new RequestStep();
         requestStep.setRequest(request);
+        requestStep.setMoment(toolsService.getMoment());
         requestStep.setPosition(position);
         requestStep.setState(state);
         requestStep.setUser(worker);
@@ -125,6 +132,7 @@ public class RequestServiceBean implements RequestService {
             for (PositionAction pa : positionActions) {
                 RequestStepAction requestStepAction = new RequestStepAction();
                 requestStepAction.setRequestStep(requestStep);
+                requestStepAction.setMoment(toolsService.getMoment());
                 requestStepAction.setDescription(pa.getDescription());
                 requestStepAction.setType(pa.getType());
                 if (pa.getType().equals(ActionType.sendFile)) {

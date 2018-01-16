@@ -28,6 +28,11 @@ public class PositionUserEdit extends OfficeEditor<PositionUser> {
     }
 
     @Override
+    protected void postInit() {
+        super.postInit();
+    }
+
+    @Override
     protected boolean preCommit() {
         if (getItem().getThreshold() <= 0) {
             showNotification(getMessage("warn.wrongThreshold"), NotificationType.ERROR);

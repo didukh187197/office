@@ -33,11 +33,13 @@ public class PositionAction extends BaseUuidEntity implements Creatable, Updatab
     @Column(name = "DESCRIPTION", length = 100)
     protected String description;
 
-
     @OnDeleteInverse(DeletePolicy.DENY)
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TEMPLATE_ID", unique = true)
     protected FileDescriptor template;
+
+    @Column(name = "MOMENT")
+    protected Long moment;
 
     @Column(name = "CREATE_TS")
     protected Date createTs;
@@ -51,6 +53,13 @@ public class PositionAction extends BaseUuidEntity implements Creatable, Updatab
     @Column(name = "UPDATED_BY", length = 50)
     protected String updatedBy;
 
+    public Long getMoment() {
+        return moment;
+    }
+
+    public void setMoment(Long moment) {
+        this.moment = moment;
+    }
 
     public void setPosition(Position position) {
         this.position = position;
@@ -59,7 +68,6 @@ public class PositionAction extends BaseUuidEntity implements Creatable, Updatab
     public Position getPosition() {
         return position;
     }
-
 
     @Override
     public void setUpdateTs(Date updateTs) {
@@ -98,8 +106,6 @@ public class PositionAction extends BaseUuidEntity implements Creatable, Updatab
         return createdBy;
     }
 
-
-
     public void setTemplate(FileDescriptor template) {
         this.template = template;
     }
@@ -107,9 +113,6 @@ public class PositionAction extends BaseUuidEntity implements Creatable, Updatab
     public FileDescriptor getTemplate() {
         return template;
     }
-
-
-
 
     public void setDescription(String description) {
         this.description = description;
@@ -119,7 +122,6 @@ public class PositionAction extends BaseUuidEntity implements Creatable, Updatab
         return description;
     }
 
-
     public void setType(ActionType type) {
         this.type = type == null ? null : type.getId();
     }
@@ -127,6 +129,5 @@ public class PositionAction extends BaseUuidEntity implements Creatable, Updatab
     public ActionType getType() {
         return type == null ? null : ActionType.fromId(type);
     }
-
 
 }

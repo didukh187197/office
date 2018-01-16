@@ -52,13 +52,13 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
     @JoinColumn(name = "STEP_ID")
     protected RequestStep step;
 
+    @OrderBy("moment")
     @Composition
     @OneToMany(mappedBy = "request")
     protected List<RequestStep> steps;
 
-    @OrderBy("createTs")
+    @OrderBy("moment")
     @Composition
-    @OnDeleteInverse(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "request")
     protected List<RequestLog> logs;
 

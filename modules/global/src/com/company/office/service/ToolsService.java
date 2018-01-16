@@ -11,5 +11,6 @@ public interface ToolsService {
     GroupType getGroupType(User user);
 
     boolean isAdmin();
+    long getMoment();
 
 }

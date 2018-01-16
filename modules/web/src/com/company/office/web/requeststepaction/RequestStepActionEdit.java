@@ -1,17 +1,18 @@
 package com.company.office.web.requeststepaction;
 
 import com.company.office.entity.*;
+import com.company.office.service.RequestService;
 import com.company.office.service.ToolsService;
 import com.company.office.web.officeeditor.OfficeEditor;
 import com.haulmont.cuba.gui.WindowParam;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.export.ExportDisplay;
 import com.haulmont.cuba.gui.export.ExportFormat;
+import com.haulmont.cuba.security.entity.User;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 
 public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
@@ -20,7 +21,7 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
     private ToolsService toolsService;
 
     @WindowParam
-    private List<RequestLog> logs;
+    private Request request;
 
     @Named("fieldGroup.type")
     private LookupField typeField;
@@ -46,6 +47,9 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
     @Inject
     private ExportDisplay exportDisplay;
 
+    @Inject
+    private RequestService requestService;
+
     @Override
     public void init(Map<String, Object> params) {
         addListeners();
@@ -54,6 +58,8 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
 
     @Override
     protected void postInit() {
+        super.postInit();
+
         if (typeField.getValue() == null) {
             typeField.setValue(ActionType.sendFile);
         }
@@ -64,15 +70,13 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
     @Override
     protected boolean postCommit(boolean committed, boolean close) {
         super.postCommit(committed, close);
-
-        RequestStepAction requestStepAction = (RequestStepAction) ((Editor) frame).getItem();
-        Request request = requestStepAction.getRequestStep().getRequest();
-        RequestLog requestLog = new RequestLog();
-        requestLog.setRequest(request);
-        requestLog.setInfo(toolsService.getActiveUser().getName() + "performs action: " + getItem().getDescription());
-        logs.add(requestLog);
-
+        request = requestService.addLogItem(request, getRecepient(), "The action edited: " + getItem().getDescription());
         return true;
+    }
+
+    private void addListeners() {
+        typeField.addValueChangeListener(e -> processActionType((ActionType) e.getValue()));
+        lookupTemplate.addValueChangeListener(e -> setButtonParams());
     }
 
     private void setUserInterface() {
@@ -101,7 +105,22 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
                 descriptionField.setEnabled(false);
 
                 if (submittedField.getValue() == null) {
-                    getComponentNN("submitBtn").setVisible(true);
+                    String actionType = getItem().getType().getId();
+                    boolean submitBtnVisible = false;
+
+                    switch (actionType) {
+                        case "file":
+                            if (uploadFile.getValue() != null) {
+                                submitBtnVisible = true;
+                            }
+                            break;
+                        case "message":
+                            if (messageField.getValue() != null) {
+                                submitBtnVisible = true;
+                            }
+                            break;
+                    }
+                    getComponentNN("submitBtn").setVisible(submitBtnVisible);
                     getComponentNN("releaseBtn").setVisible(false);
                 } else {
                     getComponentNN("submitBtn").setVisible(false);
@@ -114,25 +133,44 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
         }
     }
 
-    private void addListeners() {
-        typeField.addValueChangeListener(e -> processActionType((ActionType) e.getValue()));
-        lookupTemplate.addValueChangeListener(e -> setButtonParams());
-    }
-
     private void processActionType(ActionType type) {
         String actionType = type.getId();
-
-        getComponentNN("boxFiles").setVisible(actionType.equals("file"));
-        lookupTemplate.setRequired(actionType.equals("file"));
-        //uploadFile.setRequired(actionType.equals("file"));
-        messageField.setVisible(actionType.equals("message"));
-        messageField.setRequired(actionType.equals("message"));
-
+        switch (actionType) {
+            case "file":
+                getComponentNN("boxFiles").setVisible(true);
+                lookupTemplate.setRequired(true);
+                uploadFile.setRequired(true);
+                messageField.setVisible(false);
+                messageField.setRequired(false);
+                break;
+            case "message":
+                getComponentNN("boxFiles").setVisible(false);
+                lookupTemplate.setRequired(false);
+                uploadFile.setRequired(false);
+                messageField.setVisible(true);
+                messageField.setRequired(true);
+                break;
+        }
         setButtonParams();
     }
 
     private void setButtonParams() {
         getComponentNN("btnShowTemplate").setEnabled(getItem().getTemplate() != null);
+    }
+
+    private User getRecepient() {
+        User recepient;
+        switch (toolsService.getActiveGroupType()) {
+            case Workers:
+                recepient = request.getApplicant();
+                break;
+            case Applicants:
+                recepient = request.getStep().getUser();
+                break;
+            default:
+                recepient = request.getApplicant();
+        }
+        return recepient;
     }
 
     public void onBtnShowTemplateClick() {
@@ -143,22 +181,22 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
     }
 
     public void onReleaseBtnClick() {
-        onExtraBtnClick("dialog.release", submittedField, false);
+        onExtraBtnClick("dialog.release", "released", submittedField, false);
     }
 
     public void onSubmitBtnClick() {
-        onExtraBtnClick("dialog.submit", submittedField, true);
+        onExtraBtnClick("dialog.submit", "submitted", submittedField, true);
     }
 
     public void onRejectBtnClick() {
-        onExtraBtnClick("dialog.reject", submittedField, false);
+        onExtraBtnClick("dialog.reject", "rejected", submittedField, false);
     }
 
     public void onApproveBtnClick() {
-        onExtraBtnClick("dialog.approve", approvedField, true);
+        onExtraBtnClick("dialog.approve", "approved", approvedField, true);
     }
 
-    private void onExtraBtnClick(String msg, DateField field, boolean setValue) {
+    private void onExtraBtnClick(String msg, String info, DateField field, boolean setValue) {
         showOptionDialog(
                 "",
                 getMessage(msg),
@@ -166,6 +204,7 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
                 new Action[] {
                         new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
                             field.setValue(setValue ? new Date() : null);
+                            request = requestService.addLogItem(request, getRecepient(), "The action " + info);
                             commitAndClose();
                         }),
                         new DialogAction(DialogAction.Type.NO, Action.Status.PRIMARY)

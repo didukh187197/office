@@ -38,6 +38,9 @@ public class PositionUser extends BaseUuidEntity implements Updatable, Creatable
     @Column(name = "THRESHOLD")
     protected Integer threshold;
 
+    @Column(name = "MOMENT")
+    protected Long moment;
+
     @Column(name = "CREATE_TS")
     protected Date createTs;
 
@@ -50,6 +53,15 @@ public class PositionUser extends BaseUuidEntity implements Updatable, Creatable
     @Column(name = "UPDATED_BY", length = 50)
     protected String updatedBy;
 
+
+
+    public void setMoment(Long moment) {
+        this.moment = moment;
+    }
+
+    public Long getMoment() {
+        return moment;
+    }
 
 
     public void setPosition(Position position) {

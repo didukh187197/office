@@ -11,4 +11,9 @@ public class RequestLogEdit extends OfficeEditor<RequestLog> {
     public void init(Map<String, Object> params) {
         super.additional();
     }
+
+    @Override
+    protected void postInit() {
+        super.postInit();
+    }
 }

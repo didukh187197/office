@@ -52,13 +52,7 @@ public class RequestBrowse extends EntityCombinedScreen {
         requestsDs.addItemChangeListener(e -> {
             extraActionsBtn.setEnabled(false);
 
-            if (e.getItem() == null)
-                return;
-
-            if (e.getItem().getStep() == null)
-                return;
-
-            if (e.getItem().getStep().getState() == null)
+            if ((e.getItem() == null) || (e.getItem().getStep() == null) || (e.getItem().getStep().getState() == null))
                 return;
 
             if (!getTable().getSelected().isEmpty()) {
@@ -80,7 +74,7 @@ public class RequestBrowse extends EntityCombinedScreen {
             }
 
             Request request = (Request) getFieldGroup().getDatasource().getItem();
-            editStepActionAction.setWindowParams(ParamsMap.of("logs", request.getLogs()));
+            editStepActionAction.setWindowParams(ParamsMap.of("request", request));
             return true;
         });
     }
@@ -109,14 +103,6 @@ public class RequestBrowse extends EntityCombinedScreen {
 
         actionsTable.getButtonsPanel().setVisible(visible);
         communicationsTable.getButtonsPanel().setVisible(visible);
-
-        /*
-        actionsTable.getActionNN("edit").setVisible(visible);
-        communicationsTable.getActionNN("create").setVisible(visible);
-        communicationsTable.getActionNN("edit").setVisible(visible);
-        communicationsTable.getActionNN("remove").setVisible(visible);
-        */
-
     }
 
     private void setUserInterface() {
@@ -236,11 +222,11 @@ public class RequestBrowse extends EntityCombinedScreen {
                             if (preSave()) {
                                 Request request = (Request) getFieldGroup().getDatasource().getItem();
                                 if (creating) {
-                                    request = requestService.addLogItem(request, toolsService.getActiveUser().getName() + " created the new request");
+                                    request = requestService.addLogItem(request, request.getApplicant(), "The new request created");
                                     request = requestService.nextPosition(request);
                                     request = requestService.setWorker(request);
                                 } else {
-                                    request = requestService.addLogItem(request, toolsService.getActiveUser().getName() + " edited the request");
+                                    request = requestService.addLogItem(request, request.getApplicant(), "The request edited");
                                 }
 
                                 getFieldGroup().getDatasource().setItem(request);

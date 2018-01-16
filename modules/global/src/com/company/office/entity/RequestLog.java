@@ -10,9 +10,11 @@ import com.haulmont.cuba.core.entity.Creatable;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import java.util.UUID;
 import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 import com.haulmont.cuba.core.global.DeletePolicy;
+import com.haulmont.cuba.security.entity.User;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Table(name = "OFFICE_REQUEST_LOG")
 @Entity(name = "office$RequestLog")
@@ -27,6 +29,23 @@ public class RequestLog extends BaseUuidEntity implements Updatable, Creatable {
     @Column(name = "INFO")
     protected String info;
 
+    @OnDeleteInverse(DeletePolicy.DENY)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "SENDER_ID")
+    protected User sender;
+
+    @OnDeleteInverse(DeletePolicy.DENY)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "RECEPIENT_ID")
+    protected User recepient;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "READ_")
+    protected Date read;
+
+    @Column(name = "MOMENT")
+    protected Long moment;
+
     @Column(name = "CREATE_TS")
     protected Date createTs;
 
@@ -38,6 +57,41 @@ public class RequestLog extends BaseUuidEntity implements Updatable, Creatable {
 
     @Column(name = "UPDATED_BY", length = 50)
     protected String updatedBy;
+
+
+    public void setMoment(Long moment) {
+        this.moment = moment;
+    }
+
+    public Long getMoment() {
+        return moment;
+    }
+
+
+    public void setRead(Date read) {
+        this.read = read;
+    }
+
+    public Date getRead() {
+        return read;
+    }
+
+
+    public void setSender(User sender) {
+        this.sender = sender;
+    }
+
+    public User getSender() {
+        return sender;
+    }
+
+    public void setRecepient(User recepient) {
+        this.recepient = recepient;
+    }
+
+    public User getRecepient() {
+        return recepient;
+    }
 
 
     public void setRequest(Request request) {

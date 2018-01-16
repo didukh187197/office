@@ -40,6 +40,8 @@ public class PositionActionEdit extends OfficeEditor<PositionAction> {
 
     @Override
     protected void postInit() {
+        super.postInit();
+
         if (typeField.getValue() == null)
             typeField.setValue(ActionType.sendFile);
 

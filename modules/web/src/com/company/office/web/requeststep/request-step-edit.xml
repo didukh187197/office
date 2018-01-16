@@ -37,6 +37,7 @@
                     <field property="approvalTerm"/>
                     <field property="approved"/>
                     <field property="penalty"/>
+                    <field property="moment"/>
                 </column>
             </fieldGroup>
             <tabSheet id="tabSheet"

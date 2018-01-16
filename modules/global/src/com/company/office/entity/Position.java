@@ -38,12 +38,12 @@ public class Position extends BaseUuidEntity implements Creatable, Updatable {
     @Column(name = "DAYS_FOR_APPROVAL")
     protected Integer daysForApproval;
 
-    @OrderBy("createTs")
+    @OrderBy("moment")
     @Composition
     @OneToMany(mappedBy = "position")
     protected List<PositionAction> actions;
 
-    @OrderBy("createTs")
+    @OrderBy("moment")
     @Composition
     @OneToMany(mappedBy = "position")
     protected List<PositionUser> users;

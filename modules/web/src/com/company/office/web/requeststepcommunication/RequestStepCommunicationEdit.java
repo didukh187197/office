@@ -12,4 +12,9 @@ public class RequestStepCommunicationEdit extends OfficeEditor<RequestStepCommun
         super.additional();
     }
 
+    @Override
+    protected void postInit() {
+        super.postInit();
+    }
+
 }

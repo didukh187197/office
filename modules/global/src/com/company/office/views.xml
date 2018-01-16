@@ -38,11 +38,6 @@
         <property name="createdBy"/>
         <property name="updateTs"/>
         <property name="updatedBy"/>
-        <property name="requestStep"
-                  view="_minimal">
-            <property name="request"
-                      view="_minimal"/>
-        </property>
     </view>
     <view class="com.company.office.entity.RequestStepCommunication"
           extends="_local"
@@ -57,13 +52,6 @@
         </property>
         <property name="answerFile"
                   view="_minimal"/>
-        <property name="requestStep"
-                  view="_minimal">
-            <property name="request"
-                      view="_minimal">
-                <property name="id"/>
-            </property>
-        </property>
     </view>
     <view class="com.company.office.entity.Request"
           extends="_local"
@@ -119,7 +107,6 @@
         <property name="updatedBy"/>
         <property name="position"
                   view="_minimal">
-            <property name="id"/>
         </property>
     </view>
     <view class="com.company.office.entity.RequestStep"
@@ -157,7 +144,13 @@
         <property name="createdBy"/>
         <property name="updateTs"/>
         <property name="updatedBy"/>
-        <property name="request"
-                  view="_minimal"/>
+        <property name="sender"
+                  view="_minimal">
+            <property name="email"/>
+        </property>
+        <property name="recepient"
+                  view="_minimal">
+            <property name="email"/>
+        </property>
     </view>
 </views>

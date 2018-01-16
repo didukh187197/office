@@ -25,6 +25,10 @@
                     <column width="400px">
                         <field property="info"
                                rows="3"/>
+                        <field property="sender"/>
+                        <field property="recepient"/>
+                        <field property="read"/>
+                        <field property="moment"/>
                     </column>
                 </fieldGroup>
             </tab>

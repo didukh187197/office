@@ -39,6 +39,7 @@
                                rows="3"/>
                         <field property="message"
                                rows="3"/>
+                        <field property="moment"/>
                     </column>
                 </fieldGroup>
                 <fieldGroup id="fieldGroupDates"

@@ -11,6 +11,7 @@ import com.haulmont.cuba.security.entity.UserRole;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -60,6 +61,11 @@ public class ToolsServiceBean implements ToolsService {
             }
         }
         return superUser;
+    }
+
+    @Override
+    public long getMoment() {
+        return (new Date()).getTime();
     }
 
 }

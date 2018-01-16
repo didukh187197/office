@@ -21,6 +21,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import com.haulmont.chile.core.annotations.NamePattern;
+import javax.persistence.OrderBy;
 
 @NamePattern("%s, %s %s|position,state,user")
 @Table(name = "OFFICE_REQUEST_STEP")
@@ -69,10 +70,15 @@ public class RequestStep extends BaseUuidEntity implements Updatable, Creatable 
     @Column(name = "PENALTY")
     protected Integer penalty;
 
+    @Column(name = "MOMENT")
+    protected Long moment;
+
+    @OrderBy("moment")
     @OneToMany(mappedBy = "requestStep")
     @Composition
     protected List<RequestStepAction> actions;
 
+    @OrderBy("moment")
     @Composition
     @OnDeleteInverse(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "requestStep")
@@ -89,6 +95,15 @@ public class RequestStep extends BaseUuidEntity implements Updatable, Creatable 
 
     @Column(name = "CREATED_BY", length = 50)
     protected String createdBy;
+
+
+    public void setMoment(Long moment) {
+        this.moment = moment;
+    }
+
+    public Long getMoment() {
+        return moment;
+    }
 
 
     public void setPosition(Position position) {

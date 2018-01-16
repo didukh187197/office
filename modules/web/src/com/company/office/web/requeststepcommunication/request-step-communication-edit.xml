@@ -35,6 +35,7 @@
                         <field property="answer"
                                rows="6"/>
                         <field property="answerFile"/>
+                        <field property="moment"/>
                     </column>
                 </fieldGroup>
             </tab>

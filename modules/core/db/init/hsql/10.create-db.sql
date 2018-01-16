@@ -36,6 +36,7 @@ create table OFFICE_REQUEST_STEP (
     APPROVAL_TERM date,
     APPROVED date,
     PENALTY integer,
+    MOMENT bigint,
     --
     primary key (ID)
 )^
@@ -56,6 +57,7 @@ create table OFFICE_REQUEST_STEP_ACTION (
     MESSAGE varchar(255),
     SUBMITTED date,
     APPROVED date,
+    MOMENT bigint,
     --
     primary key (ID)
 )^
@@ -70,6 +72,10 @@ create table OFFICE_REQUEST_LOG (
     --
     REQUEST_ID varchar(36),
     INFO varchar(255),
+    SENDER_ID varchar(36),
+    RECEPIENT_ID varchar(36),
+    READ_ date,
+    MOMENT bigint,
     --
     primary key (ID)
 )^
@@ -87,6 +93,7 @@ create table OFFICE_REQUEST_STEP_COMMUNICATION (
     QUESTION_FILE_ID varchar(36),
     ANSWER varchar(255),
     ANSWER_FILE_ID varchar(36),
+    MOMENT bigint,
     --
     primary key (ID)
 )^
@@ -103,6 +110,7 @@ create table OFFICE_POSITION_ACTION (
     TYPE_ varchar(50) not null,
     DESCRIPTION varchar(100),
     TEMPLATE_ID varchar(36),
+    MOMENT bigint,
     --
     primary key (ID)
 )^
@@ -135,6 +143,7 @@ create table OFFICE_POSITION_USER (
     USER_ID varchar(36),
     REQUESTS integer,
     THRESHOLD integer,
+    MOMENT bigint,
     --
     primary key (ID)
 )^
