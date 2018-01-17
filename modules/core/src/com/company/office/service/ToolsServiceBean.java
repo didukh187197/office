@@ -11,10 +11,7 @@ import com.haulmont.cuba.security.entity.UserRole;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service(ToolsService.NAME)
 public class ToolsServiceBean implements ToolsService {
@@ -66,6 +63,23 @@ public class ToolsServiceBean implements ToolsService {
     @Override
     public long getMoment() {
         return (new Date()).getTime();
+    }
+
+    @Override
+    public Date addDaysToNow(Integer days) {
+        GregorianCalendar calendar = new GregorianCalendar();
+        calendar.add(Calendar.DAY_OF_YEAR, getCountInt(days));
+        return calendar.getTime();
+    }
+
+    @Override
+    public int getCountInt(Integer value) {
+        return value == null ? 0 : value;
+    }
+
+    @Override
+    public double getCountDouble(Integer value) {
+        return value == null ? 0 : value;
     }
 
 }

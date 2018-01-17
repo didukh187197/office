@@ -29,6 +29,8 @@
                         <field property="recepient"/>
                         <field property="read"/>
                         <field property="moment"/>
+                        <field property="attachType"/>
+                        <field property="attachID"/>
                     </column>
                 </fieldGroup>
             </tab>

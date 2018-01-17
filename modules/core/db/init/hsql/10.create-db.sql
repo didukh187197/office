@@ -74,6 +74,8 @@ create table OFFICE_REQUEST_LOG (
     INFO varchar(255),
     SENDER_ID varchar(36),
     RECEPIENT_ID varchar(36),
+    ATTACH_TYPE varchar(70),
+    ATTACH_ID varchar(36),
     READ_ date,
     MOMENT bigint,
     --

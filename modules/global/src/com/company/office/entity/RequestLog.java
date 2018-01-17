@@ -15,6 +15,7 @@ import com.haulmont.cuba.core.global.DeletePolicy;
 import com.haulmont.cuba.security.entity.User;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import java.util.UUID;
 
 @Table(name = "OFFICE_REQUEST_LOG")
 @Entity(name = "office$RequestLog")
@@ -39,6 +40,12 @@ public class RequestLog extends BaseUuidEntity implements Updatable, Creatable {
     @JoinColumn(name = "RECEPIENT_ID")
     protected User recepient;
 
+    @Column(name = "ATTACH_TYPE", length = 70)
+    protected String attachType;
+
+    @Column(name = "ATTACH_ID")
+    protected UUID attachID;
+
     @Temporal(TemporalType.DATE)
     @Column(name = "READ_")
     protected Date read;
@@ -57,6 +64,23 @@ public class RequestLog extends BaseUuidEntity implements Updatable, Creatable {
 
     @Column(name = "UPDATED_BY", length = 50)
     protected String updatedBy;
+
+
+    public void setAttachType(String attachType) {
+        this.attachType = attachType;
+    }
+
+    public String getAttachType() {
+        return attachType;
+    }
+
+    public void setAttachID(UUID attachID) {
+        this.attachID = attachID;
+    }
+
+    public UUID getAttachID() {
+        return attachID;
+    }
 
 
     public void setMoment(Long moment) {

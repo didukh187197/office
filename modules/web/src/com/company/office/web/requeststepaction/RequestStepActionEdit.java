@@ -77,7 +77,7 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
         super.postCommit(committed, close);
 
         if (!closeFromExtraActions) {
-            logs.add(requestService.newLogItem(request, null, makeName() + "edited"));
+            logs.add(requestService.newLogItem(request, null, makeName() + "edited", getItem()));
         }
 
         return true;
@@ -191,7 +191,7 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
     }
 
     private String makeName() {
-        return "Action <" + getItem().getDescription() + "> ";
+        return String.format(getMessage("action.name"), getItem().getDescription());
     }
 
     private void onExtraBtnClick(String msg, String info, DateField field, boolean setValue) {
@@ -202,7 +202,7 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
                 new Action[] {
                         new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
                             field.setValue(setValue ? new Date() : null);
-                            logs.add(requestService.newLogItem(request, null, makeName() + info));
+                            logs.add(requestService.newLogItem(request, null, makeName() + info, getItem()));
                             closeFromExtraActions = true;
                             commitAndClose();
                         }),

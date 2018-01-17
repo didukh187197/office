@@ -69,18 +69,22 @@ public class RequestServiceBean implements RequestService {
     }
 
     @Override
-    public RequestLog newLogItem(Request request, User recepient, String info) {
+    public RequestLog newLogItem(Request request, User recepient, String info, Entity entity) {
         RequestLog requestLog = new RequestLog();
         requestLog.setRequest(request);
         requestLog.setMoment(toolsService.getMoment());
         requestLog.setSender(toolsService.getActiveUser());
         requestLog.setRecepient(recepient == null ? getRecepient(request) : recepient);
+        if (entity != null) {
+            requestLog.setAttachType(entity.getClass().getName());
+            requestLog.setAttachID((UUID) entity.getId());
+        }
         requestLog.setInfo(info);
         return requestLog;
     }
 
     private Request addLogItemInt(Request request, User recepient, String info) {
-        RequestLog requestLog = newLogItem(request, recepient, info);
+        RequestLog requestLog = newLogItem(request, recepient, info, null);
         request.getLogs().add(requestLog);
         return request;
     }
@@ -148,9 +152,7 @@ public class RequestServiceBean implements RequestService {
                 }
             }
 
-            GregorianCalendar calendar = new GregorianCalendar();
-            calendar.add(Calendar.DAY_OF_YEAR, getCountInt(position.getDaysForSubmission()));
-            requestStep.setSubmissionTerm(calendar.getTime());
+            requestStep.setSubmissionTerm( toolsService.addDaysToNow(position.getDaysForSubmission() ) );
             requestStep.setDescription("Assigned to " + worker.getName() + (positionActions.size() != 0 ? ". Actions added" : ""));
         }
 
@@ -189,7 +191,7 @@ public class RequestServiceBean implements RequestService {
         PositionUser positionUser = dataManager.load(loadContext);
 
         if (positionUser != null) {
-            positionUser.setRequests(getCountInt(positionUser.getRequests()) + count);
+            positionUser.setRequests(toolsService.getCountInt(positionUser.getRequests()) + count);
             commitEntity(positionUser);
         }
     }
@@ -212,8 +214,8 @@ public class RequestServiceBean implements RequestService {
         List<PositionUser> positionsUsers = dataManager.loadList(loadContext);
 
         for (PositionUser pu : positionsUsers) {
-            double count = getCountDouble(pu.getRequests());
-            double threshold = getCountDouble(pu.getThreshold());
+            double count = toolsService.getCountDouble(pu.getRequests());
+            double threshold = toolsService.getCountDouble(pu.getThreshold());
 
             if (count < threshold) {
                 double suRate = count / threshold;
@@ -224,14 +226,6 @@ public class RequestServiceBean implements RequestService {
             }
         }
         return resPositionUser != null ? resPositionUser.getUser() : null;
-    }
-
-    private int getCountInt(Integer value) {
-        return value == null ? 0 : value;
-    }
-
-    private double getCountDouble(Integer value) {
-        return value == null ? 0 : value;
     }
 
     private User getRecepient(Request request) {

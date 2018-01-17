@@ -6,7 +6,6 @@ import com.company.office.service.RequestService;
 import com.company.office.service.ToolsService;
 import com.company.office.web.requeststep.RequestStepEdit;
 import com.haulmont.bali.util.ParamsMap;
-import com.haulmont.cuba.core.global.PersistenceHelper;
 import com.haulmont.cuba.gui.ComponentsHelper;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
@@ -18,10 +17,7 @@ import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
 import com.haulmont.cuba.security.entity.User;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class RequestBrowse extends EntityCombinedScreen {
 
@@ -40,6 +36,9 @@ public class RequestBrowse extends EntityCombinedScreen {
     @Inject
     private ComponentsFactory componentsFactory;
 
+    /*
+    Browse methods
+     */
     @Override
     public void init(Map<String, Object> params) {
         super.init(params);
@@ -50,8 +49,36 @@ public class RequestBrowse extends EntityCombinedScreen {
     }
 
     private void addListeners() {
-        PopupButton extraActionsBtn = (PopupButton) getComponentNN("extraActionsBtn");
+        Table table = (Table) getTable();
+        EditAction editAction = (EditAction) table.getActionNN("edit");
+        editAction.setBeforeActionPerformedHandler(() -> {
+            switch (toolsService.getActiveGroupType()) {
+                case Workers:
+                    if (requestsDs.getItem().getStep().getApproved() != null) {
+                        showMessage(getMessage("edit.alreadyApproved"));
+                        return false;
+                    }
+                    break;
 
+                case Applicants:
+                    if (requestsDs.getItem().getStep().getSubmitted() != null) {
+                        showMessage(getMessage("edit.alreadySubmitted"));
+                        return false;
+                    }
+                    if (requestsDs.getItem().getStep().getApproved() != null) {
+                        showMessage(getMessage("edit.alreadyApproved"));
+                        return false;
+                    }
+                    break;
+            }
+            if (toolsService.getActiveGroupType().equals(GroupType.Applicants)) {
+
+            }
+            return true;
+        });
+
+
+        PopupButton extraActionsBtn = (PopupButton) getComponentNN("extraActionsBtn");
         requestsDs.addItemChangeListener(e -> {
             extraActionsBtn.setEnabled(false);
 
@@ -71,11 +98,10 @@ public class RequestBrowse extends EntityCombinedScreen {
         editStepActionAction.setBeforeActionPerformedHandler(() -> {
             if (toolsService.getActiveGroupType().equals(GroupType.Applicants)) {
                 if (actionsDs.getItem().getApproved() != null) {
-                    showMessage("Action is already approved!");
+                    showMessage("edit.areadyApproved");
                     return false;
                 }
             }
-
             Request request = (Request) getFieldGroup().getDatasource().getItem();
             editStepActionAction.setWindowParams(ParamsMap.of("request", request, "logs", request.getLogs()));
             return true;
@@ -160,108 +186,40 @@ public class RequestBrowse extends EntityCombinedScreen {
         }
     }
 
-    @Override
-    protected void initEditComponents(boolean enabled) {
-        super.initEditComponents(enabled);
-
-        TabSheet tabSheet = getTabSheet();
-        if (enabled) {
-            ComponentsHelper.walkComponents(tabSheet, (component, name) -> {
-                if (component instanceof FieldGroup) {
-                    component.setEnabled(false);
-                }
-            });
-            getFieldGroup().setEnabled(true);
-            getComponentNN("fieldsSystem").setEnabled(true);
-
-            focusOnStep();
+    public Component snGenerator(Request request) {
+        String res = "";
+        if (request.getSeries() != null) {
+            res += request.getSeries() + "-";
         }
 
-        setStepChildrenButtons(enabled);
-
-        switch (toolsService.getActiveGroupType()) {
-            case Workers:
-            case Applicants:
-                tabSheet.getTab("mainTab").setVisible(!enabled);
-                tabSheet.getTab("logsTab").setVisible(!enabled);
-                getComponentNN("stepsTable").setEnabled(!enabled);
-                getComponentNN("stepsTable").setVisible(!enabled);
-                getComponentNN("fieldsStep").setVisible(!enabled);
-                getComponentNN("fieldsStepDates").setVisible(!enabled);
-            break;
-            default:
-                tabSheet.setSelectedTab("mainTab");
+        if (request.getNumber() != null) {
+            res += request.getNumber();
         }
+
+        return new Table.PlainTextCell(res);
     }
 
-    private boolean preSave() {
-        if (getComponentNN("mainTab").isVisible()) {
-            User applicant = ((PickerField) getFieldGroup().getFieldNN("applicant").getComponent()).getValue();
+    public Component performedGenerator(RequestStepAction requestStepAction) {
+        CheckBox checkBox = componentsFactory.createComponent(CheckBox.class);
 
-            if ( (applicant != null) && !(toolsService.getGroupType(applicant).equals(GroupType.Applicants)) ) {
-                showNotification(getMessage("warning.notApplicant"), NotificationType.ERROR);
-                return false;
+        checkBox.setValue(false);
+
+        if (requestStepAction.getType() == ActionType.sendFile) {
+            if (requestStepAction.getFile() != null) {
+                checkBox.setValue(true);
+            }
+        } else
+        if (requestStepAction.getType() == ActionType.sendMessage) {
+            if (requestStepAction.getMessage() != null) {
+                checkBox.setValue(true);
             }
         }
-        return true;
+        return checkBox;
     }
 
-    public void saveWithPrompt() {
-        showOptionDialog(
-                "",
-                messages.getMainMessage("dialog.saveAndClose.title"),
-                MessageType.CONFIRMATION,
-                new Action[] {
-                        new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
-                            if (preSave()) {
-                                Request request = (Request) getFieldGroup().getDatasource().getItem();
-                                if (creating) {
-                                    List<RequestLog> logs = new ArrayList<>();
-                                    logs.add(requestService.newLogItem(request, request.getApplicant(), "The new request created"));
-                                    request.setLogs(logs);
-                                    request = requestService.nextPosition(request);
-                                    request = requestService.setWorker(request);
-                                } else {
-                                    switch (toolsService.getActiveGroupType()) {
-                                        case Workers:
-                                        case Applicants:
-                                            break;
-                                        default:
-                                            request.getLogs().add(requestService.newLogItem(request, request.getApplicant(), "The request edited"));
-                                            if (request.getStep().getUser() != null) {
-                                                request.getLogs().add(requestService.newLogItem(request, request.getStep().getUser(), "The request edited"));
-                                            }
-                                            break;
-                                    }
-                                }
-
-                                getFieldGroup().getDatasource().setItem(request);
-                                super.save();
-                                if (creating) {
-                                    if (request.getStep() != null) {
-                                        if (request.getStep().getUser() != null) {
-                                            showMessage("The request is assigned to: " + request.getStep().getUser().getName());
-                                        } else {
-                                            showMessage("No available workers on the position: " + request.getStep().getPosition().getDescription());
-                                        }
-                                    }
-                                }
-                            }
-                        }),
-                        new DialogAction(DialogAction.Type.NO, Action.Status.PRIMARY)
-                }
-        );
-    }
-
-    public void cancelEdit() {
-        super.cancel();
-    }
-
-    private void showMessage(String msg) {
-        //showMessageDialog("", msg, MessageType.CONFIRMATION);
-        showNotification(msg, NotificationType.WARNING);
-    }
-
+    /*
+    Browse actions methods
+     */
     public void onFindUser(Component source) {
     }
 
@@ -300,38 +258,6 @@ public class RequestBrowse extends EntityCombinedScreen {
         );
     }
 
-    public Component snGenerator(Request request) {
-        String res = "";
-        if (request.getSeries() != null) {
-            res += request.getSeries() + "-";
-        }
-
-        if (request.getNumber() != null) {
-            res += request.getNumber();
-        }
-
-        return new Table.PlainTextCell(res);
-    }
-
-    public Component performedGenerator(RequestStepAction requestStepAction) {
-        CheckBox checkBox = componentsFactory.createComponent(CheckBox.class);
-
-        checkBox.setValue(false);
-
-        if (requestStepAction.getType() == ActionType.sendFile) {
-            if (requestStepAction.getFile() != null) {
-                checkBox.setValue(true);
-            }
-        } else
-        if (requestStepAction.getType() == ActionType.sendMessage) {
-            if (requestStepAction.getMessage() != null) {
-                checkBox.setValue(true);
-            }
-        }
-
-		return checkBox;
-    }
-
     public void onStep(Component source) {
         RequestStepEdit requestStepEdit = (RequestStepEdit) openEditor("office$RequestStep.edit", requestsDs.getItem().getStep(), WindowManager.OpenType.DIALOG);
 
@@ -340,5 +266,183 @@ public class RequestBrowse extends EntityCombinedScreen {
             // do something
         });
         */
+    }
+
+    /*
+    Edit methods
+     */
+    private boolean preSave() {
+        if (getComponentNN("mainTab").isVisible()) {
+            User applicant = ((PickerField) getFieldGroup().getFieldNN("applicant").getComponent()).getValue();
+
+            if ( (applicant != null) && !(toolsService.getGroupType(applicant).equals(GroupType.Applicants)) ) {
+                showNotification(getMessage("warning.notApplicant"), NotificationType.ERROR);
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private Request getItem() {
+        return (Request) getFieldGroup().getDatasource().getItem();
+    }
+
+    private boolean checkSubmitApprove() {
+        Request request = getItem();
+
+        if ((request.getStep()) == null)
+            return false;
+
+        List<RequestStepAction> requestStepActions = request.getStep().getActions();
+        if ((requestStepActions == null) || (requestStepActions.size() == 0))
+            return false;
+
+        int submitted = 0;
+        int approved = 0;
+
+        for (RequestStepAction requestStepAction: requestStepActions) {
+            if (requestStepAction.getSubmitted() != null)
+                submitted++;
+
+            if (requestStepAction.getApproved() != null)
+                approved++;
+        }
+
+        final boolean[] res = {false};
+        switch (toolsService.getActiveGroupType()) {
+            case Workers:
+                if (approved == requestStepActions.size()) {
+                    showOptionDialog(
+                            "",
+                            getMessage("edit.approveAllActions"),
+                            MessageType.CONFIRMATION,
+                            new Action[] {
+                                    new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
+                                        getItem().getStep().setApproved(new Date());
+                                    }),
+                                    new DialogAction(DialogAction.Type.NO, Action.Status.PRIMARY)
+                            }
+                    );
+                }
+                break;
+            case Applicants:
+                if (submitted == requestStepActions.size()) {
+                    showOptionDialog(
+                            "",
+                            getMessage("edit.submitAllActions"),
+                            MessageType.CONFIRMATION,
+                            new Action[] {
+                                    new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
+                                        res[0] = true;
+                                    }),
+                                    new DialogAction(DialogAction.Type.NO, Action.Status.PRIMARY)
+                            }
+                    );
+                }
+                break;
+            default:
+                break;
+        }
+
+        return res[0];
+    }
+
+    public void saveWithPrompt() {
+        showOptionDialog(
+                "",
+                messages.getMainMessage("dialog.saveAndClose.title"),
+                MessageType.CONFIRMATION,
+                new Action[] {
+                        new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
+                            if (preSave()) {
+                                Request request = getItem();
+                                if (creating) {
+                                    List<RequestLog> logs = new ArrayList<>();
+                                    logs.add(requestService.newLogItem(request, request.getApplicant(), "The new request created", null));
+                                    request.setLogs(logs);
+                                    request = requestService.nextPosition(request);
+                                    request = requestService.setWorker(request);
+                                } else {
+                                    switch (toolsService.getActiveGroupType()) {
+                                        case Workers:
+                                        case Applicants:
+                                            break;
+                                        default:
+                                            request.getLogs().add(requestService.newLogItem(request, request.getApplicant(), "The request edited", null));
+                                            if (request.getStep().getUser() != null) {
+                                                request.getLogs().add(requestService.newLogItem(request, request.getStep().getUser(), "The request edited", null));
+                                            }
+                                            break;
+                                    }
+
+                                    if (checkSubmitApprove()) {
+                                        showMessage("Bu");
+                                        request.getStep().setSubmitted(new Date());
+                                        request.getStep().setApprovalTerm(toolsService.addDaysToNow(request.getStep().getPosition().getDaysForSubmission()));
+                                    }
+                                }
+
+                                getFieldGroup().getDatasource().setItem(getItem());
+                                super.save();
+                                if (creating) {
+                                    if (request.getStep() != null) {
+                                        if (request.getStep().getUser() != null) {
+                                            showMessage(getMessage("request.assignedTo") + request.getStep().getUser().getName());
+                                        } else {
+                                            showMessage(getMessage("request.noAvailableWorkers") + request.getStep().getPosition().getDescription());
+                                        }
+                                    }
+                                }
+                            }
+                        }),
+                        new DialogAction(DialogAction.Type.NO, Action.Status.PRIMARY)
+                }
+        );
+    }
+
+    public void cancelEdit() {
+        super.cancel();
+    }
+
+    /*
+    Common methods
+     */
+    private void showMessage(String msg) {
+        //showMessageDialog("", msg, MessageType.CONFIRMATION);
+        showNotification(msg, NotificationType.WARNING);
+    }
+
+    @Override
+    protected void initEditComponents(boolean enabled) {
+        super.initEditComponents(enabled);
+
+        TabSheet tabSheet = getTabSheet();
+        if (enabled) {
+            ComponentsHelper.walkComponents(tabSheet, (component, name) -> {
+                if (component instanceof FieldGroup) {
+                    component.setEnabled(false);
+                }
+            });
+            getFieldGroup().setEnabled(true);
+            getComponentNN("fieldsSystem").setEnabled(true);
+
+            focusOnStep();
+        }
+
+        setStepChildrenButtons(enabled);
+
+        switch (toolsService.getActiveGroupType()) {
+            case Workers:
+            case Applicants:
+                tabSheet.getTab("mainTab").setVisible(!enabled);
+                tabSheet.getTab("logsTab").setVisible(!enabled);
+                getComponentNN("stepsTable").setEnabled(!enabled);
+                getComponentNN("stepsTable").setVisible(!enabled);
+                getComponentNN("fieldsStep").setVisible(!enabled);
+                getComponentNN("fieldsStepDates").setVisible(!enabled);
+                break;
+            default:
+                tabSheet.setSelectedTab("mainTab");
+        }
     }
 }
