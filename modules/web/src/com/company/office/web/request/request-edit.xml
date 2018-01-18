@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.office.web.request.RequestEdit"
+        datasource="requestDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.office.web.request">
+    <dsContext>
+        <datasource id="requestDs"
+                    class="com.company.office.entity.Request"
+                    view="request-view">
+            <collectionDatasource id="stepsDs"
+                                  property="steps">
+                <collectionDatasource id="actionsDs"
+                                      property="actions"/>
+                <collectionDatasource id="communicationsDs"
+                                      property="communications"/>
+            </collectionDatasource>
+            <collectionDatasource id="logsDs"
+                                  property="logs"/>
+        </datasource>
+        <collectionDatasource id="workersDs"
+                              class="com.haulmont.cuba.security.entity.User">
+            <query>
+                <![CDATA[select e from sec$User e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout spacing="true">
+        <split id="split"
+               height="100%"
+               orientation="horizontal"
+               reversePosition="true"
+               width="100%">
+            <vbox id="fieldsBox"
+                  expand="extendedWindowActions"
+                  height="100%"
+                  margin="false,true,false,false"
+                  spacing="true">
+                <fieldGroup id="fieldGroup"
+                            datasource="requestDs">
+                    <column width="400px">
+                        <field property="applicant"
+                               required="true"/>
+                        <field property="applicantCode"
+                               required="true"
+                               width="100px"/>
+                        <field property="applicantPhone"/>
+                        <field property="series"
+                               required="true"
+                               width="100px"/>
+                        <field property="number"
+                               required="true"
+                               width="100px"/>
+                        <field property="description"
+                               rows="2"/>
+                    </column>
+                </fieldGroup>
+                <frame id="extendedWindowActions"
+                       screen="editWindowActions"/>
+            </vbox>
+            <vbox id="tabSheetBox"
+                  expand="tabSheet"
+                  height="100%"
+                  margin="false,false,false,true">
+                <groupBox id="stepBox"
+                          caption="msg://stepBox"
+                          collapsable="true"
+                          collapsed="true"
+                          expand="stepOtherFields"
+                          orientation="horizontal"
+                          spacing="true"
+                          width="100%">
+                    <fieldGroup id="stepParamsFields"
+                                datasource="stepsDs"
+                                editable="false">
+                        <column width="250px">
+                            <field property="state"/>
+                            <field property="position"/>
+                            <field property="user"/>
+                        </column>
+                    </fieldGroup>
+                    <fieldGroup id="stepDatesFields"
+                                datasource="stepsDs"
+                                editable="false">
+                        <column width="120px">
+                            <field property="submissionTerm"/>
+                            <field property="submitted"/>
+                        </column>
+                        <column width="120px">
+                            <field property="approvalTerm"/>
+                            <field property="approved"/>
+                        </column>
+                    </fieldGroup>
+                    <fieldGroup id="stepOtherFields"
+                                datasource="stepsDs"
+                                editable="false">
+                        <column width="250px">
+                            <field property="description"
+                                   rows="3"/>
+                        </column>
+                        <column width="60px">
+                            <field property="penalty"/>
+                        </column>
+                    </fieldGroup>
+                </groupBox>
+                <tabSheet id="tabSheet">
+                    <tab id="actionsTab"
+                         caption="msg://com.company.office.entity/RequestStep.actions"
+                         margin="true,false,false,false"
+                         spacing="true">
+                        <table id="actionsTable"
+                               height="100%"
+                               width="100%">
+                            <actions>
+                                <action id="edit"/>
+                            </actions>
+                            <columns>
+                                <column id="type"/>
+                                <column id="description"/>
+                                <column id="performed"
+                                        caption="msg://actionsTable.column.performed"
+                                        generator="performedGenerator"/>
+                                <column id="submitted"/>
+                                <column id="approved"/>
+                            </columns>
+                            <rows datasource="actionsDs"/>
+                            <buttonsPanel>
+                                <button action="actionsTable.edit"/>
+                            </buttonsPanel>
+                        </table>
+                    </tab>
+                    <tab id="communicationsTab"
+                         caption="msg://com.company.office.entity/RequestStep.communications"
+                         margin="true,false,false,false"
+                         spacing="true">
+                        <table id="communicationsTable"
+                               height="100%"
+                               width="100%">
+                            <actions>
+                                <action id="create"/>
+                                <action id="edit"/>
+                                <action id="remove"/>
+                            </actions>
+                            <columns>
+                                <column id="createTs"
+                                        caption="mainMsg://field.created"/>
+                                <column id="updateTs"
+                                        caption="mainMsg://field.updated"/>
+                                <column id="question"/>
+                            </columns>
+                            <rows datasource="communicationsDs"/>
+                            <buttonsPanel>
+                                <button action="communicationsTable.create"/>
+                                <button action="communicationsTable.edit"/>
+                                <button action="communicationsTable.remove"/>
+                            </buttonsPanel>
+                        </table>
+                    </tab>
+                    <tab id="logsTab"
+                         caption="msg://com.company.office.entity/Request.logs"
+                         expand="logsTable"
+                         margin="true,false,false,false"
+                         spacing="true">
+                        <table id="logsTable"
+                               height="400px"
+                               width="100%">
+                            <columns>
+                                <column id="createTs"
+                                        caption="mainMsg://field.created"/>
+                                <column id="sender"
+                                        caption="mainMsg://field.author"/>
+                                <column id="recepient"/>
+                                <column id="info"/>
+                            </columns>
+                            <rows datasource="logsDs"/>
+                        </table>
+                        <fieldGroup id="fieldsLogs"
+                                    datasource="logsDs"
+                                    editable="false">
+                            <column width="400px">
+                                <field property="info"
+                                       rows="2"/>
+                            </column>
+                        </fieldGroup>
+                    </tab>
+                    <tab id="systemTab"
+                         caption="System"
+                         margin="true,false,false,false"
+                         spacing="true">
+                        <fieldGroup id="fieldsSystem"
+                                    datasource="requestDs">
+                            <column>
+                                <field optionsDatasource="stepsDs"
+                                       property="step"
+                                       width="500px"/>
+                                <field caption="mainMsg://field.created"
+                                       property="createTs"
+                                       resolution="SEC"/>
+                                <field caption="mainMsg://field.author"
+                                       property="createdBy"/>
+                                <field caption="mainMsg://field.updated"
+                                       property="updateTs"
+                                       resolution="SEC"/>
+                                <field caption="mainMsg://field.editor"
+                                       property="updatedBy"/>
+                                <field property="moment"/>
+                            </column>
+                        </fieldGroup>
+                    </tab>
+                </tabSheet>
+            </vbox>
+        </split>
+    </layout>
+</window>

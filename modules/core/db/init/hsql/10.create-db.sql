@@ -12,6 +12,7 @@ create table OFFICE_REQUEST (
     SERIES varchar(10),
     NUMBER_ integer,
     DESCRIPTION varchar(100),
+    MOMENT bigint,
     STEP_ID varchar(36),
     --
     primary key (ID)

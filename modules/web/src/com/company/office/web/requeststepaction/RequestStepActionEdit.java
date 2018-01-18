@@ -12,16 +12,12 @@ import com.haulmont.cuba.gui.export.ExportFormat;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 
 public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
 
     @WindowParam
     private Request request;
-
-    @WindowParam
-    private List<RequestLog> logs;
 
     @Named("fieldGroup.type")
     private LookupField typeField;
@@ -77,7 +73,7 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
         super.postCommit(committed, close);
 
         if (!closeFromExtraActions) {
-            logs.add(requestService.newLogItem(request, null, makeName() + "edited", getItem()));
+            request.getLogs().add(requestService.newLogItem(request, null, makeName() + "edited", getItem()));
         }
 
         return true;
@@ -132,6 +128,7 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
                     getComponentNN("submitBtn").setVisible(submitBtnVisible);
                     getComponentNN("releaseBtn").setVisible(false);
                 } else {
+                    getComponentNN("okBtn").setEnabled(false);
                     getComponentNN("submitBtn").setVisible(false);
                     getComponentNN("releaseBtn").setVisible(true);
                 }
@@ -202,7 +199,7 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
                 new Action[] {
                         new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
                             field.setValue(setValue ? new Date() : null);
-                            logs.add(requestService.newLogItem(request, null, makeName() + info, getItem()));
+                            request.getLogs().add(requestService.newLogItem(request, null, makeName() + info, getItem()));
                             closeFromExtraActions = true;
                             commitAndClose();
                         }),

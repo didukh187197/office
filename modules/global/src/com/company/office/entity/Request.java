@@ -48,6 +48,9 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
     @Column(name = "DESCRIPTION", length = 100)
     protected String description;
 
+    @Column(name = "MOMENT")
+    protected Long moment;
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "STEP_ID")
     protected RequestStep step;
@@ -73,6 +76,15 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
 
     @Column(name = "UPDATED_BY", length = 50)
     protected String updatedBy;
+
+    public void setMoment(Long moment) {
+        this.moment = moment;
+    }
+
+    public Long getMoment() {
+        return moment;
+    }
+
 
     public RequestStep getStep() {
         return step;
