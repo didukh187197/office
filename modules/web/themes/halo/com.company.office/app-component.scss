@@ -1,0 +1,5 @@
+@import "halo-ext";
+
+@mixin com_company_office {
+  @include com_company_office-halo-ext;
+}
