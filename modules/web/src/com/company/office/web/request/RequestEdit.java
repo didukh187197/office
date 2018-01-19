@@ -16,10 +16,7 @@ import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
 import com.haulmont.cuba.security.entity.User;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class RequestEdit extends AbstractEditor<Request> {
 
@@ -57,6 +54,9 @@ public class RequestEdit extends AbstractEditor<Request> {
         addListeners();
         tuneComponents();
         setUserInterface();
+
+        showSubmitButton();
+        showApproveBtn();
     }
 
     private void addListeners() {
@@ -75,6 +75,11 @@ public class RequestEdit extends AbstractEditor<Request> {
             editStepActionAction.setWindowParams(ParamsMap.of("request", getItem()));
             return true;
         });
+
+        actionsDs.addItemPropertyChangeListener(e -> {
+            showSubmitButton();
+            showApproveBtn();
+        });
     }
 
     private void tuneComponents() {
@@ -86,8 +91,12 @@ public class RequestEdit extends AbstractEditor<Request> {
     }
 
     private void setUserInterface() {
-        if (toolsService.isAdmin())
+        if (toolsService.isAdmin()) {
+            ((FieldGroup) getComponentNN("stepParamsFields")).setEditable(true);
+            ((FieldGroup) getComponentNN("stepDatesFields")).setEditable(true);
+            ((FieldGroup) getComponentNN("stepOtherFields")).setEditable(true);
             return;
+        }
 
         tabSheet.getTab("systemTab").setVisible(false);
 
@@ -95,12 +104,13 @@ public class RequestEdit extends AbstractEditor<Request> {
             case Registrators:
                 tabSheet.setEnabled(false);
                 break;
-
             case Workers:
+                getComponentNN("infoBox").setEnabled(false);
                 break;
-
             case Applicants:
+                getComponentNN("infoBox").setEnabled(false);
                 break;
+            default:
         }
     }
 
@@ -134,45 +144,118 @@ public class RequestEdit extends AbstractEditor<Request> {
         Request request = getItem();
         if (PersistenceHelper.isNew(request)) {
             List<RequestLog> logs = new ArrayList<>();
-            logs.add(requestService.newLogItem(request, request.getApplicant(), "The new request created", null));
+            logs.add(
+                    requestService.newLogItem(request, request.getApplicant(), "The new request created", null)
+            );
             request.setLogs(logs);
-            request = requestService.nextPosition(request);
-            request = requestService.setWorker(request);
+
+            RequestStep newStepByPosition = requestService.newStepByPosition(request);
+            request.setStep(newStepByPosition);
+
+            List<RequestStep> steps = new ArrayList<>();
+            steps.add(newStepByPosition);
+            request.setSteps(steps);
+
+            request.getLogs().add(
+                    requestService.newLogItem(request, request.getApplicant(), "The new position set: " + newStepByPosition.getPosition().getDescription(), newStepByPosition)
+            );
+
+            RequestStep newStepByWorker = requestService.newStepByWorker(request);
+            if (newStepByWorker != null) {
+                User worker = newStepByWorker.getUser();
+                if (worker != null) {
+                    request.setStep(newStepByWorker);
+                    request.getSteps().add(newStepByWorker);
+
+                    request.getLogs().add(
+                            requestService.newLogItem(request, request.getApplicant(), "The new worker set: " + worker.getName(), newStepByWorker)
+                    );
+                    request.getLogs().add(
+                            requestService.newLogItem(request, worker, "The new worker set: " + worker.getName(), newStepByWorker)
+                    );
+                }
+                requestService.changePositionUserRequestCount(request, 1);
+            }
+            setItem(request);
+
         } else {
             switch (toolsService.getActiveGroupType()) {
                 case Workers:
                 case Applicants:
+                    checkSubmitApprove();
                     break;
                 default:
-                    request.getLogs().add(requestService.newLogItem(request, request.getApplicant(), "The request edited", null));
+                    request.getLogs().add(
+                            requestService.newLogItem(request, request.getApplicant(), "The request edited", null)
+                    );
                     if (request.getStep().getUser() != null) {
-                        request.getLogs().add(requestService.newLogItem(request, request.getStep().getUser(), "The request edited", null));
+                        request.getLogs().add(
+                                requestService.newLogItem(request, request.getStep().getUser(), "The request edited", null)
+                        );
                     }
                     break;
             }
-
-            if (checkSubmitApprove()) {
-                officeWeb.showWarningMessage(this, "Bu");
-                request.getStep().setSubmitted(new Date());
-                request.getStep().setApprovalTerm(toolsService.addDaysToNow(request.getStep().getPosition().getDaysForSubmission()));
-            }
         }
 
-        if ( toolsService.isAdmin() ) {
-            setItem(request);
-        }
+
         return true;
     }
 
-    private boolean checkSubmitApprove() {
-        Request request = getItem();
+    private void showSubmitButton() {
+        getComponentNN("submitBtn").setVisible(false);
 
+        if (!toolsService.getActiveGroupType().equals(GroupType.Applicants))
+            return;
+
+        Request request = getItem();
         if ((request.getStep()) == null)
-            return false;
+            return;
 
         List<RequestStepAction> requestStepActions = request.getStep().getActions();
         if ((requestStepActions == null) || (requestStepActions.size() == 0))
-            return false;
+            return;
+
+        int submitted = 0;
+        for (RequestStepAction requestStepAction: requestStepActions) {
+            if (requestStepAction.getSubmitted() != null)
+                submitted++;
+        }
+
+        getComponentNN("submitBtn").setVisible(submitted == requestStepActions.size());
+    }
+
+    private void showApproveBtn() {
+        getComponentNN("approveBtn").setVisible(false);
+
+        if (!toolsService.getActiveGroupType().equals(GroupType.Workers))
+            return;
+
+        Request request = getItem();
+        if ((request.getStep()) == null)
+            return;
+
+        List<RequestStepAction> requestStepActions = request.getStep().getActions();
+        if ((requestStepActions == null) || (requestStepActions.size() == 0))
+            return;
+
+        int approved = 0;
+        for (RequestStepAction requestStepAction: requestStepActions) {
+            if (requestStepAction.getApproved() != null)
+                approved++;
+        }
+
+        getComponentNN("approveBtn").setVisible(approved == requestStepActions.size());
+    }
+
+    private void checkSubmitApprove() {
+        Request request = getItem();
+
+        if ((request.getStep()) == null)
+            return;
+
+        List<RequestStepAction> requestStepActions = request.getStep().getActions();
+        if ((requestStepActions == null) || (requestStepActions.size() == 0))
+            return;
 
         int submitted = 0;
         int approved = 0;
@@ -185,43 +268,47 @@ public class RequestEdit extends AbstractEditor<Request> {
                 approved++;
         }
 
-        final boolean[] res = {false};
         switch (toolsService.getActiveGroupType()) {
             case Workers:
                 if (approved == requestStepActions.size()) {
-                    showOptionDialog(
-                            "",
-                            getMessage("edit.approveAllActions"),
-                            MessageType.CONFIRMATION,
-                            new Action[] {
-                                    new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
-                                        getItem().getStep().setApproved(new Date());
-                                    }),
-                                    new DialogAction(DialogAction.Type.NO, Action.Status.PRIMARY)
-                            }
-                    );
+                    request.getStep().setApproved(new Date());
                 }
                 break;
             case Applicants:
                 if (submitted == requestStepActions.size()) {
-                    showOptionDialog(
-                            "",
-                            getMessage("edit.submitAllActions"),
-                            MessageType.CONFIRMATION,
-                            new Action[] {
-                                    new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
-                                        res[0] = true;
-                                    }),
-                                    new DialogAction(DialogAction.Type.NO, Action.Status.PRIMARY)
-                            }
-                    );
+                    RequestStep requestStep = request.getStep();
+                    requestStep.setSubmitted(new Date());
+                    requestStep.setApprovalTerm(toolsService.addDaysToNow(request.getStep().getPosition().getDaysForSubmission()));
                 }
                 break;
             default:
                 break;
         }
+    }
 
-        return res[0];
+    public void onSubmitBtnClick() {
+        showOptionDialog(
+                "",
+                getMessage("edit.submitAllActions"),
+                MessageType.CONFIRMATION,
+                new Action[] {
+                        new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
+                            Request request = getItem();
+                            RequestStep requestStep = request.getStep();
+                            requestStep.setSubmitted(new Date());
+                            requestStep.setApprovalTerm(toolsService.addDaysToNow(requestStep.getPosition().getDaysForSubmission()));
+                            requestStep.setState(State.Approving);
+                            request.getLogs().add(
+                                    requestService.newLogItem(request, requestStep.getUser(), "The request submitted", null)
+                            );
+                            commitAndClose();
+                        }),
+                        new DialogAction(DialogAction.Type.NO, Action.Status.PRIMARY)
+                }
+        );
+    }
+
+    public void onApproveBtnClick() {
     }
 
 }

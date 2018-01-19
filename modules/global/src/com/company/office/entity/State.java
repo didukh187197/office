@@ -7,12 +7,12 @@ import javax.annotation.Nullable;
 
 public enum State implements EnumClass<String> {
 
+    Suspended("suspended"),
     Waiting("waiting"),
-    Processing("processing"),
+    Approving("approving"),
     Closed("closed"),
     Archived("archived"),
-    Cancelled("cancelled"),
-    Suspended("suspended");
+    Cancelled("cancelled");
 
     private String id;
 

@@ -60,19 +60,16 @@ public class RequestBrowse extends AbstractLookup {
         editAction.setBeforeActionPerformedHandler(() -> {
             switch (toolsService.getActiveGroupType()) {
                 case Workers:
-                    if (requestsDs.getItem().getStep().getApproved() != null) {
-                        officeWeb.showWarningMessage(this, getMessage("edit.alreadyApproved"));
+                    State state = requestsDs.getItem().getStep().getState();
+                    if (!state.equals(State.Waiting) && !state.equals(State.Approving)) {
+                        officeWeb.showWarningMessage(this, getMessage("edit.notAllowed"));
                         return false;
                     }
                     break;
 
                 case Applicants:
-                    if (requestsDs.getItem().getStep().getSubmitted() != null) {
-                        officeWeb.showWarningMessage(this, getMessage("edit.alreadySubmitted"));
-                        return false;
-                    }
-                    if (requestsDs.getItem().getStep().getApproved() != null) {
-                        officeWeb.showWarningMessage(this, getMessage("edit.alreadyApproved"));
+                    if (!requestsDs.getItem().getStep().getState().equals(State.Waiting)) {
+                        officeWeb.showWarningMessage(this, getMessage("edit.notAllowed"));
                         return false;
                     }
                     break;
@@ -81,10 +78,7 @@ public class RequestBrowse extends AbstractLookup {
             return true;
         });
 
-        editAction.setAfterCommitHandler(e -> {
-            requestsDs.refresh();
-            //getDsContext().get("stepsDs").refresh();
-        });
+        editAction.setAfterCommitHandler(e -> requestsDs.refresh());
 
         PopupButton extraActionsBtn = (PopupButton) getComponentNN("extraActionsBtn");
         requestsDs.addItemChangeListener(e -> {

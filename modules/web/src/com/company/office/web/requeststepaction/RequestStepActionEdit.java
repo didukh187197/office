@@ -4,6 +4,7 @@ import com.company.office.entity.*;
 import com.company.office.service.RequestService;
 import com.company.office.service.ToolsService;
 import com.company.office.web.officeeditor.OfficeEditor;
+import com.haulmont.cuba.core.entity.FileDescriptor;
 import com.haulmont.cuba.gui.WindowParam;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.export.ExportDisplay;
@@ -19,6 +20,21 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
     @WindowParam
     private Request request;
 
+    @Inject
+    private ToolsService toolsService;
+
+    @Inject
+    private RequestService requestService;
+
+    @Inject
+    private ExportDisplay exportDisplay;
+
+    @Inject
+    private LookupField lookupTemplate;
+
+    @Inject
+    private FileUploadField uploadFile;
+
     @Named("fieldGroup.type")
     private LookupField typeField;
 
@@ -33,21 +49,6 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
 
     @Named("fieldGroupDates.approved")
     private DateField approvedField;
-
-    @Inject
-    private LookupField lookupTemplate;
-
-    @Inject
-    private FileUploadField uploadFile;
-
-    @Inject
-    private ExportDisplay exportDisplay;
-
-    @Inject
-    private ToolsService toolsService;
-
-    @Inject
-    private RequestService requestService;
 
     boolean closeFromExtraActions = false;
 
@@ -73,7 +74,9 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
         super.postCommit(committed, close);
 
         if (!closeFromExtraActions) {
-            request.getLogs().add(requestService.newLogItem(request, null, makeName() + "edited", getItem()));
+            request.getLogs().add(
+                    requestService.newLogItem(request, null, makeName() + " edited", getItem())
+            );
         }
 
         return true;
@@ -108,34 +111,27 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
                 break;
             case Applicants:
                 descriptionField.setEnabled(false);
+                getComponentNN("rejectBtn").setVisible(false);
+                getComponentNN("approveBtn").setVisible(false);
 
                 if (submittedField.getValue() == null) {
-                    String actionType = getItem().getType().getId();
-                    boolean submitBtnVisible = false;
-
-                    switch (actionType) {
-                        case "file":
-                            if (uploadFile.getValue() != null) {
-                                submitBtnVisible = true;
-                            }
-                            break;
-                        case "message":
-                            if (messageField.getValue() != null) {
-                                submitBtnVisible = true;
-                            }
-                            break;
-                    }
-                    getComponentNN("submitBtn").setVisible(submitBtnVisible);
+                    getComponentNN("submitBtn").setVisible(true);
                     getComponentNN("releaseBtn").setVisible(false);
                 } else {
+                    messageField.setEnabled(false);
+                    uploadFile.setEnabled(false);
                     getComponentNN("okBtn").setEnabled(false);
                     getComponentNN("submitBtn").setVisible(false);
                     getComponentNN("releaseBtn").setVisible(true);
                 }
-                getComponentNN("rejectBtn").setVisible(false);
-                getComponentNN("approveBtn").setVisible(false);
                 break;
             default:
+                getComponentNN("submitBtn").setVisible(false);
+                getComponentNN("releaseBtn").setVisible(false);
+                getComponentNN("rejectBtn").setVisible(false);
+                getComponentNN("approveBtn").setVisible(false);
+                submittedField.setEnabled(true);
+                approvedField.setEnabled(true);
         }
     }
 
@@ -164,11 +160,19 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
         getComponentNN("btnShowTemplate").setEnabled(getItem().getTemplate() != null);
     }
 
-    public void onBtnShowTemplateClick() {
-        if (getItem().getTemplate() == null)
+    private void showFile(FileDescriptor file) {
+        if (file == null)
             return;
 
-        exportDisplay.show(getItem().getTemplate(), ExportFormat.OCTET_STREAM);
+        exportDisplay.show(file, ExportFormat.OCTET_STREAM);
+    }
+
+    public void onBtnShowTemplateClick() {
+        showFile(getItem().getTemplate());
+    }
+
+    public void onBtnShowFileClick() {
+        showFile(getItem().getFile());
     }
 
     public void onReleaseBtnClick() {
@@ -199,7 +203,9 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
                 new Action[] {
                         new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
                             field.setValue(setValue ? new Date() : null);
-                            request.getLogs().add(requestService.newLogItem(request, null, makeName() + info, getItem()));
+                            request.getLogs().add(
+                                    requestService.newLogItem(request, null, makeName() + " " + info, getItem())
+                            );
                             closeFromExtraActions = true;
                             commitAndClose();
                         }),
@@ -207,4 +213,5 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
                 }
         );
     }
+
 }

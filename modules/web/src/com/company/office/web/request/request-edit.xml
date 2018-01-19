@@ -35,31 +35,51 @@
                reversePosition="true"
                width="100%">
             <vbox id="fieldsBox"
-                  expand="extendedWindowActions"
+                  expand="buttonsPanel"
                   height="100%"
                   margin="false,true,false,false"
                   spacing="true">
-                <fieldGroup id="fieldGroup"
-                            datasource="requestDs">
-                    <column width="400px">
-                        <field property="applicant"
-                               required="true"/>
-                        <field property="applicantCode"
-                               required="true"
-                               width="100px"/>
-                        <field property="applicantPhone"/>
-                        <field property="series"
-                               required="true"
-                               width="100px"/>
-                        <field property="number"
-                               required="true"
-                               width="100px"/>
-                        <field property="description"
-                               rows="2"/>
-                    </column>
-                </fieldGroup>
-                <frame id="extendedWindowActions"
-                       screen="editWindowActions"/>
+                <vbox id="infoBox"
+                      spacing="true">
+                    <fieldGroup id="fieldGroup"
+                                datasource="requestDs">
+                        <column width="400px">
+                            <field property="applicant"
+                                   required="true"/>
+                            <field property="applicantCode"
+                                   required="true"
+                                   width="100px"/>
+                            <field property="applicantPhone"/>
+                            <field property="series"
+                                   required="true"
+                                   width="100px"/>
+                            <field property="number"
+                                   required="true"
+                                   width="100px"/>
+                            <field property="description"
+                                   rows="2"/>
+                        </column>
+                    </fieldGroup>
+                </vbox>
+                <buttonsPanel id="buttonsPanel">
+                    <button id="okBtn"
+                            action="windowCommit"
+                            caption="mainMsg://actions.Ok"
+                            icon="icons/ok.png"/>
+                    <button id="closeBtn"
+                            action="windowClose"
+                            caption="mainMsg://actions.Cancel"
+                            description="Esc"
+                            icon="icons/cancel.png"/>
+                    <button id="submitBtn"
+                            caption="msg://btnSubmit"
+                            invoke="onSubmitBtnClick"
+                            visible="false"/>
+                    <button id="approveBtn"
+                            caption="msg://btnApprove"
+                            invoke="onApproveBtnClick"
+                            visible="false"/>
+                </buttonsPanel>
             </vbox>
             <vbox id="tabSheetBox"
                   expand="tabSheet"

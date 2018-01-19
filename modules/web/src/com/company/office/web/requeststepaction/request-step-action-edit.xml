@@ -8,10 +8,7 @@
     <dsContext>
         <datasource id="requestStepActionDs"
                     class="com.company.office.entity.RequestStepAction"
-                    view="requestStepAction-view">
-            <datasource id="fileDs"
-                        property="file"/>
-        </datasource>
+                    view="requestStepAction-view"/>
         <collectionDatasource id="templatesDs"
                               class="com.haulmont.cuba.core.entity.FileDescriptor"
                               view="_minimal">
@@ -54,7 +51,8 @@
                 </fieldGroup>
                 <vbox id="boxFiles"
                       spacing="true">
-                    <hbox expand="btnShowTemplate"
+                    <hbox id="boxTemplate"
+                          expand="btnShowTemplate"
                           spacing="true"
                           width="100%">
                         <label id="labelTemplate"
@@ -71,7 +69,8 @@
                                     caption="msg://btnShowTemplate"
                                     invoke="onBtnShowTemplateClick"/>
                     </hbox>
-                    <hbox expand="uploadFile"
+                    <hbox id="boxFile"
+                          expand="uploadFile"
                           spacing="true"
                           width="100%">
                         <label id="labelFile"
@@ -87,6 +86,10 @@
                                 showClearButton="true"
                                 showFileName="true"
                                 uploadButtonIcon="icons/upload.png"/>
+                        <linkButton id="btnShowFile"
+                                    align="MIDDLE_LEFT"
+                                    caption="msg://btnShowTemplate"
+                                    invoke="onBtnShowFileClick"/>
                     </hbox>
                 </vbox>
             </tab>
