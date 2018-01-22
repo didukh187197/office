@@ -119,6 +119,14 @@ configure(coreModule) {
         dbUser = 'sa'
         dbPassword = ''
     }
+    
+    task startDb(description: 'Starts local HSQLDB server', type: CubaHsqlStart) {
+        dbName = 'office'
+    }
+
+    task stopDb(description: 'Stops local HSQLDB server', type: CubaHsqlStop)  {
+        dbName = 'office'
+    }
 }
 
 configure(guiModule) {

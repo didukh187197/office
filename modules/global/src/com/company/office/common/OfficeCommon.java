@@ -1,4 +1,4 @@
-package com.company.office.service;
+package com.company.office.common;
 
 import com.company.office.OfficeConfig;
 import com.company.office.entity.*;
@@ -8,19 +8,21 @@ import com.haulmont.cuba.core.global.DataManager;
 import com.haulmont.cuba.core.global.LoadContext;
 import com.haulmont.cuba.core.global.Messages;
 import com.haulmont.cuba.security.entity.User;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
-@Service(RequestService.NAME)
-public class RequestServiceBean implements RequestService {
+@Component("office_OfficeCommon")
+public class OfficeCommon {
 
     @Inject
     private OfficeConfig officeConfig;
 
     @Inject
-    private ToolsService toolsService;
+    private OfficeTools officeTools;
 
     @Inject
     private DataManager dataManager;
@@ -28,15 +30,56 @@ public class RequestServiceBean implements RequestService {
     @Inject
     private Messages messages;
 
-    @Override
-    public RequestStep newStepByPosition(Request request) {
+    public void moveRequestToNewStepByPosition(Request request) {
+        RequestStep newStepByPosition = newStepByPosition(request);
+        request.setStep(newStepByPosition);
+        request.getSteps().add(newStepByPosition);
+        request.getLogs().add(
+                newLogItem(request, request.getApplicant(), "The new position set: " + newStepByPosition.getPosition().getDescription(), newStepByPosition)
+        );
+    }
+
+    public void moveRequestToNewStepByWorker(Request request) {
+        RequestStep newStepByWorker = newStepByWorker(request);
+        if (newStepByWorker != null) {
+            User worker = newStepByWorker.getUser();
+            if (worker != null) {
+                changePositionUserRequestCount(request, -1);
+                request.setStep(newStepByWorker);
+                request.getSteps().add(newStepByWorker);
+
+                request.getLogs().add(
+                        newLogItem(request, request.getApplicant(), "The new worker set: " + worker.getName(), newStepByWorker)
+                );
+                request.getLogs().add(
+                        newLogItem(request, worker, "The new worker set: " + worker.getName(), newStepByWorker)
+                );
+                changePositionUserRequestCount(request, 1);
+            }
+        }
+    }
+
+    public RequestLog newLogItem(Request request, User recepient, String info, Entity entity) {
+        RequestLog requestLog = new RequestLog();
+        requestLog.setRequest(request);
+        requestLog.setMoment(officeTools.getMoment());
+        requestLog.setSender(officeTools.getActiveUser());
+        requestLog.setRecepient(recepient == null ? getLogRecepient(request) : recepient);
+        if (entity != null) {
+            requestLog.setAttachType(entity.getClass().getName());
+            requestLog.setAttachID((UUID) entity.getId());
+        }
+        requestLog.setInfo(info);
+        return requestLog;
+    }
+
+    private RequestStep newStepByPosition(Request request) {
         Position position = getNextPosition(request.getStep());
         State state = (position.equals(officeConfig.getFinalPosition())) ? State.Closed : State.Suspended;
         return makeNewStep(request, position, state, null);
     }
 
-    @Override
-    public RequestStep newStepByWorker(Request request) {
+    private RequestStep newStepByWorker(Request request) {
         if ((request.getStep() == null) || (request.getStep().getPosition() == null))
             return null;
 
@@ -47,24 +90,9 @@ public class RequestServiceBean implements RequestService {
         return makeNewStep(request, request.getStep().getPosition(), State.Waiting, worker);
     }
 
-    @Override
-    public RequestLog newLogItem(Request request, User recepient, String info, Entity entity) {
-        RequestLog requestLog = new RequestLog();
-        requestLog.setRequest(request);
-        requestLog.setMoment(toolsService.getMoment());
-        requestLog.setSender(toolsService.getActiveUser());
-        requestLog.setRecepient(recepient == null ? getLogRecepient(request) : recepient);
-        if (entity != null) {
-            requestLog.setAttachType(entity.getClass().getName());
-            requestLog.setAttachID((UUID) entity.getId());
-        }
-        requestLog.setInfo(info);
-        return requestLog;
-    }
-
     private User getLogRecepient(Request request) {
         User recepient;
-        switch (toolsService.getActiveGroupType()) {
+        switch (officeTools.getActiveGroupType()) {
             case Workers:
                 recepient = request.getApplicant();
                 break;
@@ -78,9 +106,11 @@ public class RequestServiceBean implements RequestService {
     }
 
     private Position getNextPosition(RequestStep step) {
-        if ((step == null) || (step.getPosition() == null)) {
+        if (step == null)
             return officeConfig.getInitPosition();
-        }
+
+        if (step.getPosition() == null)
+            return officeConfig.getInitPosition();
 
         Position position = step.getPosition();
         if (position.equals(officeConfig.getFinalPosition())) {
@@ -110,14 +140,14 @@ public class RequestServiceBean implements RequestService {
     private RequestStep makeNewStep(Request request, Position position, State state, User worker) {
         RequestStep requestStep = new RequestStep();
         requestStep.setRequest(request);
-        requestStep.setMoment(toolsService.getMoment());
+        requestStep.setMoment(officeTools.getMoment());
         requestStep.setPosition(position);
         requestStep.setState(state);
         requestStep.setUser(worker);
         requestStep.setDescription(position.getDescription() + ", " + messages.getMessage(state));
 
         if (worker != null) {
-            long tm = toolsService.getMoment();
+            long tm = officeTools.getMoment();
 
             List<PositionAction> positionActions = getPositionFromDB(position).getActions();
             for (PositionAction pa : positionActions) {
@@ -138,14 +168,13 @@ public class RequestServiceBean implements RequestService {
                 }
             }
 
-            requestStep.setSubmissionTerm( toolsService.addDaysToNow(position.getDaysForSubmission() ) );
+            requestStep.setSubmissionTerm( officeTools.addDaysToNow(position.getDaysForSubmission() ) );
             requestStep.setDescription("Assigned to " + worker.getName() + (positionActions.size() != 0 ? ". Actions added" : ""));
         }
         return requestStep;
     }
 
-    @Override
-    public void changePositionUserRequestCount(Request request, int count) {
+    private void changePositionUserRequestCount(Request request, int count) {
         if (request.getStep() == null)
             return;
 
@@ -166,7 +195,7 @@ public class RequestServiceBean implements RequestService {
         PositionUser positionUser = dataManager.load(loadContext);
 
         if (positionUser != null) {
-            positionUser.setRequests(toolsService.getCountInt(positionUser.getRequests()) + count);
+            positionUser.setRequests(officeTools.getCountInt(positionUser.getRequests()) + count);
             commitEntity(positionUser);
         }
     }
@@ -189,8 +218,8 @@ public class RequestServiceBean implements RequestService {
         List<PositionUser> positionsUsers = dataManager.loadList(loadContext);
 
         for (PositionUser pu : positionsUsers) {
-            double count = toolsService.getCountDouble(pu.getRequests());
-            double threshold = toolsService.getCountDouble(pu.getThreshold());
+            double count = officeTools.getCountDouble(pu.getRequests());
+            double threshold = officeTools.getCountDouble(pu.getThreshold());
 
             if (count < threshold) {
                 double suRate = count / threshold;

@@ -20,12 +20,23 @@ import com.haulmont.cuba.core.entity.Creatable;
 import com.haulmont.chile.core.annotations.NumberFormat;
 import com.haulmont.cuba.core.entity.Updatable;
 import javax.persistence.OrderBy;
+import com.haulmont.cuba.core.entity.FileDescriptor;
 
 @NamePattern("%s, %s-%s|applicant,series,number")
 @Table(name = "OFFICE_REQUEST")
 @Entity(name = "office$Request")
 public class Request extends BaseUuidEntity implements Creatable, Updatable {
     private static final long serialVersionUID = 1078634413564627380L;
+
+    @Column(name = "SERIES", length = 10)
+    protected String series;
+
+    @NumberFormat(pattern = "#")
+    @Column(name = "NUMBER_")
+    protected Integer number;
+
+    @Column(name = "DESCRIPTION", length = 100)
+    protected String description;
 
     @JoinColumn(name = "APPLICANT_ID", unique = true)
     @OnDeleteInverse(DeletePolicy.CASCADE)
@@ -38,15 +49,13 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
     @Column(name = "APPLICANT_PHONE", length = 100)
     protected String applicantPhone;
 
-    @Column(name = "SERIES", length = 10)
-    protected String series;
+    @Column(name = "APPLICANT_ADDRESS")
+    protected String applicantAddress;
 
-    @NumberFormat(pattern = "#")
-    @Column(name = "NUMBER_")
-    protected Integer number;
-
-    @Column(name = "DESCRIPTION", length = 100)
-    protected String description;
+    @OnDeleteInverse(DeletePolicy.DENY)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "IMAGE_FILE_ID")
+    protected FileDescriptor imageFile;
 
     @Column(name = "MOMENT")
     protected Long moment;
@@ -76,6 +85,23 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
 
     @Column(name = "UPDATED_BY", length = 50)
     protected String updatedBy;
+
+    public void setApplicantAddress(String applicantAddress) {
+        this.applicantAddress = applicantAddress;
+    }
+
+    public String getApplicantAddress() {
+        return applicantAddress;
+    }
+
+    public void setImageFile(FileDescriptor imageFile) {
+        this.imageFile = imageFile;
+    }
+
+    public FileDescriptor getImageFile() {
+        return imageFile;
+    }
+
 
     public void setMoment(Long moment) {
         this.moment = moment;

@@ -85,6 +85,8 @@
                             <column id="updateTs"
                                     caption="mainMsg://field.updated"/>
                             <column id="question"/>
+                            <column id="initiator"/>
+                            <column id="recepient"/>
                         </columns>
                         <rows datasource="communicationsDs"/>
                         <buttonsPanel>

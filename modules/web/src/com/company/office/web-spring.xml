@@ -10,10 +10,6 @@
                   ref="cuba_ServerSelector"/>
         <property name="remoteServices">
             <map>
-                <entry key="office_ToolsService"
-                       value="com.company.office.service.ToolsService"/>
-                <entry key="office_RequestService"
-                       value="com.company.office.service.RequestService"/>
             </map>
         </property>
     </bean>

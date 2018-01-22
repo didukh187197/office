@@ -125,18 +125,29 @@
                     caption="mainMsg://actions.Cancel"
                     description="Esc"
                     icon="icons/cancel.png"/>
-            <button id="releaseBtn"
-                    caption="msg://btnRelease"
-                    invoke="onReleaseBtnClick"/>
-            <button id="submitBtn"
-                    caption="msg://btnSubmit"
-                    invoke="onSubmitBtnClick"/>
-            <button id="rejectBtn"
-                    caption="msg://btnReject"
-                    invoke="onRejectBtnClick"/>
-            <button id="approveBtn"
-                    caption="msg://btnApprove"
-                    invoke="onApproveBtnClick"/>
+            <hbox id="applicantButtons"
+                  spacing="true"
+                  visible="false">
+                <button id="submitBtn"
+                        caption="msg://btnSubmit"
+                        invoke="onSubmitBtnClick"/>
+                <button id="releaseBtn"
+                        caption="msg://btnRelease"
+                        invoke="onReleaseBtnClick"/>
+            </hbox>
+            <hbox id="workerButtons"
+                  spacing="true"
+                  visible="false">
+                <button id="rejectBtn"
+                        caption="msg://btnReject"
+                        invoke="onRejectBtnClick"/>
+                <button id="approveBtn"
+                        caption="msg://btnApprove"
+                        invoke="onApproveBtnClick"/>
+                <button id="disapproveBtn"
+                        caption="msg://btnDisapprove"
+                        invoke="onDisapproveBtnClick"/>
+            </hbox>
         </buttonsPanel>
     </layout>
 </window>

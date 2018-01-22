@@ -1,21 +1,28 @@
 package com.company.office.web.request;
 
 import com.company.office.OfficeConfig;
-import com.company.office.entity.*;
-import com.company.office.service.RequestService;
-import com.company.office.service.ToolsService;
 import com.company.office.web.officeweb.OfficeWeb;
+import com.company.office.common.OfficeCommon;
+import com.company.office.common.OfficeTools;
+import com.company.office.entity.*;
 import com.haulmont.bali.util.ParamsMap;
+import com.haulmont.cuba.core.entity.FileDescriptor;
+import com.haulmont.cuba.core.global.FileStorageException;
 import com.haulmont.cuba.core.global.PersistenceHelper;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.components.actions.EditAction;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
+import com.haulmont.cuba.gui.data.DataSupplier;
 import com.haulmont.cuba.gui.data.Datasource;
+import com.haulmont.cuba.gui.export.ExportDisplay;
+import com.haulmont.cuba.gui.export.ExportFormat;
+import com.haulmont.cuba.gui.upload.FileUploadingAPI;
 import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
 import com.haulmont.cuba.security.entity.User;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.util.*;
 
 public class RequestEdit extends AbstractEditor<Request> {
@@ -24,39 +31,64 @@ public class RequestEdit extends AbstractEditor<Request> {
     private OfficeConfig officeConfig;
 
     @Inject
-    private ToolsService toolsService;
-
-    @Inject
-    private RequestService requestService;
-
-    @Inject
     private OfficeWeb officeWeb;
+
+    @Inject
+    private OfficeCommon officeCommon;
+
+    @Inject
+    private OfficeTools officeTools;
+
+    @Inject
+    private DataSupplier dataSupplier;
+
+    @Inject
+    private FileUploadingAPI fileUploadingAPI;
+
+    @Inject
+    private ExportDisplay exportDisplay;
+
+    @Inject
+    private FileUploadField uploadField;
+
+    @Inject
+    private Button downloadImageBtn;
+
+    @Inject
+    private Button clearImageBtn;
+
+    @Inject
+    private Datasource<Request> requestDs;
+
+    @Inject
+    private Image image;
 
     @Inject
     private ComponentsFactory componentsFactory;
 
-    @Inject
-    private FieldGroup fieldGroup;
+    @Named("fieldGroupApplicant.applicant")
+    private PickerField applicantField;
 
     @Inject
     private TabSheet tabSheet;
 
     @Override
     public void init(Map<String, Object> params) {
+        addListeners();
     }
 
     @Override
     protected void postInit() {
         if (PersistenceHelper.isNew(getItem())) {
-            getItem().setMoment(toolsService.getMoment());
+            getItem().setMoment(officeTools.getMoment());
         }
 
-        addListeners();
         tuneComponents();
         setUserInterface();
-
         showSubmitButton();
         showApproveBtn();
+        displayImage();
+        updateImageButtons(getItem().getImageFile() != null);
     }
 
     private void addListeners() {
@@ -65,7 +97,7 @@ public class RequestEdit extends AbstractEditor<Request> {
         Datasource<RequestStepAction> actionsDs = getDsContext().getNN("actionsDs");
 
         editStepActionAction.setBeforeActionPerformedHandler(() -> {
-            if (toolsService.getActiveGroupType().equals(GroupType.Applicants)) {
+            if (officeTools.getActiveGroupType().equals(GroupType.Applicants)) {
                 if (actionsDs.getItem().getApproved() != null) {
                     officeWeb.showWarningMessage(this, getMessage("edit.action.alreadyApproved"));
                     return false;
@@ -80,10 +112,29 @@ public class RequestEdit extends AbstractEditor<Request> {
             showSubmitButton();
             showApproveBtn();
         });
+
+        uploadField.addFileUploadSucceedListener(event -> {
+            FileDescriptor fd = uploadField.getFileDescriptor();
+            try {
+                fileUploadingAPI.putFileIntoStorage(uploadField.getFileId(), fd);
+            } catch (FileStorageException e) {
+                throw new RuntimeException("Error saving file to FileStorage", e);
+            }
+            getItem().setImageFile(dataSupplier.commit(fd));
+            displayImage();
+        });
+
+        uploadField.addFileUploadErrorListener(event ->
+                showNotification("File upload error", NotificationType.HUMANIZED));
+
+        requestDs.addItemPropertyChangeListener(event -> {
+            if ("imageFile".equals(event.getProperty()))
+                updateImageButtons(event.getValue() != null);
+        });
     }
 
     private void tuneComponents() {
-        ((PickerField) fieldGroup.getField("applicant").getComponent()).getLookupAction().setLookupScreenOpenType(WindowManager.OpenType.DIALOG);
+        applicantField.getLookupAction().setLookupScreenOpenType(WindowManager.OpenType.DIALOG);
 
         if (officeConfig.getWorkersGroupQuery() != null) {
             ((CollectionDatasource) getDsContext().getNN("workersDs")).setQuery(officeConfig.getWorkersGroupQuery());
@@ -91,7 +142,7 @@ public class RequestEdit extends AbstractEditor<Request> {
     }
 
     private void setUserInterface() {
-        if (toolsService.isAdmin()) {
+        if (officeTools.isAdmin()) {
             ((FieldGroup) getComponentNN("stepParamsFields")).setEditable(true);
             ((FieldGroup) getComponentNN("stepDatesFields")).setEditable(true);
             ((FieldGroup) getComponentNN("stepOtherFields")).setEditable(true);
@@ -100,9 +151,12 @@ public class RequestEdit extends AbstractEditor<Request> {
 
         tabSheet.getTab("systemTab").setVisible(false);
 
-        switch (toolsService.getActiveGroupType()) {
+        switch (officeTools.getActiveGroupType()) {
             case Registrators:
                 tabSheet.setEnabled(false);
+                if (!PersistenceHelper.isNew(getItem())) {
+                    applicantField.setEditable(false);
+                }
                 break;
             case Workers:
                 getComponentNN("infoBox").setEnabled(false);
@@ -134,77 +188,62 @@ public class RequestEdit extends AbstractEditor<Request> {
 
     @Override
     protected boolean preCommit() {
-        User applicant = ((PickerField) fieldGroup.getFieldNN("applicant").getComponent()).getValue();
 
-        if ( (applicant != null) && !(toolsService.getGroupType(applicant).equals(GroupType.Applicants)) ) {
-            officeWeb.showErrorMessage(this, getMessage("warning.notApplicant"));
-            return false;
+        switch (officeTools.getActiveGroupType()) {
+            case Workers:
+            case Applicants:
+                break;
+            default:
+                User applicant = getItem().getApplicant();
+                if (!officeTools.getGroupType(applicant).equals(GroupType.Applicants))  {
+                    officeWeb.showErrorMessage(this, getMessage("warning.notApplicant"));
+                    return false;
+                }
         }
 
         Request request = getItem();
         if (PersistenceHelper.isNew(request)) {
             List<RequestLog> logs = new ArrayList<>();
             logs.add(
-                    requestService.newLogItem(request, request.getApplicant(), "The new request created", null)
+                    officeCommon.newLogItem(request, request.getApplicant(), getMessage("result.created"), null)
             );
             request.setLogs(logs);
 
-            RequestStep newStepByPosition = requestService.newStepByPosition(request);
-            request.setStep(newStepByPosition);
-
             List<RequestStep> steps = new ArrayList<>();
-            steps.add(newStepByPosition);
             request.setSteps(steps);
 
-            request.getLogs().add(
-                    requestService.newLogItem(request, request.getApplicant(), "The new position set: " + newStepByPosition.getPosition().getDescription(), newStepByPosition)
-            );
+            officeCommon.moveRequestToNewStepByPosition(request);
+            officeCommon.moveRequestToNewStepByWorker(request);
 
-            RequestStep newStepByWorker = requestService.newStepByWorker(request);
-            if (newStepByWorker != null) {
-                User worker = newStepByWorker.getUser();
-                if (worker != null) {
-                    request.setStep(newStepByWorker);
-                    request.getSteps().add(newStepByWorker);
-
-                    request.getLogs().add(
-                            requestService.newLogItem(request, request.getApplicant(), "The new worker set: " + worker.getName(), newStepByWorker)
-                    );
-                    request.getLogs().add(
-                            requestService.newLogItem(request, worker, "The new worker set: " + worker.getName(), newStepByWorker)
-                    );
-                }
-                requestService.changePositionUserRequestCount(request, 1);
-            }
             setItem(request);
 
         } else {
-            switch (toolsService.getActiveGroupType()) {
+            switch (officeTools.getActiveGroupType()) {
                 case Workers:
                 case Applicants:
-                    checkSubmitApprove();
                     break;
                 default:
                     request.getLogs().add(
-                            requestService.newLogItem(request, request.getApplicant(), "The request edited", null)
+                            officeCommon.newLogItem(request, request.getApplicant(), getMessage("result.edited"), null)
                     );
                     if (request.getStep().getUser() != null) {
                         request.getLogs().add(
-                                requestService.newLogItem(request, request.getStep().getUser(), "The request edited", null)
+                                officeCommon.newLogItem(request, request.getStep().getUser(), getMessage("result.edited"), null)
                         );
                     }
                     break;
             }
         }
-
-
         return true;
     }
 
     private void showSubmitButton() {
         getComponentNN("submitBtn").setVisible(false);
 
-        if (!toolsService.getActiveGroupType().equals(GroupType.Applicants))
+        if (!officeTools.getActiveGroupType().equals(GroupType.Applicants))
+            return;
+
+        if (getItem().getStep().getState() != State.Waiting)
             return;
 
         Request request = getItem();
@@ -227,7 +266,7 @@ public class RequestEdit extends AbstractEditor<Request> {
     private void showApproveBtn() {
         getComponentNN("approveBtn").setVisible(false);
 
-        if (!toolsService.getActiveGroupType().equals(GroupType.Workers))
+        if (!officeTools.getActiveGroupType().equals(GroupType.Workers))
             return;
 
         Request request = getItem();
@@ -247,59 +286,20 @@ public class RequestEdit extends AbstractEditor<Request> {
         getComponentNN("approveBtn").setVisible(approved == requestStepActions.size());
     }
 
-    private void checkSubmitApprove() {
-        Request request = getItem();
-
-        if ((request.getStep()) == null)
-            return;
-
-        List<RequestStepAction> requestStepActions = request.getStep().getActions();
-        if ((requestStepActions == null) || (requestStepActions.size() == 0))
-            return;
-
-        int submitted = 0;
-        int approved = 0;
-
-        for (RequestStepAction requestStepAction: requestStepActions) {
-            if (requestStepAction.getSubmitted() != null)
-                submitted++;
-
-            if (requestStepAction.getApproved() != null)
-                approved++;
-        }
-
-        switch (toolsService.getActiveGroupType()) {
-            case Workers:
-                if (approved == requestStepActions.size()) {
-                    request.getStep().setApproved(new Date());
-                }
-                break;
-            case Applicants:
-                if (submitted == requestStepActions.size()) {
-                    RequestStep requestStep = request.getStep();
-                    requestStep.setSubmitted(new Date());
-                    requestStep.setApprovalTerm(toolsService.addDaysToNow(request.getStep().getPosition().getDaysForSubmission()));
-                }
-                break;
-            default:
-                break;
-        }
-    }
-
     public void onSubmitBtnClick() {
         showOptionDialog(
                 "",
-                getMessage("edit.submitAllActions"),
+                getMessage("edit.submit"),
                 MessageType.CONFIRMATION,
                 new Action[] {
                         new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
                             Request request = getItem();
                             RequestStep requestStep = request.getStep();
                             requestStep.setSubmitted(new Date());
-                            requestStep.setApprovalTerm(toolsService.addDaysToNow(requestStep.getPosition().getDaysForSubmission()));
+                            requestStep.setApprovalTerm(officeTools.addDaysToNow(requestStep.getPosition().getDaysForSubmission()));
                             requestStep.setState(State.Approving);
                             request.getLogs().add(
-                                    requestService.newLogItem(request, requestStep.getUser(), "The request submitted", null)
+                                    officeCommon.newLogItem(request, requestStep.getUser(), getMessage("result.submitted"), null)
                             );
                             commitAndClose();
                         }),
@@ -309,6 +309,48 @@ public class RequestEdit extends AbstractEditor<Request> {
     }
 
     public void onApproveBtnClick() {
+        showOptionDialog(
+                "",
+                getMessage("edit.approve"),
+                MessageType.CONFIRMATION,
+                new Action[] {
+                        new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
+                            Request request = getItem();
+                            RequestStep requestStep = request.getStep();
+                            requestStep.setApproved(new Date());
+                            request.getLogs().add(
+                                    officeCommon.newLogItem(request, request.getApplicant(), getMessage("result.approved"), null)
+                            );
+                            officeCommon.moveRequestToNewStepByPosition(request);
+                            officeCommon.moveRequestToNewStepByWorker(request);
+                            commitAndClose();
+                        }),
+                        new DialogAction(DialogAction.Type.NO, Action.Status.PRIMARY)
+                }
+        );
     }
 
+    public void onDownloadImageBtnClick() {
+        if (getItem().getImageFile() != null)
+            exportDisplay.show(getItem().getImageFile(), ExportFormat.OCTET_STREAM);
+    }
+
+    public void onClearImageBtnClick() {
+        getItem().setImageFile(null);
+        displayImage();
+    }
+
+    private void updateImageButtons(boolean enable) {
+        downloadImageBtn.setEnabled(enable);
+        clearImageBtn.setEnabled(enable);
+    }
+
+    private void displayImage() {
+        if (getItem().getImageFile() != null) {
+            image.setSource(FileDescriptorResource.class).setFileDescriptor(getItem().getImageFile());
+            image.setVisible(true);
+        } else {
+            image.setVisible(false);
+        }
+    }
 }

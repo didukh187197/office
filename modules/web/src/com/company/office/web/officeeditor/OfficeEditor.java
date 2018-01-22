@@ -1,6 +1,6 @@
 package com.company.office.web.officeeditor;
 
-import com.company.office.service.ToolsService;
+import com.company.office.common.OfficeTools;
 import com.haulmont.cuba.core.entity.Entity;
 import com.haulmont.cuba.core.global.PersistenceHelper;
 import com.haulmont.cuba.gui.components.AbstractEditor;
@@ -11,10 +11,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class OfficeEditor<T extends Entity> extends AbstractEditor {
-
+    
     @Inject
-    private ToolsService toolsService;
-
+    private OfficeTools officeTools;
+    
     @Override
     protected void postInit() {
         if (PersistenceHelper.isNew(getItem())) {
@@ -22,7 +22,7 @@ public class OfficeEditor<T extends Entity> extends AbstractEditor {
             Class[] paramTypes = new Class[] {Long.class};
             try {
                 Method method = cl.getMethod("setMoment", paramTypes);
-                Object[] args = new Object[] {toolsService.getMoment()};
+                Object[] args = new Object[] {officeTools.getMoment()};
                 method.invoke(getItem(),args);
             } catch (NoSuchMethodException e) {
                 showNotification("NoSuchMethodException");
@@ -40,7 +40,7 @@ public class OfficeEditor<T extends Entity> extends AbstractEditor {
     }
 
     private void checkSystemTab() {
-        if (!toolsService.isAdmin()) {
+        if (!officeTools.isAdmin()) {
             ((TabSheet) getComponentNN("tabSheet")).getTab("tabSystem").setVisible(false);
         }
     }

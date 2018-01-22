@@ -6,12 +6,14 @@ create table OFFICE_REQUEST (
     UPDATE_TS timestamp,
     UPDATED_BY varchar(50),
     --
-    APPLICANT_ID varchar(36),
-    APPLICANT_CODE varchar(15),
-    APPLICANT_PHONE varchar(100),
     SERIES varchar(10),
     NUMBER_ integer,
     DESCRIPTION varchar(100),
+    APPLICANT_ID varchar(36),
+    APPLICANT_CODE varchar(15),
+    APPLICANT_PHONE varchar(100),
+    APPLICANT_ADDRESS varchar(255),
+    IMAGE_FILE_ID varchar(36),
     MOMENT bigint,
     STEP_ID varchar(36),
     --
@@ -92,8 +94,10 @@ create table OFFICE_REQUEST_STEP_COMMUNICATION (
     UPDATED_BY varchar(50),
     --
     REQUEST_STEP_ID varchar(36),
+    INITIATOR_ID varchar(36),
     QUESTION varchar(255),
     QUESTION_FILE_ID varchar(36),
+    RECEPIENT_ID varchar(36),
     ANSWER varchar(255),
     ANSWER_FILE_ID varchar(36),
     MOMENT bigint,

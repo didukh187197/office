@@ -3,6 +3,7 @@ package com.company.office.web.officeweb;
 import com.haulmont.cuba.gui.components.Frame;
 import org.springframework.stereotype.Component;
 
+
 @Component("office_OfficeWeb")
 public class OfficeWeb {
 

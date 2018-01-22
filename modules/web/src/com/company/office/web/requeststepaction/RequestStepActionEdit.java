@@ -1,8 +1,8 @@
 package com.company.office.web.requeststepaction;
 
 import com.company.office.entity.*;
-import com.company.office.service.RequestService;
-import com.company.office.service.ToolsService;
+import com.company.office.common.OfficeCommon;
+import com.company.office.common.OfficeTools;
 import com.company.office.web.officeeditor.OfficeEditor;
 import com.haulmont.cuba.core.entity.FileDescriptor;
 import com.haulmont.cuba.gui.WindowParam;
@@ -21,10 +21,10 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
     private Request request;
 
     @Inject
-    private ToolsService toolsService;
+    private OfficeCommon officeCommon;
 
     @Inject
-    private RequestService requestService;
+    private OfficeTools officeTools;
 
     @Inject
     private ExportDisplay exportDisplay;
@@ -75,7 +75,7 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
 
         if (!closeFromExtraActions) {
             request.getLogs().add(
-                    requestService.newLogItem(request, null, makeName() + " edited", getItem())
+                    officeCommon.newLogItem(request, null, makeName() + " edited", getItem())
             );
         }
 
@@ -91,61 +91,84 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
         uploadFile.setClearButtonCaption("");
         uploadFile.setUploadButtonCaption("");
 
-        if (!toolsService.isAdmin()) {
+        if (!officeTools.isAdmin()) {
             typeField.setEnabled(false);
             lookupTemplate.setEnabled(false);
             getComponentNN("fieldGroupDates").setEnabled(false);
+            submittedField.setEnabled(true);
+            approvedField.setEnabled(true);
         }
 
-        switch (toolsService.getActiveGroupType()) {
+        Component submitBtn = getComponentNN("submitBtn");
+        Component releaseBtn = getComponentNN("releaseBtn");
+        Component rejectBtn = getComponentNN("rejectBtn");
+        Component approveBtn = getComponentNN("approveBtn");
+        Component disapproveBtn = getComponentNN("disapproveBtn");
+
+        switch (officeTools.getActiveGroupType()) {
             case Workers:
-                getComponentNN("submitBtn").setVisible(false);
-                getComponentNN("releaseBtn").setVisible(false);
+                messageField.setEnabled(false);
+                uploadFile.setEnabled(false);
+
+                if (submittedField.getValue() == null)
+                    return;
+
+                getComponentNN("workerButtons").setVisible(true);
+
                 if (approvedField.getValue() == null) {
-                    getComponentNN("rejectBtn").setVisible(false);
-                    getComponentNN("approveBtn").setVisible(true);
+                    rejectBtn.setVisible(true);
+                    approveBtn.setVisible(true);
+                    disapproveBtn.setVisible(false);
                 } else {
-                    getComponentNN("rejectBtn").setVisible(true);
-                    getComponentNN("approveBtn").setVisible(false);
+                    rejectBtn.setVisible(false);
+                    approveBtn.setVisible(false);
+                    disapproveBtn.setVisible(true);
                 }
                 break;
             case Applicants:
                 descriptionField.setEnabled(false);
-                getComponentNN("rejectBtn").setVisible(false);
-                getComponentNN("approveBtn").setVisible(false);
+                getComponentNN("applicantButtons").setVisible(true);
 
                 if (submittedField.getValue() == null) {
-                    getComponentNN("submitBtn").setVisible(true);
-                    getComponentNN("releaseBtn").setVisible(false);
+                    submitBtn.setVisible(requiredDataSet());
+                    releaseBtn.setVisible(false);
                 } else {
                     messageField.setEnabled(false);
                     uploadFile.setEnabled(false);
                     getComponentNN("okBtn").setEnabled(false);
-                    getComponentNN("submitBtn").setVisible(false);
-                    getComponentNN("releaseBtn").setVisible(true);
+                    submitBtn.setVisible(false);
+                    releaseBtn.setVisible(true);
                 }
                 break;
-            default:
-                getComponentNN("submitBtn").setVisible(false);
-                getComponentNN("releaseBtn").setVisible(false);
-                getComponentNN("rejectBtn").setVisible(false);
-                getComponentNN("approveBtn").setVisible(false);
-                submittedField.setEnabled(true);
-                approvedField.setEnabled(true);
         }
     }
 
+    private boolean requiredDataSet() {
+        boolean res = true;
+        switch ((ActionType) typeField.getValue()) {
+            case sendFile:
+                if (uploadFile.getValue() == null)
+                    res = false;
+                break;
+            case sendMessage:
+                if (messageField.getValue() == null)
+                    res = false;
+                break;
+            default:
+        }
+        return res;
+    }
+
     private void processActionType(ActionType type) {
-        String actionType = type.getId();
-        switch (actionType) {
-            case "file":
+        switch (type) {
+            case sendFile:
                 getComponentNN("boxFiles").setVisible(true);
                 lookupTemplate.setRequired(true);
                 uploadFile.setRequired(true);
                 messageField.setVisible(false);
                 messageField.setRequired(false);
                 break;
-            case "message":
+            case sendMessage:
                 getComponentNN("boxFiles").setVisible(false);
                 lookupTemplate.setRequired(false);
                 uploadFile.setRequired(false);
@@ -163,7 +186,6 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
     private void showFile(FileDescriptor file) {
         if (file == null)
             return;
-
         exportDisplay.show(file, ExportFormat.OCTET_STREAM);
     }
 
@@ -180,6 +202,9 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
     }
 
     public void onSubmitBtnClick() {
+        if (!requiredDataSet())
+            return;
+
         onExtraBtnClick("dialog.submit", "submitted", submittedField, true);
     }
 
@@ -189,6 +214,10 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
 
     public void onApproveBtnClick() {
         onExtraBtnClick("dialog.approve", "approved", approvedField, true);
+    }
+
+    public void onDisapproveBtnClick() {
+        onExtraBtnClick("dialog.disapprove", "disapproved", approvedField, false);
     }
 
     private String makeName() {
@@ -204,7 +233,7 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
                         new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
                             field.setValue(setValue ? new Date() : null);
                             request.getLogs().add(
-                                    requestService.newLogItem(request, null, makeName() + " " + info, getItem())
+                                    officeCommon.newLogItem(request, null, makeName() + " " + info, getItem())
                             );
                             closeFromExtraActions = true;
                             commitAndClose();
@@ -213,5 +242,7 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
                 }
         );
     }
+
+
 
 }

@@ -1,9 +1,9 @@
 package com.company.office.web.position;
 
 import com.company.office.entity.ActionType;
+import com.company.office.common.OfficeTools;
 import com.company.office.entity.Position;
 import com.company.office.entity.PositionAction;
-import com.company.office.service.ToolsService;
 import com.haulmont.cuba.core.global.Messages;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
@@ -16,7 +16,7 @@ import java.util.UUID;
 public class PositionBrowse extends EntityCombinedScreen {
 
     @Inject
-    private ToolsService toolsService;
+    private OfficeTools officeTools;
 
     @Inject
     private CollectionDatasource<PositionAction, UUID> actionsDs;
@@ -38,7 +38,7 @@ public class PositionBrowse extends EntityCombinedScreen {
             }
         });
 
-        if (!toolsService.isAdmin()) {
+        if (!officeTools.isAdmin()) {
             ((TabSheet) getComponentNN("tabSheet")).getTab("tabSystem").setVisible(false);
         }
     }

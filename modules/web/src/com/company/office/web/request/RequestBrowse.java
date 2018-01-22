@@ -1,7 +1,7 @@
 package com.company.office.web.request;
 
 import com.company.office.entity.*;
-import com.company.office.service.ToolsService;
+import com.company.office.common.OfficeTools;
 import com.company.office.web.officeweb.OfficeWeb;
 import com.haulmont.bali.util.ParamsMap;
 import com.haulmont.cuba.gui.WindowManager;
@@ -18,7 +18,7 @@ import java.util.UUID;
 public class RequestBrowse extends AbstractLookup {
 
     @Inject
-    private ToolsService toolsService;
+    private OfficeTools officeTools;
 
     @Inject
     private OfficeWeb officeWeb;
@@ -58,9 +58,9 @@ public class RequestBrowse extends AbstractLookup {
 
         EditAction editAction = (EditAction) table.getActionNN("edit");
         editAction.setBeforeActionPerformedHandler(() -> {
-            switch (toolsService.getActiveGroupType()) {
+            State state = requestsDs.getItem().getStep().getState();
+            switch (officeTools.getActiveGroupType()) {
                 case Workers:
-                    State state = requestsDs.getItem().getStep().getState();
                     if (!state.equals(State.Waiting) && !state.equals(State.Approving)) {
                         officeWeb.showWarningMessage(this, getMessage("edit.notAllowed"));
                         return false;
@@ -68,7 +68,7 @@ public class RequestBrowse extends AbstractLookup {
                     break;
 
                 case Applicants:
-                    if (!requestsDs.getItem().getStep().getState().equals(State.Waiting)) {
+                    if (!state.equals(State.Waiting) && !state.equals(State.Approving)) {
                         officeWeb.showWarningMessage(this, getMessage("edit.notAllowed"));
                         return false;
                     }
@@ -81,11 +81,20 @@ public class RequestBrowse extends AbstractLookup {
         editAction.setAfterCommitHandler(e -> requestsDs.refresh());
 
         PopupButton extraActionsBtn = (PopupButton) getComponentNN("extraActionsBtn");
+        Image image = (Image) getComponentNN("image");
+
         requestsDs.addItemChangeListener(e -> {
             extraActionsBtn.setEnabled(false);
 
             if ((e.getItem() == null) || (e.getItem().getStep() == null) || (e.getItem().getStep().getState() == null))
                 return;
+
+            if (e.getItem().getImageFile() != null) {
+                image.setSource(FileDescriptorResource.class).setFileDescriptor(e.getItem().getImageFile());
+                image.setVisible(true);
+            } else {
+                image.setVisible(false);
+            }
 
             if (!table.getSelected().isEmpty()) {
                 extraActionsBtn.setEnabled(true);
@@ -112,10 +121,10 @@ public class RequestBrowse extends AbstractLookup {
     }
 
     private void setUserInterface() {
-        if (toolsService.isAdmin())
+        if (officeTools.isAdmin())
             return;
 
-        switch (toolsService.getActiveGroupType()) {
+        switch (officeTools.getActiveGroupType()) {
             case Registrators:
                 getComponentNN("extraActionsBtn").setVisible(false);
                 table.getActionNN("remove").setVisible(false);
@@ -130,7 +139,7 @@ public class RequestBrowse extends AbstractLookup {
                 break;
 
             case Workers:
-                requestsDs.setQuery(String.format("select e from office$Request e where e.step.user.id = '%s' order by e.moment", toolsService.getActiveUser().getId()));
+                requestsDs.setQuery(String.format("select e from office$Request e where e.step.user.id = '%s' order by e.moment", officeTools.getActiveUser().getId()));
                 getComponentNN("extraActionsBtn").setVisible(false);
                 table.getActionNN("create").setVisible(false);
                 table.getActionNN("remove").setVisible(false);
@@ -138,7 +147,7 @@ public class RequestBrowse extends AbstractLookup {
                 break;
 
             case Applicants:
-                requestsDs.setQuery(String.format("select e from office$Request e where e.applicant.id = '%s' order by e.moment", toolsService.getActiveUser().getId()));
+                requestsDs.setQuery(String.format("select e from office$Request e where e.applicant.id = '%s' order by e.moment", officeTools.getActiveUser().getId()));
                 getComponentNN("extraActionsBtn").setVisible(false);
                 table.getActionNN("create").setVisible(false);
                 table.getActionNN("remove").setVisible(false);

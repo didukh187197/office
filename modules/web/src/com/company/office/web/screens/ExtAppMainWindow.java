@@ -1,14 +1,14 @@
 package com.company.office.web.screens;
 
-import com.company.office.service.ToolsService;
 import com.haulmont.cuba.gui.WindowManager;
+import com.company.office.common.OfficeTools;
 import com.haulmont.cuba.web.app.mainwindow.AppMainWindow;
 
 import javax.inject.Inject;
 public class ExtAppMainWindow extends AppMainWindow {
 
     @Inject
-    private ToolsService toolsService;
+    private OfficeTools officeTools;
 
     @Override
     public void ready() {

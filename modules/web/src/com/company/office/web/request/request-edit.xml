@@ -34,32 +34,89 @@
                orientation="horizontal"
                reversePosition="true"
                width="100%">
-            <vbox id="fieldsBox"
-                  expand="buttonsPanel"
-                  height="100%"
-                  margin="false,true,false,false"
-                  spacing="true">
+            <scrollBox id="fieldsBox"
+                       height="100%"
+                       spacing="true">
                 <vbox id="infoBox"
+                      margin="false,true,false,false"
                       spacing="true">
-                    <fieldGroup id="fieldGroup"
-                                datasource="requestDs">
-                        <column width="400px">
-                            <field property="applicant"
-                                   required="true"/>
-                            <field property="applicantCode"
-                                   required="true"
-                                   width="100px"/>
-                            <field property="applicantPhone"/>
-                            <field property="series"
-                                   required="true"
-                                   width="100px"/>
-                            <field property="number"
-                                   required="true"
-                                   width="100px"/>
-                            <field property="description"
-                                   rows="2"/>
-                        </column>
-                    </fieldGroup>
+                    <groupBox id="requestBox"
+                              caption="msg://requestBox"
+                              collapsable="true"
+                              spacing="true"
+                              width="505px">
+                        <fieldGroup id="fieldGroup"
+                                    datasource="requestDs">
+                            <column fieldCaptionWidth="75px"
+                                    width="120px">
+                                <field property="series"
+                                       required="true"
+                                       width="100px"/>
+                            </column>
+                            <column width="120px">
+                                <field property="number"
+                                       required="true"
+                                       width="100px"/>
+                            </column>
+                        </fieldGroup>
+                        <fieldGroup id="fieldGroupDescription"
+                                    datasource="requestDs">
+                            <column fieldCaptionWidth="75px"
+                                    width="400px">
+                                <field property="description"
+                                       rows="2"/>
+                            </column>
+                        </fieldGroup>
+                    </groupBox>
+                    <groupBox id="applicantBox"
+                              caption="msg://applicantBox"
+                              collapsable="true"
+                              spacing="true"
+                              width="505px">
+                        <fieldGroup id="fieldGroupApplicant"
+                                    align="MIDDLE_LEFT"
+                                    datasource="requestDs">
+                            <column fieldCaptionWidth="75px"
+                                    width="400px">
+                                <field property="applicant"
+                                       required="true"/>
+                                <field property="applicantCode"
+                                       required="true"
+                                       width="100px"/>
+                            </column>
+                        </fieldGroup>
+                        <groupBox id="imageBox"
+                                  caption="msg://imageBox"
+                                  expand="image"
+                                  height="250px"
+                                  spacing="true"
+                                  width="250px">
+                            <image id="image"
+                                   align="MIDDLE_CENTER"
+                                   scaleMode="CONTAIN"
+                                   width="100%"/>
+                            <hbox id="imageButtonsPanel"
+                                  align="BOTTOM_CENTER"
+                                  spacing="true">
+                                <upload id="uploadField"
+                                        fileSizeLimit="2097152"/>
+                                <button id="downloadImageBtn"
+                                        icon="icons/wf-design-export.png"
+                                        invoke="onDownloadImageBtnClick"/>
+                                <button id="clearImageBtn"
+                                        icon="icons/remove.png"
+                                        invoke="onClearImageBtnClick"/>
+                            </hbox>
+                        </groupBox>
+                        <fieldGroup datasource="requestDs">
+                            <column fieldCaptionWidth="75px"
+                                    width="400px">
+                                <field property="applicantPhone"/>
+                                <field property="applicantAddress"
+                                       rows="3"/>
+                            </column>
+                        </fieldGroup>
+                    </groupBox>
                 </vbox>
                 <buttonsPanel id="buttonsPanel">
                     <button id="okBtn"
@@ -80,7 +137,7 @@
                             invoke="onApproveBtnClick"
                             visible="false"/>
                 </buttonsPanel>
-            </vbox>
+            </scrollBox>
             <vbox id="tabSheetBox"
                   expand="tabSheet"
                   height="100%"
@@ -108,8 +165,6 @@
                         <column width="120px">
                             <field property="submissionTerm"/>
                             <field property="submitted"/>
-                        </column>
-                        <column width="120px">
                             <field property="approvalTerm"/>
                             <field property="approved"/>
                         </column>
@@ -120,9 +175,8 @@
                         <column width="250px">
                             <field property="description"
                                    rows="3"/>
-                        </column>
-                        <column width="60px">
-                            <field property="penalty"/>
+                            <field property="penalty"
+                                   width="60px"/>
                         </column>
                     </fieldGroup>
                 </groupBox>

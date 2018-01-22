@@ -52,6 +52,10 @@
         </property>
         <property name="answerFile"
                   view="_minimal"/>
+        <property name="initiator"
+                  view="_minimal"/>
+        <property name="recepient"
+                  view="_minimal"/>
     </view>
     <view class="com.company.office.entity.Request"
           extends="_local"
@@ -70,7 +74,6 @@
             <property name="actions"
                       view="_minimal">
                 <property name="type"/>
-                <property name="description"/>
                 <property name="template"
                           view="_minimal">
                     <property name="size"/>
@@ -95,6 +98,8 @@
         <property name="logs"
                   view="requestLog-view">
         </property>
+        <property name="imageFile"
+                  view="_local"/>
     </view>
     <view class="com.company.office.entity.PositionUser"
           extends="_local"

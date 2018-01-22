@@ -1,7 +1,7 @@
 package com.company.office.web.requeststep;
 
 import com.company.office.entity.*;
-import com.company.office.service.ToolsService;
+import com.company.office.common.OfficeTools;
 import com.haulmont.bali.util.ParamsMap;
 import com.haulmont.cuba.gui.components.AbstractEditor;
 import com.haulmont.cuba.gui.components.CheckBox;
@@ -20,7 +20,7 @@ public class RequestStepEdit extends AbstractEditor<RequestStep> {
     private ComponentsFactory componentsFactory;
 
     @Inject
-    private ToolsService toolsService;
+    private OfficeTools officeTools;
 
     @Override
     public void init(Map<String, Object> params) {
@@ -29,7 +29,7 @@ public class RequestStepEdit extends AbstractEditor<RequestStep> {
         Datasource<RequestStepAction> actionsDs = getDsContext().getNN("actionsDs");
 
         editStepActionAction.setBeforeActionPerformedHandler(() -> {
-            if (toolsService.getActiveGroupType().equals(GroupType.Applicants)) {
+            if (officeTools.getActiveGroupType().equals(GroupType.Applicants)) {
                 if (actionsDs.getItem().getApproved() != null) {
                     showMessage("Action is already approved!");
                     return false;

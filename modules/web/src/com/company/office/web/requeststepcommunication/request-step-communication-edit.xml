@@ -35,6 +35,8 @@
                         <field property="answer"
                                rows="6"/>
                         <field property="answerFile"/>
+                        <field property="initiator"/>
+                        <field property="recepient"/>
                     </column>
                 </fieldGroup>
             </tab>

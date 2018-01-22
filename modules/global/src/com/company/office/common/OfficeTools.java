@@ -1,20 +1,19 @@
-package com.company.office.service;
+package com.company.office.common;
 
 import com.company.office.OfficeConfig;
-import com.company.office.entity.GroupType;
-import com.haulmont.cuba.core.global.AppBeans;
-import com.haulmont.cuba.core.global.UserSessionSource;
+import com.company.office.entity.*;
+import com.haulmont.cuba.core.global.*;
 import com.haulmont.cuba.security.entity.Group;
 import com.haulmont.cuba.security.entity.RoleType;
 import com.haulmont.cuba.security.entity.User;
 import com.haulmont.cuba.security.entity.UserRole;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
 import java.util.*;
 
-@Service(ToolsService.NAME)
-public class ToolsServiceBean implements ToolsService {
+@Component("office_OfficeTools")
+public class OfficeTools {
 
     @Inject
     private OfficeConfig officeConfig;
@@ -23,31 +22,32 @@ public class ToolsServiceBean implements ToolsService {
         return AppBeans.get(UserSessionSource.class).getUserSession().getUser();
     }
 
-    @Override
     public User getActiveUser() {
         return getCurrentUser();
     }
 
-    @Override
     public GroupType getActiveGroupType() {
         return getGroupType(getCurrentUser());
     }
 
-    @Override
     public GroupType getGroupType(User user) {
-        Map<Group, GroupType> map = new HashMap<>();
-        map.put(officeConfig.getRegistratorsGroup(), GroupType.Registrators);
-        map.put(officeConfig.getManagersGroup(), GroupType.Managers);
-        map.put(officeConfig.getWorkersGroup(), GroupType.Workers);
-        map.put(officeConfig.getApplicantsGroup(), GroupType.Applicants);
+        Group group = user.getGroup();
 
-        if (map.containsKey(user.getGroup())) {
-            return map.get(user.getGroup());
-        }
+        if (group.equals(officeConfig.getRegistratorsGroup()))
+            return GroupType.Registrators;
+
+        if (group.equals(officeConfig.getManagersGroup()))
+            return GroupType.Managers;
+
+        if (group.equals(officeConfig.getWorkersGroup()))
+            return GroupType.Workers;
+
+        if (group.equals(officeConfig.getApplicantsGroup()))
+            return GroupType.Applicants;
+
         return GroupType.Others;
     }
 
-    @Override
     public boolean isAdmin() {
         List<UserRole> roles = getCurrentUser().getUserRoles();
         boolean superUser = false;
@@ -60,24 +60,20 @@ public class ToolsServiceBean implements ToolsService {
         return superUser;
     }
 
-    @Override
     public long getMoment() {
         return (new Date()).getTime();
     }
 
-    @Override
     public Date addDaysToNow(Integer days) {
         GregorianCalendar calendar = new GregorianCalendar();
         calendar.add(Calendar.DAY_OF_YEAR, getCountInt(days));
         return calendar.getTime();
     }
 
-    @Override
     public int getCountInt(Integer value) {
         return value == null ? 0 : value;
     }
 
-    @Override
     public double getCountDouble(Integer value) {
         return value == null ? 0 : value;
     }

@@ -1,0 +1,2 @@
+alter table OFFICE_REQUEST_STEP_COMMUNICATION add column INITIATOR_ID varchar(36) ;
+alter table OFFICE_REQUEST_STEP_COMMUNICATION add column RECEPIENT_ID varchar(36) ;

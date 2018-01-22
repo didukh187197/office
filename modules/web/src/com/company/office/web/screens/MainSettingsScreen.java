@@ -1,20 +1,11 @@
 package com.company.office.web.screens;
 
 import com.company.office.OfficeConfig;
-import com.company.office.entity.Position;
-import com.company.office.service.ToolsService;
-import com.haulmont.chile.core.model.MetaClass;
-import com.haulmont.chile.core.model.Session;
-import com.haulmont.cuba.core.entity.Entity;
-import com.haulmont.cuba.core.global.DataManager;
-import com.haulmont.cuba.core.global.LoadContext;
 import com.haulmont.cuba.core.global.Messages;
-import com.haulmont.cuba.core.global.Metadata;
 import com.haulmont.cuba.gui.components.*;
 
 import javax.inject.Inject;
 import java.util.*;
-import java.util.Calendar;
 
 public class MainSettingsScreen extends AbstractWindow {
 

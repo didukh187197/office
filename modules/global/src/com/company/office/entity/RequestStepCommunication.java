@@ -16,6 +16,7 @@ import com.haulmont.cuba.core.entity.Creatable;
 import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 import com.haulmont.cuba.core.entity.Updatable;
 import java.util.UUID;
+import com.haulmont.cuba.security.entity.User;
 
 @Table(name = "OFFICE_REQUEST_STEP_COMMUNICATION")
 @Entity(name = "office$RequestStepCommunication")
@@ -27,6 +28,11 @@ public class RequestStepCommunication extends BaseUuidEntity implements Creatabl
     @JoinColumn(name = "REQUEST_STEP_ID")
     protected RequestStep requestStep;
 
+    @OnDeleteInverse(DeletePolicy.DENY)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "INITIATOR_ID")
+    protected User initiator;
+
     @Column(name = "QUESTION")
     protected String question;
 
@@ -35,6 +41,11 @@ public class RequestStepCommunication extends BaseUuidEntity implements Creatabl
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "QUESTION_FILE_ID")
     protected FileDescriptor questionFile;
+
+    @OnDeleteInverse(DeletePolicy.DENY)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "RECEPIENT_ID")
+    protected User recepient;
 
     @Column(name = "ANSWER")
     protected String answer;
@@ -59,6 +70,23 @@ public class RequestStepCommunication extends BaseUuidEntity implements Creatabl
 
     @Column(name = "UPDATED_BY", length = 50)
     protected String updatedBy;
+
+
+    public void setInitiator(User initiator) {
+        this.initiator = initiator;
+    }
+
+    public User getInitiator() {
+        return initiator;
+    }
+
+    public void setRecepient(User recepient) {
+        this.recepient = recepient;
+    }
+
+    public User getRecepient() {
+        return recepient;
+    }
 
 
     public void setMoment(Long moment) {

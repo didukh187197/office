@@ -105,27 +105,79 @@
                               height="100%">
                         <tab id="mainTab"
                              caption="msg://mainTab"
-                             margin="true">
-                            <fieldGroup id="fieldGroup"
-                                        datasource="requestsDs"
-                                        editable="false">
-                                <column width="400px">
-                                    <field property="applicant"
-                                           required="true"/>
-                                    <field property="applicantCode"
-                                           required="true"
-                                           width="100px"/>
-                                    <field property="applicantPhone"/>
-                                    <field property="series"
-                                           required="true"
-                                           width="100px"/>
-                                    <field property="number"
-                                           required="true"
-                                           width="100px"/>
-                                    <field property="description"
-                                           rows="2"/>
-                                </column>
-                            </fieldGroup>
+                             expand="applicantBox"
+                             margin="true"
+                             spacing="true">
+                            <groupBox id="requestBox"
+                                      caption="msg://requestBox"
+                                      collapsable="true"
+                                      spacing="true">
+                                <fieldGroup id="fieldGroup"
+                                            datasource="requestsDs"
+                                            editable="false">
+                                    <column fieldCaptionWidth="75px"
+                                            width="120px">
+                                        <field property="series"
+                                               required="true"
+                                               width="100px"/>
+                                    </column>
+                                    <column width="120px">
+                                        <field property="number"
+                                               required="true"
+                                               width="100px"/>
+                                    </column>
+                                </fieldGroup>
+                                <fieldGroup id="fieldGroupDescription"
+                                            datasource="requestsDs"
+                                            editable="false">
+                                    <column fieldCaptionWidth="75px"
+                                            width="400px">
+                                        <field property="description"
+                                               rows="2"/>
+                                    </column>
+                                </fieldGroup>
+                            </groupBox>
+                            <groupBox id="applicantBox"
+                                      caption="msg://applicantBox"
+                                      collapsable="true"
+                                      expand="dataBox"
+                                      spacing="true">
+                                <hbox spacing="true">
+                                    <fieldGroup align="MIDDLE_LEFT"
+                                                datasource="requestsDs"
+                                                editable="false">
+                                        <column fieldCaptionWidth="75px"
+                                                width="240px">
+                                            <field property="applicant"
+                                                   required="true"/>
+                                            <field property="applicantCode"
+                                                   required="true"
+                                                   width="100px"/>
+                                        </column>
+                                    </fieldGroup>
+                                    <groupBox height="150px"
+                                              spacing="true"
+                                              width="150px">
+                                        <image id="image"
+                                               align="MIDDLE_CENTER"
+                                               height="100%"
+                                               scaleMode="CONTAIN"
+                                               width="100%"/>
+                                    </groupBox>
+                                </hbox>
+                                <vbox id="dataBox"
+                                      spacing="true">
+                                    <fieldGroup datasource="requestsDs"
+                                                editable="false">
+                                        <column fieldCaptionWidth="75px"
+                                                width="400px">
+                                            <field property="applicantPhone"/>
+                                            <field property="applicantAddress"
+                                                   rows="3"/>
+                                        </column>
+                                    </fieldGroup>
+                                </vbox>
+                            </groupBox>
                         </tab>
                         <tab id="stepsTab"
                              caption="msg://com.company.office.entity/Request.steps"
