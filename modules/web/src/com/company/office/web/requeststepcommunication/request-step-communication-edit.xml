@@ -3,7 +3,6 @@
         caption="msg://editorCaption"
         class="com.company.office.web.requeststepcommunication.RequestStepCommunicationEdit"
         datasource="requestStepCommunicationDs"
-        focusComponent="fieldGroup"
         messagesPack="com.company.office.web.requeststepcommunication">
     <dsContext>
         <datasource id="requestStepCommunicationDs"
@@ -25,20 +24,74 @@
                  caption="Main"
                  margin="true,false,false,false"
                  spacing="true">
-                <fieldGroup id="fieldGroup"
-                            datasource="requestStepCommunicationDs">
-                    <column width="400px">
-                        <field property="question"
-                               required="true"
-                               rows="6"/>
-                        <field property="questionFile"/>
-                        <field property="answer"
-                               rows="6"/>
-                        <field property="answerFile"/>
-                        <field property="initiator"/>
-                        <field property="recepient"/>
-                    </column>
-                </fieldGroup>
+                <groupBox id="questionBox"
+                          spacing="true">
+                    <fieldGroup id="fieldGroup"
+                                datasource="requestStepCommunicationDs">
+                        <column fieldCaptionWidth="70px"
+                                width="400px">
+                            <field property="initiator"/>
+                            <field property="question"
+                                   required="true"
+                                   rows="6"/>
+                        </column>
+                    </fieldGroup>
+                    <hbox id="questionFileBox"
+                          expand="uploadQuestionFile"
+                          spacing="true"
+                          width="100%">
+                        <label id="labelQuestionFile"
+                               align="MIDDLE_CENTER"
+                               value="msg://lblFile"
+                               width="70px"/>
+                        <upload id="uploadQuestionFile"
+                                clearButtonIcon="icons/remove.png"
+                                datasource="requestStepCommunicationDs"
+                                fileSizeLimit="2097152"
+                                fileStoragePutMode="IMMEDIATE"
+                                property="questionFile"
+                                showClearButton="true"
+                                showFileName="true"
+                                uploadButtonIcon="icons/upload.png"/>
+                        <linkButton id="btnShowQuestionFile"
+                                    align="MIDDLE_LEFT"
+                                    caption="msg://btnShowFile"
+                                    invoke="onBtnShowQuestionFileClick"/>
+                    </hbox>
+                </groupBox>
+                <groupBox id="answerBox"
+                          spacing="true">
+                    <fieldGroup id="fieldGroupAnswer"
+                                datasource="requestStepCommunicationDs">
+                        <column fieldCaptionWidth="70px"
+                                width="400px">
+                            <field property="recepient"/>
+                            <field property="answer"
+                                   rows="6"/>
+                        </column>
+                    </fieldGroup>
+                    <hbox id="answerFileBox"
+                          spacing="true"
+                          width="100%">
+                        <label id="labelAnswerFile"
+                               align="MIDDLE_CENTER"
+                               value="msg://lblFile"
+                               width="70px"/>
+                        <upload id="uploadAnswerFile"
+                                clearButtonIcon="icons/remove.png"
+                                datasource="requestStepCommunicationDs"
+                                fileSizeLimit="2097152"
+                                fileStoragePutMode="IMMEDIATE"
+                                property="answerFile"
+                                showClearButton="true"
+                                showFileName="true"
+                                uploadButtonIcon="icons/upload.png"/>
+                        <linkButton id="btnShowAnswerFile"
+                                    align="MIDDLE_LEFT"
+                                    caption="msg://btnShowFile"
+                                    invoke="onBtnShowAnswerFileClick"/>
+                    </hbox>
+                </groupBox>
             </tab>
             <tab id="tabSystem"
                  caption="System"
@@ -62,7 +115,19 @@
                 </fieldGroup>
             </tab>
         </tabSheet>
-        <frame id="windowActions"
-               screen="editWindowActions"/>
+        <buttonsPanel>
+            <button id="okBtn"
+                    action="windowCommit"
+                    caption="mainMsg://actions.Ok"
+                    icon="icons/ok.png"/>
+            <button id="closeBtn"
+                    action="windowClose"
+                    caption="mainMsg://actions.Cancel"
+                    description="Esc"
+                    icon="icons/cancel.png"/>
+            <button id="readBtn"
+                    caption="msg://btnRead"
+                    invoke="onReadBtnClick"/>
+        </buttonsPanel>
     </layout>
 </window>

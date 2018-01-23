@@ -11,6 +11,7 @@ import com.haulmont.cuba.core.global.FileStorageException;
 import com.haulmont.cuba.core.global.PersistenceHelper;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
+import com.haulmont.cuba.gui.components.actions.CreateAction;
 import com.haulmont.cuba.gui.components.actions.EditAction;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
 import com.haulmont.cuba.gui.data.DataSupplier;
@@ -108,6 +109,20 @@ public class RequestEdit extends AbstractEditor<Request> {
             return true;
         });
 
+        Table communicationsTable = (Table) getComponentNN("communicationsTable");
+        CreateAction createStepCommunicationAction = (CreateAction) communicationsTable.getActionNN("create");
+        EditAction editStepCommunicationAction = (EditAction) communicationsTable.getActionNN("edit");
+
+        createStepCommunicationAction.setBeforeActionPerformedHandler(() -> {
+            createStepCommunicationAction.setWindowParams(ParamsMap.of("request", getItem()));
+            return true;
+        });
+
+        editStepCommunicationAction.setBeforeActionPerformedHandler(() -> {
+            editStepCommunicationAction.setWindowParams(ParamsMap.of("request", getItem()));
+            return true;
+        });
+
         actionsDs.addItemPropertyChangeListener(e -> {
             showSubmitButton();
             showApproveBtn();
@@ -186,6 +201,8 @@ public class RequestEdit extends AbstractEditor<Request> {
         return checkBox;
     }
 
+    private boolean moved = false;
+
     @Override
     protected boolean preCommit() {
 
@@ -212,8 +229,11 @@ public class RequestEdit extends AbstractEditor<Request> {
             List<RequestStep> steps = new ArrayList<>();
             request.setSteps(steps);
 
-            officeCommon.moveRequestToNewStepByPosition(request);
-            officeCommon.moveRequestToNewStepByWorker(request);
+            if (!moved) {
+                officeCommon.moveRequestToNewStepByPosition(request);
+                officeCommon.moveRequestToNewStepByWorker(request);
+                moved = true;
+            }
 
             setItem(request);
 

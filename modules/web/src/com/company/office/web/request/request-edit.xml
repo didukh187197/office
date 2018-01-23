@@ -86,6 +86,7 @@
                             </column>
                         </fieldGroup>
                         <groupBox id="imageBox"
+                                  align="TOP_CENTER"
                                   caption="msg://imageBox"
                                   expand="image"
                                   height="250px"

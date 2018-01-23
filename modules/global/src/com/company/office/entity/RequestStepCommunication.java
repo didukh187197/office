@@ -17,6 +17,8 @@ import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 import com.haulmont.cuba.core.entity.Updatable;
 import java.util.UUID;
 import com.haulmont.cuba.security.entity.User;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Table(name = "OFFICE_REQUEST_STEP_COMMUNICATION")
 @Entity(name = "office$RequestStepCommunication")
@@ -56,6 +58,10 @@ public class RequestStepCommunication extends BaseUuidEntity implements Creatabl
     @JoinColumn(name = "ANSWER_FILE_ID")
     protected FileDescriptor answerFile;
 
+    @Temporal(TemporalType.DATE)
+    @Column(name = "READ_")
+    protected Date read;
+
     @Column(name = "MOMENT")
     protected Long moment;
 
@@ -70,6 +76,15 @@ public class RequestStepCommunication extends BaseUuidEntity implements Creatabl
 
     @Column(name = "UPDATED_BY", length = 50)
     protected String updatedBy;
+
+
+    public void setRead(Date read) {
+        this.read = read;
+    }
+
+    public Date getRead() {
+        return read;
+    }
 
 
     public void setInitiator(User initiator) {
