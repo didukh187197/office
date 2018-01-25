@@ -10,6 +10,7 @@ public enum State implements EnumClass<String> {
     Suspended("suspended"),
     Waiting("waiting"),
     Approving("approving"),
+    Stopped("stopped"),
     Closed("closed"),
     Archived("archived"),
     Cancelled("cancelled");
