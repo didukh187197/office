@@ -17,9 +17,9 @@
         </collectionDatasource>
     </dsContext>
     <dialogMode forceDialog="true"
-                height="600"
+                height="350"
                 width="800"/>
-    <layout expand="windowActions"
+    <layout expand="tabSheet"
             spacing="true">
         <tabSheet id="tabSheet">
             <tab id="tabMain"

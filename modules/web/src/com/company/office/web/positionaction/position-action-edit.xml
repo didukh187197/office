@@ -17,13 +17,14 @@
         </collectionDatasource>
     </dsContext>
     <dialogMode forceDialog="true"
-                height="600"
+                height="310"
                 width="800"/>
-    <layout expand="windowActions"
+    <layout expand="tabSheet"
             spacing="true">
         <tabSheet id="tabSheet">
             <tab id="tabMain"
                  caption="Main"
+                 expand="boxOther"
                  margin="true,false,false,false"
                  spacing="true">
                 <fieldGroup id="fieldGroup"
@@ -51,6 +52,8 @@
                                 caption="msg://btnFile"
                                 invoke="onBtnFileClick"/>
                 </groupBox>
+                <vbox id="boxOther"
+                      spacing="true"/>
             </tab>
             <tab id="tabSystem"
                  caption="System"
@@ -70,12 +73,11 @@
                         <field caption="mainMsg://field.editor"
                                property="updatedBy"/>
                         <field property="moment"/>
-                        </column>
+                    </column>
                 </fieldGroup>
             </tab>
         </tabSheet>
         <frame id="windowActions"
-               height="50px"
                screen="editWindowActions"/>
     </layout>
 </window>

@@ -1,8 +1,1163 @@
+/*C4*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C5*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C6*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C7*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C8*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C10*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C11*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C9*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C12*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C13*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C14*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C15*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C16*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C17*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C18*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C19*/SET SCHEMA PUBLIC
+alter table OFFICE_REQUEST_STEP_COMMUNICATION add column CONFIRMED date 
+alter table OFFICE_REQUEST_STEP_COMMUNICATION drop column READ_ cascade 
+INSERT INTO SYS_DB_CHANGELOG VALUES('50-office/update/hsql/18/180126-2-updateRequestStepCommunication.sql','2018-01-26 10:43:32.002000',0)
+COMMIT
+DISCONNECT
+/*C20*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C21*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C22*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C23*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C25*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C24*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C26*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C27*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C28*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C29*/SET SCHEMA PUBLIC
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 10:53:34.051000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 10:54:34.049000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 10:55:34.050000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 10:56:34.050000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 10:57:34.051000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 10:58:34.051000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 10:59:34.051000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:00:34.052000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='17fea1e0-4c6c-8ea1-b808-e68a5433fe9b'
+INSERT INTO SEC_USER_SETTING VALUES('17fea1e0-4c6c-8ea1-b808-e68a5433fe9b',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','office$Request.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="filter"> \u000a      <defaultFilter/>  \u000a      <groupBoxExpanded>true</groupBoxExpanded> \u000a    </component>  \u000a    <component name="requestsTable"> \u000a      <columns> \u000a        <columns id="applicant" visible="true"/>  \u000a        <columns id="sn" visible="true"/>  \u000a        <columns id="description" visible="true"/>  \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="state" visible="true"/>  \u000a        <columns id="penalty" width="50" visible="true"/> \u000a      </columns>  \u000a      <groupProperties/> \u000a    </component>  \u000a    <component name="detailsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="updateTs" visible="true"/>\u000a        <columns id="question" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="statesTable"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="createdBy" visible="true"/>  \u000a        <columns id="description" visible="true"/>  \u000a        <columns id="position" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="split"> \u000a      <position value="51.178993" unit="%"/> \u000a    </component>  \u000a    <component name="table"> \u000a      <columns>\u000a        <columns id="applicant" visible="true"/>\u000a        <columns id="applicantCode" visible="true"/>\u000a        <columns id="sn" visible="true"/>\u000a        <columns id="step.position" visible="true"/>\u000a        <columns id="step.state" visible="true"/>\u000a        <columns id="step.user" visible="true"/>\u000a      </columns>\u000a      <groupProperties/>\u000a    </component>  \u000a    <component name="stepsTable"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="position" visible="true"/>  \u000a        <columns id="state" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="submitted" visible="true"/>  \u000a        <columns id="approved" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="tableRequests"> \u000a      <columns> \u000a        <columns id="applicant" visible="true"/>  \u000a        <columns id="sn" visible="true"/>  \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="state" visible="true"/>  \u000a        <columns id="penalty" visible="true"/> \u000a      </columns>  \u000a      <groupProperties/> \u000a    </component>  \u000a    <component name="tableSteps"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="createdBy" visible="true"/>  \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="tableActions"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="createdBy" visible="true"/>  \u000a        <columns id="type" visible="true"/>  \u000a        <columns id="deadline" visible="true"/>  \u000a        <columns id="submitted" visible="true"/>  \u000a        <columns id="approved" visible="true"/>  \u000a        <columns id="penalty" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="tableCommunications"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="createdBy" visible="true"/>  \u000a        <columns id="updateTs" visible="true"/>  \u000a        <columns id="updatedBy" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="stepActionsTable"> \u000a      <columns> \u000a        <columns id="type" visible="true"/>  \u000a        <columns id="submitted" visible="true"/>  \u000a        <columns id="approved" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="stepCommunicationsTable"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="updateTs" visible="true"/>  \u000a        <columns id="question" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="imageBox"> \u000a      <groupBox expanded="true"/> \u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:01:34.052000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:02:34.053000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:03:34.053000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:04:34.054000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:05:34.054000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:06:34.055000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:07:34.055000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:08:34.055000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:09:34.061000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:10:34.061000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:11:34.062000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+/*C30*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C31*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C32*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C33*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C35*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C34*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C36*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C37*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C29*/DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:11:46.491000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
+DISCONNECT
+/*C38*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C39*/SET SCHEMA PUBLIC
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:12:53.430000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:13:53.429000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:14:53.429000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='81045870-a989-88da-b890-81b7f97fb816'
+INSERT INTO SEC_USER_SETTING VALUES('81045870-a989-88da-b890-81b7f97fb816',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','office$Request.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="communicationsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="updateTs" visible="true"/>\u000a        <columns id="question" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="actionsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="statesBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="statesTable"> \u000a      <columns> \u000a        <columns id="createTs" width="180" visible="true"/>  \u000a        <columns id="step" width="267" visible="true"/>  \u000a        <columns id="user" width="279" visible="true"/>  \u000a        <columns id="description" width="534" visible="true"/>  \u000a        <columns id="createdBy" width="360" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="titleBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="currentBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="stepsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="stepsTable"> \u000a      <columns> \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="description" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="additionalBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="tableSteps"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="createdBy" visible="true"/>  \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="split"> \u000a      <position value="27.759914" unit="%"/> \u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="stepBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="imageBox"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:15:53.429000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:16:53.430000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:17:53.431000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:18:53.432000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:19:53.432000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:20:53.433000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='747f1768-12b8-bc82-f1ef-14f2a91207b3'
+INSERT INTO SEC_USER_SETTING VALUES('747f1768-12b8-bc82-f1ef-14f2a91207b3',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','office$RequestStep.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="actionsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="communicationsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="updateTs" visible="true"/>\u000a        <columns id="question" visible="true"/>\u000a        <columns id="initiator" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a      </columns>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:21:53.433000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:22:53.434000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:23:53.434000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:24:53.434000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:25:53.435000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:26:53.435000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:27:53.436000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:28:53.436000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:29:53.437000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:30:53.437000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:31:53.437000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:32:53.438000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:33:53.438000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:34:53.439000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:35:53.439000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:36:53.440000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:37:53.440000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:38:53.440000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:39:53.441000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:40:53.441000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:41:53.442000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:42:53.442000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:43:53.443000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:44:53.443000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:45:53.443000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:46:53.444000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:47:53.444000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='2bcccbec-8093-479f-5e76-749362ed666b'
+INSERT INTO SEC_USER_SETTING VALUES('2bcccbec-8093-479f-5e76-749362ed666b',NULL,NULL,'bfdb9c32-2d8b-3520-d236-00f089c9d632','W','office$Request.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="filter"> \u000a      <defaultFilter/>  \u000a      <groupBoxExpanded>true</groupBoxExpanded> \u000a    </component>  \u000a    <component name="requestsTable"> \u000a      <columns> \u000a        <columns id="applicant" visible="true"/>  \u000a        <columns id="series" visible="true"/>  \u000a        <columns id="number" visible="true"/>  \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="created" visible="true"/>  \u000a        <columns id="closed" visible="true"/>  \u000a        <columns id="description" visible="true"/> \u000a      </columns>  \u000a      <groupProperties/> \u000a    </component>  \u000a    <component name="detailsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="updateTs" visible="true"/>\u000a        <columns id="question" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="statesTable"> \u000a      <columns> \u000a        <columns id="date" visible="true"/>  \u000a        <columns id="position" visible="true"/>  \u000a        <columns id="description" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="split"> \u000a      <position value="50.0" unit="%"/> \u000a    </component>  \u000a    <component name="table"> \u000a      <columns>\u000a        <columns id="applicant" visible="true"/>\u000a        <columns id="applicantCode" visible="true"/>\u000a        <columns id="sn" visible="true"/>\u000a        <columns id="step.position" visible="true"/>\u000a        <columns id="step.state" visible="true"/>\u000a        <columns id="step.user" visible="true"/>\u000a      </columns>\u000a      <groupProperties/>\u000a    </component>  \u000a    <component name="stepsTable"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="position" visible="true"/>  \u000a        <columns id="state" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="submitted" visible="true"/>  \u000a        <columns id="approved" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:48:53.445000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:49:53.445000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='bac81826-1f12-5754-ca7b-b6d3aa66306a'
+INSERT INTO SEC_USER_SETTING VALUES('bac81826-1f12-5754-ca7b-b6d3aa66306a',NULL,NULL,'bfdb9c32-2d8b-3520-d236-00f089c9d632','W','sec$User.lookup','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="genericFilter"> \u000a      <defaultFilter/>  \u000a      <groupBoxExpanded>true</groupBoxExpanded> \u000a    </component>  \u000a    <component name="usersTable"> \u000a      <columns>\u000a        <columns id="login" visible="true"/>\u000a        <columns id="name" visible="true"/>\u000a        <columns id="position" visible="true"/>\u000a        <columns id="group" visible="true"/>\u000a        <columns id="email" visible="true"/>\u000a        <columns id="active" visible="true"/>\u000a      </columns>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:50:53.446000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:51:53.446000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:52:53.446000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:53:53.447000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:54:53.447000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:55:53.448000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:56:53.448000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:57:53.449000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:58:53.449000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 11:59:53.449000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_USER_SETTING VALUES('797a4574-1ec7-7747-5e99-fa826dbe77b2',NULL,NULL,'bfdb9c32-2d8b-3520-d236-00f089c9d632','W','office$RequestStepCommunication.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings>\u000a  <components>\u000a    <component name="questionBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a    <component name="answerBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a  </components>\u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:00:53.450000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:01:53.450000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:02:53.451000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:03:53.451000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:04:53.452000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:05:53.452000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:06:53.453000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:07:53.453000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:08:53.453000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:09:53.454000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:10:53.454000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:11:53.455000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:12:53.455000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:13:53.456000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:14:53.456000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:15:53.456000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:16:53.457000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:17:53.457000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:18:53.458000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:19:53.458000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:20:53.459000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:21:53.459000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:22:53.459000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:23:53.460000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:24:53.460000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:25:53.461000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:26:53.461000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:27:53.462000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:28:53.462000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:29:53.462000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:30:53.463000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:31:53.463000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:32:53.464000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:33:53.464000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:34:53.465000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:35:53.465000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:36:53.465000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:37:53.466000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:38:53.466000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:39:53.467000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:40:53.467000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:41:53.468000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:42:53.468000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:43:53.468000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:44:53.469000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:45:53.469000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:46:53.470000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:47:53.470000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:48:53.471000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:49:53.471000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:50:53.472000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:51:53.472000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:52:53.472000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:53:53.473000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:54:53.473000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:55:53.474000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:56:53.474000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:57:53.475000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:58:53.475000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 12:59:53.475000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:00:53.476000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:01:53.476000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:02:53.477000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:03:53.477000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:04:53.478000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:05:53.478000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:06:53.478000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:07:53.479000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:08:53.479000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:09:53.480000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:10:53.480000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:11:53.481000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:12:53.481000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:13:53.481000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:14:53.482000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:15:53.482000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:16:53.483000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:17:53.483000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:18:53.484000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:19:53.484000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:20:53.484000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:21:53.485000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:22:53.485000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:23:53.486000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:24:53.486000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:25:53.487000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:26:53.487000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:27:53.487000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:28:53.488000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:29:53.488000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:30:53.489000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:31:53.489000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:32:53.490000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:33:53.490000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:34:53.491000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:35:53.491000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:36:53.491000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:37:53.492000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:38:53.492000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:39:53.493000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:40:53.493000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:41:53.494000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:42:53.494000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:43:53.494000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:44:53.495000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:45:53.495000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:46:53.496000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:47:53.496000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:48:53.497000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:49:53.497000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:50:53.497000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:51:53.498000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:52:53.498000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:53:53.499000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:54:53.499000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:55:53.500000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:56:53.500000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:57:53.500000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:58:53.501000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 13:59:53.501000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:00:53.502000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:01:53.502000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:02:53.503000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:03:53.503000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:04:53.503000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:05:53.504000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:06:53.504000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:07:53.505000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:08:53.505000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:09:53.506000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:10:53.506000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:11:53.506000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:12:53.507000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:13:53.507000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:14:53.508000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:15:53.508000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:16:53.509000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:17:53.509000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:18:53.510000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:19:53.510000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:20:53.510000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:21:53.511000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:22:53.511000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:23:53.512000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:24:53.512000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:25:53.513000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:26:53.513000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:27:53.513000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:28:53.514000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:29:53.514000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:30:53.515000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:31:53.515000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:32:53.516000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:33:53.516000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+/*C40*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C41*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C42*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C43*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C45*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C44*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C46*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C47*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C39*/DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:34:32.902000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
+DISCONNECT
+/*C48*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C49*/SET SCHEMA PUBLIC
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:35:54.971000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:36:54.967000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:37:54.968000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+/*C50*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C51*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C52*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C53*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C55*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C54*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C56*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C57*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C49*/DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:38:40.966000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
+DISCONNECT
+/*C58*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C59*/SET SCHEMA PUBLIC
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:39:48.763000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:40:48.762000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+/*C60*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C61*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C62*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C63*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C65*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C64*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C66*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C67*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C59*/DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:41:11.784000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
+DISCONNECT
+/*C68*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C69*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C70*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C71*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C73*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C72*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C74*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C75*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C76*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C77*/SET SCHEMA PUBLIC
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:44:10.471000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:45:10.470000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+/*C78*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C79*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C80*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C81*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C83*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C82*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C84*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C85*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C77*/DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:45:43.548000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
+DISCONNECT
+/*C86*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C87*/SET SCHEMA PUBLIC
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:46:52.695000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:47:52.693000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:48:52.693000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:49:52.694000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:50:52.694000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:51:52.695000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:52:52.695000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:53:52.696000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:54:52.696000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:55:52.696000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:56:52.697000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:57:52.697000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:58:52.698000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 14:59:52.698000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:00:52.699000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:01:52.699000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:02:52.699000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:03:52.700000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:04:52.700000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:05:52.701000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:06:52.701000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:07:52.702000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:08:52.702000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_USER_SETTING VALUES('5cde200c-2157-19be-846f-fa5a4fae097f',NULL,NULL,'710eeb85-200a-518d-a7dc-f4caa9df36ad','W','office$RequestStepCommunication.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings>\u000a  <components>\u000a    <component name="questionBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a    <component name="answerBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a  </components>\u000a</settings>\u000a')
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='fcad193b-681a-7a6d-ec13-0809a5d92511'
+INSERT INTO SEC_USER_SETTING VALUES('fcad193b-681a-7a6d-ec13-0809a5d92511',NULL,NULL,'710eeb85-200a-518d-a7dc-f4caa9df36ad','W','office$Request.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="filter"> \u000a      <defaultFilter/>  \u000a      <groupBoxExpanded>true</groupBoxExpanded> \u000a    </component>  \u000a    <component name="requestsTable"> \u000a      <columns> \u000a        <columns id="applicant" visible="true"/>  \u000a        <columns id="series" visible="true"/>  \u000a        <columns id="number" visible="true"/>  \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="created" visible="true"/>  \u000a        <columns id="closed" visible="true"/>  \u000a        <columns id="description" visible="true"/> \u000a      </columns>  \u000a      <groupProperties/> \u000a    </component>  \u000a    <component name="detailsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="updateTs" visible="true"/>\u000a        <columns id="question" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="statesTable"> \u000a      <columns> \u000a        <columns id="date" visible="true"/>  \u000a        <columns id="position" visible="true"/>  \u000a        <columns id="description" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="split"> \u000a      <position value="42.71168" unit="%"/> \u000a    </component>  \u000a    <component name="table"> \u000a      <columns>\u000a        <columns id="applicant" visible="true"/>\u000a        <columns id="applicantCode" visible="true"/>\u000a        <columns id="sn" visible="true"/>\u000a        <columns id="step.position" visible="true"/>\u000a        <columns id="step.state" visible="true"/>\u000a        <columns id="step.user" visible="true"/>\u000a      </columns>\u000a      <groupProperties/>\u000a    </component>  \u000a    <component name="stepsTable"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="position" visible="true"/>  \u000a        <columns id="state" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="submitted" visible="true"/>  \u000a        <columns id="approved" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='bd5c764f-684d-da90-342b-c9d8a3294936'
+INSERT INTO SEC_USER_SETTING VALUES('bd5c764f-684d-da90-342b-c9d8a3294936',NULL,NULL,'710eeb85-200a-518d-a7dc-f4caa9df36ad','W','office$Request.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="communicationsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="updateTs" visible="true"/>\u000a        <columns id="question" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="actionsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="statesBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="statesTable"> \u000a      <columns> \u000a        <columns id="date" visible="true"/>  \u000a        <columns id="position" visible="true"/>  \u000a        <columns id="description" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="split"> \u000a      <position value="26.580921" unit="%"/> \u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="stepBox"> \u000a      <groupBox expanded="false"/>\u000a    </component>  \u000a    <component name="requestBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a    <component name="applicantBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a    <component name="imageBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:09:52.702000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:10:52.703000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:11:52.703000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:12:52.704000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='81045870-a989-88da-b890-81b7f97fb816'
+INSERT INTO SEC_USER_SETTING VALUES('81045870-a989-88da-b890-81b7f97fb816',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','office$Request.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="communicationsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="updateTs" visible="true"/>\u000a        <columns id="question" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="actionsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="statesBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="statesTable"> \u000a      <columns> \u000a        <columns id="createTs" width="180" visible="true"/>  \u000a        <columns id="step" width="267" visible="true"/>  \u000a        <columns id="user" width="279" visible="true"/>  \u000a        <columns id="description" width="534" visible="true"/>  \u000a        <columns id="createdBy" width="360" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="titleBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="currentBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="stepsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="stepsTable"> \u000a      <columns> \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="description" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="additionalBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="tableSteps"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="createdBy" visible="true"/>  \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="split"> \u000a      <position value="27.759914" unit="%"/> \u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="stepBox"> \u000a      <groupBox expanded="false"/>\u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="imageBox"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:13:52.704000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='bd5c764f-684d-da90-342b-c9d8a3294936'
+INSERT INTO SEC_USER_SETTING VALUES('bd5c764f-684d-da90-342b-c9d8a3294936',NULL,NULL,'710eeb85-200a-518d-a7dc-f4caa9df36ad','W','office$Request.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="communicationsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="updateTs" visible="true"/>\u000a        <columns id="question" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="actionsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="statesBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="statesTable"> \u000a      <columns> \u000a        <columns id="date" visible="true"/>  \u000a        <columns id="position" visible="true"/>  \u000a        <columns id="description" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="split"> \u000a      <position value="26.580921" unit="%"/> \u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="stepBox"> \u000a      <groupBox expanded="false"/>\u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="imageBox"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:14:52.705000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='5cde200c-2157-19be-846f-fa5a4fae097f'
+INSERT INTO SEC_USER_SETTING VALUES('5cde200c-2157-19be-846f-fa5a4fae097f',NULL,NULL,'710eeb85-200a-518d-a7dc-f4caa9df36ad','W','office$RequestStepCommunication.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="questionBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="answerBox"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:15:52.705000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:16:52.706000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:17:52.706000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:18:52.706000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:19:52.707000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:20:52.707000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:21:52.708000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:22:52.708000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:23:52.709000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:24:52.709000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:25:52.709000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_USER_SETTING VALUES('9c2fc3e6-806e-4335-aaeb-e08aeaf30408',NULL,NULL,'81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','W','office$PositionAction.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings>\u000a  <components>\u000a    <component name="boxFile">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a  </components>\u000a</settings>\u000a')
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='9c2fc3e6-806e-4335-aaeb-e08aeaf30408'
+INSERT INTO SEC_USER_SETTING VALUES('9c2fc3e6-806e-4335-aaeb-e08aeaf30408',NULL,NULL,'81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','W','office$PositionAction.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="boxFile"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:26:52.710000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:27:52.710000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:28:52.711000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:29:52.711000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='22c0d12b-1022-22b5-b7ef-1d42114ccc82'
+INSERT INTO SEC_USER_SETTING VALUES('22c0d12b-1022-22b5-b7ef-1d42114ccc82',NULL,NULL,'81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','W','office$Position.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="split"> \u000a      <position value="50.0" unit="%"/> \u000a    </component>  \u000a    <component name="filter"> \u000a      <defaultFilter/>  \u000a      <groupBoxExpanded>true</groupBoxExpanded> \u000a    </component>  \u000a    <component name="table"> \u000a      <columns>\u000a        <columns id="identifier" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="daysForSubmission" visible="true"/>\u000a        <columns id="daysForApproval" visible="true"/>\u000a      </columns>\u000a      <groupProperties/>\u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="usersTable"> \u000a      <columns>\u000a        <columns id="user" visible="true"/>\u000a        <columns id="requests" visible="true"/>\u000a        <columns id="threshold" visible="true"/>\u000a      </columns>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:30:52.712000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:31:52.712000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='25681ebe-145d-11c8-786c-21825bec6cb6'
+INSERT INTO SEC_USER_SETTING VALUES('25681ebe-145d-11c8-786c-21825bec6cb6',NULL,NULL,'81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','W','office$Request.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="split"> \u000a      <position value="50.0" unit="%"/> \u000a    </component>  \u000a    <component name="filter"> \u000a      <defaultFilter/>  \u000a      <groupBoxExpanded>true</groupBoxExpanded> \u000a    </component>  \u000a    <component name="table"> \u000a      <columns>\u000a        <columns id="applicant" visible="true"/>\u000a        <columns id="applicantCode" visible="true"/>\u000a        <columns id="sn" visible="true"/>\u000a        <columns id="step.position" visible="true"/>\u000a        <columns id="step.state" visible="true"/>\u000a        <columns id="step.user" visible="true"/>\u000a      </columns>\u000a      <groupProperties/>\u000a    </component>  \u000a    <component name="stepsTable"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="position" visible="true"/>  \u000a        <columns id="state" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="submitted" visible="true"/>  \u000a        <columns id="approved" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="updateTs" visible="true"/>\u000a        <columns id="question" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='797a4574-1ec7-7747-5e99-fa826dbe77b2'
+INSERT INTO SEC_USER_SETTING VALUES('797a4574-1ec7-7747-5e99-fa826dbe77b2',NULL,NULL,'bfdb9c32-2d8b-3520-d236-00f089c9d632','W','office$RequestStepCommunication.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="questionBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="answerBox"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:32:52.712000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+/*C88*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C89*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C90*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C91*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C93*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C92*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C94*/SET SCHEMA PUBLIC
+DISCONNECT
 /*C95*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C87*/DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:33:33.140000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
 DISCONNECT
 /*C96*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C97*/SET SCHEMA PUBLIC
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:34:38.928000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:35:38.926000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:36:38.926000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:37:38.927000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:38:38.927000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:39:38.928000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:40:38.928000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:41:38.929000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:42:38.929000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:43:38.929000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:44:38.930000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:45:38.930000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:46:38.931000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:47:38.931000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:48:38.932000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:49:38.932000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:50:38.932000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:51:38.933000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:52:38.933000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:53:38.934000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:54:38.934000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:55:38.935000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:56:38.935000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:57:38.935000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:58:38.936000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 15:59:28.246000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
 DISCONNECT
 /*C98*/SET SCHEMA PUBLIC
 DISCONNECT
@@ -10,257 +1165,37 @@ DISCONNECT
 DISCONNECT
 /*C100*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C102*/SET SCHEMA PUBLIC
-DISCONNECT
 /*C101*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C103*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C102*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C104*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C105*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C106*/SET SCHEMA PUBLIC
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 14:56:40.264000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 14:57:40.262000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 14:58:40.263000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 14:59:40.263000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:00:40.264000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-INSERT INTO OFFICE_REQUEST_STEP VALUES('10b6ae30-f795-8c92-9f96-f6720d4e6594','2018-01-23 15:01:31.646000',NULL,'2018-01-23 15:01:31.646000','admin',NULL,'Initial position, Suspended',NULL,NULL,NULL,NULL,'suspended',NULL,NULL,NULL,1516712491541)
-INSERT INTO OFFICE_REQUEST VALUES('7b27930f-a1b3-9f12-d470-e1f5ed12f4d6','2018-01-23 15:01:31.621000','admin','33',33,NULL,'2018-01-23 15:01:31.621000',NULL,'001ac675-07bd-caa0-988b-8dca6cac68b3','33',NULL,'10b6ae30-f795-8c92-9f96-f6720d4e6594',1516712491557,NULL,NULL)
-DELETE FROM OFFICE_REQUEST_STEP WHERE ID='10b6ae30-f795-8c92-9f96-f6720d4e6594'
-INSERT INTO OFFICE_REQUEST_STEP VALUES('10b6ae30-f795-8c92-9f96-f6720d4e6594','2018-01-23 15:01:31.646000',NULL,'2018-01-23 15:01:31.646000','admin',NULL,'Initial position, Suspended','7b27930f-a1b3-9f12-d470-e1f5ed12f4d6',NULL,NULL,NULL,'suspended',NULL,NULL,'b8181249-bb9a-45dd-efdb-a0caad51b12c',1516712491541)
-INSERT INTO OFFICE_REQUEST_LOG VALUES('c79043e7-511b-d03a-16a3-c5b2087a8100','2018-01-23 15:01:31.647000','admin','2018-01-23 15:01:31.647000',NULL,'7b27930f-a1b3-9f12-d470-e1f5ed12f4d6','The new request created','60885987-1b61-4247-94c7-dff348347f93','001ac675-07bd-caa0-988b-8dca6cac68b3',1516712491526,NULL,NULL,NULL)
-INSERT INTO OFFICE_REQUEST_LOG VALUES('3f8555bf-72d1-8034-4da8-a45eba149a4c','2018-01-23 15:01:31.646000','admin','2018-01-23 15:01:31.646000',NULL,'7b27930f-a1b3-9f12-d470-e1f5ed12f4d6','The new position set: Initial position','60885987-1b61-4247-94c7-dff348347f93','001ac675-07bd-caa0-988b-8dca6cac68b3',1516712491542,NULL,'com.company.office.entity.RequestStep','10b6ae30-f795-8c92-9f96-f6720d4e6594')
-COMMIT
-DELETE FROM OFFICE_REQUEST WHERE ID='7b27930f-a1b3-9f12-d470-e1f5ed12f4d6'
-INSERT INTO OFFICE_REQUEST VALUES('7b27930f-a1b3-9f12-d470-e1f5ed12f4d6','2018-01-23 15:01:31.621000','admin','33',33,NULL,'2018-01-23 15:01:36.300000','admin','001ac675-07bd-caa0-988b-8dca6cac68b3','33',NULL,'10b6ae30-f795-8c92-9f96-f6720d4e6594',1516712491557,NULL,NULL)
-DELETE FROM OFFICE_REQUEST WHERE ID='7b27930f-a1b3-9f12-d470-e1f5ed12f4d6'
-DELETE FROM OFFICE_REQUEST_STEP WHERE ID='10b6ae30-f795-8c92-9f96-f6720d4e6594'
-DELETE FROM OFFICE_REQUEST_LOG WHERE ID='c79043e7-511b-d03a-16a3-c5b2087a8100'
-DELETE FROM OFFICE_REQUEST_LOG WHERE ID='3f8555bf-72d1-8034-4da8-a45eba149a4c'
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:01:40.264000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM OFFICE_POSITION WHERE ID='b8181249-bb9a-45dd-efdb-a0caad51b12c'
-INSERT INTO OFFICE_POSITION VALUES('b8181249-bb9a-45dd-efdb-a0caad51b12c','2018-01-10 11:33:51.009000','admin','2018-01-23 15:02:09.123000','admin',10,'Initial position',7,7)
-DELETE FROM OFFICE_POSITION_USER WHERE ID='15922368-0681-04f9-d651-6181bbfeb70b'
-INSERT INTO OFFICE_POSITION_USER VALUES('15922368-0681-04f9-d651-6181bbfeb70b','2018-01-10 11:34:52.610000','admin','2018-01-23 15:02:09.123000','admin','b8181249-bb9a-45dd-efdb-a0caad51b12c','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',1,2,1516096984066)
-DELETE FROM OFFICE_POSITION_USER WHERE ID='a072ddbf-0044-526e-8a21-bcb02364025b'
-INSERT INTO OFFICE_POSITION_USER VALUES('a072ddbf-0044-526e-8a21-bcb02364025b','2018-01-10 11:34:52.611000','admin','2018-01-23 15:02:09.123000','admin','b8181249-bb9a-45dd-efdb-a0caad51b12c','bfdb9c32-2d8b-3520-d236-00f089c9d632',NULL,3,1516096979488)
-COMMIT
-DELETE FROM OFFICE_POSITION_USER WHERE ID='a072ddbf-0044-526e-8a21-bcb02364025b'
-INSERT INTO OFFICE_POSITION_USER VALUES('a072ddbf-0044-526e-8a21-bcb02364025b','2018-01-10 11:34:52.611000','admin','2018-01-23 15:02:23.216000','admin','b8181249-bb9a-45dd-efdb-a0caad51b12c','bfdb9c32-2d8b-3520-d236-00f089c9d632',1,3,1516096979488)
-COMMIT
-INSERT INTO OFFICE_REQUEST_STEP VALUES('0ab59506-6cf2-1c2b-ae54-9f4476a1e5be','2018-01-23 15:02:23.292000',NULL,'2018-01-23 15:02:23.292000','admin',NULL,'Assigned to Igor Didukh. Actions added',NULL,NULL,NULL,NULL,'waiting','2018-01-30',NULL,NULL,1516712543128)
-INSERT INTO OFFICE_REQUEST VALUES('8548df70-9c51-0526-00a7-750baecf68fc','2018-01-23 15:02:23.276000','admin','33',33,NULL,'2018-01-23 15:02:23.276000',NULL,'001ac675-07bd-caa0-988b-8dca6cac68b3','33',NULL,'0ab59506-6cf2-1c2b-ae54-9f4476a1e5be',1516712543224,NULL,NULL)
-DELETE FROM OFFICE_REQUEST_STEP WHERE ID='0ab59506-6cf2-1c2b-ae54-9f4476a1e5be'
-INSERT INTO OFFICE_REQUEST_STEP VALUES('0ab59506-6cf2-1c2b-ae54-9f4476a1e5be','2018-01-23 15:02:23.292000',NULL,'2018-01-23 15:02:23.292000','admin','bfdb9c32-2d8b-3520-d236-00f089c9d632','Assigned to Igor Didukh. Actions added','8548df70-9c51-0526-00a7-750baecf68fc',NULL,NULL,NULL,'waiting','2018-01-30',NULL,'b8181249-bb9a-45dd-efdb-a0caad51b12c',1516712543128)
-INSERT INTO OFFICE_REQUEST_STEP VALUES('3d6d1c3f-101b-294f-c71c-95962e146603','2018-01-23 15:02:23.293000',NULL,'2018-01-23 15:02:23.293000','admin',NULL,'Initial position, Suspended','8548df70-9c51-0526-00a7-750baecf68fc',NULL,NULL,NULL,'suspended',NULL,NULL,'b8181249-bb9a-45dd-efdb-a0caad51b12c',1516712543117)
-INSERT INTO OFFICE_REQUEST_LOG VALUES('a38681bf-f3a3-fdb7-cbd7-9a555bc89c4f','2018-01-23 15:02:23.293000','admin','2018-01-23 15:02:23.293000',NULL,'8548df70-9c51-0526-00a7-750baecf68fc','The new worker set: Igor Didukh','60885987-1b61-4247-94c7-dff348347f93','bfdb9c32-2d8b-3520-d236-00f089c9d632',1516712543173,NULL,'com.company.office.entity.RequestStep','0ab59506-6cf2-1c2b-ae54-9f4476a1e5be')
-INSERT INTO OFFICE_REQUEST_LOG VALUES('d782924b-9181-f5c6-6be3-b1b042b03ddc','2018-01-23 15:02:23.293000','admin','2018-01-23 15:02:23.293000',NULL,'8548df70-9c51-0526-00a7-750baecf68fc','The new request created','60885987-1b61-4247-94c7-dff348347f93','001ac675-07bd-caa0-988b-8dca6cac68b3',1516712543105,NULL,NULL,NULL)
-INSERT INTO OFFICE_REQUEST_LOG VALUES('011ea5f9-e739-93cb-99b5-0b55506f3561','2018-01-23 15:02:23.293000','admin','2018-01-23 15:02:23.293000',NULL,'8548df70-9c51-0526-00a7-750baecf68fc','The new worker set: Igor Didukh','60885987-1b61-4247-94c7-dff348347f93','001ac675-07bd-caa0-988b-8dca6cac68b3',1516712543173,NULL,'com.company.office.entity.RequestStep','0ab59506-6cf2-1c2b-ae54-9f4476a1e5be')
-INSERT INTO OFFICE_REQUEST_LOG VALUES('8ad3a8f1-513b-b775-4abd-bfd4467d6ece','2018-01-23 15:02:23.293000','admin','2018-01-23 15:02:23.293000',NULL,'8548df70-9c51-0526-00a7-750baecf68fc','The new position set: Initial position','60885987-1b61-4247-94c7-dff348347f93','001ac675-07bd-caa0-988b-8dca6cac68b3',1516712543118,NULL,'com.company.office.entity.RequestStep','3d6d1c3f-101b-294f-c71c-95962e146603')
-INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('1e0451a4-99aa-0fbe-07f3-62c9418df51a','2018-01-23 15:02:23.294000','admin','2018-01-23 15:02:23.294000',NULL,'0ab59506-6cf2-1c2b-ae54-9f4476a1e5be','message','Send additional applicant info',NULL,NULL,NULL,NULL,NULL,1516712543129)
-INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('bf21a317-2975-2864-319a-297b8b9cdc2d','2018-01-23 15:02:23.293000','admin','2018-01-23 15:02:23.293000',NULL,'0ab59506-6cf2-1c2b-ae54-9f4476a1e5be','file','Send the form #10.2','f071c89e-5817-00de-cf2f-1e4eeb4f7228',NULL,NULL,NULL,NULL,1516712543131)
-INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('51b88cfb-25a6-051d-90fe-135d45cba41c','2018-01-23 15:02:23.294000','admin','2018-01-23 15:02:23.294000',NULL,'0ab59506-6cf2-1c2b-ae54-9f4476a1e5be','file','Send the form #10.3','657ee3a4-0fc0-9e87-2ce6-01a3157e846f',NULL,NULL,NULL,NULL,1516712543132)
-INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('6dad37ed-587b-cdca-9943-8527fd267d3c','2018-01-23 15:02:23.294000','admin','2018-01-23 15:02:23.294000',NULL,'0ab59506-6cf2-1c2b-ae54-9f4476a1e5be','file','Send the form #10.1','ca30b1f0-acbe-3b8b-06fc-10a752f71f40',NULL,NULL,NULL,NULL,1516712543130)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:02:40.264000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:03:40.265000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:04:40.265000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:05:40.266000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:06:40.266000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:07:40.267000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:08:40.267000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:09:40.267000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:10:40.330000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:11:40.388000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:12:40.379000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:13:40.379000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:14:40.380000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:15:40.380000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:16:40.381000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:17:40.381000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:18:40.381000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:19:40.394000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:20:40.394000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:21:40.395000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:22:40.395000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:23:40.396000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:24:40.396000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:25:40.396000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:26:40.397000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:27:40.397000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:28:40.398000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:29:40.398000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:30:40.399000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:31:40.399000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:32:40.399000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:33:40.400000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:34:40.400000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:35:40.401000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:36:40.401000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:37:40.402000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:38:40.402000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:39:40.402000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:40:40.403000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:41:40.403000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:42:40.404000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:43:40.404000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-INSERT INTO SEC_USER_SETTING VALUES('80ff5295-45f4-a358-644f-e281cba33674',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','office$RequestStepCommunication.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings>\u000a  <components>\u000a    <component name="questionBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a    <component name="answerBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a  </components>\u000a</settings>\u000a')
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:44:40.405000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:45:40.405000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:46:40.406000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SEC_USER_SETTING WHERE ID='80ff5295-45f4-a358-644f-e281cba33674'
-INSERT INTO SEC_USER_SETTING VALUES('80ff5295-45f4-a358-644f-e281cba33674',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','office$RequestStepCommunication.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="questionBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="answerBox"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:47:40.407000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:48:40.407000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:49:40.408000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:50:40.408000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:51:40.409000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:52:40.409000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:53:40.409000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:54:40.410000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:55:40.410000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 15:56:03.930000',NULL,'localhost:8080/app-core',FALSE,NULL)
-COMMIT
 DISCONNECT
 /*C107*/SET SCHEMA PUBLIC
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 16:08:09.838000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 16:08:31.170000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
 DISCONNECT
 /*C108*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C109*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C111*/SET SCHEMA PUBLIC
-DISCONNECT
 /*C110*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C112*/SET SCHEMA PUBLIC
+/*C111*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C113*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C112*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C114*/SET SCHEMA PUBLIC
 DISCONNECT
@@ -269,127 +1204,16 @@ DISCONNECT
 /*C116*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C117*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C118*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C119*/SET SCHEMA PUBLIC
-alter table OFFICE_REQUEST_STEP_COMMUNICATION add column READ_ date 
-INSERT INTO SYS_DB_CHANGELOG VALUES('50-office/update/hsql/18/180123-2-updateRequestStepCommunication.sql','2018-01-23 15:57:02.013000',0)
-COMMIT
-DISCONNECT
-/*C120*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C121*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C122*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C123*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C125*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C124*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C126*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C127*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C128*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C129*/SET SCHEMA PUBLIC
-DELETE FROM SEC_USER_SETTING WHERE ID='17fea1e0-4c6c-8ea1-b808-e68a5433fe9b'
-INSERT INTO SEC_USER_SETTING VALUES('17fea1e0-4c6c-8ea1-b808-e68a5433fe9b',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','office$Request.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="filter"> \u000a      <defaultFilter/>  \u000a      <groupBoxExpanded>true</groupBoxExpanded> \u000a    </component>  \u000a    <component name="requestsTable"> \u000a      <columns> \u000a        <columns id="applicant" visible="true"/>  \u000a        <columns id="sn" visible="true"/>  \u000a        <columns id="description" visible="true"/>  \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="state" visible="true"/>  \u000a        <columns id="penalty" width="50" visible="true"/> \u000a      </columns>  \u000a      <groupProperties/> \u000a    </component>  \u000a    <component name="detailsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="initiator" visible="true"/>\u000a        <columns id="question" visible="true"/>\u000a        <columns id="updateTs" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="answer" visible="true"/>\u000a        <columns id="read" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="statesTable"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="createdBy" visible="true"/>  \u000a        <columns id="description" visible="true"/>  \u000a        <columns id="position" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="split"> \u000a      <position value="51.178993" unit="%"/> \u000a    </component>  \u000a    <component name="table"> \u000a      <columns>\u000a        <columns id="applicant" visible="true"/>\u000a        <columns id="applicantCode" visible="true"/>\u000a        <columns id="sn" visible="true"/>\u000a        <columns id="step.position" visible="true"/>\u000a        <columns id="step.state" visible="true"/>\u000a        <columns id="step.user" visible="true"/>\u000a      </columns>\u000a      <groupProperties/>\u000a    </component>  \u000a    <component name="stepsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="position" visible="true"/>\u000a        <columns id="state" visible="true"/>\u000a        <columns id="user" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="tableRequests"> \u000a      <columns> \u000a        <columns id="applicant" visible="true"/>  \u000a        <columns id="sn" visible="true"/>  \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="state" visible="true"/>  \u000a        <columns id="penalty" visible="true"/> \u000a      </columns>  \u000a      <groupProperties/> \u000a    </component>  \u000a    <component name="tableSteps"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="createdBy" visible="true"/>  \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="tableActions"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="createdBy" visible="true"/>  \u000a        <columns id="type" visible="true"/>  \u000a        <columns id="deadline" visible="true"/>  \u000a        <columns id="submitted" visible="true"/>  \u000a        <columns id="approved" visible="true"/>  \u000a        <columns id="penalty" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="tableCommunications"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="createdBy" visible="true"/>  \u000a        <columns id="updateTs" visible="true"/>  \u000a        <columns id="updatedBy" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="stepActionsTable"> \u000a      <columns> \u000a        <columns id="type" visible="true"/>  \u000a        <columns id="submitted" visible="true"/>  \u000a        <columns id="approved" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="stepCommunicationsTable"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="updateTs" visible="true"/>  \u000a        <columns id="question" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="imageBox"> \u000a      <groupBox expanded="true"/> \u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 16:09:54.046000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:08:28.852000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 16:10:54.045000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:09:28.851000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 16:11:54.045000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:10:28.851000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:11:28.852000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SEC_USER_SETTING WHERE ID='81045870-a989-88da-b890-81b7f97fb816'
-INSERT INTO SEC_USER_SETTING VALUES('81045870-a989-88da-b890-81b7f97fb816',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','office$Request.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="communicationsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="updateTs" visible="true"/>\u000a        <columns id="question" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="actionsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="statesBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="statesTable"> \u000a      <columns> \u000a        <columns id="createTs" width="180" visible="true"/>  \u000a        <columns id="step" width="267" visible="true"/>  \u000a        <columns id="user" width="279" visible="true"/>  \u000a        <columns id="description" width="534" visible="true"/>  \u000a        <columns id="createdBy" width="360" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="titleBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="currentBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="stepsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="stepsTable"> \u000a      <columns> \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="description" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="additionalBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="tableSteps"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="createdBy" visible="true"/>  \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="split"> \u000a      <position value="27.759914" unit="%"/> \u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="stepBox"> \u000a      <groupBox expanded="false"/>\u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="imageBox"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:12:28.852000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:13:28.852000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:14:28.853000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:15:28.853000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:16:28.854000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:17:28.854000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:18:28.855000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:19:28.855000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:20:28.855000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:21:28.856000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:22:28.856000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:23:28.858000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:24:28.857000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:25:28.858000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:26:28.858000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:27:28.859000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:28:28.859000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:29:28.860000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:30:28.861000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:31:28.861000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:32:28.862000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:33:28.862000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:34:28.863000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:35:28.863000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SEC_USER_SETTING WHERE ID='17fea1e0-4c6c-8ea1-b808-e68a5433fe9b'
-INSERT INTO SEC_USER_SETTING VALUES('17fea1e0-4c6c-8ea1-b808-e68a5433fe9b',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','office$Request.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="filter"> \u000a      <defaultFilter/>  \u000a      <groupBoxExpanded>true</groupBoxExpanded> \u000a    </component>  \u000a    <component name="requestsTable"> \u000a      <columns> \u000a        <columns id="applicant" visible="true"/>  \u000a        <columns id="sn" visible="true"/>  \u000a        <columns id="description" visible="true"/>  \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="state" visible="true"/>  \u000a        <columns id="penalty" width="50" visible="true"/> \u000a      </columns>  \u000a      <groupProperties/> \u000a    </component>  \u000a    <component name="detailsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="updateTs" visible="true"/>\u000a        <columns id="question" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="statesTable"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="createdBy" visible="true"/>  \u000a        <columns id="description" visible="true"/>  \u000a        <columns id="position" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="split"> \u000a      <position value="51.178993" unit="%"/> \u000a    </component>  \u000a    <component name="table"> \u000a      <columns>\u000a        <columns id="applicant" visible="true"/>\u000a        <columns id="applicantCode" visible="true"/>\u000a        <columns id="sn" visible="true"/>\u000a        <columns id="step.position" visible="true"/>\u000a        <columns id="step.state" visible="true"/>\u000a        <columns id="step.user" visible="true"/>\u000a      </columns>\u000a      <groupProperties/>\u000a    </component>  \u000a    <component name="stepsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="position" visible="true"/>\u000a        <columns id="state" visible="true"/>\u000a        <columns id="user" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="tableRequests"> \u000a      <columns> \u000a        <columns id="applicant" visible="true"/>  \u000a        <columns id="sn" visible="true"/>  \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="state" visible="true"/>  \u000a        <columns id="penalty" visible="true"/> \u000a      </columns>  \u000a      <groupProperties/> \u000a    </component>  \u000a    <component name="tableSteps"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="createdBy" visible="true"/>  \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="tableActions"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="createdBy" visible="true"/>  \u000a        <columns id="type" visible="true"/>  \u000a        <columns id="deadline" visible="true"/>  \u000a        <columns id="submitted" visible="true"/>  \u000a        <columns id="approved" visible="true"/>  \u000a        <columns id="penalty" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="tableCommunications"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="createdBy" visible="true"/>  \u000a        <columns id="updateTs" visible="true"/>  \u000a        <columns id="updatedBy" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="stepActionsTable"> \u000a      <columns> \u000a        <columns id="type" visible="true"/>  \u000a        <columns id="submitted" visible="true"/>  \u000a        <columns id="approved" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="stepCommunicationsTable"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="updateTs" visible="true"/>  \u000a        <columns id="question" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="imageBox"> \u000a      <groupBox expanded="true"/> \u000a    </component> \u000a  </components> \u000a</settings>\u000a')
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-23 16:35:55.375000',NULL,'localhost:8080/app-core',FALSE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-26 16:12:12.808000',NULL,'localhost:8080/app-core',FALSE,NULL)
 COMMIT
 DISCONNECT

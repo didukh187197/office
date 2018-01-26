@@ -15,13 +15,14 @@
         </datasource>
     </dsContext>
     <dialogMode forceDialog="true"
-                height="600"
+                height="610"
                 width="800"/>
-    <layout expand="windowActions"
+    <layout expand="tabSheet"
             spacing="true">
         <tabSheet id="tabSheet">
             <tab id="tabMain"
                  caption="Main"
+                 expand="otherBox"
                  margin="true,false,false,false"
                  spacing="true">
                 <groupBox id="questionBox"
@@ -92,6 +93,8 @@
                                     invoke="onBtnShowAnswerFileClick"/>
                     </hbox>
                 </groupBox>
+                <vbox id="otherBox"
+                      spacing="true"/>
             </tab>
             <tab id="tabSystem"
                  caption="System"
@@ -115,7 +118,7 @@
                 </fieldGroup>
             </tab>
         </tabSheet>
-        <buttonsPanel>
+        <buttonsPanel id="buttonsPanel">
             <button id="okBtn"
                     action="windowCommit"
                     caption="mainMsg://actions.Ok"

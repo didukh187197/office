@@ -49,7 +49,6 @@ public class RequestStepCommunicationEdit extends OfficeEditor<RequestStepCommun
 
     @Override
     public void init(Map<String, Object> params) {
-        super.additional();
         initiatorField.setEditable(false);
         uploadQuestionFile.setUploadButtonCaption("");
         uploadQuestionFile.setClearButtonCaption("");
@@ -74,14 +73,9 @@ public class RequestStepCommunicationEdit extends OfficeEditor<RequestStepCommun
                 recepientField.setEditable(false);
                 questionField.setEnabled(false);
                 questionFileBox.setEnabled(false);
-
             }
-
         }
-
-
     }
-
 
     public void onBtnShowQuestionFileClick() {
     }

@@ -1,4 +1,10 @@
+@import "../halo";
+
 /* Define your theme modifications inside next mixin */
 @mixin com_company_office-halo-ext {
+  @include halo;
 
+  .name-field {
+    background-color: lightyellow;
+  }
 }

@@ -18,12 +18,14 @@
         </collectionDatasource>
     </dsContext>
     <dialogMode forceDialog="true"
-                height="600"
+                height="370"
                 width="800"/>
-    <layout spacing="true">
+    <layout expand="tabSheet"
+            spacing="true">
         <tabSheet id="tabSheet">
             <tab id="tabMain"
                  caption="Main"
+                 expand="boxOther"
                  margin="true,false,false,false"
                  spacing="true">
                 <fieldGroup id="fieldGroup"
@@ -70,11 +72,11 @@
                                     invoke="onBtnShowTemplateClick"/>
                     </hbox>
                     <hbox id="boxFile"
-                          expand="uploadFile"
+                          expand="btnShowFile"
                           spacing="true"
                           width="100%">
                         <label id="labelFile"
-                               align="MIDDLE_CENTER"
+                               align="MIDDLE_LEFT"
                                value="msg://lblFile"
                                width="75px"/>
                         <upload id="uploadFile"
@@ -92,6 +94,8 @@
                                     invoke="onBtnShowFileClick"/>
                     </hbox>
                 </vbox>
+                <vbox id="boxOther"
+                      spacing="true"/>
             </tab>
             <tab id="tabSystem"
                  caption="System"
@@ -115,7 +119,7 @@
                 </fieldGroup>
             </tab>
         </tabSheet>
-        <buttonsPanel>
+        <buttonsPanel id="buttonsPanel">
             <button id="okBtn"
                     action="windowCommit"
                     caption="mainMsg://actions.Ok"

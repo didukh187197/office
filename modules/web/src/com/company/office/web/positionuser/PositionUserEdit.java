@@ -23,8 +23,6 @@ public class PositionUserEdit extends OfficeEditor<PositionUser> {
         if (officeConfig.getWorkersGroupQuery() != null) {
             usersDs.setQuery(officeConfig.getWorkersGroupQuery());
         }
-
-        super.additional();
     }
 
     @Override
@@ -38,7 +36,6 @@ public class PositionUserEdit extends OfficeEditor<PositionUser> {
             showNotification(getMessage("warn.wrongThreshold"), NotificationType.ERROR);
             return false;
         }
-
         return true;
     }
 }

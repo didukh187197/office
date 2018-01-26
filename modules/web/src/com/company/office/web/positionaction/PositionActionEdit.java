@@ -34,8 +34,6 @@ public class PositionActionEdit extends OfficeEditor<PositionAction> {
     public void init(Map<String, Object> params) {
         typeField.addValueChangeListener(e -> processActionType((ActionType) e.getValue()));
         lookupFile.addValueChangeListener(e -> setButtonParams());
-
-        super.additional();
     }
 
     @Override

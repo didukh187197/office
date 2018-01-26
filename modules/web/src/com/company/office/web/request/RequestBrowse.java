@@ -8,6 +8,7 @@ import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.components.actions.CreateAction;
 import com.haulmont.cuba.gui.components.actions.EditAction;
+import com.haulmont.cuba.gui.data.Datasource;
 import com.haulmont.cuba.gui.data.GroupDatasource;
 import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
 
@@ -34,6 +35,9 @@ public class RequestBrowse extends AbstractLookup {
 
     @Inject
     private TabSheet tabSheet;
+
+    @Inject
+    private LookupField stepLookup;
 
     @Override
     public void init(Map<String, Object> params) {
@@ -66,15 +70,7 @@ public class RequestBrowse extends AbstractLookup {
                         return false;
                     }
                     break;
-
-                case Applicants:
-                    if (!state.equals(State.Waiting) && !state.equals(State.Approving)) {
-                        officeWeb.showWarningMessage(this, getMessage("edit.notAllowed"));
-                        return false;
-                    }
-                    break;
             }
-
             return true;
         });
 
@@ -114,9 +110,8 @@ public class RequestBrowse extends AbstractLookup {
         if (requestsDs.getItem() == null)
             return;
 
-        Table stepsTable = (Table) getComponentNN("stepsTable");
-        if ((requestsDs.getItem().getStep() != null) && (!stepsTable.getDatasource().getItems().isEmpty())) {
-            stepsTable.setSelected(requestsDs.getItem().getStep());
+        if (requestsDs.getItem().getStep() != null) {
+            stepLookup.setValue(requestsDs.getItem().getStep());
         }
     }
 
@@ -227,4 +222,18 @@ public class RequestBrowse extends AbstractLookup {
         );
     }
 
+
+    public void onStepBtnClick() {
+        if (requestsDs.getItem() == null)
+            return;
+
+        openEditor("office$RequestStep.edit", stepLookup.getValue(), WindowManager.OpenType.DIALOG);
+
+        /*
+        RequestStepEdit editor = (RequestStepEdit) openEditor("office$RequestStep.edit", requestsDs.getItem(), WindowManager.OpenType.DIALOG);
+        editor.addCloseWithCommitListener(() -> {
+            // do something
+        });
+        */
+    }
 }

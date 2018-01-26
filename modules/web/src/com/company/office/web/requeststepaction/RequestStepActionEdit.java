@@ -55,7 +55,6 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
     @Override
     public void init(Map<String, Object> params) {
         addListeners();
-        super.additional();
     }
 
     @Override

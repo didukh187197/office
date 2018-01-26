@@ -23,7 +23,7 @@ import javax.persistence.TemporalType;
 import com.haulmont.chile.core.annotations.NamePattern;
 import javax.persistence.OrderBy;
 
-@NamePattern("%s, %s %s|position,state,user")
+@NamePattern("%s, %s, %s|position,state,user")
 @Table(name = "OFFICE_REQUEST_STEP")
 @Entity(name = "office$RequestStep")
 public class RequestStep extends BaseUuidEntity implements Updatable, Creatable {

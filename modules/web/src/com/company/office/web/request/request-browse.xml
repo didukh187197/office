@@ -184,37 +184,19 @@
                              expand="tabSheetStep"
                              margin="true,false,false,false"
                              spacing="true">
-                            <table id="stepsTable"
-                                   height="200px"
-                                   width="100%">
-                                <columns>
-                                    <column id="createTs"
-                                            caption="mainMsg://field.created"/>
-                                    <column id="position"/>
-                                    <column id="state"/>
-                                    <column id="user"/>
-                                    <column id="submitted"/>
-                                    <column id="approved"/>
-                                </columns>
-                                <rows datasource="stepsDs"/>
-                            </table>
-                            <fieldGroup id="fieldsStep"
-                                        datasource="stepsDs"
-                                        width="100%">
-                                <column fieldCaptionWidth="75px"
-                                        width="100%">
-                                    <field property="description"/>
-                                </column>
-                            </fieldGroup>
-                            <fieldGroup id="fieldsStepDates"
-                                        datasource="stepsDs">
-                                <column width="150px">
-                                    <field property="submissionTerm"/>
-                                </column>
-                                <column width="150px">
-                                    <field property="approvalTerm"/>
-                                </column>
-                            </fieldGroup>
+                            <hbox expand="stepBtn"
+                                  spacing="true">
+                                <label align="MIDDLE_LEFT"
+                                       value="msg://step"/>
+                                <lookupField id="stepLookup"
+                                             nullOptionVisible="false"
+                                             optionsDatasource="stepsDs"
+                                             width="400px"/>
+                                <linkButton id="stepBtn"
+                                            align="MIDDLE_LEFT"
+                                            caption="msg://stepBtn"
+                                            invoke="onStepBtnClick"/>
+                            </hbox>
                             <tabSheet id="tabSheetStep">
                                 <tab id="actionsTab"
                                      caption="msg://com.company.office.entity/RequestStep.actions"

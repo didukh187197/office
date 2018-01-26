@@ -14,7 +14,7 @@ public class OfficeEditor<T extends Entity> extends AbstractEditor {
     
     @Inject
     private OfficeTools officeTools;
-    
+
     @Override
     protected void postInit() {
         if (PersistenceHelper.isNew(getItem())) {
@@ -32,6 +32,9 @@ public class OfficeEditor<T extends Entity> extends AbstractEditor {
                 showNotification("InvocationTargetException");
             }
         }
+
+        checkSystemTab();
+        setDialogWidth("fieldGroup");
     }
 
     @Override
@@ -41,17 +44,15 @@ public class OfficeEditor<T extends Entity> extends AbstractEditor {
 
     private void checkSystemTab() {
         if (!officeTools.isAdmin()) {
-            ((TabSheet) getComponentNN("tabSheet")).getTab("tabSystem").setVisible(false);
+            TabSheet tabSheet = (TabSheet) getComponentNN("tabSheet");
+            getDialogOptions().setHeight(getDialogOptions().getHeight() - 30);
+            tabSheet.getTab("tabSystem").setVisible(false);
+            tabSheet.setTabsVisible(false);
         }
     }
 
     private void setDialogWidth(String componentName) {
         getDialogOptions().setWidth(getComponentNN(componentName).getWidth());
-    }
-
-    protected void additional() {
-        checkSystemTab();
-        setDialogWidth("fieldGroup");
     }
 
 }
