@@ -60,13 +60,20 @@
                                     invoke="onBtnShowQuestionFileClick"/>
                     </hbox>
                 </groupBox>
+                <fieldGroup id="fieldGroupRecepient"
+                            datasource="requestStepCommunicationDs">
+                    <column fieldCaptionWidth="70px"
+                            width="400px">
+                        <field property="recepient"/>
+                    </column>
+                </fieldGroup>
                 <groupBox id="answerBox"
                           spacing="true">
+
                     <fieldGroup id="fieldGroupAnswer"
                                 datasource="requestStepCommunicationDs">
                         <column fieldCaptionWidth="70px"
                                 width="400px">
-                            <field property="recepient"/>
                             <field property="answer"
                                    rows="6"/>
                         </column>
@@ -123,13 +130,13 @@
                     action="windowCommit"
                     caption="mainMsg://actions.Ok"
                     icon="icons/ok.png"/>
-            <button id="closeBtn"
+            <button id="cancelBtn"
                     action="windowClose"
                     caption="mainMsg://actions.Cancel"
                     description="Esc"
                     icon="icons/cancel.png"/>
-            <button id="readBtn"
-                    caption="msg://btnRead"
+            <button id="closeBtn"
+                    caption="msg://btnClose"
                     invoke="onReadBtnClick"/>
         </buttonsPanel>
     </layout>

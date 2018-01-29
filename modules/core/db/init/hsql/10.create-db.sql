@@ -100,7 +100,7 @@ create table OFFICE_REQUEST_STEP_COMMUNICATION (
     RECEPIENT_ID varchar(36),
     ANSWER varchar(255),
     ANSWER_FILE_ID varchar(36),
-    CONFIRMED date,
+    CLOSED date,
     MOMENT bigint,
     --
     primary key (ID)

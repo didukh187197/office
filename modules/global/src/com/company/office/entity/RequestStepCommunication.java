@@ -59,8 +59,8 @@ public class RequestStepCommunication extends BaseUuidEntity implements Creatabl
     protected FileDescriptor answerFile;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "CONFIRMED")
-    protected Date confirmed;
+    @Column(name = "CLOSED")
+    protected Date closed;
 
     @Column(name = "MOMENT")
     protected Long moment;
@@ -79,12 +79,13 @@ public class RequestStepCommunication extends BaseUuidEntity implements Creatabl
 
 
 
-    public void setConfirmed(Date confirmed) {
-        this.confirmed = confirmed;
+
+    public void setClosed(Date closed) {
+        this.closed = closed;
     }
 
-    public Date getConfirmed() {
-        return confirmed;
+    public Date getClosed() {
+        return closed;
     }
 
 

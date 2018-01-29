@@ -225,6 +225,7 @@
                                 <column id="updateTs"
                                         caption="mainMsg://field.updated"/>
                                 <column id="question"/>
+                                <column id="closed"/>
                             </columns>
                             <rows datasource="communicationsDs"/>
                             <buttonsPanel>
