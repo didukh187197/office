@@ -53,12 +53,6 @@ public class RequestEdit extends AbstractEditor<Request> {
     private FileUploadField uploadField;
 
     @Inject
-    private Button downloadImageBtn;
-
-    @Inject
-    private Button clearImageBtn;
-
-    @Inject
     private Datasource<Request> requestDs;
 
     @Inject
@@ -84,11 +78,11 @@ public class RequestEdit extends AbstractEditor<Request> {
             getItem().setMoment(officeTools.getMoment());
         }
 
-        tuneComponents();
         setUserInterface();
         showSubmitButton();
         showApproveBtn();
         displayImage();
+        applicantField.getLookupAction().setLookupScreenOpenType(WindowManager.OpenType.DIALOG);
         updateImageButtons(getItem().getImageFile() != null);
     }
 
@@ -148,14 +142,6 @@ public class RequestEdit extends AbstractEditor<Request> {
         });
     }
 
-    private void tuneComponents() {
-        applicantField.getLookupAction().setLookupScreenOpenType(WindowManager.OpenType.DIALOG);
-
-        if (officeConfig.getWorkersGroupQuery() != null) {
-            ((CollectionDatasource) getDsContext().getNN("workersDs")).setQuery(officeConfig.getWorkersGroupQuery());
-        }
-    }
-
     private void setUserInterface() {
         if (officeTools.isAdmin()) {
             ((FieldGroup) getComponentNN("stepParamsFields")).setEditable(true);
@@ -173,11 +159,10 @@ public class RequestEdit extends AbstractEditor<Request> {
                     applicantField.setEditable(false);
                 }
                 break;
+            case Managers:
             case Workers:
-                getComponentNN("infoBox").setEnabled(false);
-                break;
             case Applicants:
-                getComponentNN("infoBox").setEnabled(false);
+                disableContainer("infoBox");
                 break;
             default:
         }
@@ -361,8 +346,10 @@ public class RequestEdit extends AbstractEditor<Request> {
     }
 
     private void updateImageButtons(boolean enable) {
-        downloadImageBtn.setEnabled(enable);
-        clearImageBtn.setEnabled(enable);
+        if (getComponentNN("uploadField").isEnabled()) {
+            getComponentNN("downloadImageBtn").setEnabled(enable);
+            getComponentNN("clearImageBtn").setEnabled(enable);
+        }
     }
 
     private void displayImage() {
@@ -372,5 +359,11 @@ public class RequestEdit extends AbstractEditor<Request> {
         } else {
             image.setVisible(false);
         }
+    }
+
+    private void disableContainer(String containerID) {
+        officeWeb.disableContainer(this, containerID);
+        getComponentNN("downloadImageBtn").setEnabled(false);
+        getComponentNN("clearImageBtn").setEnabled(false);
     }
 }

@@ -6,6 +6,7 @@ import com.haulmont.cuba.core.config.Property;
 import com.haulmont.cuba.core.config.Source;
 import com.haulmont.cuba.core.config.SourceType;
 import com.haulmont.cuba.security.entity.Group;
+import com.haulmont.cuba.security.entity.Role;
 
 @Source(type = SourceType.DATABASE)
 public interface OfficeConfig extends Config {
@@ -14,35 +15,48 @@ public interface OfficeConfig extends Config {
     String getCompanyName();
     void setCompanyName(String name);
 
-    @Property("office.managersGroup")
+    @Property("office.groups.commonGroup")
+    Group getCommonGroup();
+    void setCommonGroup(Group group);
+
+    @Property("office.groups.managersGroup")
     Group getManagersGroup();
     void setManagersGroup(Group group);
 
-    @Property("office.registratorsGroup")
+    @Property("office.groups.registratorsGroup")
     Group getRegistratorsGroup();
     void setRegistratorsGroup(Group group);
 
-    @Property("office.applicantsGroup")
+    @Property("office.groups.applicantsGroup")
     Group getApplicantsGroup();
     void setApplicantsGroup(Group group);
 
-    @Property("office.queries.applicantsGroup")
-    String getApplicantsGroupQuery();
-    void setApplicantsGroupQuery(String query);
-
-    @Property("office.workersGroup")
+    @Property("office.groups.workersGroup")
     Group getWorkersGroup();
     void setWorkersGroup(Group group);
 
-    @Property("office.queries.workersGroup")
-    String getWorkersGroupQuery();
-    void setWorkersGroupQuery(String query);
+    // Roles
+    @Property("office.roles.managersRole")
+    Role getManagersRole();
+    void setManagersRole(Role role);
 
-    @Property("office.initPosition")
+    @Property("office.roles.registratorsRole")
+    Role getRegistratorsRole();
+    void setRegistratorsRole(Role role);
+
+    @Property("office.roles.applicantsRole")
+    Role getApplicantsRole();
+    void setApplicantsRole(Role role);
+
+    @Property("office.roles.workersRole")
+    Role getWorkersRole();
+    void setWorkersRole(Role role);
+
+    @Property("office.positions.initPosition")
     Position getInitPosition();
     void setInitPosition(Position position);
 
-    @Property("office.finalPosition")
+    @Property("office.positions.finalPosition")
     Position getFinalPosition();
     void setFinalPosition(Position position);
 

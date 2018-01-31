@@ -19,12 +19,6 @@
             <collectionDatasource id="logsDs"
                                   property="logs"/>
         </datasource>
-        <collectionDatasource id="workersDs"
-                              class="com.haulmont.cuba.security.entity.User">
-            <query>
-                <![CDATA[select e from sec$User e]]>
-            </query>
-        </collectionDatasource>
     </dsContext>
     <dialogMode height="600"
                 width="800"/>
@@ -222,8 +216,8 @@
                             <columns>
                                 <column id="createTs"
                                         caption="mainMsg://field.created"/>
-                                <column id="updateTs"
-                                        caption="mainMsg://field.updated"/>
+                                <column id="initiator"/>
+                                <column id="recepient"/>
                                 <column id="question"/>
                                 <column id="closed"/>
                             </columns>

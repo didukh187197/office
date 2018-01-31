@@ -20,8 +20,10 @@ public class PositionUserEdit extends OfficeEditor<PositionUser> {
 
     @Override
     public void init(Map<String, Object> params) {
-        if (officeConfig.getWorkersGroupQuery() != null) {
-            usersDs.setQuery(officeConfig.getWorkersGroupQuery());
+        if (officeConfig.getWorkersGroup() != null) {
+            usersDs.setQuery(
+                    String.format("select e from sec$User e where e.group.id = '%s'", officeConfig.getWorkersGroup().getId())
+            );
         }
     }
 

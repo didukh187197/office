@@ -15,7 +15,7 @@
         </datasource>
     </dsContext>
     <dialogMode forceDialog="true"
-                height="610"
+                height="630"
                 width="800"/>
     <layout expand="tabSheet"
             spacing="true">
@@ -60,45 +60,49 @@
                                     invoke="onBtnShowQuestionFileClick"/>
                     </hbox>
                 </groupBox>
-                <fieldGroup id="fieldGroupRecepient"
-                            datasource="requestStepCommunicationDs">
-                    <column fieldCaptionWidth="70px"
-                            width="400px">
-                        <field property="recepient"/>
-                    </column>
-                </fieldGroup>
-                <groupBox id="answerBox"
-                          spacing="true">
-
-                    <fieldGroup id="fieldGroupAnswer"
-                                datasource="requestStepCommunicationDs">
-                        <column fieldCaptionWidth="70px"
-                                width="400px">
-                            <field property="answer"
-                                   rows="6"/>
-                        </column>
-                    </fieldGroup>
-                    <hbox id="answerFileBox"
-                          spacing="true"
-                          width="100%">
-                        <label id="labelAnswerFile"
-                               align="MIDDLE_CENTER"
-                               value="msg://lblFile"
-                               width="70px"/>
-                        <upload id="uploadAnswerFile"
-                                clearButtonIcon="icons/remove.png"
-                                datasource="requestStepCommunicationDs"
-                                fileSizeLimit="2097152"
-                                fileStoragePutMode="IMMEDIATE"
-                                property="answerFile"
-                                showClearButton="true"
-                                showFileName="true"
-                                uploadButtonIcon="icons/upload.png"/>
-                        <linkButton id="btnShowAnswerFile"
-                                    align="MIDDLE_LEFT"
-                                    caption="msg://btnShowFile"
-                                    invoke="onBtnShowAnswerFileClick"/>
+                <groupBox spacing="true">
+                    <hbox id="recepientBox">
+                        <label align="MIDDLE_CENTER"
+                               value="msg://lblRecepient"
+                               width="75px"/>
+                        <lookupField id="recepientLookup"
+                                     datasource="requestStepCommunicationDs"
+                                     property="recepient"
+                                     required="true"
+                                     width="400px"/>
                     </hbox>
+                    <vbox id="answerBox"
+                          spacing="true">
+                        <fieldGroup id="fieldGroupAnswer"
+                                    datasource="requestStepCommunicationDs">
+                            <column fieldCaptionWidth="70px"
+                                    width="400px">
+                                <field property="answer"
+                                       rows="6"/>
+                            </column>
+                        </fieldGroup>
+                        <hbox id="answerFileBox"
+                              spacing="true"
+                              width="100%">
+                            <label id="labelAnswerFile"
+                                   align="MIDDLE_CENTER"
+                                   value="msg://lblFile"
+                                   width="70px"/>
+                            <upload id="uploadAnswerFile"
+                                    clearButtonIcon="icons/remove.png"
+                                    datasource="requestStepCommunicationDs"
+                                    fileSizeLimit="2097152"
+                                    fileStoragePutMode="IMMEDIATE"
+                                    property="answerFile"
+                                    showClearButton="true"
+                                    showFileName="true"
+                                    uploadButtonIcon="icons/upload.png"/>
+                            <linkButton id="btnShowAnswerFile"
+                                        align="MIDDLE_LEFT"
+                                        caption="msg://btnShowFile"
+                                        invoke="onBtnShowAnswerFileClick"/>
+                        </hbox>
+                    </vbox>
                 </groupBox>
                 <vbox id="otherBox"
                       spacing="true"/>

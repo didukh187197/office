@@ -128,8 +128,7 @@ public class RequestBrowse extends AbstractLookup {
             case Managers:
                 getComponentNN("extraActionsBtn").setVisible(true);
                 table.getActionNN("create").setVisible(false);
-                table.getActionNN("edit").setVisible(false);
-                table.getActionNN("edit").setEnabled(false);
+                //table.getActionNN("edit").setEnabled(false);
                 table.getActionNN("remove").setVisible(false);
                 break;
 

@@ -4,6 +4,7 @@ import com.company.office.entity.*;
 import com.company.office.common.OfficeCommon;
 import com.company.office.common.OfficeTools;
 import com.company.office.web.officeeditor.OfficeEditor;
+import com.company.office.web.officeweb.OfficeWeb;
 import com.haulmont.cuba.core.entity.FileDescriptor;
 import com.haulmont.cuba.gui.WindowParam;
 import com.haulmont.cuba.gui.components.*;
@@ -25,6 +26,9 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
 
     @Inject
     private OfficeTools officeTools;
+
+    @Inject
+    private OfficeWeb officeWeb;
 
     @Inject
     private ExportDisplay exportDisplay;
@@ -105,6 +109,10 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
         Component disapproveBtn = getComponentNN("disapproveBtn");
 
         switch (officeTools.getActiveGroupType()) {
+            case Managers:
+                officeWeb.disableContainer(this, "tabMain");
+                break;
+
             case Workers:
                 messageField.setEnabled(false);
                 uploadFile.setEnabled(false);
@@ -180,6 +188,7 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
 
     private void setButtonParams() {
         getComponentNN("btnShowTemplate").setEnabled(getItem().getTemplate() != null);
+        getComponentNN("btnShowFile").setEnabled(getItem().getTemplate() != null);
     }
 
     private void showFile(FileDescriptor file) {

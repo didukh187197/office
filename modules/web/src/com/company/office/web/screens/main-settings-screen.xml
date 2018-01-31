@@ -14,13 +14,13 @@
         <collectionDatasource id="positionsDs"
                               class="com.company.office.entity.Position">
             <query>
-                <![CDATA[select e from office$Position e]]>
+                <![CDATA[select e from office$Position e order by e.identifier]]>
             </query>
         </collectionDatasource>
-        <collectionDatasource id="usersDs"
-                              class="com.haulmont.cuba.security.entity.User">
+        <collectionDatasource id="rolesDs"
+                              class="com.haulmont.cuba.security.entity.Role">
             <query>
-                <![CDATA[select e from sec$User e]]>
+                <![CDATA[select e from sec$Role e]]>
             </query>
         </collectionDatasource>
     </dsContext>
@@ -37,59 +37,72 @@
                    width="110px"/>
             <textField id="txtCompanyName"/>
         </hbox>
-        <groupBox id="groupsBox"
-                  caption="msg://settingsDialog.groupsBox"
-                  spacing="true"
-                  width="500px">
-            <hbox id="managersBox"
-                  expand="lookupManagersGroup"
-                  spacing="true"
-                  width="100%">
-                <label align="MIDDLE_LEFT"
-                       value="msg://settingsDialog.managersGroup"
-                       width="80px"/>
+        <hbox spacing="true">
+            <groupBox id="groupsBox"
+                      caption="msg://settingsDialog.groupsBox"
+                      spacing="true"
+                      width="245px">
                 <lookupField id="lookupManagersGroup"
+                             caption="msg://settingsDialog.managers"
                              nullOptionVisible="false"
                              optionsDatasource="groupsDs"
-                             required="true"/>
-            </hbox>
-            <hbox id="registratorsBox"
-                  expand="lookupRegistratorsGroup"
-                  spacing="true"
-                  width="100%">
-                <label align="MIDDLE_LEFT"
-                       value="msg://settingsDialog.registratorsGroup"
-                       width="80px"/>
+                             required="true"
+                             width="100%"/>
                 <lookupField id="lookupRegistratorsGroup"
+                             caption="msg://settingsDialog.registrators"
                              nullOptionVisible="false"
                              optionsDatasource="groupsDs"
-                             required="true"/>
-            </hbox>
-            <hbox id="applicantsBox"
-                  expand="lookupApplicantsGroup"
-                  spacing="true"
-                  width="100%">
-                <label align="MIDDLE_LEFT"
-                       value="msg://settingsDialog.applicantsGroup"
-                       width="80px"/>
+                             required="true"
+                             width="100%"/>
                 <lookupField id="lookupApplicantsGroup"
+                             caption="msg://settingsDialog.applicants"
                              nullOptionVisible="false"
                              optionsDatasource="groupsDs"
-                             required="true"/>
-            </hbox>
-            <hbox id="workersBox"
-                  expand="lookupWorkersGroup"
-                  spacing="true"
-                  width="100%">
-                <label align="MIDDLE_LEFT"
-                       value="msg://settingsDialog.workersGroup"
-                       width="80px"/>
+                             required="true"
+                             width="100%"/>
                 <lookupField id="lookupWorkersGroup"
+                             caption="msg://settingsDialog.workers"
                              nullOptionVisible="false"
                              optionsDatasource="groupsDs"
-                             required="true"/>
-            </hbox>
-        </groupBox>
+                             required="true"
+                             width="100%"/>
+                <lookupField id="lookupCommonGroup"
+                             caption="msg://settingsDialog.common"
+                             nullOptionVisible="false"
+                             optionsDatasource="groupsDs"
+                             required="true"
+                             width="100%"/>
+            </groupBox>
+            <groupBox id="rolesBox"
+                      caption="msg://settingsDialog.rolesBox"
+                      spacing="true"
+                      width="245px">
+                <lookupField id="lookupManagersRole"
+                             caption="msg://settingsDialog.managers"
+                             nullOptionVisible="false"
+                             optionsDatasource="rolesDs"
+                             required="true"
+                             width="100%"/>
+                <lookupField id="lookupRegistratorsRole"
+                             caption="msg://settingsDialog.registrators"
+                             nullOptionVisible="false"
+                             optionsDatasource="rolesDs"
+                             required="true"
+                             width="100%"/>
+                <lookupField id="lookupApplicantsRole"
+                             caption="msg://settingsDialog.applicants"
+                             nullOptionVisible="false"
+                             optionsDatasource="rolesDs"
+                             required="true"
+                             width="100%"/>
+                <lookupField id="lookupWorkersRole"
+                             caption="msg://settingsDialog.workers"
+                             nullOptionVisible="false"
+                             optionsDatasource="rolesDs"
+                             required="true"
+                             width="100%"/>
+            </groupBox>
+        </hbox>
         <groupBox id="positionsBox"
                   caption="msg://settingsDialog.positionsBox"
                   spacing="true"

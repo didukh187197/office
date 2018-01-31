@@ -1,21 +1,384 @@
+/*C72*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C73*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C74*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C75*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C76*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C77*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C79*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C78*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C80*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C81*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C82*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C83*/SET SCHEMA PUBLIC
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 09:41:48.905000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 09:42:48.903000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 09:43:40.758000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
+DISCONNECT
+/*C84*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C85*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C86*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C87*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C89*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C88*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C90*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C91*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C92*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C93*/SET SCHEMA PUBLIC
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 09:46:44.781000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 09:47:44.779000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 09:48:05.012000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
+DISCONNECT
+/*C94*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C95*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C96*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C97*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C99*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C98*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C100*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C101*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C102*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C103*/SET SCHEMA PUBLIC
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 09:53:14.282000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 09:54:14.280000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 09:55:14.281000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+/*C104*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C105*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C106*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C107*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C109*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C108*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C110*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C111*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C103*/DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 09:55:34.052000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
+DISCONNECT
+/*C112*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C113*/SET SCHEMA PUBLIC
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 09:56:44.025000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 09:57:44.023000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 09:58:44.024000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 09:59:44.024000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:00:44.025000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:01:44.025000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:02:44.025000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:03:44.026000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('e332a1dc-ee0e-1986-09b5-fa2621968290','2018-01-31 10:03:59.759000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''tru''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-001ac675-07bd-caa0-988b-8dca6cac68b3&params=item:sec$User-001ac675-07bd-caa0-988b-8dca6cac68b3','001ac675-07bd-caa0-988b-8dca6cac68b3',NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('853a4fb3-a1fd-4fe5-00e7-4a5a53a10b0c','2018-01-31 10:04:08.623000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''tru''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-001ac675-07bd-caa0-988b-8dca6cac68b3&params=item:sec$User-001ac675-07bd-caa0-988b-8dca6cac68b3','001ac675-07bd-caa0-988b-8dca6cac68b3',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:04:44.026000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:05:44.028000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:06:44.028000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:07:44.029000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:08:44.029000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:09:44.030000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:10:44.030000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:11:44.031000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:12:44.031000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:13:44.031000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:14:44.032000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:15:44.032000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:16:44.033000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:17:44.033000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:18:44.033000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:19:44.034000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('366931bd-4707-b95f-09de-0ff5a34fa3bd','2018-01-31 10:19:58.057000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''tru''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-001ac675-07bd-caa0-988b-8dca6cac68b3&params=item:sec$User-001ac675-07bd-caa0-988b-8dca6cac68b3','001ac675-07bd-caa0-988b-8dca6cac68b3',NULL)
+COMMIT
+INSERT INTO SEC_GROUP VALUES('08fd4417-c200-90b1-be2a-f196b05f3454','2018-01-31 10:20:30.212000','admin',1,'2018-01-31 10:20:30.212000',NULL,NULL,NULL,'Reggers','0fa2b1a5-1d68-4d69-9fbd-dff348347f93')
+INSERT INTO SEC_GROUP_HIERARCHY VALUES('5f2693c6-080f-c5f4-9d2c-de80ee5e16c5',NULL,NULL,'08fd4417-c200-90b1-be2a-f196b05f3454','0fa2b1a5-1d68-4d69-9fbd-dff348347f93',0)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:20:44.034000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('9dfce0b0-9988-9d21-4e49-ec26f00ffa70','2018-01-31 10:20:45.641000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''tru''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-001ac675-07bd-caa0-988b-8dca6cac68b3&params=item:sec$User-001ac675-07bd-caa0-988b-8dca6cac68b3','001ac675-07bd-caa0-988b-8dca6cac68b3',NULL)
+COMMIT
+DELETE FROM SYS_CONFIG WHERE ID='7655818d-9e8d-f4a7-ce1c-15ee5d6b5b87'
+INSERT INTO SYS_CONFIG VALUES('7655818d-9e8d-f4a7-ce1c-15ee5d6b5b87','2018-01-01 17:40:41.937000','admin',2,'2018-01-31 10:20:56.609000','admin','office.registratorsGroup','sec$Group-08fd4417-c200-90b1-be2a-f196b05f3454')
+COMMIT
+/*C114*/SET SCHEMA PUBLIC
+INSERT INTO SEC_SCREEN_HISTORY VALUES('e80c6081-03e5-f1ee-7805-59136f5fea6d','2018-01-31 10:21:09.846000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''tru''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-001ac675-07bd-caa0-988b-8dca6cac68b3&params=item:sec$User-001ac675-07bd-caa0-988b-8dca6cac68b3','001ac675-07bd-caa0-988b-8dca6cac68b3',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:21:44.035000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:22:44.035000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:23:44.036000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:24:44.036000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:25:44.036000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:26:44.037000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('9f663795-cca3-f681-d0fd-92d192de6697','2018-01-31 10:26:47.405000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''tru''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-001ac675-07bd-caa0-988b-8dca6cac68b3&params=item:sec$User-001ac675-07bd-caa0-988b-8dca6cac68b3','001ac675-07bd-caa0-988b-8dca6cac68b3',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:27:44.037000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+/*C115*/SET SCHEMA PUBLIC
+DISCONNECT
 /*C116*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C117*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C118*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C119*/SET SCHEMA PUBLIC
-DISCONNECT
 /*C120*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C119*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C121*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C122*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C124*/SET SCHEMA PUBLIC
+/*C114*/DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:27:48.900000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
 DISCONNECT
+/*C113*/DISCONNECT
 /*C123*/SET SCHEMA PUBLIC
 DISCONNECT
+/*C124*/SET SCHEMA PUBLIC
+DELETE FROM SEC_CONSTRAINT WHERE ID='3c2a0d99-dd96-5abf-67df-9b9b58d5e18e'
+INSERT INTO SEC_CONSTRAINT VALUES('3c2a0d99-dd96-5abf-67df-9b9b58d5e18e','2017-12-20 10:29:30.633000','admin',2,'2018-01-31 10:28:56.492000','admin',NULL,NULL,NULL,'db','read','sec$User',NULL,'{E}.group.id in (\u000d\u000a  select h.group.id from sec$GroupHierarchy h\u000d\u000a  where h.group.id = :session$userGroupId or h.parent.id = :session$userGroupId\u000d\u000a)',NULL,NULL,FALSE,'2eb074ea-f2d3-9d87-e7f6-2339d19eb682')
+COMMIT
+DELETE FROM SEC_CONSTRAINT WHERE ID='cc6440bf-0d22-49e8-be56-45ba7d06f2c5'
+INSERT INTO SEC_CONSTRAINT VALUES('cc6440bf-0d22-49e8-be56-45ba7d06f2c5','2017-12-20 10:28:42.642000','admin',2,'2018-01-31 10:28:59.141000','admin',NULL,NULL,NULL,'db','read','sec$Group',NULL,'{E}.id in (\u000d\u000a  select h.group.id from sec$GroupHierarchy h\u000d\u000a  where h.group.id = :session$userGroupId or h.parent.id = :session$userGroupId\u000d\u000a)',NULL,NULL,FALSE,'2eb074ea-f2d3-9d87-e7f6-2339d19eb682')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:29:00.609000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_CONSTRAINT WHERE ID='fd764d08-c1eb-f1a3-8576-bbfaef5b8217'
+INSERT INTO SEC_CONSTRAINT VALUES('fd764d08-c1eb-f1a3-8576-bbfaef5b8217','2017-12-20 10:27:54.914000','admin',2,'2018-01-31 10:29:00.879000','admin',NULL,NULL,NULL,'db','read','sec$Role',NULL,'({E}.description is null or {E}.description not like ''[hide]'')',NULL,NULL,FALSE,'2eb074ea-f2d3-9d87-e7f6-2339d19eb682')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('db47cffd-aee0-2a27-e43f-dc3fc17d4cdb','2018-01-31 10:29:20.496000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''tru''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-001ac675-07bd-caa0-988b-8dca6cac68b3&params=item:sec$User-001ac675-07bd-caa0-988b-8dca6cac68b3','001ac675-07bd-caa0-988b-8dca6cac68b3',NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='80fa3481-e8af-164e-98c2-7f2efc4b5ae4'
+INSERT INTO SEC_USER_SETTING VALUES('80fa3481-e8af-164e-98c2-7f2efc4b5ae4',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','sec$Group.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="split"> \u000a      <position value="30.0" unit="%"/> \u000a    </component>  \u000a    <component name="filterWithoutId"> \u000a      <defaultFilter/>  \u000a      <groupBoxExpanded/> \u000a    </component>  \u000a    <component name="usersTable"> \u000a      <columns>\u000a        <columns id="name" visible="true"/>\u000a        <columns id="login" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="constraintsTable"> \u000a      <columns>\u000a        <columns id="entityName" visible="true"/>\u000a        <columns id="isActive" visible="true"/>\u000a        <columns id="operationType" visible="true"/>\u000a        <columns id="joinClause" width="200" visible="true"/>\u000a        <columns id="whereClause" width="200" visible="true"/>\u000a        <columns id="groovyScript" width="200" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="attributesTable"> \u000a      <columns> \u000a        <columns id="name" visible="true"/>  \u000a        <columns id="datatypeCaption" visible="true"/>  \u000a        <columns id="stringValue" visible="true"/> \u000a      </columns> \u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('18cb0ae3-d6be-729b-fa93-3ea3f19fb64c','2018-01-31 10:29:58.000000','admin','60885987-1b61-4247-94c7-dff348347f93','Role ''managers''','http://localhost:8080/app/open?screen=sec$Role.edit&item=sec$Role-dfcc0e65-712b-bd30-ee56-8d6fe39c21c5&params=item:sec$Role-dfcc0e65-712b-bd30-ee56-8d6fe39c21c5','dfcc0e65-712b-bd30-ee56-8d6fe39c21c5',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:30:00.607000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_USER VALUES('6d8d95f6-a3cd-9743-b2d1-63c8ea572a69','2018-01-31 10:30:38.561000','boss',1,'2018-01-31 10:30:38.561000',NULL,NULL,NULL,'fifa','fifa','7cd1d965699eff945b7542757bacc0a072ef3faf','Fifa Sports','Fifa','Sports',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'2eb074ea-f2d3-9d87-e7f6-2339d19eb682',NULL,FALSE)
+INSERT INTO SEC_USER_ROLE VALUES('65dc4691-2a83-570f-8792-aa2c7b8c96c1','2018-01-31 10:30:38.561000','boss',1,'2018-01-31 10:30:38.561000',NULL,NULL,NULL,'6d8d95f6-a3cd-9743-b2d1-63c8ea572a69','cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('6a66346f-b2d2-a48a-6245-f4e338319d4f','2018-01-31 10:30:38.617000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','New User','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-6d8d95f6-a3cd-9743-b2d1-63c8ea572a69&params=item:sec$User-6d8d95f6-a3cd-9743-b2d1-63c8ea572a69','6d8d95f6-a3cd-9743-b2d1-63c8ea572a69',NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='a2627572-1d4d-dedb-e734-3baeda644adc'
+INSERT INTO SEC_USER_SETTING VALUES('a2627572-1d4d-dedb-e734-3baeda644adc',NULL,NULL,'81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','W','sec$Role.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="rolesTable"> \u000a      <columns>\u000a        <columns id="name" visible="true"/>\u000a        <columns id="locName" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="defaultRole" visible="true"/>\u000a        <columns id="type" visible="true"/>\u000a      </columns>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:31:00.608000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:32:00.608000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_PERMISSION WHERE ID='19806df8-1bdf-eb41-a717-1d3d1d1e6623'
+INSERT INTO SEC_PERMISSION VALUES('19806df8-1bdf-eb41-a717-1d3d1d1e6623','2018-01-01 17:45:56.622000','admin',2,'2018-01-01 17:45:56.622000',NULL,'2018-01-31 10:32:35.888000','admin',20,'sec$Group:read',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+DELETE FROM SEC_PERMISSION WHERE ID='25f84091-757f-14d0-073c-a030516b9ca9'
+INSERT INTO SEC_PERMISSION VALUES('25f84091-757f-14d0-073c-a030516b9ca9','2018-01-01 17:45:56.622000','admin',2,'2018-01-01 17:45:56.622000',NULL,'2018-01-31 10:32:35.888000','admin',20,'sec$Role:read',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+DELETE FROM SEC_PERMISSION WHERE ID='87d64aa1-53bd-efee-a410-2dde0451b62d'
+INSERT INTO SEC_PERMISSION VALUES('87d64aa1-53bd-efee-a410-2dde0451b62d','2018-01-01 18:02:14.421000','admin',3,'2018-01-01 18:07:10.517000','admin','2018-01-31 10:32:35.888000','admin',10,'administration',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('101b2738-26c0-fa6f-8b52-f915c668daf7','2018-01-31 10:32:35.879000','admin',1,'2018-01-31 10:32:35.879000',NULL,NULL,NULL,20,'sec$Group:create',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('63097158-1b99-6b0d-2a85-02bbaaaf5347','2018-01-31 10:32:35.878000','admin',1,'2018-01-31 10:32:35.878000',NULL,NULL,NULL,20,'office$Position:create',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('b5942438-eac0-1d95-23ab-35bd31e212be','2018-01-31 10:32:35.878000','admin',1,'2018-01-31 10:32:35.878000',NULL,NULL,NULL,20,'office$PositionUser:delete',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('0373da38-2d9c-b26a-c3e6-4c9b11be171b','2018-01-31 10:32:35.877000','admin',1,'2018-01-31 10:32:35.877000',NULL,NULL,NULL,20,'sec$Group:update',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('836ca42c-170a-4403-9008-26eb57c092e3','2018-01-31 10:32:35.878000','admin',1,'2018-01-31 10:32:35.878000',NULL,NULL,NULL,20,'office$Position:update',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('473c8532-a446-d1f7-d073-41c550ce0d32','2018-01-31 10:32:35.879000','admin',1,'2018-01-31 10:32:35.879000',NULL,NULL,NULL,20,'sec$Role:delete',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('10a02501-06b5-d43d-7f68-5c05275e9ddc','2018-01-31 10:32:35.877000','admin',1,'2018-01-31 10:32:35.877000',NULL,NULL,NULL,20,'office$Position:delete',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('f6f66337-b29a-cda8-6282-bb26b00f060e','2018-01-31 10:32:35.879000','admin',1,'2018-01-31 10:32:35.879000',NULL,NULL,NULL,20,'office$PositionUser:create',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('a4d380ac-0170-c7e1-ee42-245a8f0335d8','2018-01-31 10:32:35.878000','admin',1,'2018-01-31 10:32:35.878000',NULL,NULL,NULL,20,'sec$Role:create',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('46a4e222-9282-b8c6-4a01-a8d7e6412e70','2018-01-31 10:32:35.877000','admin',1,'2018-01-31 10:32:35.877000',NULL,NULL,NULL,20,'office$PositionAction:delete',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('c98bad15-7e7b-8fe8-8d66-cd60e1735710','2018-01-31 10:32:35.877000','admin',1,'2018-01-31 10:32:35.877000',NULL,NULL,NULL,20,'office$PositionAction:update',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('7ccce7bc-d7ca-0723-c89c-119e2cda592a','2018-01-31 10:32:35.878000','admin',1,'2018-01-31 10:32:35.878000',NULL,NULL,NULL,20,'office$PositionUser:update',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('a47afa78-348d-4fc2-5d34-2e2d006ba230','2018-01-31 10:32:35.878000','admin',1,'2018-01-31 10:32:35.878000',NULL,NULL,NULL,20,'sec$Role:update',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('c7e0ed6b-c08d-2af4-ba43-766d0b4604f6','2018-01-31 10:32:35.878000','admin',1,'2018-01-31 10:32:35.878000',NULL,NULL,NULL,20,'office$PositionAction:create',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('075b9f8a-86c1-3710-aaf3-ed26d9730b2f','2018-01-31 10:32:35.878000','admin',1,'2018-01-31 10:32:35.878000',NULL,NULL,NULL,20,'sec$Group:delete',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('8d3e4b85-c81b-e32c-0210-9565f1404a8d','2018-01-31 10:32:35.964000','admin','60885987-1b61-4247-94c7-dff348347f93','Role ''registrator''','http://localhost:8080/app/open?screen=sec$Role.edit&item=sec$Role-7da89965-58a6-196e-a2c6-0d462547b673&params=item:sec$Role-7da89965-58a6-196e-a2c6-0d462547b673','7da89965-58a6-196e-a2c6-0d462547b673',NULL)
+COMMIT
+DELETE FROM SEC_USER WHERE ID='0253f6a6-3ef3-8f26-8294-5d28addbbad4'
+INSERT INTO SEC_USER VALUES('0253f6a6-3ef3-8f26-8294-5d28addbbad4','2018-01-01 17:13:56.067000','manager',4,'2018-01-31 10:32:59.233000','admin',NULL,NULL,'rick','rick','89a1bfaa7aeccd273b80da366da083d4b667e4b9','Rickie Martin','Rickie','Martin',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'08fd4417-c200-90b1-be2a-f196b05f3454',NULL,FALSE)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('372190cf-1747-b43c-6963-9db33522ebae','2018-01-31 10:32:59.245000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''rick''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-0253f6a6-3ef3-8f26-8294-5d28addbbad4&params=item:sec$User-0253f6a6-3ef3-8f26-8294-5d28addbbad4','0253f6a6-3ef3-8f26-8294-5d28addbbad4',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:33:00.608000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='f883e9a8-4297-242c-1d54-f0f3c8fabec5'
+INSERT INTO SEC_USER_SETTING VALUES('f883e9a8-4297-242c-1d54-f0f3c8fabec5',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','sec$Role.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="roleGroupBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="description"/>  \u000a    <component name="screensTabFrame.screenPermissionsTree"> \u000a      <columns>\u000a        <columns id="caption" visible="true"/>\u000a        <columns id="permissionVariant" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="screensTabFrame.screensEditPane"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="entitiesTabFrame.contentSplit"> \u000a      <position value="80.0" unit="%"/> \u000a    </component>  \u000a    <component name="entitiesTabFrame.entityPermissionsTable"> \u000a      <columns> \u000a        <columns id="localName" width="300" visible="true"/>  \u000a        <columns id="entityMetaClassName" width="300" visible="true"/>  \u000a        <columns id="createPermissionVariant" visible="true"/>  \u000a        <columns id="readPermissionVariant" visible="true"/>  \u000a        <columns id="updatePermissionVariant" visible="true"/>  \u000a        <columns id="deletePermissionVariant" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="entitiesTabFrame.editPane"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="attributesTabFrame.contentSplit"> \u000a      <position value="60.0" unit="%"/> \u000a    </component>  \u000a    <component name="attributesTabFrame.propertyPermissionsTable"> \u000a      <columns> \u000a        <columns id="localName" width="300" visible="true"/>  \u000a        <columns id="entityMetaClassName" width="300" visible="true"/>  \u000a        <columns id="permissionsInfo" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="attributesTabFrame.editPane"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="specificTabFrame.contentSplit"> \u000a      <position value="80.0" unit="%"/> \u000a    </component>  \u000a    <component name="specificTabFrame.specificPermissionsTree"> \u000a      <columns> \u000a        <columns id="caption" visible="true"/>  \u000a        <columns id="permissionVariant" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="specificTabFrame.specificEditPane"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="uiTabFrame.contentSplit"> \u000a      <position value="80.0" unit="%"/> \u000a    </component>  \u000a    <component name="uiTabFrame.uiPermissionsTable"> \u000a      <columns> \u000a        <columns id="screen" visible="true"/>  \u000a        <columns id="component" visible="true"/>  \u000a        <columns id="permissionVariant" visible="true"/> \u000a      </columns>  \u000a      <groupProperties> \u000a        <property id="screen"/> \u000a      </groupProperties> \u000a    </component>  \u000a    <component name="uiTabFrame.editPane"> \u000a      <groupBox expanded="true"/> \u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('22f78700-1916-fd2f-c369-a7b19c146d8d','2018-01-31 10:33:22.803000','admin','60885987-1b61-4247-94c7-dff348347f93','Role ''local_user''','http://localhost:8080/app/open?screen=sec$Role.edit&item=sec$Role-cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3&params=item:sec$Role-cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3','cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3',NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='db05aaba-18ce-f19b-169e-99ce7bebae3e'
+INSERT INTO SEC_USER_SETTING VALUES('db05aaba-18ce-f19b-169e-99ce7bebae3e',NULL,NULL,'0253f6a6-3ef3-8f26-8294-5d28addbbad4','W','office$Request.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="split"> \u000a      <position value="32.154343" unit="%"/> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="initiator" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="question" visible="true"/>\u000a        <columns id="closed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="stepBox"> \u000a      <groupBox expanded="false"/>\u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="imageBox"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='04296834-3ad5-4644-3257-19b54d666e1e'
+INSERT INTO SEC_USER_SETTING VALUES('04296834-3ad5-4644-3257-19b54d666e1e',NULL,NULL,'0253f6a6-3ef3-8f26-8294-5d28addbbad4','W','office$Request.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="split"> \u000a      <position value="50.0" unit="%"/> \u000a    </component>  \u000a    <component name="filter"> \u000a      <defaultFilter/>  \u000a      <groupBoxExpanded>true</groupBoxExpanded> \u000a    </component>  \u000a    <component name="table"> \u000a      <columns>\u000a        <columns id="applicant" visible="true"/>\u000a        <columns id="applicantCode" visible="true"/>\u000a        <columns id="sn" visible="true"/>\u000a        <columns id="step.position" visible="true"/>\u000a        <columns id="step.state" visible="true"/>\u000a        <columns id="step.user" visible="true"/>\u000a      </columns>\u000a      <groupProperties/>\u000a    </component>  \u000a    <component name="stepsTable"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="position" visible="true"/>  \u000a        <columns id="state" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="submitted" visible="true"/>  \u000a        <columns id="approved" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="updateTs" visible="true"/>\u000a        <columns id="question" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:34:00.609000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='72570d2f-088f-7b41-238e-d9e917488384'
+INSERT INTO SEC_USER_SETTING VALUES('72570d2f-088f-7b41-238e-d9e917488384',NULL,NULL,'0253f6a6-3ef3-8f26-8294-5d28addbbad4','W','sec$Group.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="split"> \u000a      <position value="30.0" unit="%"/> \u000a    </component>  \u000a    <component name="filterWithoutId"> \u000a      <defaultFilter/>  \u000a      <groupBoxExpanded/> \u000a    </component>  \u000a    <component name="usersTable"> \u000a      <columns>\u000a        <columns id="name" visible="true"/>\u000a        <columns id="login" visible="true"/>\u000a      </columns>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:35:00.609000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_PERMISSION VALUES('909448c7-1b91-bdfd-3d67-962578c17a1b','2018-01-31 10:35:17.642000','admin',1,'2018-01-31 10:35:17.642000',NULL,NULL,NULL,10,'sec$UserSessionEntity.browse',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('f3eadd22-daa6-bffe-2e18-804f861ce904','2018-01-31 10:35:17.643000','admin',1,'2018-01-31 10:35:17.643000',NULL,NULL,NULL,10,'screenProfiler',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('3a580485-a178-0d9c-3f83-73660e54e8f7','2018-01-31 10:35:17.642000','admin',1,'2018-01-31 10:35:17.642000',NULL,NULL,NULL,10,'sys$Category.browse',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('2fe9fe38-35cf-4f9c-fd28-8791ef9363c2','2018-01-31 10:35:17.642000','admin',1,'2018-01-31 10:35:17.642000',NULL,NULL,NULL,10,'jmxConsole',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('c53dfb33-7008-765e-032d-43de893ec7f7','2018-01-31 10:35:17.642000','admin',1,'2018-01-31 10:35:17.642000',NULL,NULL,NULL,10,'sys$SendingMessage.browse',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('89e91a30-e4ea-a9eb-fb8a-ad59709bed84','2018-01-31 10:35:17.642000','admin',1,'2018-01-31 10:35:17.642000',NULL,NULL,NULL,10,'sec$SessionLogEntry.browse',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('d56ba110-424a-5863-6ade-0a0ea2b7bc4b','2018-01-31 10:35:17.642000','admin',1,'2018-01-31 10:35:17.642000',NULL,NULL,NULL,10,'entityRestore',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('9a1e8ca5-832d-6be9-6589-a042ab93df46','2018-01-31 10:35:17.642000','admin',1,'2018-01-31 10:35:17.642000',NULL,NULL,NULL,10,'serverLog',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('a54a74f4-d85c-ab23-b013-a21ffd27160e','2018-01-31 10:35:17.642000','admin',1,'2018-01-31 10:35:17.642000',NULL,NULL,NULL,10,'appProperties',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('de8a273e-1d43-e2c6-a251-527d1899eac8','2018-01-31 10:35:17.642000','admin',1,'2018-01-31 10:35:17.642000',NULL,NULL,NULL,10,'sys$ScheduledTask.browse',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('df20c7a7-3a9c-3ebd-6cd1-56c576dee1e2','2018-01-31 10:35:17.642000','admin',1,'2018-01-31 10:35:17.642000',NULL,NULL,NULL,10,'sys$FileDescriptor.browse',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('ec4d10ac-aea5-f269-5754-ad19ffdb0925','2018-01-31 10:35:17.642000','admin',1,'2018-01-31 10:35:17.642000',NULL,NULL,NULL,10,'sys$LockInfo.browse',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('38a2e10f-575d-52b3-2915-db88e32dde0a','2018-01-31 10:35:17.642000','admin',1,'2018-01-31 10:35:17.642000',NULL,NULL,NULL,10,'entityLog',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('0a13f60d-6bd0-66b7-00d9-1e716fe89c7f','2018-01-31 10:35:17.642000','admin',1,'2018-01-31 10:35:17.642000',NULL,NULL,NULL,10,'performanceStatistics',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('a43c136f-95c9-43a0-afcc-95ac46cb60a0','2018-01-31 10:35:17.642000','admin',1,'2018-01-31 10:35:17.642000',NULL,NULL,NULL,10,'entityInspector.browse',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('09d5a238-f81f-6cab-8ff3-0304d605b537','2018-01-31 10:35:17.666000','admin','60885987-1b61-4247-94c7-dff348347f93','Role ''registrator''','http://localhost:8080/app/open?screen=sec$Role.edit&item=sec$Role-7da89965-58a6-196e-a2c6-0d462547b673&params=item:sec$Role-7da89965-58a6-196e-a2c6-0d462547b673','7da89965-58a6-196e-a2c6-0d462547b673',NULL)
+COMMIT
+INSERT INTO SEC_USER_SETTING VALUES('a64bd097-2f59-b473-b3c1-672ba6115d39',NULL,NULL,'0253f6a6-3ef3-8f26-8294-5d28addbbad4','W','sec$Role.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings>\u000a  <components>\u000a    <component name="roleGroupBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a    <component name="description"/>\u000a    <component name="screensTabFrame.screenPermissionsTree">\u000a      <columns>\u000a        <columns id="caption" visible="true"/>\u000a        <columns id="permissionVariant" visible="true"/>\u000a      </columns>\u000a    </component>\u000a    <component name="screensTabFrame.screensEditPane">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a  </components>\u000a</settings>\u000a')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('bfdd3ce4-5961-ad14-5b4b-54d3ef6f4065','2018-01-31 10:35:36.168000','rick','0253f6a6-3ef3-8f26-8294-5d28addbbad4','Role ''local_user''','http://localhost:8080/app/open?screen=sec$Role.edit&item=sec$Role-cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3&params=item:sec$Role-cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3','cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3',NULL)
+COMMIT
+INSERT INTO SEC_USER_SETTING VALUES('d7e82f5c-5f11-b5a0-54e9-161383a22f28',NULL,NULL,'0253f6a6-3ef3-8f26-8294-5d28addbbad4','W','sec$Role.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings>\u000a  <components>\u000a    <component name="rolesTable">\u000a      <columns>\u000a        <columns id="name" visible="true"/>\u000a        <columns id="locName" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="defaultRole" visible="true"/>\u000a        <columns id="type" visible="true"/>\u000a      </columns>\u000a    </component>\u000a  </components>\u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:36:00.610000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:37:00.610000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:38:00.611000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_CONSTRAINT VALUES('eab451a1-46fb-d751-ed83-761f315ec3c4','2018-01-31 10:38:30.082000','admin',1,'2018-01-31 10:38:30.082000',NULL,NULL,NULL,NULL,'db','read','sec$User',NULL,'{E}.group.id in (\u000d\u000a  select h.group.id from sec$GroupHierarchy h\u000d\u000a  where h.group.id = :session$applicantsGroupId\u000d\u000a)',NULL,NULL,TRUE,'08fd4417-c200-90b1-be2a-f196b05f3454')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:39:00.611000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:40:00.611000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
 /*C125*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C126*/SET SCHEMA PUBLIC
@@ -24,57 +387,115 @@ DISCONNECT
 DISCONNECT
 /*C128*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C129*/SET SCHEMA PUBLIC
-DISCONNECT
 /*C130*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C129*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C131*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C132*/SET SCHEMA PUBLIC
 DISCONNECT
+/*C124*/DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:40:22.539000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
+DISCONNECT
 /*C133*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C134*/SET SCHEMA PUBLIC
-DISCONNECT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:41:38.986000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:42:38.984000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:43:38.987000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('6b2b010a-5707-512a-0c7b-51ead4c641d6','2018-01-31 10:43:59.331000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''rick''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-0253f6a6-3ef3-8f26-8294-5d28addbbad4&params=item:sec$User-0253f6a6-3ef3-8f26-8294-5d28addbbad4','0253f6a6-3ef3-8f26-8294-5d28addbbad4',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:44:38.987000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
 /*C135*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C136*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C137*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C138*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C136*/SET SCHEMA PUBLIC
+/*C140*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C139*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C140*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C141*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C142*/SET SCHEMA PUBLIC
 DISCONNECT
+/*C134*/DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:44:59.614000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
+DISCONNECT
 /*C143*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C144*/SET SCHEMA PUBLIC
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:46:10.694000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:47:10.692000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('ce84b34b-fd22-12e9-3417-defba44052a0','2018-01-31 10:47:45.861000','rick','0253f6a6-3ef3-8f26-8294-5d28addbbad4','User ''buba''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-710eeb85-200a-518d-a7dc-f4caa9df36ad&params=item:sec$User-710eeb85-200a-518d-a7dc-f4caa9df36ad','710eeb85-200a-518d-a7dc-f4caa9df36ad',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:48:10.692000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:49:10.693000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_CONSTRAINT WHERE ID='eab451a1-46fb-d751-ed83-761f315ec3c4'
+INSERT INTO SEC_CONSTRAINT VALUES('eab451a1-46fb-d751-ed83-761f315ec3c4','2018-01-31 10:38:30.082000','admin',2,'2018-01-31 10:49:22.364000','admin',NULL,NULL,NULL,'db','read','sec$User',NULL,'{E}.group.id not in (\u000d\u000a  select h.group.id from sec$GroupHierarchy h\u000d\u000a  where h.group.id = :session$applicantsGroupId\u000d\u000a)',NULL,NULL,TRUE,'08fd4417-c200-90b1-be2a-f196b05f3454')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:50:10.693000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:51:10.694000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:52:10.694000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:53:10.695000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:54:10.695000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:55:10.695000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:56:10.696000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 10:56:33.283000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
 DISCONNECT
 /*C145*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C146*/SET SCHEMA PUBLIC
-alter table OFFICE_REQUEST_STEP_COMMUNICATION add column CLOSED date 
-alter table OFFICE_REQUEST_STEP_COMMUNICATION drop column CONFIRMED cascade 
-INSERT INTO SYS_DB_CHANGELOG VALUES('50-office/update/hsql/18/180129-2-updateRequestStepCommunication.sql','2018-01-29 15:50:21.634000',0)
-COMMIT
 DISCONNECT
 /*C147*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C148*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C149*/SET SCHEMA PUBLIC
-DISCONNECT
 /*C150*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C152*/SET SCHEMA PUBLIC
+/*C149*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C151*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C152*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C153*/SET SCHEMA PUBLIC
 DISCONNECT
@@ -83,171 +504,1075 @@ DISCONNECT
 /*C155*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C156*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C158*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C157*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C159*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C160*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C161*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C162*/SET SCHEMA PUBLIC
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:03:26.620000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM OFFICE_REQUEST_STEP WHERE ID='0ab59506-6cf2-1c2b-ae54-9f4476a1e5be'
-INSERT INTO OFFICE_REQUEST_STEP VALUES('0ab59506-6cf2-1c2b-ae54-9f4476a1e5be','2018-01-29 16:03:59.842000','admin','2018-01-23 15:02:23.292000','admin','bfdb9c32-2d8b-3520-d236-00f089c9d632','Assigned to Igor Didukh. Actions added','8548df70-9c51-0526-00a7-750baecf68fc',NULL,NULL,NULL,'waiting','2018-01-30',NULL,'b8181249-bb9a-45dd-efdb-a0caad51b12c',1516712543128)
-DELETE FROM OFFICE_REQUEST WHERE ID='8548df70-9c51-0526-00a7-750baecf68fc'
-INSERT INTO OFFICE_REQUEST VALUES('8548df70-9c51-0526-00a7-750baecf68fc','2018-01-23 15:02:23.276000','admin','33',33,NULL,'2018-01-29 16:03:59.841000','admin','001ac675-07bd-caa0-988b-8dca6cac68b3','33',NULL,'0ab59506-6cf2-1c2b-ae54-9f4476a1e5be',1516712543224,NULL,NULL)
-INSERT INTO OFFICE_REQUEST_LOG VALUES('4ae95354-af5b-28d4-8ac2-532652b138f6','2018-01-29 16:03:59.770000','admin','2018-01-29 16:03:59.770000',NULL,'8548df70-9c51-0526-00a7-750baecf68fc','The request edited','60885987-1b61-4247-94c7-dff348347f93','001ac675-07bd-caa0-988b-8dca6cac68b3',1517234639729,NULL,NULL,NULL)
-INSERT INTO OFFICE_REQUEST_LOG VALUES('8e431d97-91b2-501c-937f-913e257873a7','2018-01-29 16:03:59.774000','admin','2018-01-29 16:03:59.774000',NULL,'8548df70-9c51-0526-00a7-750baecf68fc','The request edited','60885987-1b61-4247-94c7-dff348347f93','bfdb9c32-2d8b-3520-d236-00f089c9d632',1517234639729,NULL,NULL,NULL)
-INSERT INTO OFFICE_REQUEST_STEP_COMMUNICATION VALUES('97d5fc1c-b0a3-00c4-ec46-0a9166c11ed4','2018-01-29 16:03:59.744000','admin','2018-01-29 16:03:59.744000',NULL,'assasadasd',NULL,NULL,NULL,'0ab59506-6cf2-1c2b-ae54-9f4476a1e5be',1517234631789,'60885987-1b61-4247-94c7-dff348347f93',NULL,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:04:26.619000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:05:26.620000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:05:02.243000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:06:26.620000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:06:02.242000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_ROLE WHERE ID='cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3'
+INSERT INTO SEC_ROLE VALUES('cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3','2017-12-20 10:32:54.499000','admin',2,'2018-01-31 11:06:44.696000','admin',NULL,NULL,'local_user',NULL,'[hide]',FALSE,NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('5692e457-b84d-6eda-f6de-d218312014e1','2018-01-31 11:06:44.727000','admin','60885987-1b61-4247-94c7-dff348347f93','Role ''local_user''','http://localhost:8080/app/open?screen=sec$Role.edit&item=sec$Role-cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3&params=item:sec$Role-cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3','cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3',NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:07:26.621000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:07:02.242000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:08:26.621000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:08:02.243000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:09:26.622000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:09:02.243000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:10:26.622000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:10:02.243000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:11:26.622000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:11:02.244000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:12:26.623000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:12:02.245000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:13:26.623000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:13:02.246000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:14:26.624000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:15:26.624000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:16:26.625000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:17:26.625000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:18:26.625000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:19:26.626000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:20:26.626000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:21:26.627000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:22:26.627000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:23:26.628000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:24:26.628000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:25:26.628000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:26:26.629000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:27:26.629000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:28:26.630000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:29:26.630000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:30:26.631000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:31:26.631000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:32:26.631000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:33:26.632000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SEC_USER_SETTING WHERE ID='81045870-a989-88da-b890-81b7f97fb816'
-INSERT INTO SEC_USER_SETTING VALUES('81045870-a989-88da-b890-81b7f97fb816',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','office$Request.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="communicationsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="updateTs" visible="true"/>\u000a        <columns id="question" visible="true"/>\u000a        <columns id="closed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="actionsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="statesBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="statesTable"> \u000a      <columns> \u000a        <columns id="createTs" width="180" visible="true"/>  \u000a        <columns id="step" width="267" visible="true"/>  \u000a        <columns id="user" width="279" visible="true"/>  \u000a        <columns id="description" width="534" visible="true"/>  \u000a        <columns id="createdBy" width="360" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="titleBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="currentBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="stepsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="stepsTable"> \u000a      <columns> \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="description" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="additionalBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="tableSteps"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="createdBy" visible="true"/>  \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="split"> \u000a      <position value="27.759914" unit="%"/> \u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="stepBox"> \u000a      <groupBox expanded="false"/>\u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="imageBox"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:34:26.632000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:35:26.633000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:36:26.633000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:37:26.634000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:38:26.634000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:39:26.634000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:40:26.635000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:41:26.635000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:42:26.636000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:43:26.636000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:44:26.637000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:45:26.637000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:46:26.637000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:47:26.638000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:48:26.638000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:49:26.639000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:50:26.639000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:51:26.640000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:52:26.640000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:53:26.641000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-29 16:54:00.221000',NULL,'localhost:8080/app-core',FALSE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:13:53.676000',NULL,'localhost:8080/app-core',FALSE,NULL)
 COMMIT
 DISCONNECT
+/*C163*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C164*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C165*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C166*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C168*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C167*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C169*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C170*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C171*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C172*/SET SCHEMA PUBLIC
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:38:29.618000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:39:29.617000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:40:29.617000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:40:55.161000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
+DISCONNECT
+/*C173*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C174*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C175*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C177*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C176*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C178*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C179*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C180*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C181*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C182*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C183*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C184*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C185*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C186*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C187*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C188*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C189*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C191*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C190*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C192*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C193*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C194*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C195*/SET SCHEMA PUBLIC
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:42:55.778000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+/*C196*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C197*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C198*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C199*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C201*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C200*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C202*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C203*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C195*/DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:43:28.548000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
+DISCONNECT
+/*C204*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C205*/SET SCHEMA PUBLIC
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:44:38.693000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:45:38.692000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:46:38.692000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:47:38.693000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='6d270eea-dc39-b144-090d-39f472434355'
+INSERT INTO SEC_USER_SETTING VALUES('6d270eea-dc39-b144-090d-39f472434355',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','main-settings-screen','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="groupsBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="stepsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="positionsBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="rolesBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:48:38.693000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:49:38.693000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:50:38.694000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:51:38.694000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:52:38.695000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:53:38.695000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='6d270eea-dc39-b144-090d-39f472434355'
+INSERT INTO SEC_USER_SETTING VALUES('6d270eea-dc39-b144-090d-39f472434355',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','main-settings-screen','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="groupsBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="stepsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="positionsBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="rolesBox"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:54:38.696000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:55:38.696000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:56:38.696000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:57:38.697000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:58:38.697000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 11:59:38.698000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='6d270eea-dc39-b144-090d-39f472434355'
+INSERT INTO SEC_USER_SETTING VALUES('6d270eea-dc39-b144-090d-39f472434355',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','main-settings-screen','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="groupsBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="stepsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="positionsBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="rolesBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="labelsBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:00:38.698000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:01:38.699000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='6d270eea-dc39-b144-090d-39f472434355'
+INSERT INTO SEC_USER_SETTING VALUES('6d270eea-dc39-b144-090d-39f472434355',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','main-settings-screen','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="groupsBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="stepsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="positionsBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="rolesBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="labelsBox"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:02:38.699000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:03:38.699000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:04:38.700000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:05:38.700000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:06:38.701000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:07:38.701000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:08:38.702000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='6d270eea-dc39-b144-090d-39f472434355'
+INSERT INTO SEC_USER_SETTING VALUES('6d270eea-dc39-b144-090d-39f472434355',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','main-settings-screen','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="groupsBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="stepsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="positionsBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="rolesBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="labelsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:09:38.702000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:10:38.702000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:11:38.703000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:12:38.703000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:13:38.704000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SYS_CONFIG VALUES('25328ce0-9f33-6c09-0e35-77f868504d59','2018-01-31 12:14:23.180000','admin',1,'2018-01-31 12:14:23.180000',NULL,'office.groups.managersGroup','sec$Group-2eb074ea-f2d3-9d87-e7f6-2339d19eb682')
+COMMIT
+/*C206*/SET SCHEMA PUBLIC
+INSERT INTO SYS_CONFIG VALUES('fa400d78-82c8-ade5-922d-07f5c7d75470','2018-01-31 12:14:23.191000','admin',1,'2018-01-31 12:14:23.191000',NULL,'office.groups.registratorsGroup','sec$Group-08fd4417-c200-90b1-be2a-f196b05f3454')
+COMMIT
+/*C205*/INSERT INTO SYS_CONFIG VALUES('cd4b974a-ddac-b2bd-b3e1-7b809537b50d','2018-01-31 12:14:23.303000','admin',1,'2018-01-31 12:14:23.303000',NULL,'office.groups.applicantsGroup','sec$Group-13572aab-fec7-2dd6-ac9e-78d4cee23832')
+COMMIT
+INSERT INTO SYS_CONFIG VALUES('b031ee67-23c2-afdc-ef9d-43e36882c89f','2018-01-31 12:14:23.313000','admin',1,'2018-01-31 12:14:23.313000',NULL,'office.groups.workersGroup','sec$Group-603f9bf0-331c-2e1f-f3ed-17370aa0c697')
+COMMIT
+/*C206*/INSERT INTO SYS_CONFIG VALUES('583ded53-c960-6ed9-dd14-fb7e5f33fbb1','2018-01-31 12:14:23.323000','admin',1,'2018-01-31 12:14:23.323000',NULL,'office.positions.initPosition','office$Position-b8181249-bb9a-45dd-efdb-a0caad51b12c')
+COMMIT
+INSERT INTO SYS_CONFIG VALUES('f749d8bf-ca7b-e955-eecc-447df1706783','2018-01-31 12:14:23.330000','admin',1,'2018-01-31 12:14:23.330000',NULL,'office.positions.finalPosition','office$Position-af97c2c2-36d5-57d6-42e9-956254239a4f')
+COMMIT
+/*C205*/DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:14:38.704000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:15:38.705000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:15:47.229000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
+DISCONNECT
+/*C206*/DISCONNECT
+/*C207*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C208*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C209*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C210*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C212*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C211*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C213*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C214*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C215*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C216*/SET SCHEMA PUBLIC
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:32:22.850000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:33:22.848000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:34:22.849000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:35:22.849000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:36:22.850000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+/*C217*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C218*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C219*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C220*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C222*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C221*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C223*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C224*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C216*/DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:36:27.128000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
+DISCONNECT
+/*C225*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C226*/SET SCHEMA PUBLIC
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:37:38.616000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:38:38.614000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SYS_CONFIG VALUES('9bba7b50-3a4f-9044-e1f6-6525b9cb9c81','2018-01-31 12:38:47.277000','admin',1,'2018-01-31 12:38:47.277000',NULL,'office.groups.commonGroup','sec$Group-0fa2b1a5-1d68-4d69-9fbd-dff348347f93')
+COMMIT
+INSERT INTO SYS_CONFIG VALUES('8d02dad3-060f-592e-1e6e-8c21262531ff','2018-01-31 12:38:47.305000','admin',1,'2018-01-31 12:38:47.305000',NULL,'office.roles.managersRole','sec$Role-dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+COMMIT
+INSERT INTO SYS_CONFIG VALUES('31a5c05e-4687-838a-fcd8-ddd986cb1755','2018-01-31 12:38:47.321000','admin',1,'2018-01-31 12:38:47.321000',NULL,'office.roles.registratorsRole','sec$Role-7da89965-58a6-196e-a2c6-0d462547b673')
+COMMIT
+/*C227*/SET SCHEMA PUBLIC
+INSERT INTO SYS_CONFIG VALUES('a145dfda-527a-6115-0ac7-d65f7eb8c29a','2018-01-31 12:38:47.331000','admin',1,'2018-01-31 12:38:47.331000',NULL,'office.roles.applicantsRole','sec$Role-f95f2793-4846-47cb-ceb5-2566cafd2743')
+COMMIT
+INSERT INTO SYS_CONFIG VALUES('6ce49c7b-7724-26a1-cf5c-a52a44142298','2018-01-31 12:38:47.340000','admin',1,'2018-01-31 12:38:47.340000',NULL,'office.roles.workersRole','sec$Role-be0ada85-b10b-545c-8a47-a0ff81b2a9ff')
+COMMIT
+/*C226*/DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:39:38.614000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:40:38.614000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:41:38.615000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:42:38.615000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:43:38.616000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:44:38.616000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:45:38.617000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:46:38.617000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:47:38.617000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:48:38.618000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:49:38.618000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:50:38.619000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:51:38.619000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:52:38.620000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:53:38.620000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:54:38.620000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:55:38.621000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:56:38.621000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:57:38.622000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:58:38.622000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 12:59:38.623000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:00:38.623000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:01:38.623000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:02:38.624000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_USER VALUES('f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','2018-01-31 13:03:18.776000','admin',1,'2018-01-31 13:03:18.776000',NULL,NULL,NULL,'aaa','aaa','b24fbde5639882a5e281e4387701344b3dcfc764','AAA BBB','AAA','BBB',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'08fd4417-c200-90b1-be2a-f196b05f3454',NULL,FALSE)
+INSERT INTO SEC_USER_ROLE VALUES('83daf098-b25f-7435-b780-5389461a8701','2018-01-31 13:03:18.777000','admin',1,'2018-01-31 13:03:18.777000',NULL,NULL,NULL,'f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','7da89965-58a6-196e-a2c6-0d462547b673')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('1674ad80-845f-181c-1d5f-d87c8d87176f','2018-01-31 13:03:18.802000','admin','60885987-1b61-4247-94c7-dff348347f93','New User','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b&params=item:sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b',NULL)
+COMMIT
+DELETE FROM SEC_USER WHERE ID='f2a782fd-c49c-7e5e-56ea-9b52c02bba2b'
+INSERT INTO SEC_USER VALUES('f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','2018-01-31 13:03:18.776000','admin',2,'2018-01-31 13:03:32.656000','admin',NULL,NULL,'aaa','aaa','b24fbde5639882a5e281e4387701344b3dcfc764','AAA BBB','AAA','BBB',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'603f9bf0-331c-2e1f-f3ed-17370aa0c697',NULL,FALSE)
+INSERT INTO SEC_USER_ROLE VALUES('11b4c438-bf88-bd5f-aa7d-a567e10f376f','2018-01-31 13:03:32.625000','admin',1,'2018-01-31 13:03:32.625000',NULL,NULL,NULL,'f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','be0ada85-b10b-545c-8a47-a0ff81b2a9ff')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('1aabfc28-7e09-c574-e873-888c91796412','2018-01-31 13:03:32.673000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''aaa''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b&params=item:sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:03:38.624000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER WHERE ID='f2a782fd-c49c-7e5e-56ea-9b52c02bba2b'
+INSERT INTO SEC_USER VALUES('f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','2018-01-31 13:03:18.776000','admin',3,'2018-01-31 13:03:59.208000','admin',NULL,NULL,'aaa','aaa','b24fbde5639882a5e281e4387701344b3dcfc764','AAA BBB','AAA','BBB',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'2eb074ea-f2d3-9d87-e7f6-2339d19eb682',NULL,FALSE)
+INSERT INTO SEC_USER_ROLE VALUES('f523fbf2-5ebc-a43f-7cab-a36e7749be47','2018-01-31 13:03:59.195000','admin',1,'2018-01-31 13:03:59.195000',NULL,NULL,NULL,'f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('6acd5a46-b2ea-3e3f-8fde-4c0eabaf62e7','2018-01-31 13:03:59.223000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''aaa''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b&params=item:sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b',NULL)
+COMMIT
+DELETE FROM SEC_USER_ROLE WHERE ID='11b4c438-bf88-bd5f-aa7d-a567e10f376f'
+INSERT INTO SEC_USER_ROLE VALUES('11b4c438-bf88-bd5f-aa7d-a567e10f376f','2018-01-31 13:03:32.625000','admin',2,'2018-01-31 13:03:32.625000',NULL,'2018-01-31 13:04:20.458000','admin','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','be0ada85-b10b-545c-8a47-a0ff81b2a9ff')
+DELETE FROM SEC_USER_ROLE WHERE ID='83daf098-b25f-7435-b780-5389461a8701'
+INSERT INTO SEC_USER_ROLE VALUES('83daf098-b25f-7435-b780-5389461a8701','2018-01-31 13:03:18.777000','admin',2,'2018-01-31 13:03:18.777000',NULL,'2018-01-31 13:04:20.470000','admin','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','7da89965-58a6-196e-a2c6-0d462547b673')
+DELETE FROM SEC_USER_ROLE WHERE ID='f523fbf2-5ebc-a43f-7cab-a36e7749be47'
+INSERT INTO SEC_USER_ROLE VALUES('f523fbf2-5ebc-a43f-7cab-a36e7749be47','2018-01-31 13:03:59.195000','admin',2,'2018-01-31 13:03:59.195000',NULL,'2018-01-31 13:04:20.464000','admin','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+COMMIT
+DELETE FROM SEC_USER WHERE ID='f2a782fd-c49c-7e5e-56ea-9b52c02bba2b'
+INSERT INTO SEC_USER VALUES('f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','2018-01-31 13:03:18.776000','admin',4,'2018-01-31 13:04:20.569000','admin',NULL,NULL,'aaa','aaa','b24fbde5639882a5e281e4387701344b3dcfc764','AAA BBB','AAA','BBB',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'2eb074ea-f2d3-9d87-e7f6-2339d19eb682',NULL,FALSE)
+INSERT INTO SEC_USER_ROLE VALUES('e44c57df-bb97-82db-67a1-a59acf1f4043','2018-01-31 13:04:20.549000','admin',1,'2018-01-31 13:04:20.549000',NULL,NULL,NULL,'f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('ef931104-9ee1-bba8-4628-f29ce0bbef22','2018-01-31 13:04:20.584000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''aaa''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b&params=item:sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b',NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('3e7bebd1-bc43-4fca-549a-22e2e244ea7c','2018-01-31 13:04:27.048000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''aaa''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b&params=item:sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:04:38.625000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:05:38.625000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:06:38.626000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:07:38.626000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER WHERE ID='f2a782fd-c49c-7e5e-56ea-9b52c02bba2b'
+INSERT INTO SEC_USER VALUES('f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','2018-01-31 13:03:18.776000','admin',5,'2018-01-31 13:08:05.845000','admin',NULL,NULL,'aaa','aaa','b24fbde5639882a5e281e4387701344b3dcfc764','AAA BBB','AAA','BBB',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'603f9bf0-331c-2e1f-f3ed-17370aa0c697',NULL,FALSE)
+INSERT INTO SEC_USER_ROLE VALUES('ab959d06-3fef-15e0-1f3d-077b0c7548ef','2018-01-31 13:08:05.842000','admin',1,'2018-01-31 13:08:05.842000',NULL,NULL,NULL,'f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','be0ada85-b10b-545c-8a47-a0ff81b2a9ff')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('0a029c01-eb3b-909a-06e7-5ec4f35d0f96','2018-01-31 13:08:05.859000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''aaa''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b&params=item:sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b',NULL)
+COMMIT
+DELETE FROM SEC_USER WHERE ID='f2a782fd-c49c-7e5e-56ea-9b52c02bba2b'
+INSERT INTO SEC_USER VALUES('f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','2018-01-31 13:03:18.776000','admin',6,'2018-01-31 13:08:24.574000','admin',NULL,NULL,'aaa','aaa','b24fbde5639882a5e281e4387701344b3dcfc764','AAA BBB','AAA','BBB',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'08fd4417-c200-90b1-be2a-f196b05f3454',NULL,FALSE)
+INSERT INTO SEC_USER_ROLE VALUES('1ed94a30-0c89-8b5f-34b3-5d633001cf5a','2018-01-31 13:08:24.571000','admin',1,'2018-01-31 13:08:24.571000',NULL,NULL,NULL,'f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','7da89965-58a6-196e-a2c6-0d462547b673')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('4308fef5-7aea-490f-9538-e79f5ba74308','2018-01-31 13:08:24.586000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''aaa''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b&params=item:sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:08:38.627000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('fea6b3bd-cf06-e51c-09b5-cd58b9dac371','2018-01-31 13:08:43.550000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''aaa''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b&params=item:sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:09:38.627000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:10:38.627000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:11:38.628000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:12:38.628000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_ROLE WHERE ID='1ed94a30-0c89-8b5f-34b3-5d633001cf5a'
+INSERT INTO SEC_USER_ROLE VALUES('1ed94a30-0c89-8b5f-34b3-5d633001cf5a','2018-01-31 13:08:24.571000','admin',2,'2018-01-31 13:08:24.571000',NULL,'2018-01-31 13:12:46.074000','admin','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','7da89965-58a6-196e-a2c6-0d462547b673')
+DELETE FROM SEC_USER_ROLE WHERE ID='ab959d06-3fef-15e0-1f3d-077b0c7548ef'
+INSERT INTO SEC_USER_ROLE VALUES('ab959d06-3fef-15e0-1f3d-077b0c7548ef','2018-01-31 13:08:05.842000','admin',2,'2018-01-31 13:08:05.842000',NULL,'2018-01-31 13:12:46.069000','admin','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','be0ada85-b10b-545c-8a47-a0ff81b2a9ff')
+DELETE FROM SEC_USER_ROLE WHERE ID='e44c57df-bb97-82db-67a1-a59acf1f4043'
+INSERT INTO SEC_USER_ROLE VALUES('e44c57df-bb97-82db-67a1-a59acf1f4043','2018-01-31 13:04:20.549000','admin',2,'2018-01-31 13:04:20.549000',NULL,'2018-01-31 13:12:46.079000','admin','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+COMMIT
+DELETE FROM SEC_USER WHERE ID='f2a782fd-c49c-7e5e-56ea-9b52c02bba2b'
+INSERT INTO SEC_USER VALUES('f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','2018-01-31 13:03:18.776000','admin',7,'2018-01-31 13:12:46.101000','admin',NULL,NULL,'aaa','aaa','b24fbde5639882a5e281e4387701344b3dcfc764','AAA BBB','AAA','BBB',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'13572aab-fec7-2dd6-ac9e-78d4cee23832',NULL,FALSE)
+INSERT INTO SEC_USER_ROLE VALUES('3f7612ad-594a-7b47-3eb9-dfd5a516dcbf','2018-01-31 13:12:46.088000','admin',1,'2018-01-31 13:12:46.088000',NULL,NULL,NULL,'f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','f95f2793-4846-47cb-ceb5-2566cafd2743')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('34df163a-ff71-1c05-9541-65ce62c41ba4','2018-01-31 13:12:46.115000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''aaa''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b&params=item:sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b',NULL)
+COMMIT
+DELETE FROM SEC_USER_ROLE WHERE ID='3f7612ad-594a-7b47-3eb9-dfd5a516dcbf'
+INSERT INTO SEC_USER_ROLE VALUES('3f7612ad-594a-7b47-3eb9-dfd5a516dcbf','2018-01-31 13:12:46.088000','admin',2,'2018-01-31 13:12:46.088000',NULL,'2018-01-31 13:12:54.568000','admin','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','f95f2793-4846-47cb-ceb5-2566cafd2743')
+COMMIT
+DELETE FROM SEC_USER WHERE ID='f2a782fd-c49c-7e5e-56ea-9b52c02bba2b'
+INSERT INTO SEC_USER VALUES('f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','2018-01-31 13:03:18.776000','admin',8,'2018-01-31 13:12:54.588000','admin',NULL,NULL,'aaa','aaa','b24fbde5639882a5e281e4387701344b3dcfc764','AAA BBB','AAA','BBB',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'2eb074ea-f2d3-9d87-e7f6-2339d19eb682',NULL,FALSE)
+INSERT INTO SEC_USER_ROLE VALUES('44cb94fa-7caf-ff55-7382-f5799b4b6aa5','2018-01-31 13:12:54.573000','admin',1,'2018-01-31 13:12:54.573000',NULL,NULL,NULL,'f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('afecd2a3-8f23-5ad3-932b-609b7691015f','2018-01-31 13:12:54.602000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''aaa''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b&params=item:sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b',NULL)
+COMMIT
+DELETE FROM SEC_USER_ROLE WHERE ID='44cb94fa-7caf-ff55-7382-f5799b4b6aa5'
+INSERT INTO SEC_USER_ROLE VALUES('44cb94fa-7caf-ff55-7382-f5799b4b6aa5','2018-01-31 13:12:54.573000','admin',2,'2018-01-31 13:12:54.573000',NULL,'2018-01-31 13:13:14.380000','admin','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+COMMIT
+DELETE FROM SEC_USER WHERE ID='f2a782fd-c49c-7e5e-56ea-9b52c02bba2b'
+INSERT INTO SEC_USER VALUES('f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','2018-01-31 13:03:18.776000','admin',9,'2018-01-31 13:13:14.402000','admin',NULL,NULL,'aaa','aaa','b24fbde5639882a5e281e4387701344b3dcfc764','AAA BBB','AAA','BBB',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'603f9bf0-331c-2e1f-f3ed-17370aa0c697',NULL,FALSE)
+INSERT INTO SEC_USER_ROLE VALUES('414533aa-a3fd-e7a5-fc23-93f53fb1fb0a','2018-01-31 13:13:14.385000','admin',1,'2018-01-31 13:13:14.385000',NULL,NULL,NULL,'f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','be0ada85-b10b-545c-8a47-a0ff81b2a9ff')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('38f20baa-da5c-ae74-e0f9-27b359ba23d0','2018-01-31 13:13:14.415000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''aaa''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b&params=item:sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b',NULL)
+COMMIT
+DELETE FROM SEC_USER_ROLE WHERE ID='414533aa-a3fd-e7a5-fc23-93f53fb1fb0a'
+INSERT INTO SEC_USER_ROLE VALUES('414533aa-a3fd-e7a5-fc23-93f53fb1fb0a','2018-01-31 13:13:14.385000','admin',2,'2018-01-31 13:13:14.385000',NULL,'2018-01-31 13:13:23.966000','admin','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','be0ada85-b10b-545c-8a47-a0ff81b2a9ff')
+COMMIT
+DELETE FROM SEC_USER WHERE ID='f2a782fd-c49c-7e5e-56ea-9b52c02bba2b'
+INSERT INTO SEC_USER VALUES('f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','2018-01-31 13:03:18.776000','admin',10,'2018-01-31 13:13:23.988000','admin',NULL,NULL,'aaa','aaa','b24fbde5639882a5e281e4387701344b3dcfc764','AAA BBB','AAA','BBB',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'0fa2b1a5-1d68-4d69-9fbd-dff348347f93',NULL,FALSE)
+INSERT INTO SEC_USER_ROLE VALUES('912a16a7-0ec2-c92f-a2bc-7499046d9f31','2018-01-31 13:13:23.972000','admin',1,'2018-01-31 13:13:23.972000',NULL,NULL,NULL,'f2a782fd-c49c-7e5e-56ea-9b52c02bba2b',NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('6daa88b9-96e0-d1bf-4d5a-0a70c9d98854','2018-01-31 13:13:24.017000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''aaa''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b&params=item:sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b',NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('22a5b9c5-81c8-83ed-8859-e4276286655f','2018-01-31 13:13:33.836000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''aaa''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b&params=item:sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:13:38.629000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('67f91715-59ff-d05c-6294-1cf3f3b7898e','2018-01-31 13:13:54.612000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''anonymous''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-a405db59-e674-4f63-8afe-269dda788fe8&params=item:sec$User-a405db59-e674-4f63-8afe-269dda788fe8','a405db59-e674-4f63-8afe-269dda788fe8',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:14:38.629000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:15:38.630000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:16:38.630000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:17:38.630000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:18:38.631000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:19:38.631000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:20:38.632000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:20:55.807000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
+/*C227*/DISCONNECT
+/*C226*/DISCONNECT
+/*C228*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C229*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C230*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C231*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C233*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C232*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C234*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C235*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C236*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C237*/SET SCHEMA PUBLIC
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:22:12.612000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER WHERE ID='f2a782fd-c49c-7e5e-56ea-9b52c02bba2b'
+INSERT INTO SEC_USER VALUES('f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','2018-01-31 13:03:18.776000','admin',11,'2018-01-31 13:22:26.163000','admin',NULL,NULL,'aaa','aaa','b24fbde5639882a5e281e4387701344b3dcfc764','AAA BBB','AAA','BBB',NULL,NULL,NULL,'en',NULL,NULL,FALSE,'0fa2b1a5-1d68-4d69-9fbd-dff348347f93',NULL,FALSE)
+INSERT INTO SEC_USER_ROLE VALUES('78ca7151-d054-37ae-2aa9-44de376d61f9','2018-01-31 13:22:26.079000','admin',1,'2018-01-31 13:22:26.079000',NULL,NULL,NULL,'f2a782fd-c49c-7e5e-56ea-9b52c02bba2b',NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('67c24693-1e5c-2bff-329c-ad04eadf8a61','2018-01-31 13:22:26.191000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''aaa''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b&params=item:sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b',NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('e2048ad5-6f90-cf04-f467-c89a45a61853','2018-01-31 13:22:32.842000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''aaa''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b&params=item:sec$User-f2a782fd-c49c-7e5e-56ea-9b52c02bba2b','f2a782fd-c49c-7e5e-56ea-9b52c02bba2b',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:23:12.609000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_CONSTRAINT WHERE ID='eab451a1-46fb-d751-ed83-761f315ec3c4'
+INSERT INTO SEC_CONSTRAINT VALUES('eab451a1-46fb-d751-ed83-761f315ec3c4','2018-01-31 10:38:30.082000','admin',3,'2018-01-31 13:23:48.922000','admin',NULL,NULL,NULL,'db','read','sec$User',NULL,'{E}.group.id in (\u000d\u000a  select h.group.id from sec$GroupHierarchy h\u000d\u000a  where h.group.id = :session$applicantsGroupId\u000d\u000a)',NULL,NULL,TRUE,'08fd4417-c200-90b1-be2a-f196b05f3454')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:24:12.610000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_CONSTRAINT VALUES('8a34335f-70b5-a760-c7db-94e6e22f2cc7','2018-01-31 13:24:32.034000','admin',1,'2018-01-31 13:24:32.034000',NULL,NULL,NULL,NULL,'db','read','sec$User',NULL,'{E}.group.id not in (\u000d\u000a  select h.group.id from sec$GroupHierarchy h\u000d\u000a  where h.group.id = :session$commonGroupId\u000d\u000a)',NULL,NULL,TRUE,'2eb074ea-f2d3-9d87-e7f6-2339d19eb682')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:25:12.610000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_ROLE WHERE ID='424da0e7-908b-0adc-a611-e14583f40d98'
+INSERT INTO SEC_USER_ROLE VALUES('424da0e7-908b-0adc-a611-e14583f40d98','2018-01-09 12:33:05.908000','admin',2,'2018-01-09 12:33:05.908000',NULL,'2018-01-31 13:25:27.580000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+DELETE FROM SEC_USER_ROLE WHERE ID='45289663-a403-abe8-cedb-cadeb55e7bd0'
+INSERT INTO SEC_USER_ROLE VALUES('45289663-a403-abe8-cedb-cadeb55e7bd0','2017-12-20 10:33:59.607000','admin',2,'2017-12-20 10:33:59.607000',NULL,'2018-01-31 13:25:27.585000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3')
+COMMIT
+DELETE FROM SEC_USER WHERE ID='81bc4f1e-86b8-561d-83d3-e3ef0871f6ca'
+INSERT INTO SEC_USER VALUES('81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','2017-12-20 10:33:59.606000','admin',4,'2018-01-31 13:25:27.628000','boss',NULL,NULL,'boss','boss','bc5569f97308e37d8ec955f4dbca2265fa628b02','Big Boss','Big','Boss',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'2eb074ea-f2d3-9d87-e7f6-2339d19eb682',NULL,FALSE)
+INSERT INTO SEC_USER_ROLE VALUES('e0fd1969-530f-9da0-a9da-df05bcb91489','2018-01-31 13:25:27.617000','boss',1,'2018-01-31 13:25:27.617000',NULL,NULL,NULL,'81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('c1a60f13-d672-688b-782c-9b0000bee77d','2018-01-31 13:25:27.642000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''boss''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-81bc4f1e-86b8-561d-83d3-e3ef0871f6ca&params=item:sec$User-81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca',NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('9820e6cb-b27f-f495-4c53-178467b7631b','2018-01-31 13:25:32.063000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''boss''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-81bc4f1e-86b8-561d-83d3-e3ef0871f6ca&params=item:sec$User-81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:26:12.611000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:27:12.611000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='adfaf365-d9ee-eb0e-07cc-ce3f5d37ee1d'
+INSERT INTO SEC_USER_SETTING VALUES('adfaf365-d9ee-eb0e-07cc-ce3f5d37ee1d',NULL,NULL,'81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','W','sec$Group.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="split"> \u000a      <position value="30.0" unit="%"/> \u000a    </component>  \u000a    <component name="filterWithoutId"> \u000a      <defaultFilter/>  \u000a      <groupBoxExpanded/> \u000a    </component>  \u000a    <component name="usersTable"> \u000a      <columns>\u000a        <columns id="name" visible="true"/>\u000a        <columns id="login" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="constraintsTable">\u000a      <columns>\u000a        <columns id="entityName" visible="true"/>\u000a        <columns id="isActive" visible="true"/>\u000a        <columns id="operationType" visible="true"/>\u000a        <columns id="joinClause" width="200" visible="true"/>\u000a        <columns id="whereClause" width="200" visible="true"/>\u000a        <columns id="groovyScript" width="200" visible="true"/>\u000a      </columns>\u000a    </component>\u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:28:12.612000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:29:12.612000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:30:12.613000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_CONSTRAINT WHERE ID='8a34335f-70b5-a760-c7db-94e6e22f2cc7'
+INSERT INTO SEC_CONSTRAINT VALUES('8a34335f-70b5-a760-c7db-94e6e22f2cc7','2018-01-31 13:24:32.034000','admin',2,'2018-01-31 13:30:40.863000','admin',NULL,NULL,NULL,'db','read','sec$User',NULL,'{E}.group.id in (\u000d\u000a  select h.group.id from sec$GroupHierarchy h\u000d\u000a  where h.group.id = :session$commonGroupId\u000d\u000a)',NULL,NULL,TRUE,'2eb074ea-f2d3-9d87-e7f6-2339d19eb682')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:31:12.613000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:32:12.613000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:33:12.614000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:34:12.614000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('89746c84-a32d-87a7-a030-2cfab2e44a5b','2018-01-31 13:34:24.746000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''admin''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-60885987-1b61-4247-94c7-dff348347f93&params=item:sec$User-60885987-1b61-4247-94c7-dff348347f93','60885987-1b61-4247-94c7-dff348347f93',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:35:12.615000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:36:12.615000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:37:12.616000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+/*C238*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C239*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C240*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C241*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C243*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C242*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C244*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C245*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C237*/DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:37:29.231000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
+DISCONNECT
+/*C246*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C247*/SET SCHEMA PUBLIC
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:38:41.659000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:39:41.657000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:40:41.657000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_CONSTRAINT WHERE ID='8a34335f-70b5-a760-c7db-94e6e22f2cc7'
+INSERT INTO SEC_CONSTRAINT VALUES('8a34335f-70b5-a760-c7db-94e6e22f2cc7','2018-01-31 13:24:32.034000','admin',3,'2018-01-31 13:41:36.763000','admin',NULL,NULL,NULL,'db','read','sec$User',NULL,'{E}.group.id in (\u000d\u000a  select h.group.id from sec$GroupHierarchy h\u000d\u000a  where h.group.id = :session$registratorsGroupId or h.group.id = :session$applicantsGroupId or h.group.id = :session$workersGroupId\u000d\u000a)',NULL,NULL,TRUE,'2eb074ea-f2d3-9d87-e7f6-2339d19eb682')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:41:41.658000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:42:41.658000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('1688ff3d-bcf0-e736-5213-8646b0f620d2','2018-01-31 13:43:22.293000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''vasya''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-f53947e3-47ee-4bce-2fe2-c5319924eac8&params=item:sec$User-f53947e3-47ee-4bce-2fe2-c5319924eac8','f53947e3-47ee-4bce-2fe2-c5319924eac8',NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='adfaf365-d9ee-eb0e-07cc-ce3f5d37ee1d'
+INSERT INTO SEC_USER_SETTING VALUES('adfaf365-d9ee-eb0e-07cc-ce3f5d37ee1d',NULL,NULL,'81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','W','sec$Group.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="split"> \u000a      <position value="30.0" unit="%"/> \u000a    </component>  \u000a    <component name="filterWithoutId"> \u000a      <defaultFilter/>  \u000a      <groupBoxExpanded/> \u000a    </component>  \u000a    <component name="usersTable"> \u000a      <columns>\u000a        <columns id="name" visible="true"/>\u000a        <columns id="login" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="constraintsTable"> \u000a      <columns>\u000a        <columns id="entityName" visible="true"/>\u000a        <columns id="isActive" visible="true"/>\u000a        <columns id="operationType" visible="true"/>\u000a        <columns id="joinClause" width="200" visible="true"/>\u000a        <columns id="whereClause" width="200" visible="true"/>\u000a        <columns id="groovyScript" width="200" visible="true"/>\u000a      </columns>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:43:41.659000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_PERMISSION VALUES('0054fad3-ed12-6bae-1478-447465d99abe','2018-01-31 13:44:19.868000','admin',1,'2018-01-31 13:44:19.868000',NULL,NULL,NULL,30,'sec$Group:constraints',1,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='f883e9a8-4297-242c-1d54-f0f3c8fabec5'
+INSERT INTO SEC_USER_SETTING VALUES('f883e9a8-4297-242c-1d54-f0f3c8fabec5',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','sec$Role.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="roleGroupBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="description"/>  \u000a    <component name="screensTabFrame.screenPermissionsTree"> \u000a      <columns>\u000a        <columns id="caption" visible="true"/>\u000a        <columns id="permissionVariant" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="screensTabFrame.screensEditPane"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="entitiesTabFrame.contentSplit"> \u000a      <position value="80.0" unit="%"/> \u000a    </component>  \u000a    <component name="entitiesTabFrame.entityPermissionsTable"> \u000a      <columns> \u000a        <columns id="localName" width="300" visible="true"/>  \u000a        <columns id="entityMetaClassName" width="300" visible="true"/>  \u000a        <columns id="createPermissionVariant" visible="true"/>  \u000a        <columns id="readPermissionVariant" visible="true"/>  \u000a        <columns id="updatePermissionVariant" visible="true"/>  \u000a        <columns id="deletePermissionVariant" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="entitiesTabFrame.editPane"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="attributesTabFrame.contentSplit"> \u000a      <position value="60.0" unit="%"/> \u000a    </component>  \u000a    <component name="attributesTabFrame.propertyPermissionsTable"> \u000a      <columns>\u000a        <columns id="localName" width="300" visible="true"/>\u000a        <columns id="entityMetaClassName" width="300" visible="true"/>\u000a        <columns id="permissionsInfo" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="attributesTabFrame.editPane"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="specificTabFrame.contentSplit"> \u000a      <position value="80.0" unit="%"/> \u000a    </component>  \u000a    <component name="specificTabFrame.specificPermissionsTree"> \u000a      <columns> \u000a        <columns id="caption" visible="true"/>  \u000a        <columns id="permissionVariant" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="specificTabFrame.specificEditPane"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="uiTabFrame.contentSplit"> \u000a      <position value="80.0" unit="%"/> \u000a    </component>  \u000a    <component name="uiTabFrame.uiPermissionsTable"> \u000a      <columns> \u000a        <columns id="screen" visible="true"/>  \u000a        <columns id="component" visible="true"/>  \u000a        <columns id="permissionVariant" visible="true"/> \u000a      </columns>  \u000a      <groupProperties> \u000a        <property id="screen"/> \u000a      </groupProperties> \u000a    </component>  \u000a    <component name="uiTabFrame.editPane"> \u000a      <groupBox expanded="true"/> \u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('ccf25365-bbdd-1df1-de12-30bc8df3b27b','2018-01-31 13:44:19.887000','admin','60885987-1b61-4247-94c7-dff348347f93','Role ''managers''','http://localhost:8080/app/open?screen=sec$Role.edit&item=sec$Role-dfcc0e65-712b-bd30-ee56-8d6fe39c21c5&params=item:sec$Role-dfcc0e65-712b-bd30-ee56-8d6fe39c21c5','dfcc0e65-712b-bd30-ee56-8d6fe39c21c5',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:44:41.659000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_PERMISSION VALUES('e8241b97-eac7-f536-9a96-dfcb6a64e6c6','2018-01-31 13:45:18.683000','admin',1,'2018-01-31 13:45:18.683000',NULL,NULL,NULL,10,'jmxConsole',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+INSERT INTO SEC_PERMISSION VALUES('89f7531f-7577-3b10-9a9d-294fea07f6f4','2018-01-31 13:45:18.682000','admin',1,'2018-01-31 13:45:18.682000',NULL,NULL,NULL,10,'performanceStatistics',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+INSERT INTO SEC_PERMISSION VALUES('ba7d64e7-cc97-ad16-6df0-d799d451f57d','2018-01-31 13:45:18.683000','admin',1,'2018-01-31 13:45:18.683000',NULL,NULL,NULL,10,'sys$Category.browse',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+INSERT INTO SEC_PERMISSION VALUES('64b27b0d-717b-ccca-a473-9695d6d6802a','2018-01-31 13:45:18.683000','admin',1,'2018-01-31 13:45:18.683000',NULL,NULL,NULL,10,'entityLog',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+INSERT INTO SEC_PERMISSION VALUES('353d7a4b-99c5-8174-9c5e-8b377cc635d9','2018-01-31 13:45:18.682000','admin',1,'2018-01-31 13:45:18.682000',NULL,NULL,NULL,10,'sys$FileDescriptor.browse',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+INSERT INTO SEC_PERMISSION VALUES('80e962d0-f684-1288-fc76-3b85a635a3bd','2018-01-31 13:45:18.682000','admin',1,'2018-01-31 13:45:18.682000',NULL,NULL,NULL,10,'entityInspector.browse',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+INSERT INTO SEC_PERMISSION VALUES('2d7514eb-74cf-1808-29b8-8272d5a52399','2018-01-31 13:45:18.682000','admin',1,'2018-01-31 13:45:18.682000',NULL,NULL,NULL,10,'entityRestore',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+INSERT INTO SEC_PERMISSION VALUES('39909635-a5ca-0ce5-89b5-79ede8aa4a34','2018-01-31 13:45:18.682000','admin',1,'2018-01-31 13:45:18.682000',NULL,NULL,NULL,10,'appProperties',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+INSERT INTO SEC_PERMISSION VALUES('8228753f-8e83-5b29-42f2-2d67112eda45','2018-01-31 13:45:18.682000','admin',1,'2018-01-31 13:45:18.682000',NULL,NULL,NULL,10,'sys$SendingMessage.browse',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+INSERT INTO SEC_PERMISSION VALUES('729dc385-7cf4-7764-4648-debe7345709b','2018-01-31 13:45:18.682000','admin',1,'2018-01-31 13:45:18.682000',NULL,NULL,NULL,10,'sec$SessionLogEntry.browse',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+INSERT INTO SEC_PERMISSION VALUES('60c47700-fa47-fef7-78ce-b702c70b1420','2018-01-31 13:45:18.682000','admin',1,'2018-01-31 13:45:18.682000',NULL,NULL,NULL,10,'sec$UserSessionEntity.browse',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+INSERT INTO SEC_PERMISSION VALUES('0b51ca70-36bf-1fd5-1673-1a3a14fd2323','2018-01-31 13:45:18.683000','admin',1,'2018-01-31 13:45:18.683000',NULL,NULL,NULL,10,'screenProfiler',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+INSERT INTO SEC_PERMISSION VALUES('7e7d47b8-e5bd-8638-aeb0-1234a37475ed','2018-01-31 13:45:18.683000','admin',1,'2018-01-31 13:45:18.683000',NULL,NULL,NULL,10,'sys$LockInfo.browse',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+INSERT INTO SEC_PERMISSION VALUES('e1a0bd63-7d60-412c-6f57-2560733f2c5d','2018-01-31 13:45:18.683000','admin',1,'2018-01-31 13:45:18.683000',NULL,NULL,NULL,10,'serverLog',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+INSERT INTO SEC_PERMISSION VALUES('1e6a021c-b95b-7ae9-4cdd-882c2f2fea9d','2018-01-31 13:45:18.682000','admin',1,'2018-01-31 13:45:18.682000',NULL,NULL,NULL,10,'sys$ScheduledTask.browse',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='f883e9a8-4297-242c-1d54-f0f3c8fabec5'
+INSERT INTO SEC_USER_SETTING VALUES('f883e9a8-4297-242c-1d54-f0f3c8fabec5',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','sec$Role.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="roleGroupBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="description"/>  \u000a    <component name="screensTabFrame.screenPermissionsTree"> \u000a      <columns>\u000a        <columns id="caption" visible="true"/>\u000a        <columns id="permissionVariant" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="screensTabFrame.screensEditPane"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="entitiesTabFrame.contentSplit"> \u000a      <position value="80.0" unit="%"/> \u000a    </component>  \u000a    <component name="entitiesTabFrame.entityPermissionsTable"> \u000a      <columns> \u000a        <columns id="localName" width="300" visible="true"/>  \u000a        <columns id="entityMetaClassName" width="300" visible="true"/>  \u000a        <columns id="createPermissionVariant" visible="true"/>  \u000a        <columns id="readPermissionVariant" visible="true"/>  \u000a        <columns id="updatePermissionVariant" visible="true"/>  \u000a        <columns id="deletePermissionVariant" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="entitiesTabFrame.editPane"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="attributesTabFrame.contentSplit"> \u000a      <position value="60.0" unit="%"/> \u000a    </component>  \u000a    <component name="attributesTabFrame.propertyPermissionsTable"> \u000a      <columns> \u000a        <columns id="localName" width="300" visible="true"/>  \u000a        <columns id="entityMetaClassName" width="300" visible="true"/>  \u000a        <columns id="permissionsInfo" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="attributesTabFrame.editPane"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="specificTabFrame.contentSplit"> \u000a      <position value="80.0" unit="%"/> \u000a    </component>  \u000a    <component name="specificTabFrame.specificPermissionsTree"> \u000a      <columns> \u000a        <columns id="caption" visible="true"/>  \u000a        <columns id="permissionVariant" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="specificTabFrame.specificEditPane"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="uiTabFrame.contentSplit"> \u000a      <position value="80.0" unit="%"/> \u000a    </component>  \u000a    <component name="uiTabFrame.uiPermissionsTable"> \u000a      <columns> \u000a        <columns id="screen" visible="true"/>  \u000a        <columns id="component" visible="true"/>  \u000a        <columns id="permissionVariant" visible="true"/> \u000a      </columns>  \u000a      <groupProperties> \u000a        <property id="screen"/> \u000a      </groupProperties> \u000a    </component>  \u000a    <component name="uiTabFrame.editPane"> \u000a      <groupBox expanded="true"/> \u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('c3c74c79-1916-8863-f651-1e5fce06c2fa','2018-01-31 13:45:18.714000','admin','60885987-1b61-4247-94c7-dff348347f93','Role ''managers''','http://localhost:8080/app/open?screen=sec$Role.edit&item=sec$Role-dfcc0e65-712b-bd30-ee56-8d6fe39c21c5&params=item:sec$Role-dfcc0e65-712b-bd30-ee56-8d6fe39c21c5','dfcc0e65-712b-bd30-ee56-8d6fe39c21c5',NULL)
+COMMIT
+INSERT INTO SEC_USER_SETTING VALUES('3863cdf2-f023-335c-76df-af0e267519d7',NULL,NULL,'81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','W','sec$User.lookup','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings>\u000a  <components>\u000a    <component name="genericFilter">\u000a      <defaultFilter/>\u000a      <groupBoxExpanded>true</groupBoxExpanded>\u000a    </component>\u000a    <component name="usersTable">\u000a      <columns>\u000a        <columns id="login" visible="true"/>\u000a        <columns id="name" visible="true"/>\u000a        <columns id="position" visible="true"/>\u000a        <columns id="group" visible="true"/>\u000a        <columns id="email" visible="true"/>\u000a        <columns id="active" visible="true"/>\u000a      </columns>\u000a    </component>\u000a  </components>\u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:45:41.660000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_CONSTRAINT WHERE ID='fd764d08-c1eb-f1a3-8576-bbfaef5b8217'
+INSERT INTO SEC_CONSTRAINT VALUES('fd764d08-c1eb-f1a3-8576-bbfaef5b8217','2017-12-20 10:27:54.914000','admin',3,'2018-01-31 13:46:05.502000','boss',NULL,NULL,NULL,'db','read','sec$Role',NULL,'({E}.description is null or {E}.description not like ''[hide]'')',NULL,NULL,TRUE,'2eb074ea-f2d3-9d87-e7f6-2339d19eb682')
+COMMIT
+DELETE FROM SEC_CONSTRAINT WHERE ID='fd764d08-c1eb-f1a3-8576-bbfaef5b8217'
+INSERT INTO SEC_CONSTRAINT VALUES('fd764d08-c1eb-f1a3-8576-bbfaef5b8217','2017-12-20 10:27:54.914000','admin',4,'2018-01-31 13:46:15.503000','boss',NULL,NULL,NULL,'db','read','sec$Role',NULL,'({E}.description is null or {E}.description not like ''[hide]'')',NULL,NULL,FALSE,'2eb074ea-f2d3-9d87-e7f6-2339d19eb682')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:46:41.660000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_USER_SETTING VALUES('efecdc1e-2aab-9e34-11d9-24d00674e053',NULL,NULL,'81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','W','aboutWindow','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings>\u000a  <components>\u000a    <component name="buildInfoTable">\u000a      <columns>\u000a        <columns id="name" visible="true"/>\u000a        <columns id="value" visible="true"/>\u000a      </columns>\u000a    </component>\u000a  </components>\u000a</settings>\u000a')
+COMMIT
+INSERT INTO SEC_USER_SETTING VALUES('6272f000-64d4-01f4-2aa8-5bf47a397c49',NULL,NULL,'81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','W','sec$ScreenHistory.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings>\u000a  <components>\u000a    <component name="historyTable">\u000a      <columns>\u000a        <columns id="caption" visible="true"/>\u000a        <columns id="createTs" visible="true"/>\u000a      </columns>\u000a    </component>\u000a  </components>\u000a</settings>\u000a')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('3134641a-9108-fd0e-0769-56c7fc01c313','2018-01-31 13:47:24.589000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''vasya''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-f53947e3-47ee-4bce-2fe2-c5319924eac8&params=item:sec$User-f53947e3-47ee-4bce-2fe2-c5319924eac8','f53947e3-47ee-4bce-2fe2-c5319924eac8',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:47:41.661000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:48:41.661000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:49:41.661000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_PERMISSION WHERE ID='0054fad3-ed12-6bae-1478-447465d99abe'
+INSERT INTO SEC_PERMISSION VALUES('0054fad3-ed12-6bae-1478-447465d99abe','2018-01-31 13:44:19.868000','admin',2,'2018-01-31 13:44:19.868000',NULL,'2018-01-31 13:50:11.889000','admin',30,'sec$Group:constraints',1,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+INSERT INTO SEC_PERMISSION VALUES('33c30b0e-8737-1e6d-f89b-564a9c16b48f','2018-01-31 13:50:11.887000','admin',1,'2018-01-31 13:50:11.887000',NULL,NULL,NULL,20,'sec$Constraint:update',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+INSERT INTO SEC_PERMISSION VALUES('68976190-9f7d-3d84-450c-cf4f93eb1d76','2018-01-31 13:50:11.887000','admin',1,'2018-01-31 13:50:11.887000',NULL,NULL,NULL,20,'sec$Constraint:delete',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+INSERT INTO SEC_PERMISSION VALUES('750ee760-d493-934f-9cfe-c4a83ab3f485','2018-01-31 13:50:11.887000','admin',1,'2018-01-31 13:50:11.887000',NULL,NULL,NULL,20,'sec$Constraint:create',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='f883e9a8-4297-242c-1d54-f0f3c8fabec5'
+INSERT INTO SEC_USER_SETTING VALUES('f883e9a8-4297-242c-1d54-f0f3c8fabec5',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','sec$Role.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="roleGroupBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="description"/>  \u000a    <component name="screensTabFrame.screenPermissionsTree"> \u000a      <columns>\u000a        <columns id="caption" visible="true"/>\u000a        <columns id="permissionVariant" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="screensTabFrame.screensEditPane"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="entitiesTabFrame.contentSplit"> \u000a      <position value="80.0" unit="%"/> \u000a    </component>  \u000a    <component name="entitiesTabFrame.entityPermissionsTable"> \u000a      <columns>\u000a        <columns id="localName" width="300" visible="true"/>\u000a        <columns id="entityMetaClassName" width="300" visible="true"/>\u000a        <columns id="createPermissionVariant" visible="true"/>\u000a        <columns id="readPermissionVariant" visible="true"/>\u000a        <columns id="updatePermissionVariant" visible="true"/>\u000a        <columns id="deletePermissionVariant" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="entitiesTabFrame.editPane"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="attributesTabFrame.contentSplit"> \u000a      <position value="60.0" unit="%"/> \u000a    </component>  \u000a    <component name="attributesTabFrame.propertyPermissionsTable"> \u000a      <columns>\u000a        <columns id="localName" width="300" visible="true"/>\u000a        <columns id="entityMetaClassName" width="300" visible="true"/>\u000a        <columns id="permissionsInfo" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="attributesTabFrame.editPane"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="specificTabFrame.contentSplit"> \u000a      <position value="80.0" unit="%"/> \u000a    </component>  \u000a    <component name="specificTabFrame.specificPermissionsTree"> \u000a      <columns>\u000a        <columns id="caption" visible="true"/>\u000a        <columns id="permissionVariant" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="specificTabFrame.specificEditPane"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="uiTabFrame.contentSplit"> \u000a      <position value="80.0" unit="%"/> \u000a    </component>  \u000a    <component name="uiTabFrame.uiPermissionsTable"> \u000a      <columns>\u000a        <columns id="screen" visible="true"/>\u000a        <columns id="component" visible="true"/>\u000a        <columns id="permissionVariant" visible="true"/>\u000a      </columns>\u000a      <groupProperties>\u000a        <property id="screen"/>\u000a      </groupProperties>\u000a    </component>  \u000a    <component name="uiTabFrame.editPane"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('c9f15424-26d2-dabc-23d2-5d04a763afff','2018-01-31 13:50:11.941000','admin','60885987-1b61-4247-94c7-dff348347f93','Role ''managers''','http://localhost:8080/app/open?screen=sec$Role.edit&item=sec$Role-dfcc0e65-712b-bd30-ee56-8d6fe39c21c5&params=item:sec$Role-dfcc0e65-712b-bd30-ee56-8d6fe39c21c5','dfcc0e65-712b-bd30-ee56-8d6fe39c21c5',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:50:41.662000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_LOCALIZED_CONSTRAINT_MSG VALUES('c5f2e09a-79f2-b3cc-fa01-d23d91996efd','2018-01-31 13:51:02.688000','boss',1,'2018-01-31 13:51:02.688000',NULL,NULL,NULL,'sec$User','read',NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='adfaf365-d9ee-eb0e-07cc-ce3f5d37ee1d'
+INSERT INTO SEC_USER_SETTING VALUES('adfaf365-d9ee-eb0e-07cc-ce3f5d37ee1d',NULL,NULL,'81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','W','sec$Group.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="split"> \u000a      <position value="30.0" unit="%"/> \u000a    </component>  \u000a    <component name="filterWithoutId"> \u000a      <defaultFilter/>  \u000a      <groupBoxExpanded/> \u000a    </component>  \u000a    <component name="usersTable"> \u000a      <columns>\u000a        <columns id="name" visible="true"/>\u000a        <columns id="login" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="constraintsTable"> \u000a      <columns>\u000a        <columns id="entityName" visible="true"/>\u000a        <columns id="isActive" visible="true"/>\u000a        <columns id="operationType" visible="true"/>\u000a        <columns id="joinClause" width="200" visible="true"/>\u000a        <columns id="whereClause" width="200" visible="true"/>\u000a        <columns id="groovyScript" width="200" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="attributesTable">\u000a      <columns>\u000a        <columns id="name" visible="true"/>\u000a        <columns id="datatypeCaption" visible="true"/>\u000a        <columns id="stringValue" visible="true"/>\u000a      </columns>\u000a    </component>\u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:51:41.662000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_PERMISSION VALUES('fefa5065-14ef-8fe6-5fb3-68a34a2ed7c1','2018-01-31 13:52:05.423000','admin',1,'2018-01-31 13:52:05.423000',NULL,NULL,NULL,10,'printDomain',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+INSERT INTO SEC_PERMISSION VALUES('5eec7b32-e59e-b988-1c3b-c0031c2a6858','2018-01-31 13:52:05.423000','admin',1,'2018-01-31 13:52:05.423000',NULL,NULL,NULL,20,'sec$SessionAttribute:update',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+INSERT INTO SEC_PERMISSION VALUES('e44cf2ca-e01d-cf7d-200d-f61cf470ba94','2018-01-31 13:52:05.423000','admin',1,'2018-01-31 13:52:05.423000',NULL,NULL,NULL,20,'sec$SessionAttribute:delete',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+INSERT INTO SEC_PERMISSION VALUES('9dd0657a-db65-b688-b021-a15ef15ff415','2018-01-31 13:52:05.423000','admin',1,'2018-01-31 13:52:05.423000',NULL,NULL,NULL,20,'sec$SessionAttribute:create',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+INSERT INTO SEC_PERMISSION VALUES('f5714a29-0c0d-2883-9ba8-c7108213a9d7','2018-01-31 13:52:05.423000','admin',1,'2018-01-31 13:52:05.423000',NULL,NULL,NULL,10,'logWindow',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='f883e9a8-4297-242c-1d54-f0f3c8fabec5'
+INSERT INTO SEC_USER_SETTING VALUES('f883e9a8-4297-242c-1d54-f0f3c8fabec5',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','sec$Role.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="roleGroupBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="description"/>  \u000a    <component name="screensTabFrame.screenPermissionsTree"> \u000a      <columns>\u000a        <columns id="caption" visible="true"/>\u000a        <columns id="permissionVariant" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="screensTabFrame.screensEditPane"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="entitiesTabFrame.contentSplit"> \u000a      <position value="80.0" unit="%"/> \u000a    </component>  \u000a    <component name="entitiesTabFrame.entityPermissionsTable"> \u000a      <columns>\u000a        <columns id="localName" width="300" visible="true"/>\u000a        <columns id="entityMetaClassName" width="300" visible="true"/>\u000a        <columns id="createPermissionVariant" visible="true"/>\u000a        <columns id="readPermissionVariant" visible="true"/>\u000a        <columns id="updatePermissionVariant" visible="true"/>\u000a        <columns id="deletePermissionVariant" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="entitiesTabFrame.editPane"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="attributesTabFrame.contentSplit"> \u000a      <position value="60.0" unit="%"/> \u000a    </component>  \u000a    <component name="attributesTabFrame.propertyPermissionsTable"> \u000a      <columns> \u000a        <columns id="localName" width="300" visible="true"/>  \u000a        <columns id="entityMetaClassName" width="300" visible="true"/>  \u000a        <columns id="permissionsInfo" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="attributesTabFrame.editPane"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="specificTabFrame.contentSplit"> \u000a      <position value="80.0" unit="%"/> \u000a    </component>  \u000a    <component name="specificTabFrame.specificPermissionsTree"> \u000a      <columns> \u000a        <columns id="caption" visible="true"/>  \u000a        <columns id="permissionVariant" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="specificTabFrame.specificEditPane"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="uiTabFrame.contentSplit"> \u000a      <position value="80.0" unit="%"/> \u000a    </component>  \u000a    <component name="uiTabFrame.uiPermissionsTable"> \u000a      <columns> \u000a        <columns id="screen" visible="true"/>  \u000a        <columns id="component" visible="true"/>  \u000a        <columns id="permissionVariant" visible="true"/> \u000a      </columns>  \u000a      <groupProperties> \u000a        <property id="screen"/> \u000a      </groupProperties> \u000a    </component>  \u000a    <component name="uiTabFrame.editPane"> \u000a      <groupBox expanded="true"/> \u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('dfa4a488-a8bc-efec-4d80-0520299217ce','2018-01-31 13:52:05.438000','admin','60885987-1b61-4247-94c7-dff348347f93','Role ''managers''','http://localhost:8080/app/open?screen=sec$Role.edit&item=sec$Role-dfcc0e65-712b-bd30-ee56-8d6fe39c21c5&params=item:sec$Role-dfcc0e65-712b-bd30-ee56-8d6fe39c21c5','dfcc0e65-712b-bd30-ee56-8d6fe39c21c5',NULL)
+COMMIT
+DELETE FROM SEC_ROLE WHERE ID='356bad92-b2b5-6403-09a1-ad309598fc98'
+INSERT INTO SEC_ROLE VALUES('356bad92-b2b5-6403-09a1-ad309598fc98','2017-12-20 10:57:28.479000','admin',3,'2018-01-01 17:43:20.177000','admin','2018-01-31 13:52:25.330000','admin','denying',NULL,NULL,NULL,30)
+DELETE FROM SEC_PERMISSION WHERE ID='00127c74-3b38-7f6d-aa58-3d37414c90ce'
+INSERT INTO SEC_PERMISSION VALUES('00127c74-3b38-7f6d-aa58-3d37414c90ce','2017-12-20 10:57:28.478000','admin',2,'2017-12-20 10:57:28.478000',NULL,'2018-01-31 13:52:25.339000','admin',10,'service',0,'356bad92-b2b5-6403-09a1-ad309598fc98')
+DELETE FROM SEC_PERMISSION WHERE ID='b9852458-9a8d-87b9-f752-c78ddb4e8f8e'
+INSERT INTO SEC_PERMISSION VALUES('b9852458-9a8d-87b9-f752-c78ddb4e8f8e','2017-12-20 10:57:28.478000','admin',2,'2017-12-20 10:57:28.478000',NULL,'2018-01-31 13:52:25.339000','admin',10,'application-office',0,'356bad92-b2b5-6403-09a1-ad309598fc98')
+DELETE FROM SEC_PERMISSION WHERE ID='cf56d730-14e1-4e8f-72c9-bf2124c200f5'
+INSERT INTO SEC_PERMISSION VALUES('cf56d730-14e1-4e8f-72c9-bf2124c200f5','2017-12-20 10:57:28.478000','admin',2,'2017-12-20 10:57:28.478000',NULL,'2018-01-31 13:52:25.339000','admin',10,'administration',0,'356bad92-b2b5-6403-09a1-ad309598fc98')
+COMMIT
+DELETE FROM SEC_ROLE WHERE ID='cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3'
+INSERT INTO SEC_ROLE VALUES('cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3','2017-12-20 10:32:54.499000','admin',3,'2018-01-31 11:06:44.696000','admin','2018-01-31 13:52:29.321000','admin','local_user',NULL,'[hide]',FALSE,NULL)
+DELETE FROM SEC_PERMISSION WHERE ID='43e4e3eb-c04f-a8ac-b069-827fc28fc8c0'
+INSERT INTO SEC_PERMISSION VALUES('43e4e3eb-c04f-a8ac-b069-827fc28fc8c0','2017-12-20 10:32:54.498000','admin',2,'2017-12-20 10:32:54.498000',NULL,'2018-01-31 13:52:29.328000','admin',20,'sec$Role:create',0,'cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3')
+DELETE FROM SEC_PERMISSION WHERE ID='5623b7fb-d981-a27c-b368-f315449cbf8a'
+INSERT INTO SEC_PERMISSION VALUES('5623b7fb-d981-a27c-b368-f315449cbf8a','2017-12-20 10:32:54.499000','admin',2,'2017-12-20 10:32:54.499000',NULL,'2018-01-31 13:52:29.328000','admin',20,'sec$Permission:update',0,'cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3')
+DELETE FROM SEC_PERMISSION WHERE ID='7db80bcb-677a-5c0a-9935-8f6d9d29d734'
+INSERT INTO SEC_PERMISSION VALUES('7db80bcb-677a-5c0a-9935-8f6d9d29d734','2017-12-20 10:32:54.498000','admin',2,'2017-12-20 10:32:54.498000',NULL,'2018-01-31 13:52:29.328000','admin',20,'sec$Permission:delete',0,'cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3')
+DELETE FROM SEC_PERMISSION WHERE ID='dff1e27e-3a71-eaf7-8387-6f4199ebc2f4'
+INSERT INTO SEC_PERMISSION VALUES('dff1e27e-3a71-eaf7-8387-6f4199ebc2f4','2017-12-20 10:32:54.498000','admin',2,'2017-12-20 10:32:54.498000',NULL,'2018-01-31 13:52:29.328000','admin',20,'sec$Role:update',0,'cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3')
+DELETE FROM SEC_PERMISSION WHERE ID='f562801b-fe46-3eb8-61c6-bd81bbfaab71'
+INSERT INTO SEC_PERMISSION VALUES('f562801b-fe46-3eb8-61c6-bd81bbfaab71','2017-12-20 10:32:54.499000','admin',2,'2017-12-20 10:32:54.499000',NULL,'2018-01-31 13:52:29.328000','admin',20,'sec$Role:delete',0,'cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3')
+DELETE FROM SEC_PERMISSION WHERE ID='fd154456-180c-b874-19a6-e823b5194aa4'
+INSERT INTO SEC_PERMISSION VALUES('fd154456-180c-b874-19a6-e823b5194aa4','2017-12-20 10:32:54.498000','admin',2,'2017-12-20 10:32:54.498000',NULL,'2018-01-31 13:52:29.328000','admin',20,'sec$Permission:create',0,'cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3')
+DELETE FROM SEC_USER_ROLE WHERE ID='0e27d83a-b1a4-0af2-8ecd-d222bed7d556'
+INSERT INTO SEC_USER_ROLE VALUES('0e27d83a-b1a4-0af2-8ecd-d222bed7d556','2017-12-20 10:44:26.812000','admin',2,'2017-12-20 10:44:26.812000',NULL,'2018-01-31 13:52:29.325000','admin','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3')
+DELETE FROM SEC_USER_ROLE WHERE ID='43408df3-4fee-b76d-64e2-1f3f22229c16'
+INSERT INTO SEC_USER_ROLE VALUES('43408df3-4fee-b76d-64e2-1f3f22229c16','2018-01-01 17:43:47.359000','admin',2,'2018-01-01 17:43:47.359000',NULL,'2018-01-31 13:52:29.325000','admin','0253f6a6-3ef3-8f26-8294-5d28addbbad4','cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3')
+DELETE FROM SEC_USER_ROLE WHERE ID='5e29f8b8-35ae-e01d-17e2-979daae30125'
+INSERT INTO SEC_USER_ROLE VALUES('5e29f8b8-35ae-e01d-17e2-979daae30125','2018-01-01 17:06:27.123000','admin',2,'2018-01-01 17:06:27.123000',NULL,'2018-01-31 13:52:29.325000','admin','710eeb85-200a-518d-a7dc-f4caa9df36ad','cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3')
+DELETE FROM SEC_USER_ROLE WHERE ID='63d6d4bb-af1d-9782-9638-f4d9219c38d6'
+INSERT INTO SEC_USER_ROLE VALUES('63d6d4bb-af1d-9782-9638-f4d9219c38d6','2017-12-20 10:44:42.148000','admin',2,'2017-12-20 10:44:42.148000',NULL,'2018-01-31 13:52:29.325000','admin','bfdb9c32-2d8b-3520-d236-00f089c9d632','cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3')
+DELETE FROM SEC_USER_ROLE WHERE ID='65dc4691-2a83-570f-8792-aa2c7b8c96c1'
+INSERT INTO SEC_USER_ROLE VALUES('65dc4691-2a83-570f-8792-aa2c7b8c96c1','2018-01-31 10:30:38.561000','boss',2,'2018-01-31 10:30:38.561000',NULL,'2018-01-31 13:52:29.325000','admin','6d8d95f6-a3cd-9743-b2d1-63c8ea572a69','cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3')
+DELETE FROM SEC_USER_ROLE WHERE ID='7b370d66-6cf3-1aaf-cfc3-8f05406b4375'
+INSERT INTO SEC_USER_ROLE VALUES('7b370d66-6cf3-1aaf-cfc3-8f05406b4375','2018-01-01 17:07:19.208000','admin',2,'2018-01-01 17:07:19.208000',NULL,'2018-01-31 13:52:29.325000','admin','f53947e3-47ee-4bce-2fe2-c5319924eac8','cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3')
+DELETE FROM SEC_USER_ROLE WHERE ID='a1e6b5d2-9327-c9d6-e809-bb3f363c096f'
+INSERT INTO SEC_USER_ROLE VALUES('a1e6b5d2-9327-c9d6-e809-bb3f363c096f','2017-12-28 13:57:06.197000','admin',2,'2017-12-28 13:57:06.197000',NULL,'2018-01-31 13:52:29.325000','admin','b5a4cc07-0f34-e463-fbf4-25bdb36d5142','cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3')
+DELETE FROM SEC_USER_ROLE WHERE ID='a32636e3-6958-7ad5-72eb-b942b51349d7'
+INSERT INTO SEC_USER_ROLE VALUES('a32636e3-6958-7ad5-72eb-b942b51349d7','2018-01-02 14:21:11.525000','admin',2,'2018-01-02 14:21:11.525000',NULL,'2018-01-31 13:52:29.325000','admin','001ac675-07bd-caa0-988b-8dca6cac68b3','cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3')
+DELETE FROM SEC_USER_ROLE WHERE ID='cd3c90f7-87b0-dc01-2b19-7bacb192f063'
+INSERT INTO SEC_USER_ROLE VALUES('cd3c90f7-87b0-dc01-2b19-7bacb192f063','2017-12-28 10:21:48.843000','admin',2,'2017-12-28 10:21:48.843000',NULL,'2018-01-31 13:52:29.325000','admin','8f0556c1-5334-a715-ee23-f5bc33a55d56','cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3')
+DELETE FROM SEC_USER_ROLE WHERE ID='eae60a47-1e25-b89d-d5b0-1d0cf757ad80'
+INSERT INTO SEC_USER_ROLE VALUES('eae60a47-1e25-b89d-d5b0-1d0cf757ad80','2017-12-28 10:22:25.457000','admin',2,'2017-12-28 10:22:25.457000',NULL,'2018-01-31 13:52:29.325000','admin','0c3b4a72-a188-8c56-20f6-646c21388181','cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3')
+DELETE FROM SEC_USER_ROLE WHERE ID='f684b6bc-a265-92fa-d06c-fa87d4d8fe78'
+INSERT INTO SEC_USER_ROLE VALUES('f684b6bc-a265-92fa-d06c-fa87d4d8fe78','2017-12-28 10:20:57.326000','admin',2,'2017-12-28 10:20:57.326000',NULL,'2018-01-31 13:52:29.325000','admin','d0bf5ff8-affc-5eb9-d789-7a67b851825c','cf7acbdd-1754-4a4a-d98e-deaa3d5e52d3')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:52:41.663000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_PERMISSION VALUES('78a67c09-f5f9-44f6-ff74-76e86026c86a','2018-01-31 13:53:07.669000','admin',1,'2018-01-31 13:53:07.669000',NULL,NULL,NULL,10,'sec$Role.browse',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+INSERT INTO SEC_PERMISSION VALUES('79b1bd8c-2860-f782-0d3a-3f58bc1c573b','2018-01-31 13:53:07.669000','admin',1,'2018-01-31 13:53:07.669000',NULL,NULL,NULL,10,'sec$Group.browse',0,'7da89965-58a6-196e-a2c6-0d462547b673')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('575f52b6-00b8-1fcf-4fe5-09b1f7f67969','2018-01-31 13:53:07.701000','admin','60885987-1b61-4247-94c7-dff348347f93','Role ''registrator''','http://localhost:8080/app/open?screen=sec$Role.edit&item=sec$Role-7da89965-58a6-196e-a2c6-0d462547b673&params=item:sec$Role-7da89965-58a6-196e-a2c6-0d462547b673','7da89965-58a6-196e-a2c6-0d462547b673',NULL)
+COMMIT
+DELETE FROM SEC_GROUP WHERE ID='037f1f09-69d3-769e-147b-937c543d75c6'
+INSERT INTO SEC_GROUP VALUES('037f1f09-69d3-769e-147b-937c543d75c6','2018-01-01 17:10:58.058000','manager',2,'2018-01-31 13:53:32.381000','admin',NULL,NULL,'OldRegistrators','2eb074ea-f2d3-9d87-e7f6-2339d19eb682')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:53:41.663000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_GROUP WHERE ID='13572aab-fec7-2dd6-ac9e-78d4cee23832'
+INSERT INTO SEC_GROUP VALUES('13572aab-fec7-2dd6-ac9e-78d4cee23832','2018-01-01 17:11:47.274000','manager',2,'2018-01-31 13:53:53.377000','admin',NULL,NULL,'OldApplicants','037f1f09-69d3-769e-147b-937c543d75c6')
+COMMIT
+DELETE FROM SEC_GROUP WHERE ID='603f9bf0-331c-2e1f-f3ed-17370aa0c697'
+INSERT INTO SEC_GROUP VALUES('603f9bf0-331c-2e1f-f3ed-17370aa0c697','2017-12-18 11:09:19.083000','admin',3,'2018-01-31 13:54:19.297000','admin',NULL,NULL,'OldWorkers','2eb074ea-f2d3-9d87-e7f6-2339d19eb682')
+COMMIT
+DELETE FROM SEC_GROUP WHERE ID='08fd4417-c200-90b1-be2a-f196b05f3454'
+INSERT INTO SEC_GROUP VALUES('08fd4417-c200-90b1-be2a-f196b05f3454','2018-01-31 10:20:30.212000','admin',2,'2018-01-31 13:54:40.592000','admin',NULL,NULL,'Registrators','0fa2b1a5-1d68-4d69-9fbd-dff348347f93')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:54:41.664000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_GROUP WHERE ID='13572aab-fec7-2dd6-ac9e-78d4cee23832'
+INSERT INTO SEC_GROUP VALUES('13572aab-fec7-2dd6-ac9e-78d4cee23832','2018-01-01 17:11:47.274000','manager',3,'2018-01-31 13:54:53.389000','admin',NULL,NULL,'OldApplicants','0fa2b1a5-1d68-4d69-9fbd-dff348347f93')
+INSERT INTO SEC_GROUP_HIERARCHY VALUES('9616a3d9-eb05-3c1d-fc9c-cdf138e9fc97',NULL,NULL,'13572aab-fec7-2dd6-ac9e-78d4cee23832','0fa2b1a5-1d68-4d69-9fbd-dff348347f93',0)
+DELETE FROM SEC_GROUP_HIERARCHY WHERE ID='3adf6e9b-7ebb-d15e-d898-360396f98574'
+DELETE FROM SEC_GROUP_HIERARCHY WHERE ID='c234c41a-4856-3c3d-b79d-fe7fc5a7ece2'
+DELETE FROM SEC_GROUP_HIERARCHY WHERE ID='ccc15a24-c663-c7a8-4cb8-484660130eb6'
+COMMIT
+DELETE FROM SEC_GROUP WHERE ID='603f9bf0-331c-2e1f-f3ed-17370aa0c697'
+INSERT INTO SEC_GROUP VALUES('603f9bf0-331c-2e1f-f3ed-17370aa0c697','2017-12-18 11:09:19.083000','admin',4,'2018-01-31 13:55:03.137000','admin',NULL,NULL,'OldWorkers','0fa2b1a5-1d68-4d69-9fbd-dff348347f93')
+INSERT INTO SEC_GROUP_HIERARCHY VALUES('3d988feb-26bb-6aa2-0aef-ad91552aad75',NULL,NULL,'603f9bf0-331c-2e1f-f3ed-17370aa0c697','0fa2b1a5-1d68-4d69-9fbd-dff348347f93',0)
+DELETE FROM SEC_GROUP_HIERARCHY WHERE ID='66a3eb3d-9809-f7e9-b40f-d956086c0e73'
+DELETE FROM SEC_GROUP_HIERARCHY WHERE ID='f75dbe49-1ef6-3d49-1cdb-c64d861ec777'
+COMMIT
+DELETE FROM SEC_GROUP WHERE ID='13572aab-fec7-2dd6-ac9e-78d4cee23832'
+INSERT INTO SEC_GROUP VALUES('13572aab-fec7-2dd6-ac9e-78d4cee23832','2018-01-01 17:11:47.274000','manager',4,'2018-01-31 13:55:12.752000','admin',NULL,NULL,'Applicants','0fa2b1a5-1d68-4d69-9fbd-dff348347f93')
+COMMIT
+DELETE FROM SEC_GROUP WHERE ID='603f9bf0-331c-2e1f-f3ed-17370aa0c697'
+INSERT INTO SEC_GROUP VALUES('603f9bf0-331c-2e1f-f3ed-17370aa0c697','2017-12-18 11:09:19.083000','admin',5,'2018-01-31 13:55:19.721000','admin',NULL,NULL,'Workers','0fa2b1a5-1d68-4d69-9fbd-dff348347f93')
+COMMIT
+DELETE FROM SEC_GROUP WHERE ID='037f1f09-69d3-769e-147b-937c543d75c6'
+INSERT INTO SEC_GROUP VALUES('037f1f09-69d3-769e-147b-937c543d75c6','2018-01-01 17:10:58.058000','manager',3,'2018-01-31 13:53:32.381000','admin','2018-01-31 13:55:24.649000','admin','OldRegistrators','2eb074ea-f2d3-9d87-e7f6-2339d19eb682')
+COMMIT
+DELETE FROM SEC_CONSTRAINT WHERE ID='3c2a0d99-dd96-5abf-67df-9b9b58d5e18e'
+INSERT INTO SEC_CONSTRAINT VALUES('3c2a0d99-dd96-5abf-67df-9b9b58d5e18e','2017-12-20 10:29:30.633000','admin',3,'2018-01-31 10:28:56.492000','admin','2018-01-31 13:55:38.058000','admin',NULL,'db','read','sec$User',NULL,'{E}.group.id in (\u000d\u000a  select h.group.id from sec$GroupHierarchy h\u000d\u000a  where h.group.id = :session$userGroupId or h.parent.id = :session$userGroupId\u000d\u000a)',NULL,NULL,FALSE,'2eb074ea-f2d3-9d87-e7f6-2339d19eb682')
+COMMIT
+DELETE FROM SEC_CONSTRAINT WHERE ID='cc6440bf-0d22-49e8-be56-45ba7d06f2c5'
+INSERT INTO SEC_CONSTRAINT VALUES('cc6440bf-0d22-49e8-be56-45ba7d06f2c5','2017-12-20 10:28:42.642000','admin',3,'2018-01-31 10:28:59.141000','admin','2018-01-31 13:55:40.913000','admin',NULL,'db','read','sec$Group',NULL,'{E}.id in (\u000d\u000a  select h.group.id from sec$GroupHierarchy h\u000d\u000a  where h.group.id = :session$userGroupId or h.parent.id = :session$userGroupId\u000d\u000a)',NULL,NULL,FALSE,'2eb074ea-f2d3-9d87-e7f6-2339d19eb682')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:55:41.664000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_CONSTRAINT WHERE ID='fd764d08-c1eb-f1a3-8576-bbfaef5b8217'
+INSERT INTO SEC_CONSTRAINT VALUES('fd764d08-c1eb-f1a3-8576-bbfaef5b8217','2017-12-20 10:27:54.914000','admin',5,'2018-01-31 13:46:15.503000','boss','2018-01-31 13:55:43.474000','admin',NULL,'db','read','sec$Role',NULL,'({E}.description is null or {E}.description not like ''[hide]'')',NULL,NULL,FALSE,'2eb074ea-f2d3-9d87-e7f6-2339d19eb682')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:56:41.664000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:57:41.665000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+/*C248*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C249*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C250*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C251*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C253*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C252*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C254*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C255*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C247*/DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:58:05.959000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
+DISCONNECT
+/*C256*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C257*/SET SCHEMA PUBLIC
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 13:59:16.026000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 14:00:16.025000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='80fa3481-e8af-164e-98c2-7f2efc4b5ae4'
+INSERT INTO SEC_USER_SETTING VALUES('80fa3481-e8af-164e-98c2-7f2efc4b5ae4',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','sec$Group.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="split"> \u000a      <position value="30.0" unit="%"/> \u000a    </component>  \u000a    <component name="filterWithoutId"> \u000a      <defaultFilter/>  \u000a      <groupBoxExpanded/> \u000a    </component>  \u000a    <component name="usersTable"> \u000a      <columns>\u000a        <columns id="name" visible="true"/>\u000a        <columns id="login" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="constraintsTable"> \u000a      <columns> \u000a        <columns id="entityName" visible="true"/>  \u000a        <columns id="isActive" visible="true"/>  \u000a        <columns id="operationType" visible="true"/>  \u000a        <columns id="joinClause" width="200" visible="true"/>  \u000a        <columns id="whereClause" width="200" visible="true"/>  \u000a        <columns id="groovyScript" width="200" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="attributesTable"> \u000a      <columns> \u000a        <columns id="name" visible="true"/>  \u000a        <columns id="datatypeCaption" visible="true"/>  \u000a        <columns id="stringValue" visible="true"/> \u000a      </columns> \u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('6b2ef188-78ee-a1b8-c73a-a9ee8ee04028','2018-01-31 14:00:54.037000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''rick''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-0253f6a6-3ef3-8f26-8294-5d28addbbad4&params=item:sec$User-0253f6a6-3ef3-8f26-8294-5d28addbbad4','0253f6a6-3ef3-8f26-8294-5d28addbbad4',NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('5163f537-d296-c828-9556-94a2801ac1b6','2018-01-31 14:00:59.585000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''tru''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-001ac675-07bd-caa0-988b-8dca6cac68b3&params=item:sec$User-001ac675-07bd-caa0-988b-8dca6cac68b3','001ac675-07bd-caa0-988b-8dca6cac68b3',NULL)
+COMMIT
+DELETE FROM SEC_USER_ROLE WHERE ID='425ed4b9-8595-089e-da5d-4961d9f605ea'
+INSERT INTO SEC_USER_ROLE VALUES('425ed4b9-8595-089e-da5d-4961d9f605ea','2018-01-12 15:01:55.168000','admin',2,'2018-01-12 15:01:55.168000',NULL,'2018-01-31 14:01:03.024000','boss','710eeb85-200a-518d-a7dc-f4caa9df36ad','f95f2793-4846-47cb-ceb5-2566cafd2743')
+COMMIT
+DELETE FROM SEC_USER WHERE ID='710eeb85-200a-518d-a7dc-f4caa9df36ad'
+INSERT INTO SEC_USER VALUES('710eeb85-200a-518d-a7dc-f4caa9df36ad','2017-12-18 11:10:32.463000','admin',6,'2018-01-31 14:01:03.128000','boss',NULL,NULL,'buba','buba','84c175a7d3774ecc25ded84d87f3e9740424b86b','Buba Smith','Buba','Smith',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'13572aab-fec7-2dd6-ac9e-78d4cee23832',NULL,FALSE)
+INSERT INTO SEC_USER_ROLE VALUES('a85bd0de-a0d7-9d33-d29f-41b05e3b0ac1','2018-01-31 14:01:03.075000','boss',1,'2018-01-31 14:01:03.075000',NULL,NULL,NULL,'710eeb85-200a-518d-a7dc-f4caa9df36ad','f95f2793-4846-47cb-ceb5-2566cafd2743')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('2a9ece8c-1110-bb20-5ec1-6d950d30ba53','2018-01-31 14:01:03.161000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''buba''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-710eeb85-200a-518d-a7dc-f4caa9df36ad&params=item:sec$User-710eeb85-200a-518d-a7dc-f4caa9df36ad','710eeb85-200a-518d-a7dc-f4caa9df36ad',NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('7d3f45ed-bd15-7035-261e-e9bba9c914df','2018-01-31 14:01:07.327000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''buba''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-710eeb85-200a-518d-a7dc-f4caa9df36ad&params=item:sec$User-710eeb85-200a-518d-a7dc-f4caa9df36ad','710eeb85-200a-518d-a7dc-f4caa9df36ad',NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('4a60f022-9e2b-d4b2-dc65-210506da4485','2018-01-31 14:01:11.509000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''vasya''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-f53947e3-47ee-4bce-2fe2-c5319924eac8&params=item:sec$User-f53947e3-47ee-4bce-2fe2-c5319924eac8','f53947e3-47ee-4bce-2fe2-c5319924eac8',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 14:01:16.025000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER WHERE ID='0c3b4a72-a188-8c56-20f6-646c21388181'
+INSERT INTO SEC_USER VALUES('0c3b4a72-a188-8c56-20f6-646c21388181','2017-12-28 10:22:25.457000','admin',2,'2018-01-31 14:01:17.282000','boss',NULL,NULL,'figaro','figaro','73d8981e6a816f010b91adb2fcd694b7d8fb376d','Figaro Tut','Figaro','Tut',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'603f9bf0-331c-2e1f-f3ed-17370aa0c697',NULL,FALSE)
+INSERT INTO SEC_USER_ROLE VALUES('12f9913b-3c08-498d-c0d6-7b5923d0dee5','2018-01-31 14:01:17.272000','boss',1,'2018-01-31 14:01:17.272000',NULL,NULL,NULL,'0c3b4a72-a188-8c56-20f6-646c21388181','be0ada85-b10b-545c-8a47-a0ff81b2a9ff')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('3a77e042-74f1-cdbf-f215-f38840382b15','2018-01-31 14:01:17.295000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''figaro''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-0c3b4a72-a188-8c56-20f6-646c21388181&params=item:sec$User-0c3b4a72-a188-8c56-20f6-646c21388181','0c3b4a72-a188-8c56-20f6-646c21388181',NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('14eb6e67-5873-382b-0513-f6120393333e','2018-01-31 14:01:20.660000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''figaro''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-0c3b4a72-a188-8c56-20f6-646c21388181&params=item:sec$User-0c3b4a72-a188-8c56-20f6-646c21388181','0c3b4a72-a188-8c56-20f6-646c21388181',NULL)
+COMMIT
+DELETE FROM SEC_USER WHERE ID='4cbf025d-043d-1a6c-4fcf-85f79da9abe7'
+INSERT INTO SEC_USER VALUES('4cbf025d-043d-1a6c-4fcf-85f79da9abe7','2017-12-18 11:10:15.172000','admin',3,'2018-01-31 14:01:25.230000','boss',NULL,NULL,'john','john','f39657564d7cc3704d6eec372dad63f0b4c0dafd','John Snow','John','Snow',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'603f9bf0-331c-2e1f-f3ed-17370aa0c697',NULL,FALSE)
+INSERT INTO SEC_USER_ROLE VALUES('00df3c50-71ea-70f0-7cb1-0b915035e17b','2018-01-31 14:01:25.219000','boss',1,'2018-01-31 14:01:25.219000',NULL,NULL,NULL,'4cbf025d-043d-1a6c-4fcf-85f79da9abe7','be0ada85-b10b-545c-8a47-a0ff81b2a9ff')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('e42276df-e489-05d3-6476-3a2583f43d0b','2018-01-31 14:01:25.242000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''john''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-4cbf025d-043d-1a6c-4fcf-85f79da9abe7&params=item:sec$User-4cbf025d-043d-1a6c-4fcf-85f79da9abe7','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',NULL)
+COMMIT
+DELETE FROM SEC_USER WHERE ID='8f0556c1-5334-a715-ee23-f5bc33a55d56'
+INSERT INTO SEC_USER VALUES('8f0556c1-5334-a715-ee23-f5bc33a55d56','2017-12-28 10:21:48.842000','admin',2,'2018-01-31 14:01:28.971000','boss',NULL,NULL,'jenny','jenny','4bd672b0fa8f7af5e8a1da4daf0b6896ae230c01','Jenny Rise','Jenny','Rise',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'603f9bf0-331c-2e1f-f3ed-17370aa0c697',NULL,FALSE)
+INSERT INTO SEC_USER_ROLE VALUES('1591b841-de16-e825-dabd-a544503c0f19','2018-01-31 14:01:28.958000','boss',1,'2018-01-31 14:01:28.958000',NULL,NULL,NULL,'8f0556c1-5334-a715-ee23-f5bc33a55d56','be0ada85-b10b-545c-8a47-a0ff81b2a9ff')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('cdeb99b3-08fd-3cd1-b9db-31c6a2b55dd0','2018-01-31 14:01:28.985000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''jenny''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-8f0556c1-5334-a715-ee23-f5bc33a55d56&params=item:sec$User-8f0556c1-5334-a715-ee23-f5bc33a55d56','8f0556c1-5334-a715-ee23-f5bc33a55d56',NULL)
+COMMIT
+DELETE FROM SEC_USER WHERE ID='b5a4cc07-0f34-e463-fbf4-25bdb36d5142'
+INSERT INTO SEC_USER VALUES('b5a4cc07-0f34-e463-fbf4-25bdb36d5142','2017-12-28 13:57:06.196000','admin',2,'2018-01-31 14:01:32.465000','boss',NULL,NULL,'garofi','garofi','de5f8090459e0e6f67eff31d452adb12f88477ad','Figaro Tam','Figaro','Tam',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'603f9bf0-331c-2e1f-f3ed-17370aa0c697',NULL,FALSE)
+INSERT INTO SEC_USER_ROLE VALUES('7cef5031-835a-d7ec-e92a-937afa200d2d','2018-01-31 14:01:32.452000','boss',1,'2018-01-31 14:01:32.452000',NULL,NULL,NULL,'b5a4cc07-0f34-e463-fbf4-25bdb36d5142','be0ada85-b10b-545c-8a47-a0ff81b2a9ff')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('eb552194-01f7-0981-aa26-c139edef666c','2018-01-31 14:01:32.477000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''garofi''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-b5a4cc07-0f34-e463-fbf4-25bdb36d5142&params=item:sec$User-b5a4cc07-0f34-e463-fbf4-25bdb36d5142','b5a4cc07-0f34-e463-fbf4-25bdb36d5142',NULL)
+COMMIT
+DELETE FROM SEC_USER WHERE ID='bfdb9c32-2d8b-3520-d236-00f089c9d632'
+INSERT INTO SEC_USER VALUES('bfdb9c32-2d8b-3520-d236-00f089c9d632','2017-12-18 11:09:50.008000','admin',5,'2018-01-31 14:01:36.065000','boss',NULL,NULL,'igor','igor','57c5e352c7ed3df59f32c8adf7e58887fe06009a','Igor Didukh','Igor','Didukh',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'603f9bf0-331c-2e1f-f3ed-17370aa0c697',NULL,FALSE)
+INSERT INTO SEC_USER_ROLE VALUES('6ef4c9ba-5211-eca9-9d0f-9be5f3881d2e','2018-01-31 14:01:36.052000','boss',1,'2018-01-31 14:01:36.052000',NULL,NULL,NULL,'bfdb9c32-2d8b-3520-d236-00f089c9d632','be0ada85-b10b-545c-8a47-a0ff81b2a9ff')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('d36d7393-8ad2-dfc6-b788-c6aed3517787','2018-01-31 14:01:36.078000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''igor''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-bfdb9c32-2d8b-3520-d236-00f089c9d632&params=item:sec$User-bfdb9c32-2d8b-3520-d236-00f089c9d632','bfdb9c32-2d8b-3520-d236-00f089c9d632',NULL)
+COMMIT
+DELETE FROM SEC_USER WHERE ID='d0bf5ff8-affc-5eb9-d789-7a67b851825c'
+INSERT INTO SEC_USER VALUES('d0bf5ff8-affc-5eb9-d789-7a67b851825c','2017-12-28 10:20:57.326000','admin',3,'2018-01-31 14:01:39.659000','boss',NULL,NULL,'malumba','malumba','0feb323762298a85a731dc5f5c99185972dbb5c8','Mukaka Malumba','Mukaka','Malumba',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'603f9bf0-331c-2e1f-f3ed-17370aa0c697',NULL,FALSE)
+INSERT INTO SEC_USER_ROLE VALUES('3d407e38-ca79-4b20-de6d-d586be7e91db','2018-01-31 14:01:39.639000','boss',1,'2018-01-31 14:01:39.639000',NULL,NULL,NULL,'d0bf5ff8-affc-5eb9-d789-7a67b851825c','be0ada85-b10b-545c-8a47-a0ff81b2a9ff')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('0b239398-3814-bb94-9e23-42d4ab3a49ff','2018-01-31 14:01:39.670000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''malumba''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-d0bf5ff8-affc-5eb9-d789-7a67b851825c&params=item:sec$User-d0bf5ff8-affc-5eb9-d789-7a67b851825c','d0bf5ff8-affc-5eb9-d789-7a67b851825c',NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('3a2a95f5-daef-d702-fb64-90769e682153','2018-01-31 14:01:44.987000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''figaro''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-0c3b4a72-a188-8c56-20f6-646c21388181&params=item:sec$User-0c3b4a72-a188-8c56-20f6-646c21388181','0c3b4a72-a188-8c56-20f6-646c21388181',NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('c9001846-4a85-9ee5-8c9b-653019d15cbb','2018-01-31 14:01:47.662000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''john''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-4cbf025d-043d-1a6c-4fcf-85f79da9abe7&params=item:sec$User-4cbf025d-043d-1a6c-4fcf-85f79da9abe7','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('1494aded-923a-85bb-4193-11d87ee6c43d','2018-01-31 14:01:50.291000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''jenny''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-8f0556c1-5334-a715-ee23-f5bc33a55d56&params=item:sec$User-8f0556c1-5334-a715-ee23-f5bc33a55d56','8f0556c1-5334-a715-ee23-f5bc33a55d56',NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('fc8f5dd8-517d-fc4f-992e-0f3cd6df6a0e','2018-01-31 14:01:53.059000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''garofi''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-b5a4cc07-0f34-e463-fbf4-25bdb36d5142&params=item:sec$User-b5a4cc07-0f34-e463-fbf4-25bdb36d5142','b5a4cc07-0f34-e463-fbf4-25bdb36d5142',NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('b8042824-5920-90b2-9404-edaab8239364','2018-01-31 14:01:55.853000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''igor''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-bfdb9c32-2d8b-3520-d236-00f089c9d632&params=item:sec$User-bfdb9c32-2d8b-3520-d236-00f089c9d632','bfdb9c32-2d8b-3520-d236-00f089c9d632',NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('298fcef6-57a7-a3af-02e7-b4087bfb9a47','2018-01-31 14:01:58.851000','boss','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','User ''malumba''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-d0bf5ff8-affc-5eb9-d789-7a67b851825c&params=item:sec$User-d0bf5ff8-affc-5eb9-d789-7a67b851825c','d0bf5ff8-affc-5eb9-d789-7a67b851825c',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 14:02:16.026000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_ROLE WHERE ID='70d972c8-7593-3a2e-27a1-72d3f2bb573b'
+INSERT INTO SEC_USER_ROLE VALUES('70d972c8-7593-3a2e-27a1-72d3f2bb573b','2018-01-12 15:01:46.647000','admin',2,'2018-01-12 15:01:46.647000',NULL,'2018-01-31 14:02:27.082000','rick','001ac675-07bd-caa0-988b-8dca6cac68b3','f95f2793-4846-47cb-ceb5-2566cafd2743')
+COMMIT
+DELETE FROM SEC_USER WHERE ID='001ac675-07bd-caa0-988b-8dca6cac68b3'
+INSERT INTO SEC_USER VALUES('001ac675-07bd-caa0-988b-8dca6cac68b3','2018-01-02 14:21:11.524000','admin',3,'2018-01-31 14:02:27.100000','rick',NULL,NULL,'tru','tru','e0830e80e36c8032e48b8e5607854e00f7f9b768','Tru Bubble','Tru','Bubble',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'13572aab-fec7-2dd6-ac9e-78d4cee23832',NULL,FALSE)
+INSERT INTO SEC_USER_ROLE VALUES('2452d842-1745-5b89-27fa-6491331eb0ff','2018-01-31 14:02:27.088000','rick',1,'2018-01-31 14:02:27.088000',NULL,NULL,NULL,'001ac675-07bd-caa0-988b-8dca6cac68b3','f95f2793-4846-47cb-ceb5-2566cafd2743')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('a00734a7-072c-9c5c-e937-4fe4a370b1f3','2018-01-31 14:02:27.112000','rick','0253f6a6-3ef3-8f26-8294-5d28addbbad4','User ''tru''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-001ac675-07bd-caa0-988b-8dca6cac68b3&params=item:sec$User-001ac675-07bd-caa0-988b-8dca6cac68b3','001ac675-07bd-caa0-988b-8dca6cac68b3',NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('54bcf489-961f-d1bf-23f3-87a10539a70b','2018-01-31 14:02:30.994000','rick','0253f6a6-3ef3-8f26-8294-5d28addbbad4','User ''tru''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-001ac675-07bd-caa0-988b-8dca6cac68b3&params=item:sec$User-001ac675-07bd-caa0-988b-8dca6cac68b3','001ac675-07bd-caa0-988b-8dca6cac68b3',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 14:03:16.026000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 14:04:16.026000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 14:05:16.027000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 14:06:16.027000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+/*C258*/SET SCHEMA PUBLIC
+INSERT INTO SEC_USER_SETTING VALUES('47bfaa95-0503-2ebf-6489-444321eb1150',NULL,NULL,'81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','W','office$RequestStepCommunication.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings>\u000a  <components>\u000a    <component name="questionBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a  </components>\u000a</settings>\u000a')
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='cf8d7c1d-475a-aa1b-9e2d-21b7b1a3ee9e'
+INSERT INTO SEC_USER_SETTING VALUES('cf8d7c1d-475a-aa1b-9e2d-21b7b1a3ee9e',NULL,NULL,'81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','W','office$Request.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="split"> \u000a      <position value="50.0" unit="%"/> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="initiator" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="question" visible="true"/>\u000a        <columns id="closed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="requestBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a    <component name="applicantBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a    <component name="imageBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a    <component name="stepBox">\u000a      <groupBox expanded="false"/>\u000a    </component>\u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 14:07:16.028000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-01-31 14:07:20.077000',NULL,'localhost:8080/app-core',FALSE,NULL)
+COMMIT
+/*C257*/DISCONNECT
+/*C258*/DISCONNECT
