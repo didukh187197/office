@@ -78,4 +78,12 @@ public class OfficeTools {
         return value == null ? 0 : value;
     }
 
+    public String left(String str, int count) {
+        if (str.length() < count) {
+            return str;
+        } else {
+            return str.substring(0, count-1) + "...";
+        }
+    }
+
 }

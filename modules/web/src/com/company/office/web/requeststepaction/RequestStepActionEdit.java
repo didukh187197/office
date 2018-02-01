@@ -6,6 +6,7 @@ import com.company.office.common.OfficeTools;
 import com.company.office.web.officeeditor.OfficeEditor;
 import com.company.office.web.officeweb.OfficeWeb;
 import com.haulmont.cuba.core.entity.FileDescriptor;
+import com.haulmont.cuba.core.global.Messages;
 import com.haulmont.cuba.gui.WindowParam;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.export.ExportDisplay;
@@ -31,9 +32,6 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
     private OfficeWeb officeWeb;
 
     @Inject
-    private ExportDisplay exportDisplay;
-
-    @Inject
     private LookupField lookupTemplate;
 
     @Inject
@@ -54,7 +52,10 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
     @Named("fieldGroupDates.approved")
     private DateField approvedField;
 
-    boolean closeFromExtraActions = false;
+    @Inject
+    private Messages messages;
+
+    private boolean closeFromExtraActions = false;
 
     @Override
     public void init(Map<String, Object> params) {
@@ -78,10 +79,9 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
 
         if (!closeFromExtraActions) {
             request.getLogs().add(
-                    officeCommon.newLogItem(request, null, makeName() + " edited", getItem())
+                    officeCommon.newLogItem(request, null, makeName() + messages.getMainMessage("logs.edited"), getItem())
             );
         }
-
         return true;
     }
 
@@ -191,45 +191,39 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
         getComponentNN("btnShowFile").setEnabled(getItem().getTemplate() != null);
     }
 
-    private void showFile(FileDescriptor file) {
-        if (file == null)
-            return;
-        exportDisplay.show(file, ExportFormat.OCTET_STREAM);
-    }
-
     public void onBtnShowTemplateClick() {
-        showFile(getItem().getTemplate());
+        officeWeb.showFile(getItem().getTemplate());
     }
 
     public void onBtnShowFileClick() {
-        showFile(getItem().getFile());
-    }
-
-    public void onReleaseBtnClick() {
-        onExtraBtnClick("dialog.release", "released", submittedField, false);
+        officeWeb.showFile(getItem().getFile());
     }
 
     public void onSubmitBtnClick() {
         if (!requiredDataSet())
             return;
 
-        onExtraBtnClick("dialog.submit", "submitted", submittedField, true);
+        onExtraBtnClick("dialog.submit", messages.getMainMessage("logs.submitted"), submittedField, true);
+    }
+
+    public void onReleaseBtnClick() {
+        onExtraBtnClick("dialog.release", messages.getMainMessage("logs.released"), submittedField, false);
     }
 
     public void onRejectBtnClick() {
-        onExtraBtnClick("dialog.reject", "rejected", submittedField, false);
+        onExtraBtnClick("dialog.reject", messages.getMainMessage("logs.rejected"), submittedField, false);
     }
 
     public void onApproveBtnClick() {
-        onExtraBtnClick("dialog.approve", "approved", approvedField, true);
+        onExtraBtnClick("dialog.approve", messages.getMainMessage("logs.approved"), approvedField, true);
     }
 
     public void onDisapproveBtnClick() {
-        onExtraBtnClick("dialog.disapprove", "disapproved", approvedField, false);
+        onExtraBtnClick("dialog.disapprove", messages.getMainMessage("logs.disapproved"), approvedField, false);
     }
 
     private String makeName() {
-        return String.format(getMessage("action.name"), getItem().getDescription());
+        return String.format(getMessage("action.name") + " ", getItem().getDescription());
     }
 
     private void onExtraBtnClick(String msg, String info, DateField field, boolean setValue) {
@@ -250,7 +244,5 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
                 }
         );
     }
-
-
 
 }

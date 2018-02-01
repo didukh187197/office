@@ -15,7 +15,7 @@
         </datasource>
     </dsContext>
     <dialogMode forceDialog="true"
-                height="630"
+                height="640"
                 width="800"/>
     <layout expand="tabSheet"
             spacing="true">
@@ -35,6 +35,9 @@
                             <field property="question"
                                    required="true"
                                    rows="6"/>
+                            <field editable="false"
+                                   property="closed"
+                                   width="120px"/>
                         </column>
                     </fieldGroup>
                     <hbox id="questionFileBox"
@@ -77,6 +80,9 @@
                                     datasource="requestStepCommunicationDs">
                             <column fieldCaptionWidth="70px"
                                     width="400px">
+                                <field editable="false"
+                                       property="recepient"
+                                       visible="false"/>
                                 <field property="answer"
                                        rows="6"/>
                             </column>
@@ -141,7 +147,7 @@
                     icon="icons/cancel.png"/>
             <button id="closeBtn"
                     caption="msg://btnClose"
-                    invoke="onReadBtnClick"/>
+                    invoke="onCloseBtnClick"/>
         </buttonsPanel>
     </layout>
 </window>

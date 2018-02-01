@@ -191,7 +191,7 @@
                                 <lookupField id="stepLookup"
                                              nullOptionVisible="false"
                                              optionsDatasource="stepsDs"
-                                             width="400px"/>
+                                             width="450px"/>
                                 <linkButton id="stepBtn"
                                             align="MIDDLE_LEFT"
                                             caption="msg://stepBtn"
@@ -219,20 +219,30 @@
                                 </tab>
                                 <tab id="communicationsTab"
                                      caption="msg://com.company.office.entity/RequestStep.communications"
+                                     expand="communicationsTable"
                                      margin="true,false,false,false"
                                      spacing="true">
                                     <table id="communicationsTable"
-                                           height="100%"
                                            width="100%">
                                         <columns>
                                             <column id="createTs"
                                                     caption="mainMsg://field.created"/>
-                                            <column id="updateTs"
-                                                    caption="mainMsg://field.updated"/>
-                                            <column id="question"/>
+                                            <column id="initiator"/>
+                                            <column id="recepient"/>
+                                            <column id="closed"/>
                                         </columns>
                                         <rows datasource="communicationsDs"/>
                                     </table>
+                                    <fieldGroup id="communicationFields"
+                                                datasource="communicationsDs"
+                                                editable="false">
+                                        <column width="400px">
+                                            <field property="question"
+                                                   rows="2"/>
+                                            <field property="answer"
+                                                   rows="2"/>
+                                        </column>
+                                    </fieldGroup>
                                 </tab>
                             </tabSheet>
                         </tab>

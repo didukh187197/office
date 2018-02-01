@@ -1,14 +1,21 @@
 package com.company.office.web.officeweb;
 
+import com.haulmont.cuba.core.entity.FileDescriptor;
 import com.haulmont.cuba.gui.ComponentsHelper;
 import com.haulmont.cuba.gui.components.FieldGroup;
 import com.haulmont.cuba.gui.components.Frame;
 import com.haulmont.cuba.gui.components.Table;
+import com.haulmont.cuba.gui.export.ExportDisplay;
+import com.haulmont.cuba.gui.export.ExportFormat;
 import org.springframework.stereotype.Component;
 
+import javax.inject.Inject;
 
 @Component("office_OfficeWeb")
 public class OfficeWeb {
+
+    @Inject
+    private ExportDisplay exportDisplay;
 
     public void showWarningMessage(Frame frame, String msg) {
         //showMessageDialog("", msg, MessageType.CONFIRMATION);
@@ -32,6 +39,12 @@ public class OfficeWeb {
                 component.setEnabled(enabled);
             }
         });
+    }
+
+    public void showFile(FileDescriptor file) {
+        if (file == null)
+            return;
+        exportDisplay.show(file, ExportFormat.OCTET_STREAM);
     }
 
 }

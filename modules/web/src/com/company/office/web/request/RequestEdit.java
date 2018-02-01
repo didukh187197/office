@@ -1,6 +1,5 @@
 package com.company.office.web.request;
 
-import com.company.office.OfficeConfig;
 import com.company.office.web.officeweb.OfficeWeb;
 import com.company.office.common.OfficeCommon;
 import com.company.office.common.OfficeTools;
@@ -8,12 +7,13 @@ import com.company.office.entity.*;
 import com.haulmont.bali.util.ParamsMap;
 import com.haulmont.cuba.core.entity.FileDescriptor;
 import com.haulmont.cuba.core.global.FileStorageException;
+import com.haulmont.cuba.core.global.Messages;
 import com.haulmont.cuba.core.global.PersistenceHelper;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.components.actions.CreateAction;
 import com.haulmont.cuba.gui.components.actions.EditAction;
-import com.haulmont.cuba.gui.data.CollectionDatasource;
+import com.haulmont.cuba.gui.components.actions.RemoveAction;
 import com.haulmont.cuba.gui.data.DataSupplier;
 import com.haulmont.cuba.gui.data.Datasource;
 import com.haulmont.cuba.gui.export.ExportDisplay;
@@ -27,9 +27,6 @@ import javax.inject.Named;
 import java.util.*;
 
 public class RequestEdit extends AbstractEditor<Request> {
-
-    @Inject
-    private OfficeConfig officeConfig;
 
     @Inject
     private OfficeWeb officeWeb;
@@ -67,6 +64,9 @@ public class RequestEdit extends AbstractEditor<Request> {
     @Inject
     private TabSheet tabSheet;
 
+    @Inject
+    private Messages messages;
+
     @Override
     public void init(Map<String, Object> params) {
         addListeners();
@@ -87,40 +87,8 @@ public class RequestEdit extends AbstractEditor<Request> {
     }
 
     private void addListeners() {
-        Table actionsTable = (Table) getComponentNN("actionsTable");
-        EditAction editStepActionAction = (EditAction) actionsTable.getActionNN("edit");
-        Datasource<RequestStepAction> actionsDs = getDsContext().getNN("actionsDs");
-
-        editStepActionAction.setBeforeActionPerformedHandler(() -> {
-            if (officeTools.getActiveGroupType().equals(GroupType.Applicants)) {
-                if (actionsDs.getItem().getApproved() != null) {
-                    officeWeb.showWarningMessage(this, getMessage("edit.action.alreadyApproved"));
-                    return false;
-                }
-            }
-
-            editStepActionAction.setWindowParams(ParamsMap.of("request", getItem()));
-            return true;
-        });
-
-        Table communicationsTable = (Table) getComponentNN("communicationsTable");
-        CreateAction createStepCommunicationAction = (CreateAction) communicationsTable.getActionNN("create");
-        EditAction editStepCommunicationAction = (EditAction) communicationsTable.getActionNN("edit");
-
-        createStepCommunicationAction.setBeforeActionPerformedHandler(() -> {
-            createStepCommunicationAction.setWindowParams(ParamsMap.of("request", getItem()));
-            return true;
-        });
-
-        editStepCommunicationAction.setBeforeActionPerformedHandler(() -> {
-            editStepCommunicationAction.setWindowParams(ParamsMap.of("request", getItem()));
-            return true;
-        });
-
-        actionsDs.addItemPropertyChangeListener(e -> {
-            showSubmitButton();
-            showApproveBtn();
-        });
+        addActionsListeners();
+        addCommunicationsListeners();
 
         uploadField.addFileUploadSucceedListener(event -> {
             FileDescriptor fd = uploadField.getFileDescriptor();
@@ -139,6 +107,77 @@ public class RequestEdit extends AbstractEditor<Request> {
         requestDs.addItemPropertyChangeListener(event -> {
             if ("imageFile".equals(event.getProperty()))
                 updateImageButtons(event.getValue() != null);
+        });
+    }
+
+    private void addActionsListeners() {
+        Table actionsTable = (Table) getComponentNN("actionsTable");
+        EditAction editStepActionAction = (EditAction) actionsTable.getActionNN("edit");
+        Datasource<RequestStepAction> actionsDs = getDsContext().getNN("actionsDs");
+
+        editStepActionAction.setBeforeActionPerformedHandler(() -> {
+            if (officeTools.getActiveGroupType().equals(GroupType.Applicants)) {
+                if (actionsDs.getItem().getApproved() != null) {
+                    officeWeb.showWarningMessage(this, getMessage("edit.action.alreadyApproved"));
+                    return false;
+                }
+            }
+
+            editStepActionAction.setWindowParams(ParamsMap.of("request", getItem()));
+            return true;
+        });
+
+        actionsDs.addItemPropertyChangeListener(e -> {
+            showSubmitButton();
+            showApproveBtn();
+        });
+    }
+
+    private void addCommunicationsListeners() {
+        Table communicationsTable = (Table) getComponentNN("communicationsTable");
+        CreateAction createStepCommunicationAction = (CreateAction) communicationsTable.getActionNN("create");
+        EditAction editStepCommunicationAction = (EditAction) communicationsTable.getActionNN("edit");
+        RemoveAction removeStepCommunicationAction = (RemoveAction) communicationsTable.getActionNN("remove");
+
+        Datasource<RequestStepCommunication> communicationsDs = getDsContext().getNN("communicationsDs");
+
+        createStepCommunicationAction.setBeforeActionPerformedHandler(() -> {
+            createStepCommunicationAction.setWindowParams(ParamsMap.of("request", getItem()));
+            return true;
+        });
+
+        editStepCommunicationAction.setBeforeActionPerformedHandler(() -> {
+            editStepCommunicationAction.setWindowParams(ParamsMap.of("request", getItem()));
+            return true;
+        });
+
+        User currentUser = officeTools.getActiveUser();
+        removeStepCommunicationAction.setBeforeActionPerformedHandler(() -> {
+            if (communicationsDs.getItem().getClosed() != null) {
+                officeWeb.showErrorMessage(this, getMessage("communications.delete.closed"));
+                return false;
+            }
+            if (!communicationsDs.getItem().getInitiator().equals(currentUser)) {
+                officeWeb.showErrorMessage(this, getMessage("communications.delete.anothers"));
+                return false;
+            }
+            if (communicationsDs.getItem().getAnswer() != null) {
+                officeWeb.showErrorMessage(this, getMessage("communications.delete.answered"));
+                return false;
+            }
+            return true;
+        });
+
+        removeStepCommunicationAction.setAfterRemoveHandler(e -> {
+            RequestStepCommunication removedCommunication = (RequestStepCommunication) e.toArray()[0];
+            String name = String.format( getMessage("communication.name") + " ", officeTools.left(removedCommunication.getQuestion(),20) );
+            getItem().getLogs().add(
+                    officeCommon.newLogItem(
+                            getItem(),
+                            removedCommunication.getRecepient(),
+                            name + messages.getMainMessage("logs.removed"),
+                            removedCommunication)
+            );
         });
     }
 
@@ -236,7 +275,6 @@ public class RequestEdit extends AbstractEditor<Request> {
                                 officeCommon.newLogItem(request, request.getStep().getUser(), getMessage("result.edited"), null)
                         );
                     }
-                    break;
             }
         }
         return true;
