@@ -8,12 +8,9 @@ import com.company.office.web.officeeditor.OfficeEditor;
 import com.company.office.entity.RequestStepCommunication;
 import com.company.office.web.officeweb.OfficeWeb;
 import com.haulmont.cuba.core.entity.Entity;
-import com.haulmont.cuba.core.entity.FileDescriptor;
 import com.haulmont.cuba.core.global.*;
 import com.haulmont.cuba.gui.WindowParam;
 import com.haulmont.cuba.gui.components.*;
-import com.haulmont.cuba.gui.export.ExportDisplay;
-import com.haulmont.cuba.gui.export.ExportFormat;
 import com.haulmont.cuba.security.entity.User;
 
 import javax.inject.Inject;

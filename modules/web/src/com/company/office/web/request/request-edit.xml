@@ -246,6 +246,12 @@
                         <table id="logsTable"
                                height="400px"
                                width="100%">
+                            <actions>
+                                <action id="edit"
+                                        visible="false"/>
+                                <action id="remove"
+                                        visible="false"/>
+                            </actions>
                             <columns>
                                 <column id="createTs"
                                         caption="mainMsg://field.created"/>
@@ -264,6 +270,30 @@
                                        rows="2"/>
                             </column>
                         </fieldGroup>
+                    </tab>
+                    <tab id="stepsTab"
+                         caption="Steps"
+                         margin="true,false,false,false"
+                         spacing="true">
+                        <table id="stepsTable"
+                               height="100%"
+                               width="100%">
+                            <actions>
+                                <action id="edit"/>
+                                <action id="remove"/>
+                            </actions>
+                            <columns>
+                                <column id="state"/>
+                                <column id="description"/>
+                                <column id="submissionTerm"/>
+                                <column id="submitted"/>
+                                <column id="approvalTerm"/>
+                                <column id="approved"/>
+                                <column id="penalty"/>
+                                <column id="moment"/>
+                            </columns>
+                            <rows datasource="stepsDs"/>
+                        </table>
                     </tab>
                     <tab id="systemTab"
                          caption="System"

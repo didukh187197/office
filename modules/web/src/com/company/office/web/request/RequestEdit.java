@@ -119,7 +119,6 @@ public class RequestEdit extends AbstractEditor<Request> {
             if (officeTools.getActiveGroupType().equals(GroupType.Applicants)) {
                 if (actionsDs.getItem().getApproved() != null) {
                     officeWeb.showWarningMessage(this, getMessage("edit.action.alreadyApproved"));
-                    return false;
                 }
             }
 
@@ -183,12 +182,16 @@ public class RequestEdit extends AbstractEditor<Request> {
 
     private void setUserInterface() {
         if (officeTools.isAdmin()) {
+            Table logsTable = (Table) getComponentNN("logsTable");
+            logsTable.getAction("edit").setVisible(true);
+            logsTable.getAction("remove").setVisible(true);
             ((FieldGroup) getComponentNN("stepParamsFields")).setEditable(true);
             ((FieldGroup) getComponentNN("stepDatesFields")).setEditable(true);
             ((FieldGroup) getComponentNN("stepOtherFields")).setEditable(true);
             return;
         }
 
+        tabSheet.getTab("stepsTab").setVisible(false);
         tabSheet.getTab("systemTab").setVisible(false);
 
         switch (officeTools.getActiveGroupType()) {
@@ -254,8 +257,10 @@ public class RequestEdit extends AbstractEditor<Request> {
             request.setSteps(steps);
 
             if (!moved) {
-                officeCommon.moveRequestToNewStepByPosition(request);
-                officeCommon.moveRequestToNewStepByWorker(request);
+                officeCommon.changePosition(request);
+                if (officeCommon.changeWorker(request)) {
+                    officeCommon.changePositionUserRequestCount(request.getStep().getPosition(), request.getStep().getUser(), 1);
+                }
                 moved = true;
             }
 
@@ -266,7 +271,8 @@ public class RequestEdit extends AbstractEditor<Request> {
                 case Workers:
                 case Applicants:
                     break;
-                default:
+                case Managers:
+                case Registrators:
                     request.getLogs().add(
                             officeCommon.newLogItem(request, request.getApplicant(), getMessage("result.edited"), null)
                     );
@@ -275,6 +281,7 @@ public class RequestEdit extends AbstractEditor<Request> {
                                 officeCommon.newLogItem(request, request.getStep().getUser(), getMessage("result.edited"), null)
                         );
                     }
+                default:
             }
         }
         return true;
@@ -351,7 +358,11 @@ public class RequestEdit extends AbstractEditor<Request> {
         );
     }
 
+    private boolean approved = false;
     public void onApproveBtnClick() {
+        if (approved)
+            return;
+
         showOptionDialog(
                 "",
                 getMessage("edit.approve"),
@@ -359,14 +370,19 @@ public class RequestEdit extends AbstractEditor<Request> {
                 new Action[] {
                         new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
                             Request request = getItem();
-                            RequestStep requestStep = request.getStep();
-                            requestStep.setApproved(new Date());
                             request.getLogs().add(
                                     officeCommon.newLogItem(request, request.getApplicant(), getMessage("result.approved"), null)
                             );
-                            officeCommon.moveRequestToNewStepByPosition(request);
-                            officeCommon.moveRequestToNewStepByWorker(request);
+                            RequestStep requestStep = request.getStep();
+                            requestStep.setApproved(new Date());
+
+                            officeCommon.changePositionUserRequestCount(request.getStep().getPosition(), request.getStep().getUser(), -1);
+                            officeCommon.changePosition(request);
+                            if (officeCommon.changeWorker(request)) {
+                                officeCommon.changePositionUserRequestCount(request.getStep().getPosition(), request.getStep().getUser(), 1);
+                            }
                             commitAndClose();
+                            approved = true;
                         }),
                         new DialogAction(DialogAction.Type.NO, Action.Status.PRIMARY)
                 }

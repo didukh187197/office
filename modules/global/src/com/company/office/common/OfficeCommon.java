@@ -30,7 +30,7 @@ public class OfficeCommon {
     @Inject
     private Messages messages;
 
-    public void moveRequestToNewStepByPosition(Request request) {
+    public void changePosition(Request request) {
         RequestStep newStepByPosition = newStepByPosition(request);
         request.setStep(newStepByPosition);
         request.getSteps().add(newStepByPosition);
@@ -39,24 +39,21 @@ public class OfficeCommon {
         );
     }
 
-    public void moveRequestToNewStepByWorker(Request request) {
+    public boolean changeWorker(Request request) {
         RequestStep newStepByWorker = newStepByWorker(request);
         if (newStepByWorker != null) {
             User worker = newStepByWorker.getUser();
-            if (worker != null) {
-                changePositionUserRequestCount(request, -1);
-                request.setStep(newStepByWorker);
-                request.getSteps().add(newStepByWorker);
-
-                request.getLogs().add(
-                        newLogItem(request, request.getApplicant(), "The new worker set: " + worker.getName(), newStepByWorker)
-                );
-                request.getLogs().add(
-                        newLogItem(request, worker, "The new worker set: " + worker.getName(), newStepByWorker)
-                );
-                changePositionUserRequestCount(request, 1);
-            }
+            request.setStep(newStepByWorker);
+            request.getSteps().add(newStepByWorker);
+            request.getLogs().add(
+                    newLogItem(request, request.getApplicant(), "The new worker set: " + worker.getName(), newStepByWorker)
+            );
+            request.getLogs().add(
+                    newLogItem(request, worker, "The new worker set: " + worker.getName(), newStepByWorker)
+            );
+            return true;
         }
+        return false;
     }
 
     public RequestLog newLogItem(Request request, User recepient, String info, Entity entity) {
@@ -174,15 +171,10 @@ public class OfficeCommon {
         return requestStep;
     }
 
-    private void changePositionUserRequestCount(Request request, int count) {
-        if (request.getStep() == null)
-            return;
-
-        User user = request.getStep().getUser();
+    public void changePositionUserRequestCount(Position position, User user, int count) {
         if (user == null)
             return;
 
-        Position position = request.getStep().getPosition();
         if (position == null)
             return;
 

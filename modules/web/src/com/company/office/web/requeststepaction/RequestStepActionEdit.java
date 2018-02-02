@@ -5,12 +5,9 @@ import com.company.office.common.OfficeCommon;
 import com.company.office.common.OfficeTools;
 import com.company.office.web.officeeditor.OfficeEditor;
 import com.company.office.web.officeweb.OfficeWeb;
-import com.haulmont.cuba.core.entity.FileDescriptor;
 import com.haulmont.cuba.core.global.Messages;
 import com.haulmont.cuba.gui.WindowParam;
 import com.haulmont.cuba.gui.components.*;
-import com.haulmont.cuba.gui.export.ExportDisplay;
-import com.haulmont.cuba.gui.export.ExportFormat;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -123,28 +120,31 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
                 getComponentNN("workerButtons").setVisible(true);
 
                 if (approvedField.getValue() == null) {
+                    descriptionField.setEnabled(submittedField.getValue() == null);
                     rejectBtn.setVisible(true);
                     approveBtn.setVisible(true);
                     disapproveBtn.setVisible(false);
                 } else {
+                    descriptionField.setEnabled(false);
                     rejectBtn.setVisible(false);
                     approveBtn.setVisible(false);
                     disapproveBtn.setVisible(true);
                 }
                 break;
             case Applicants:
-                descriptionField.setEnabled(false);
                 getComponentNN("applicantButtons").setVisible(true);
+                descriptionField.setEnabled(false);
 
                 if (submittedField.getValue() == null) {
                     submitBtn.setVisible(requiredDataSet());
                     releaseBtn.setVisible(false);
                 } else {
+
                     messageField.setEnabled(false);
                     uploadFile.setEnabled(false);
                     getComponentNN("okBtn").setEnabled(false);
                     submitBtn.setVisible(false);
-                    releaseBtn.setVisible(true);
+                    releaseBtn.setVisible(approvedField.getValue() == null);
                 }
                 break;
         }

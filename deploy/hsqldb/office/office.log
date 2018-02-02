@@ -1,493 +1,615 @@
-/*C23*/SET SCHEMA PUBLIC
+/*C4*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C24*/SET SCHEMA PUBLIC
+/*C5*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C25*/SET SCHEMA PUBLIC
+/*C6*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C26*/SET SCHEMA PUBLIC
+/*C7*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C27*/SET SCHEMA PUBLIC
+/*C8*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C28*/SET SCHEMA PUBLIC
+/*C9*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C30*/SET SCHEMA PUBLIC
+/*C11*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C29*/SET SCHEMA PUBLIC
+/*C10*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C31*/SET SCHEMA PUBLIC
+/*C12*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C32*/SET SCHEMA PUBLIC
+/*C13*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C33*/SET SCHEMA PUBLIC
+/*C14*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C34*/SET SCHEMA PUBLIC
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:28:21.729000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SEC_USER_SETTING WHERE ID='fcad193b-681a-7a6d-ec13-0809a5d92511'
-INSERT INTO SEC_USER_SETTING VALUES('fcad193b-681a-7a6d-ec13-0809a5d92511',NULL,NULL,'710eeb85-200a-518d-a7dc-f4caa9df36ad','W','office$Request.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="filter"> \u000a      <defaultFilter/>  \u000a      <groupBoxExpanded>true</groupBoxExpanded> \u000a    </component>  \u000a    <component name="requestsTable"> \u000a      <columns> \u000a        <columns id="applicant" visible="true"/>  \u000a        <columns id="series" visible="true"/>  \u000a        <columns id="number" visible="true"/>  \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="created" visible="true"/>  \u000a        <columns id="closed" visible="true"/>  \u000a        <columns id="description" visible="true"/> \u000a      </columns>  \u000a      <groupProperties/> \u000a    </component>  \u000a    <component name="detailsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="initiator" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="closed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="statesTable"> \u000a      <columns> \u000a        <columns id="date" visible="true"/>  \u000a        <columns id="position" visible="true"/>  \u000a        <columns id="description" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="split"> \u000a      <position value="42.71168" unit="%"/> \u000a    </component>  \u000a    <component name="table"> \u000a      <columns>\u000a        <columns id="applicant" visible="true"/>\u000a        <columns id="applicantCode" visible="true"/>\u000a        <columns id="sn" visible="true"/>\u000a        <columns id="step.position" visible="true"/>\u000a        <columns id="step.state" visible="true"/>\u000a        <columns id="step.user" visible="true"/>\u000a      </columns>\u000a      <groupProperties/>\u000a    </component>  \u000a    <component name="stepsTable"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="position" visible="true"/>  \u000a        <columns id="state" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="submitted" visible="true"/>  \u000a        <columns id="approved" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:29:21.728000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:30:21.728000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:31:21.729000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:32:21.729000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:33:21.730000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:34:21.730000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:35:21.730000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:36:21.731000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:37:21.731000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:38:21.732000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:39:21.732000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:40:21.733000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SEC_USER_SETTING WHERE ID='bd5c764f-684d-da90-342b-c9d8a3294936'
-INSERT INTO SEC_USER_SETTING VALUES('bd5c764f-684d-da90-342b-c9d8a3294936',NULL,NULL,'710eeb85-200a-518d-a7dc-f4caa9df36ad','W','office$Request.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="communicationsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="initiator" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="closed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="actionsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="statesBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="statesTable"> \u000a      <columns> \u000a        <columns id="date" visible="true"/>  \u000a        <columns id="position" visible="true"/>  \u000a        <columns id="description" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="split"> \u000a      <position value="26.580921" unit="%"/> \u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="stepBox"> \u000a      <groupBox expanded="false"/>\u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="imageBox"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:41:21.733000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SEC_USER_SETTING WHERE ID='bd5c764f-684d-da90-342b-c9d8a3294936'
-INSERT INTO SEC_USER_SETTING VALUES('bd5c764f-684d-da90-342b-c9d8a3294936',NULL,NULL,'710eeb85-200a-518d-a7dc-f4caa9df36ad','W','office$Request.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="communicationsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="initiator" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="closed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="actionsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="statesBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="statesTable"> \u000a      <columns> \u000a        <columns id="date" visible="true"/>  \u000a        <columns id="position" visible="true"/>  \u000a        <columns id="description" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="split"> \u000a      <position value="27.867096" unit="%"/> \u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="stepBox"> \u000a      <groupBox expanded="false"/>\u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="imageBox"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:42:21.734000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:43:21.734000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:44:21.734000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:45:21.735000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:46:21.735000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:47:21.736000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:48:21.736000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:49:21.737000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM OFFICE_REQUEST_STEP WHERE ID='4fff2290-4dcd-8a3d-bf5e-75245a6e3938'
-INSERT INTO OFFICE_REQUEST_STEP VALUES('4fff2290-4dcd-8a3d-bf5e-75245a6e3938','2018-02-01 11:50:15.380000','buba','2018-01-19 11:08:36.975000','admin','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','Assigned to John Snow. Actions added','1a9b250f-cbb4-c522-f9a0-68bc31e0405a','2018-01-19',NULL,NULL,'approving','2018-01-26','2018-01-26','b8181249-bb9a-45dd-efdb-a0caad51b12c',1516352916808)
+/*C15*/SET SCHEMA PUBLIC
 DELETE FROM OFFICE_REQUEST WHERE ID='1a9b250f-cbb4-c522-f9a0-68bc31e0405a'
-INSERT INTO OFFICE_REQUEST VALUES('1a9b250f-cbb4-c522-f9a0-68bc31e0405a','2018-01-19 11:08:36.956000','admin','11',11,'123','2018-02-01 11:50:15.380000','buba','710eeb85-200a-518d-a7dc-f4caa9df36ad','11',NULL,'4fff2290-4dcd-8a3d-bf5e-75245a6e3938',1516352916949,NULL,'995adffe-16c9-339b-ba86-4731890a3efc')
-INSERT INTO OFFICE_REQUEST_LOG VALUES('e8d65f14-f566-1cb2-0fe4-3613a9ae2a02','2018-02-01 11:50:15.321000','buba','2018-02-01 11:50:15.321000',NULL,'1a9b250f-cbb4-c522-f9a0-68bc31e0405a','Communication <\u0430\u0443\u0434\u0430\u043b\u0440 \u0430\u043f\u043f\u0448\u0449\u044c\u043f\u0430\u0434\u0436 \u043a...> created','710eeb85-200a-518d-a7dc-f4caa9df36ad','6d8d95f6-a3cd-9743-b2d1-63c8ea572a69',1517478610861,NULL,'com.company.office.entity.RequestStepCommunication','292847fc-d3dd-2cac-ee6b-616fdd908c3c')
-INSERT INTO OFFICE_REQUEST_STEP_COMMUNICATION VALUES('292847fc-d3dd-2cac-ee6b-616fdd908c3c','2018-02-01 11:50:15.294000','buba','2018-02-01 11:50:15.294000',NULL,'\u0430\u0443\u0434\u0430\u043b\u0440 \u0430\u043f\u043f\u0448\u0449\u044c\u043f\u0430\u0434\u0436 \u043a\u0435\u043b\u043e\u043f \u0449\u043f\u0448\u0436\u0443\u043a\u0440\u043f\u0449\u0448\u0443 \u043a\u0440\u043f\u0443\u043a\u0449\u0436\u0448 \u043f',NULL,NULL,NULL,'4fff2290-4dcd-8a3d-bf5e-75245a6e3938',1517478600827,'710eeb85-200a-518d-a7dc-f4caa9df36ad','6d8d95f6-a3cd-9743-b2d1-63c8ea572a69',NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:50:21.737000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:51:21.737000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-INSERT INTO SEC_USER_SETTING VALUES('e735eb7c-55f4-82c0-ced3-488ddd68c2e5',NULL,NULL,'6d8d95f6-a3cd-9743-b2d1-63c8ea572a69','W','office$RequestStepCommunication.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings>\u000a  <components>\u000a    <component name="questionBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a  </components>\u000a</settings>\u000a')
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:52:21.738000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:53:21.738000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SEC_USER_SETTING WHERE ID='e735eb7c-55f4-82c0-ced3-488ddd68c2e5'
-INSERT INTO SEC_USER_SETTING VALUES('e735eb7c-55f4-82c0-ced3-488ddd68c2e5',NULL,NULL,'6d8d95f6-a3cd-9743-b2d1-63c8ea572a69','W','office$RequestStepCommunication.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="questionBox"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
-COMMIT
-INSERT INTO SEC_USER_SETTING VALUES('535fadd6-d47c-1682-9ebe-2ca774fef573',NULL,NULL,'6d8d95f6-a3cd-9743-b2d1-63c8ea572a69','W','office$Request.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings>\u000a  <components>\u000a    <component name="split">\u000a      <position value="28.403002" unit="%"/>\u000a    </component>\u000a    <component name="requestBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a    <component name="applicantBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a    <component name="imageBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a    <component name="stepBox">\u000a      <groupBox expanded="false"/>\u000a    </component>\u000a    <component name="actionsTable">\u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a      </columns>\u000a    </component>\u000a    <component name="communicationsTable">\u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="initiator" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="closed" visible="true"/>\u000a      </columns>\u000a    </component>\u000a    <component name="logsTable">\u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>\u000a  </components>\u000a</settings>\u000a')
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:54:21.739000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:55:21.739000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:56:21.740000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:57:21.740000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:58:21.740000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-INSERT INTO SEC_USER_SETTING VALUES('cca975e3-267c-2519-1f76-af9151fe5796',NULL,NULL,'6d8d95f6-a3cd-9743-b2d1-63c8ea572a69','W','office$Request.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings>\u000a  <components>\u000a    <component name="split">\u000a      <position value="50.0" unit="%"/>\u000a    </component>\u000a    <component name="filter">\u000a      <defaultFilter/>\u000a      <groupBoxExpanded>true</groupBoxExpanded>\u000a    </component>\u000a    <component name="table">\u000a      <columns>\u000a        <columns id="applicant" visible="true"/>\u000a        <columns id="applicantCode" visible="true"/>\u000a        <columns id="sn" visible="true"/>\u000a        <columns id="step.position" visible="true"/>\u000a        <columns id="step.state" visible="true"/>\u000a        <columns id="step.user" visible="true"/>\u000a      </columns>\u000a      <groupProperties/>\u000a    </component>\u000a    <component name="requestBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a    <component name="applicantBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a    <component name="actionsTable">\u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a      </columns>\u000a    </component>\u000a    <component name="communicationsTable">\u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="initiator" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="closed" visible="true"/>\u000a      </columns>\u000a    </component>\u000a    <component name="logsTable">\u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>\u000a  </components>\u000a</settings>\u000a')
-COMMIT
-DELETE FROM SEC_USER_SETTING WHERE ID='535fadd6-d47c-1682-9ebe-2ca774fef573'
-INSERT INTO SEC_USER_SETTING VALUES('535fadd6-d47c-1682-9ebe-2ca774fef573',NULL,NULL,'6d8d95f6-a3cd-9743-b2d1-63c8ea572a69','W','office$Request.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="split"> \u000a      <position value="28.403002" unit="%"/> \u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="imageBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="stepBox"> \u000a      <groupBox expanded="false"/>\u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="initiator" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="closed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
-COMMIT
-DELETE FROM SEC_USER WHERE ID='6d8d95f6-a3cd-9743-b2d1-63c8ea572a69'
-INSERT INTO SEC_USER VALUES('6d8d95f6-a3cd-9743-b2d1-63c8ea572a69','2018-01-31 10:30:38.561000','boss',2,'2018-02-01 11:58:59.856000','admin',NULL,NULL,'fifa','fifa','7cd1d965699eff945b7542757bacc0a072ef3faf','Fifa Sports','Fifa','Sports',NULL,NULL,NULL,'en',NULL,NULL,TRUE,'2eb074ea-f2d3-9d87-e7f6-2339d19eb682',NULL,FALSE)
-INSERT INTO SEC_USER_ROLE VALUES('dd5e2490-a87a-7ec4-8392-c4e25ddbf4ce','2018-02-01 11:58:59.839000','admin',1,'2018-02-01 11:58:59.839000',NULL,NULL,NULL,'6d8d95f6-a3cd-9743-b2d1-63c8ea572a69','dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
-COMMIT
-INSERT INTO SEC_SCREEN_HISTORY VALUES('896d8019-e112-80e9-33f9-7e0b61d9fe17','2018-02-01 11:58:59.876000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''fifa''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-6d8d95f6-a3cd-9743-b2d1-63c8ea572a69&params=item:sec$User-6d8d95f6-a3cd-9743-b2d1-63c8ea572a69','6d8d95f6-a3cd-9743-b2d1-63c8ea572a69',NULL)
-COMMIT
-INSERT INTO SEC_SCREEN_HISTORY VALUES('3fde0bae-a67a-55f6-ed52-4d1cf927ba95','2018-02-01 11:59:04.517000','admin','60885987-1b61-4247-94c7-dff348347f93','User ''fifa''','http://localhost:8080/app/open?screen=sec$User.edit&item=sec$User-6d8d95f6-a3cd-9743-b2d1-63c8ea572a69&params=item:sec$User-6d8d95f6-a3cd-9743-b2d1-63c8ea572a69','6d8d95f6-a3cd-9743-b2d1-63c8ea572a69',NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 11:59:21.741000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:00:21.741000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SEC_USER_SETTING WHERE ID='cca975e3-267c-2519-1f76-af9151fe5796'
-INSERT INTO SEC_USER_SETTING VALUES('cca975e3-267c-2519-1f76-af9151fe5796',NULL,NULL,'6d8d95f6-a3cd-9743-b2d1-63c8ea572a69','W','office$Request.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="split"> \u000a      <position value="50.0" unit="%"/> \u000a    </component>  \u000a    <component name="filter"> \u000a      <defaultFilter/>  \u000a      <groupBoxExpanded>true</groupBoxExpanded> \u000a    </component>  \u000a    <component name="table"> \u000a      <columns>\u000a        <columns id="applicant" visible="true"/>\u000a        <columns id="applicantCode" visible="true"/>\u000a        <columns id="sn" visible="true"/>\u000a        <columns id="step.position" visible="true"/>\u000a        <columns id="step.state" visible="true"/>\u000a        <columns id="step.user" visible="true"/>\u000a      </columns>\u000a      <groupProperties/>\u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="initiator" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="closed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
-COMMIT
-INSERT INTO SEC_SCREEN_HISTORY VALUES('392a53f1-445e-73ac-429e-1cde4a3c6da0','2018-02-01 12:01:18.271000','admin','60885987-1b61-4247-94c7-dff348347f93','Role ''managers''','http://localhost:8080/app/open?screen=sec$Role.edit&item=sec$Role-dfcc0e65-712b-bd30-ee56-8d6fe39c21c5&params=item:sec$Role-dfcc0e65-712b-bd30-ee56-8d6fe39c21c5','dfcc0e65-712b-bd30-ee56-8d6fe39c21c5',NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:01:21.742000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:02:21.742000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:03:21.743000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-INSERT INTO SEC_SCREEN_HISTORY VALUES('c0e738d1-ac3e-ce40-e15e-2038c9663e0b','2018-02-01 12:03:47.494000','admin','60885987-1b61-4247-94c7-dff348347f93','Role ''managers''','http://localhost:8080/app/open?screen=sec$Role.edit&item=sec$Role-dfcc0e65-712b-bd30-ee56-8d6fe39c21c5&params=item:sec$Role-dfcc0e65-712b-bd30-ee56-8d6fe39c21c5','dfcc0e65-712b-bd30-ee56-8d6fe39c21c5',NULL)
-COMMIT
-INSERT INTO SEC_SCREEN_HISTORY VALUES('54943e77-bb61-74c3-b632-135dae6d5ab9','2018-02-01 12:04:09.294000','admin','60885987-1b61-4247-94c7-dff348347f93','Role ''workers''','http://localhost:8080/app/open?screen=sec$Role.edit&item=sec$Role-be0ada85-b10b-545c-8a47-a0ff81b2a9ff&params=item:sec$Role-be0ada85-b10b-545c-8a47-a0ff81b2a9ff','be0ada85-b10b-545c-8a47-a0ff81b2a9ff',NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:04:21.743000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SEC_PERMISSION WHERE ID='e6e43357-e5ab-3209-8ec2-2f3e088a2128'
-INSERT INTO SEC_PERMISSION VALUES('e6e43357-e5ab-3209-8ec2-2f3e088a2128','2018-01-09 12:32:35.859000','admin',2,'2018-01-09 12:32:35.859000',NULL,'2018-02-01 12:04:26.536000','admin',20,'office$RequestStep:update',0,'dfcc0e65-712b-bd30-ee56-8d6fe39c21c5')
-COMMIT
-INSERT INTO SEC_SCREEN_HISTORY VALUES('109102e3-85a1-1e3e-9d36-c24998f36b1d','2018-02-01 12:04:26.574000','admin','60885987-1b61-4247-94c7-dff348347f93','Role ''managers''','http://localhost:8080/app/open?screen=sec$Role.edit&item=sec$Role-dfcc0e65-712b-bd30-ee56-8d6fe39c21c5&params=item:sec$Role-dfcc0e65-712b-bd30-ee56-8d6fe39c21c5','dfcc0e65-712b-bd30-ee56-8d6fe39c21c5',NULL)
-COMMIT
-DELETE FROM OFFICE_REQUEST_STEP WHERE ID='4fff2290-4dcd-8a3d-bf5e-75245a6e3938'
-INSERT INTO OFFICE_REQUEST_STEP VALUES('4fff2290-4dcd-8a3d-bf5e-75245a6e3938','2018-02-01 12:04:57.555000','fifa','2018-01-19 11:08:36.975000','admin','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','Assigned to John Snow. Actions added','1a9b250f-cbb4-c522-f9a0-68bc31e0405a','2018-01-19',NULL,NULL,'approving','2018-01-26','2018-01-26','b8181249-bb9a-45dd-efdb-a0caad51b12c',1516352916808)
+INSERT INTO OFFICE_REQUEST VALUES('1a9b250f-cbb4-c522-f9a0-68bc31e0405a','2018-01-19 11:08:36.956000','admin','11',11,'123','2018-02-02 15:28:08.571000','admin','710eeb85-200a-518d-a7dc-f4caa9df36ad','11',NULL,'4fff2290-4dcd-8a3d-bf5e-75245a6e3938',1516352916949,NULL,'995adffe-16c9-339b-ba86-4731890a3efc')
 DELETE FROM OFFICE_REQUEST WHERE ID='1a9b250f-cbb4-c522-f9a0-68bc31e0405a'
-INSERT INTO OFFICE_REQUEST VALUES('1a9b250f-cbb4-c522-f9a0-68bc31e0405a','2018-01-19 11:08:36.956000','admin','11',11,'123','2018-02-01 12:04:57.554000','fifa','710eeb85-200a-518d-a7dc-f4caa9df36ad','11',NULL,'4fff2290-4dcd-8a3d-bf5e-75245a6e3938',1516352916949,NULL,'995adffe-16c9-339b-ba86-4731890a3efc')
-INSERT INTO OFFICE_REQUEST_LOG VALUES('65257ebe-96ed-080b-08a2-b8ec6da2bcec','2018-02-01 12:04:57.514000','fifa','2018-02-01 12:04:57.514000',NULL,'1a9b250f-cbb4-c522-f9a0-68bc31e0405a','Communication <\u0430\u0443\u0434\u0430\u043b\u0440 \u0430\u043f\u043f\u0448\u0449\u044c\u043f\u0430\u0434\u0436 \u043a...> edited','6d8d95f6-a3cd-9743-b2d1-63c8ea572a69','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517479490431,NULL,'com.company.office.entity.RequestStepCommunication','292847fc-d3dd-2cac-ee6b-616fdd908c3c')
-INSERT INTO OFFICE_REQUEST_LOG VALUES('ce9ca1ef-2d0f-4732-b530-ae9b56e25468','2018-02-01 12:04:57.520000','fifa','2018-02-01 12:04:57.520000',NULL,'1a9b250f-cbb4-c522-f9a0-68bc31e0405a','The request edited','6d8d95f6-a3cd-9743-b2d1-63c8ea572a69','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',1517479497474,NULL,NULL,NULL)
-INSERT INTO OFFICE_REQUEST_LOG VALUES('80332a6f-5e6e-7624-fe62-230484f3e23a','2018-02-01 12:04:57.515000','fifa','2018-02-01 12:04:57.515000',NULL,'1a9b250f-cbb4-c522-f9a0-68bc31e0405a','The request edited','6d8d95f6-a3cd-9743-b2d1-63c8ea572a69','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517479497474,NULL,NULL,NULL)
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='4fff2290-4dcd-8a3d-bf5e-75245a6e3938'
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='246bb810-6586-2d3e-5852-5b083905c4cc'
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='2645e0fb-0521-0c11-b062-bb4245ba8d0f'
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='8fa1fa68-d541-9c3b-89c0-2aa1c92b116e'
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='b9ce6ef4-5b02-8c50-7e92-860315cacb61'
 DELETE FROM OFFICE_REQUEST_STEP_COMMUNICATION WHERE ID='292847fc-d3dd-2cac-ee6b-616fdd908c3c'
-INSERT INTO OFFICE_REQUEST_STEP_COMMUNICATION VALUES('292847fc-d3dd-2cac-ee6b-616fdd908c3c','2018-02-01 11:50:15.294000','buba','2018-02-01 12:04:57.554000','fifa','\u0430\u0443\u0434\u0430\u043b\u0440 \u0430\u043f\u043f\u0448\u0449\u044c\u043f\u0430\u0434\u0436 \u043a\u0435\u043b\u043e\u043f \u0449\u043f\u0448\u0436\u0443\u043a\u0440\u043f\u0449\u0448\u0443 \u043a\u0440\u043f\u0443\u043a\u0449\u0436\u0448 \u043f',NULL,'r  efg er ggre grggf',NULL,'4fff2290-4dcd-8a3d-bf5e-75245a6e3938',1517478600827,'710eeb85-200a-518d-a7dc-f4caa9df36ad','6d8d95f6-a3cd-9743-b2d1-63c8ea572a69',NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:05:21.743000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:06:21.744000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:07:21.744000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:08:21.745000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:09:21.745000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:10:21.746000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:11:21.746000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:12:21.746000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:13:21.747000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:14:21.747000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:15:21.748000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:16:21.748000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:17:21.749000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:18:21.749000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:19:21.749000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:20:21.750000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:21:21.750000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:22:21.751000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:23:21.751000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:24:21.752000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:25:21.752000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:26:21.753000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:27:21.753000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:28:21.753000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:29:21.754000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:30:21.754000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:31:21.755000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:32:21.755000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:33:21.756000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:34:21.756000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:35:21.756000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:36:21.757000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:37:21.757000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:38:21.758000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:39:21.758000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:40:21.759000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:41:21.759000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:42:21.759000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:43:21.760000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM OFFICE_REQUEST_STEP WHERE ID='4fff2290-4dcd-8a3d-bf5e-75245a6e3938'
-INSERT INTO OFFICE_REQUEST_STEP VALUES('4fff2290-4dcd-8a3d-bf5e-75245a6e3938','2018-02-01 12:43:39.300000','buba','2018-01-19 11:08:36.975000','admin','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','Assigned to John Snow. Actions added','1a9b250f-cbb4-c522-f9a0-68bc31e0405a','2018-01-19',NULL,NULL,'approving','2018-01-26','2018-01-26','b8181249-bb9a-45dd-efdb-a0caad51b12c',1516352916808)
-DELETE FROM OFFICE_REQUEST WHERE ID='1a9b250f-cbb4-c522-f9a0-68bc31e0405a'
-INSERT INTO OFFICE_REQUEST VALUES('1a9b250f-cbb4-c522-f9a0-68bc31e0405a','2018-01-19 11:08:36.956000','admin','11',11,'123','2018-02-01 12:43:39.300000','buba','710eeb85-200a-518d-a7dc-f4caa9df36ad','11',NULL,'4fff2290-4dcd-8a3d-bf5e-75245a6e3938',1516352916949,NULL,'995adffe-16c9-339b-ba86-4731890a3efc')
-INSERT INTO OFFICE_REQUEST_LOG VALUES('8a9b896a-1b2b-ab53-b05e-6d86ca835dad','2018-02-01 12:43:39.262000','buba','2018-02-01 12:43:39.262000',NULL,'1a9b250f-cbb4-c522-f9a0-68bc31e0405a','Communication <seef f erfer erferg...> created','710eeb85-200a-518d-a7dc-f4caa9df36ad','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca',1517481724942,NULL,'com.company.office.entity.RequestStepCommunication','8874384e-b384-9423-ca57-c61dedbc6639')
-INSERT INTO OFFICE_REQUEST_LOG VALUES('6f8426f8-7e19-34c0-3c13-acbdcee5ad16','2018-02-01 12:43:39.264000','buba','2018-02-01 12:43:39.264000',NULL,'1a9b250f-cbb4-c522-f9a0-68bc31e0405a','Communication <\u0430\u0443\u0434\u0430\u043b\u0440 \u0430\u043f\u043f\u0448\u0449\u044c\u043f\u0430\u0434\u0436 \u043a...> closed','710eeb85-200a-518d-a7dc-f4caa9df36ad','6d8d95f6-a3cd-9743-b2d1-63c8ea572a69',1517481783959,NULL,'com.company.office.entity.RequestStepCommunication','292847fc-d3dd-2cac-ee6b-616fdd908c3c')
-DELETE FROM OFFICE_REQUEST_STEP_COMMUNICATION WHERE ID='292847fc-d3dd-2cac-ee6b-616fdd908c3c'
-INSERT INTO OFFICE_REQUEST_STEP_COMMUNICATION VALUES('292847fc-d3dd-2cac-ee6b-616fdd908c3c','2018-02-01 11:50:15.294000','buba','2018-02-01 12:43:39.300000','buba','\u0430\u0443\u0434\u0430\u043b\u0440 \u0430\u043f\u043f\u0448\u0449\u044c\u043f\u0430\u0434\u0436 \u043a\u0435\u043b\u043e\u043f \u0449\u043f\u0448\u0436\u0443\u043a\u0440\u043f\u0449\u0448\u0443 \u043a\u0440\u043f\u0443\u043a\u0449\u0436\u0448 \u043f',NULL,'r  efg er ggre grggf',NULL,'4fff2290-4dcd-8a3d-bf5e-75245a6e3938',1517478600827,'710eeb85-200a-518d-a7dc-f4caa9df36ad','6d8d95f6-a3cd-9743-b2d1-63c8ea572a69','2018-02-01')
-INSERT INTO OFFICE_REQUEST_STEP_COMMUNICATION VALUES('8874384e-b384-9423-ca57-c61dedbc6639','2018-02-01 12:43:39.249000','buba','2018-02-01 12:43:39.249000',NULL,'seef f erfer erfergerg',NULL,NULL,NULL,'4fff2290-4dcd-8a3d-bf5e-75245a6e3938',1517481710303,'710eeb85-200a-518d-a7dc-f4caa9df36ad','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca',NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:44:21.760000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM OFFICE_REQUEST_STEP WHERE ID='4fff2290-4dcd-8a3d-bf5e-75245a6e3938'
-INSERT INTO OFFICE_REQUEST_STEP VALUES('4fff2290-4dcd-8a3d-bf5e-75245a6e3938','2018-02-01 12:44:42.348000','boss','2018-01-19 11:08:36.975000','admin','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','Assigned to John Snow. Actions added','1a9b250f-cbb4-c522-f9a0-68bc31e0405a','2018-01-19',NULL,NULL,'approving','2018-01-26','2018-01-26','b8181249-bb9a-45dd-efdb-a0caad51b12c',1516352916808)
-DELETE FROM OFFICE_REQUEST WHERE ID='1a9b250f-cbb4-c522-f9a0-68bc31e0405a'
-INSERT INTO OFFICE_REQUEST VALUES('1a9b250f-cbb4-c522-f9a0-68bc31e0405a','2018-01-19 11:08:36.956000','admin','11',11,'123','2018-02-01 12:44:42.349000','boss','710eeb85-200a-518d-a7dc-f4caa9df36ad','11',NULL,'4fff2290-4dcd-8a3d-bf5e-75245a6e3938',1516352916949,NULL,'995adffe-16c9-339b-ba86-4731890a3efc')
-INSERT INTO OFFICE_REQUEST_LOG VALUES('eeaed503-2c8c-bc2f-6dc1-987b4c6711e8','2018-02-01 12:44:42.302000','boss','2018-02-01 12:44:42.302000',NULL,'1a9b250f-cbb4-c522-f9a0-68bc31e0405a','Communication <seef f erfer erferg...> edited','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517481874670,NULL,'com.company.office.entity.RequestStepCommunication','8874384e-b384-9423-ca57-c61dedbc6639')
-INSERT INTO OFFICE_REQUEST_LOG VALUES('f986ca81-cbee-60ea-4026-df128aa33dff','2018-02-01 12:44:42.306000','boss','2018-02-01 12:44:42.306000',NULL,'1a9b250f-cbb4-c522-f9a0-68bc31e0405a','The request edited','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',1517481882286,NULL,NULL,NULL)
-INSERT INTO OFFICE_REQUEST_LOG VALUES('6f243014-b36a-2d8e-2343-473c077c1b20','2018-02-01 12:44:42.304000','boss','2018-02-01 12:44:42.304000',NULL,'1a9b250f-cbb4-c522-f9a0-68bc31e0405a','The request edited','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517481882286,NULL,NULL,NULL)
 DELETE FROM OFFICE_REQUEST_STEP_COMMUNICATION WHERE ID='8874384e-b384-9423-ca57-c61dedbc6639'
-INSERT INTO OFFICE_REQUEST_STEP_COMMUNICATION VALUES('8874384e-b384-9423-ca57-c61dedbc6639','2018-02-01 12:43:39.249000','buba','2018-02-01 12:44:42.349000','boss','seef f erfer erfergerg',NULL,'sdasdfdsfdsfsdfsd',NULL,'4fff2290-4dcd-8a3d-bf5e-75245a6e3938',1517481710303,'710eeb85-200a-518d-a7dc-f4caa9df36ad','81bc4f1e-86b8-561d-83d3-e3ef0871f6ca',NULL)
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='a82ca4da-302a-6747-286f-e889a3de8395'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='0384a607-bac8-26f4-b75a-f9d44bf29d13'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='066c2403-c5a7-2810-7e56-ca81b670e79e'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='1f84fc95-7e9f-c5da-6db4-2a76ad39fbd2'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='1fd3df79-a41a-ddc2-b71c-a92bde916b45'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='21d4d9c2-271f-e342-ee08-fb76aec48824'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='4831f9fb-b5a8-c172-0c78-89238fcd3399'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='4d283671-315d-1dae-d8dd-351cf2d910fa'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='5a7bab07-a713-7c56-cc2b-3d1faa37de80'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='5e40f66f-25a4-0e68-229a-ceed8d03ce6f'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='65257ebe-96ed-080b-08a2-b8ec6da2bcec'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='6c940e62-c602-9c80-cfa8-681d43c3e60a'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='6de24b24-70ed-4b5a-356f-8fc4ad340b15'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='6f08b253-48c5-b5f3-a445-aab2cbe87342'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='6f243014-b36a-2d8e-2343-473c077c1b20'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='6f8426f8-7e19-34c0-3c13-acbdcee5ad16'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='7b71a3d9-7626-214a-1918-d2d212aa686f'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='80332a6f-5e6e-7624-fe62-230484f3e23a'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='806e7849-e160-6b38-44e9-c9a63d5d4dc3'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='8a9b896a-1b2b-ab53-b05e-6d86ca835dad'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='8cb9d9c2-28c2-3b77-834d-5ab0a1daf961'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='94dbbb80-d364-444f-0319-670a250ad594'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='97633a8d-c8af-84e3-6bb3-85976158f1f9'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='98d4a429-e8bd-b731-9878-993e1e1a3b89'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='a6c640aa-60cb-86b7-d784-3f7aa9d644ca'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='b4e418bb-41d9-6676-cb01-a07fc27ca026'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='be69e118-f31c-b157-b93d-3e862845c1af'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='beac7304-fbb1-f237-20c8-114b21ea4fc7'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='c987fded-3c07-7077-f41e-c29168f60d78'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='cd8a793c-3812-09a0-eda0-260e1ded57ee'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='ce9ca1ef-2d0f-4732-b530-ae9b56e25468'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='e8d65f14-f566-1cb2-0fe4-3613a9ae2a02'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='eeaed503-2c8c-bc2f-6dc1-987b4c6711e8'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='f986ca81-cbee-60ea-4026-df128aa33dff'
+COMMIT
+DELETE FROM OFFICE_REQUEST WHERE ID='366980bc-adeb-048d-b2ba-9282d6886756'
+INSERT INTO OFFICE_REQUEST VALUES('366980bc-adeb-048d-b2ba-9282d6886756','2018-01-22 13:34:59.001000','admin','22',22,'ssasdasdazxdxd','2018-02-02 15:28:11.267000','admin','f53947e3-47ee-4bce-2fe2-c5319924eac8','22',NULL,'eedfd118-c6fe-ae53-20b7-44ab4b3d17c2',1516620898986,NULL,'e5f2813f-f8aa-5eaf-7040-09d403f1b0b4')
+DELETE FROM OFFICE_REQUEST WHERE ID='366980bc-adeb-048d-b2ba-9282d6886756'
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='57249d00-c3cc-6041-9f35-60413ea47910'
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='6299a4d2-5b5f-ce82-0cc0-5ab04757df2a'
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='7c16ccd5-a867-a02f-ca67-3ca4b43b2965'
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='9c25dc46-768b-cae7-a98b-b2c2a7faa914'
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='a3150192-c160-b0db-3bbc-4858aa416a55'
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='e311d50e-216e-1dee-7480-35bdbb5c9e6c'
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='e4b02e2f-fc3d-592f-7726-17471d0675d4'
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='eedfd118-c6fe-ae53-20b7-44ab4b3d17c2'
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='6b9fddcf-bc32-c863-f0c5-5c8234f0966e'
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='8d98b57b-8534-3a86-8d8e-c781d1e15d65'
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='c4832be1-50bb-4766-f2ca-c4aa4aa07883'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='08f38eaf-5083-785c-046b-082068f7f237'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='0a803c56-5f91-df0c-ae12-08ea0d5a42b1'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='0accd048-c6d5-fa78-2f09-41ec3e924d68'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='29e27e99-a0cb-3957-d34c-44ae9dcfad35'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='2d6f737f-1619-0cdb-f8e2-2647e62c2bae'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='40083530-49f7-e124-c467-1bfc5997df63'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='4e189ea1-5292-373a-d60d-304433053b11'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='5ed8b218-ffd8-3e38-3a08-37156a826136'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='6b31408c-9fff-9b6c-b5d3-0e136025098b'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='702bebd8-e8bc-2c6a-9906-4330d785dfb3'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='7a551c2c-35fd-63fd-1b1d-a34af0b9d0cf'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='7a624467-08f9-eaaa-3e0a-f783ee5a29b5'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='86c8b99a-af50-b22e-1dc6-13c851f00717'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='954e12f9-2098-c213-6f99-e61de07d0fd4'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='96e61aee-562b-5b6a-5733-1bc489108159'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='96f17d34-91e5-c198-61f8-feb57bd9fa45'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='9c90fa03-9e71-0a06-9cd9-2e6243c7c6ea'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='a5f2a174-3e69-4917-4f85-6672e1cad269'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='bc18bfc7-ddaa-f46e-c7ec-dbb2437ef78b'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='bdfe0ea0-8973-59a9-13fa-b95be71d3f13'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='bf418383-ff20-bd12-dd66-148c2a411f77'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='c08c4126-1800-bc14-3fc0-894d65e4a76d'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='c462d17a-7051-d914-99da-8e0c2b8a2d25'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='db1af567-f981-fe0f-41c0-f775f0aff354'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='e0c54fe5-8f1b-f5b1-bbf2-020f7de4e219'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='e34612a7-100a-d0d7-0c59-7ea460387305'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='ec0c90e9-f4d8-6335-73f1-deb1c4a14bae'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='f418ccdf-9d37-b93c-e2e7-67a9fba987f8'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='f687f04a-841d-40fc-e799-01cf265b2d34'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='f992d8bf-680f-d3eb-7e30-722026f24df0'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='f99fdbcb-c85f-f059-5edb-049c0ab9ea9e'
+COMMIT
+DELETE FROM OFFICE_REQUEST WHERE ID='8548df70-9c51-0526-00a7-750baecf68fc'
+INSERT INTO OFFICE_REQUEST VALUES('8548df70-9c51-0526-00a7-750baecf68fc','2018-01-23 15:02:23.276000','admin','33',33,'11111111','2018-02-02 15:28:14.713000','admin','001ac675-07bd-caa0-988b-8dca6cac68b3','33',NULL,'0ab59506-6cf2-1c2b-ae54-9f4476a1e5be',1516712543224,NULL,NULL)
+DELETE FROM OFFICE_REQUEST WHERE ID='8548df70-9c51-0526-00a7-750baecf68fc'
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='0ab59506-6cf2-1c2b-ae54-9f4476a1e5be'
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='1e0451a4-99aa-0fbe-07f3-62c9418df51a'
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='51b88cfb-25a6-051d-90fe-135d45cba41c'
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='6dad37ed-587b-cdca-9943-8527fd267d3c'
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='bf21a317-2975-2864-319a-297b8b9cdc2d'
+DELETE FROM OFFICE_REQUEST_STEP_COMMUNICATION WHERE ID='a9ba3030-7973-a7ea-ef87-aa206c608ba0'
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='3d6d1c3f-101b-294f-c71c-95962e146603'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='00cb59e3-70b2-1aad-8b80-97ccd180b77a'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='011ea5f9-e739-93cb-99b5-0b55506f3561'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='2ceab83f-c6b9-ed06-8671-4d5c015dc5cb'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='4ae95354-af5b-28d4-8ac2-532652b138f6'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='5c0576f3-ffb8-372e-88e7-5e265d18e48d'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='7072f759-8515-10c7-4025-21db84af63e6'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='8ad3a8f1-513b-b775-4abd-bfd4467d6ece'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='8e431d97-91b2-501c-937f-913e257873a7'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='a3271ad5-d74e-391a-c803-67987c44ca4a'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='a38681bf-f3a3-fdb7-cbd7-9a555bc89c4f'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='a3c9a462-5d6f-514e-419f-9ed9614281dc'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='aff751e2-f747-5b4b-157d-d2fb348f635d'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='d782924b-9181-f5c6-6be3-b1b042b03ddc'
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:45:21.761000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:28:20.097000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:46:21.761000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:29:20.096000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM OFFICE_POSITION WHERE ID='b8181249-bb9a-45dd-efdb-a0caad51b12c'
+INSERT INTO OFFICE_POSITION VALUES('b8181249-bb9a-45dd-efdb-a0caad51b12c','2018-01-10 11:33:51.009000','admin','2018-02-02 15:29:45.362000','admin',10,'Initial position',7,7)
+DELETE FROM OFFICE_POSITION_USER WHERE ID='15922368-0681-04f9-d651-6181bbfeb70b'
+INSERT INTO OFFICE_POSITION_USER VALUES('15922368-0681-04f9-d651-6181bbfeb70b','2018-01-10 11:34:52.610000','admin','2018-02-02 15:29:45.362000','admin','b8181249-bb9a-45dd-efdb-a0caad51b12c','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',NULL,2,1516096984066)
+DELETE FROM OFFICE_POSITION_USER WHERE ID='a072ddbf-0044-526e-8a21-bcb02364025b'
+INSERT INTO OFFICE_POSITION_USER VALUES('a072ddbf-0044-526e-8a21-bcb02364025b','2018-01-10 11:34:52.611000','admin','2018-02-02 15:29:45.362000','admin','b8181249-bb9a-45dd-efdb-a0caad51b12c','bfdb9c32-2d8b-3520-d236-00f089c9d632',NULL,3,1516096979488)
+COMMIT
+DELETE FROM OFFICE_POSITION_USER WHERE ID='15922368-0681-04f9-d651-6181bbfeb70b'
+INSERT INTO OFFICE_POSITION_USER VALUES('15922368-0681-04f9-d651-6181bbfeb70b','2018-01-10 11:34:52.610000','admin','2018-02-02 15:30:14.592000','admin','b8181249-bb9a-45dd-efdb-a0caad51b12c','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',1,2,1516096984066)
+COMMIT
+INSERT INTO OFFICE_REQUEST_STEP VALUES('fb500943-610c-9af5-7a96-740986d5422a','2018-02-02 15:30:14.695000',NULL,'2018-02-02 15:30:14.695000','admin',NULL,'Assigned to John Snow. Actions added',NULL,NULL,NULL,NULL,'waiting','2018-02-09',NULL,NULL,1517578214538)
+INSERT INTO OFFICE_REQUEST VALUES('48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02 15:30:14.670000','admin','11',11,NULL,'2018-02-02 15:30:14.670000',NULL,'710eeb85-200a-518d-a7dc-f4caa9df36ad','11',NULL,'fb500943-610c-9af5-7a96-740986d5422a',1517578214604,NULL,NULL)
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='fb500943-610c-9af5-7a96-740986d5422a'
+INSERT INTO OFFICE_REQUEST_STEP VALUES('fb500943-610c-9af5-7a96-740986d5422a','2018-02-02 15:30:14.695000',NULL,'2018-02-02 15:30:14.695000','admin','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','Assigned to John Snow. Actions added','48292e3e-0769-6d3e-a11a-d5f2e35fc302',NULL,NULL,NULL,'waiting','2018-02-09',NULL,'b8181249-bb9a-45dd-efdb-a0caad51b12c',1517578214538)
+INSERT INTO OFFICE_REQUEST_STEP VALUES('89b44f46-5a3d-92fd-1a3b-c145e4afe552','2018-02-02 15:30:14.695000',NULL,'2018-02-02 15:30:14.695000','admin',NULL,'Initial position, Suspended','48292e3e-0769-6d3e-a11a-d5f2e35fc302',NULL,NULL,NULL,'suspended',NULL,NULL,'b8181249-bb9a-45dd-efdb-a0caad51b12c',1517578214524)
+INSERT INTO OFFICE_REQUEST_LOG VALUES('85e43a7f-8fd2-d96a-1c71-e32a6e202e05','2018-02-02 15:30:14.700000','admin','2018-02-02 15:30:14.700000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','The new request created','60885987-1b61-4247-94c7-dff348347f93','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517578214511,NULL,NULL,NULL)
+INSERT INTO OFFICE_REQUEST_LOG VALUES('2f353cb7-6ae9-70ee-dbbb-04d76892246a','2018-02-02 15:30:14.698000','admin','2018-02-02 15:30:14.698000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','The new worker set: John Snow','60885987-1b61-4247-94c7-dff348347f93','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517578214568,NULL,'com.company.office.entity.RequestStep','fb500943-610c-9af5-7a96-740986d5422a')
+INSERT INTO OFFICE_REQUEST_LOG VALUES('c46f4bd1-0bf2-7f0c-4c10-c3eeb6c9090c','2018-02-02 15:30:14.698000','admin','2018-02-02 15:30:14.698000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','The new worker set: John Snow','60885987-1b61-4247-94c7-dff348347f93','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',1517578214568,NULL,'com.company.office.entity.RequestStep','fb500943-610c-9af5-7a96-740986d5422a')
+INSERT INTO OFFICE_REQUEST_LOG VALUES('6ba85cd4-60b5-2519-3876-31736a1228a6','2018-02-02 15:30:14.697000','admin','2018-02-02 15:30:14.697000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','The new position set: Initial position','60885987-1b61-4247-94c7-dff348347f93','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517578214525,NULL,'com.company.office.entity.RequestStep','89b44f46-5a3d-92fd-1a3b-c145e4afe552')
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('6492e365-f4cd-0fa5-91d6-6f8c253aaa34','2018-02-02 15:30:14.701000','admin','2018-02-02 15:30:14.701000',NULL,'fb500943-610c-9af5-7a96-740986d5422a','file','Send the form #10.1','ca30b1f0-acbe-3b8b-06fc-10a752f71f40',NULL,NULL,NULL,NULL,1517578214540)
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('7470ca62-d4ad-1843-3ac8-6ab721fe7653','2018-02-02 15:30:14.701000','admin','2018-02-02 15:30:14.701000',NULL,'fb500943-610c-9af5-7a96-740986d5422a','file','Send the form #10.3','657ee3a4-0fc0-9e87-2ce6-01a3157e846f',NULL,NULL,NULL,NULL,1517578214542)
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('f3801a2a-5811-ce9f-b457-5553a5ddaa59','2018-02-02 15:30:14.700000','admin','2018-02-02 15:30:14.700000',NULL,'fb500943-610c-9af5-7a96-740986d5422a','message','Send additional applicant info',NULL,NULL,NULL,NULL,NULL,1517578214539)
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('a2cf0592-6dd8-e7e9-de44-de07c0d6f2ce','2018-02-02 15:30:14.701000','admin','2018-02-02 15:30:14.701000',NULL,'fb500943-610c-9af5-7a96-740986d5422a','file','Send the form #10.2','f071c89e-5817-00de-cf2f-1e4eeb4f7228',NULL,NULL,NULL,NULL,1517578214541)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:47:21.762000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:30:20.096000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:48:21.762000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:31:20.097000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SYS_FILE VALUES('4a5da209-391d-c878-ce96-d9b57fd5c04e','2018-02-02 15:32:03.189000','buba',1,'2018-02-02 15:32:03.189000',NULL,NULL,NULL,'150817.661.png','png',345337,'2018-02-02 15:32:03.158000')
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:49:21.762000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:32:20.097000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SYS_FILE VALUES('ddb2f7d4-1f61-5bea-dd4f-187d83a7f186','2018-02-02 15:32:54.743000','buba',1,'2018-02-02 15:32:54.743000',NULL,NULL,NULL,'150824.493.png','png',352399,'2018-02-02 15:32:54.738000')
+COMMIT
+INSERT INTO SYS_FILE VALUES('1eec5f97-178c-f2a3-4612-c7e26f5ded9f','2018-02-02 15:33:03.699000','buba',1,'2018-02-02 15:33:03.699000',NULL,NULL,NULL,'150826.733.png','png',331302,'2018-02-02 15:33:03.694000')
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:50:21.763000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:33:20.097000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='fb500943-610c-9af5-7a96-740986d5422a'
+INSERT INTO OFFICE_REQUEST_STEP VALUES('fb500943-610c-9af5-7a96-740986d5422a','2018-02-02 15:33:31.729000','buba','2018-02-02 15:30:14.695000','admin','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','Assigned to John Snow. Actions added','48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02',NULL,NULL,'approving','2018-02-09','2018-02-09','b8181249-bb9a-45dd-efdb-a0caad51b12c',1517578214538)
+DELETE FROM OFFICE_REQUEST WHERE ID='48292e3e-0769-6d3e-a11a-d5f2e35fc302'
+INSERT INTO OFFICE_REQUEST VALUES('48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02 15:30:14.670000','admin','11',11,NULL,'2018-02-02 15:33:31.729000','buba','710eeb85-200a-518d-a7dc-f4caa9df36ad','11',NULL,'fb500943-610c-9af5-7a96-740986d5422a',1517578214604,NULL,NULL)
+INSERT INTO OFFICE_REQUEST_LOG VALUES('161b6d76-e1b2-2f75-d6e9-db5452942ad7','2018-02-02 15:33:31.690000','buba','2018-02-02 15:33:31.690000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','Action <Send the form #10.3>  submitted','710eeb85-200a-518d-a7dc-f4caa9df36ad','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',1517578407411,NULL,'com.company.office.entity.RequestStepAction','7470ca62-d4ad-1843-3ac8-6ab721fe7653')
+INSERT INTO OFFICE_REQUEST_LOG VALUES('d75910f8-c3b3-af31-3ab9-d7a1ab864bc2','2018-02-02 15:33:31.686000','buba','2018-02-02 15:33:31.686000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','Action <Send the form #10.3> edited','710eeb85-200a-518d-a7dc-f4caa9df36ad','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',1517578385074,NULL,'com.company.office.entity.RequestStepAction','7470ca62-d4ad-1843-3ac8-6ab721fe7653')
+INSERT INTO OFFICE_REQUEST_LOG VALUES('5a38e90f-08e3-d68e-21cd-b1e47746cf5b','2018-02-02 15:33:31.682000','buba','2018-02-02 15:33:31.682000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','Action <Send additional applicant info> edited','710eeb85-200a-518d-a7dc-f4caa9df36ad','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',1517578294227,NULL,'com.company.office.entity.RequestStepAction','f3801a2a-5811-ce9f-b457-5553a5ddaa59')
+INSERT INTO OFFICE_REQUEST_LOG VALUES('8d0b4031-e969-3ba7-c103-11f2ff307b2a','2018-02-02 15:33:31.685000','buba','2018-02-02 15:33:31.685000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','Action <Send the form #10.2> edited','710eeb85-200a-518d-a7dc-f4caa9df36ad','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',1517578376013,NULL,'com.company.office.entity.RequestStepAction','a2cf0592-6dd8-e7e9-de44-de07c0d6f2ce')
+INSERT INTO OFFICE_REQUEST_LOG VALUES('79f0a77b-ae77-892d-0bd5-1864d8443111','2018-02-02 15:33:31.684000','buba','2018-02-02 15:33:31.684000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','Action <Send the form #10.1> edited','710eeb85-200a-518d-a7dc-f4caa9df36ad','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',1517578369223,NULL,'com.company.office.entity.RequestStepAction','6492e365-f4cd-0fa5-91d6-6f8c253aaa34')
+INSERT INTO OFFICE_REQUEST_LOG VALUES('acb9ad52-3117-d566-e862-a80380d5c6dc','2018-02-02 15:33:31.687000','buba','2018-02-02 15:33:31.687000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','Action <Send the form #10.1>  submitted','710eeb85-200a-518d-a7dc-f4caa9df36ad','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',1517578390315,NULL,'com.company.office.entity.RequestStepAction','6492e365-f4cd-0fa5-91d6-6f8c253aaa34')
+INSERT INTO OFFICE_REQUEST_LOG VALUES('928b28a2-929f-4845-66d0-54c8b5c3ca70','2018-02-02 15:33:31.683000','buba','2018-02-02 15:33:31.683000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','Action <Send additional applicant info>  submitted','710eeb85-200a-518d-a7dc-f4caa9df36ad','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',1517578299756,NULL,'com.company.office.entity.RequestStepAction','f3801a2a-5811-ce9f-b457-5553a5ddaa59')
+INSERT INTO OFFICE_REQUEST_LOG VALUES('fe854e97-08f6-7f0b-3a7e-9c9d0ee71c25','2018-02-02 15:33:31.691000','buba','2018-02-02 15:33:31.691000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','The request submitted. The state changed to <Approving>','710eeb85-200a-518d-a7dc-f4caa9df36ad','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',1517578411627,NULL,NULL,NULL)
+INSERT INTO OFFICE_REQUEST_LOG VALUES('1e682c1e-6618-215c-ec96-7cf7ac9c7573','2018-02-02 15:33:31.689000','buba','2018-02-02 15:33:31.689000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','Action <Send the form #10.2>  submitted','710eeb85-200a-518d-a7dc-f4caa9df36ad','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',1517578396082,NULL,'com.company.office.entity.RequestStepAction','a2cf0592-6dd8-e7e9-de44-de07c0d6f2ce')
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='6492e365-f4cd-0fa5-91d6-6f8c253aaa34'
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('6492e365-f4cd-0fa5-91d6-6f8c253aaa34','2018-02-02 15:30:14.701000','admin','2018-02-02 15:33:31.729000','buba','fb500943-610c-9af5-7a96-740986d5422a','file','Send the form #10.1','ca30b1f0-acbe-3b8b-06fc-10a752f71f40','4a5da209-391d-c878-ce96-d9b57fd5c04e',NULL,'2018-02-02',NULL,1517578214540)
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='7470ca62-d4ad-1843-3ac8-6ab721fe7653'
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('7470ca62-d4ad-1843-3ac8-6ab721fe7653','2018-02-02 15:30:14.701000','admin','2018-02-02 15:33:31.729000','buba','fb500943-610c-9af5-7a96-740986d5422a','file','Send the form #10.3','657ee3a4-0fc0-9e87-2ce6-01a3157e846f','1eec5f97-178c-f2a3-4612-c7e26f5ded9f',NULL,'2018-02-02',NULL,1517578214542)
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='a2cf0592-6dd8-e7e9-de44-de07c0d6f2ce'
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('a2cf0592-6dd8-e7e9-de44-de07c0d6f2ce','2018-02-02 15:30:14.701000','admin','2018-02-02 15:33:31.729000','buba','fb500943-610c-9af5-7a96-740986d5422a','file','Send the form #10.2','f071c89e-5817-00de-cf2f-1e4eeb4f7228','ddb2f7d4-1f61-5bea-dd4f-187d83a7f186',NULL,'2018-02-02',NULL,1517578214541)
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='f3801a2a-5811-ce9f-b457-5553a5ddaa59'
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('f3801a2a-5811-ce9f-b457-5553a5ddaa59','2018-02-02 15:30:14.700000','admin','2018-02-02 15:33:31.729000','buba','fb500943-610c-9af5-7a96-740986d5422a','message','Send additional applicant info',NULL,NULL,'111','2018-02-02',NULL,1517578214539)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:51:21.763000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:34:20.098000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:52:21.764000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:35:20.098000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:53:21.764000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:36:20.099000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:54:21.765000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:37:20.099000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:55:21.765000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:38:20.100000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:56:21.765000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:39:20.100000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:57:21.767000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:40:20.100000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:58:21.767000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:41:20.101000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 12:59:21.768000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:42:20.101000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:00:21.768000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:43:20.102000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:01:21.769000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:44:20.102000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:02:21.769000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:45:20.103000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:03:21.769000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:46:20.103000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:04:21.770000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:47:20.104000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:05:21.770000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:06:21.771000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:07:21.771000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:08:21.772000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:09:21.772000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:10:21.773000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:11:21.773000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:12:21.773000',NULL,'localhost:8080/app-core',TRUE,NULL)
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='fb500943-610c-9af5-7a96-740986d5422a'
+INSERT INTO OFFICE_REQUEST_STEP VALUES('fb500943-610c-9af5-7a96-740986d5422a','2018-02-02 15:47:49.073000','john','2018-02-02 15:30:14.695000','admin','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','Assigned to John Snow. Actions added','48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02',NULL,NULL,'approving','2018-02-09','2018-02-09','b8181249-bb9a-45dd-efdb-a0caad51b12c',1517578214538)
+DELETE FROM OFFICE_REQUEST WHERE ID='48292e3e-0769-6d3e-a11a-d5f2e35fc302'
+INSERT INTO OFFICE_REQUEST VALUES('48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02 15:30:14.670000','admin','11',11,NULL,'2018-02-02 15:47:49.073000','john','710eeb85-200a-518d-a7dc-f4caa9df36ad','11',NULL,'fb500943-610c-9af5-7a96-740986d5422a',1517578214604,NULL,NULL)
+INSERT INTO OFFICE_REQUEST_LOG VALUES('9847fd15-e610-103c-d6cc-3c064a84626c','2018-02-02 15:47:49.038000','john','2018-02-02 15:47:49.038000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','Action <Send additional applicant info>  approved','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517579111798,NULL,'com.company.office.entity.RequestStepAction','f3801a2a-5811-ce9f-b457-5553a5ddaa59')
+INSERT INTO OFFICE_REQUEST_LOG VALUES('9e457eb6-fcc2-3fc3-842e-3d3301384745','2018-02-02 15:47:49.039000','john','2018-02-02 15:47:49.039000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','Action <Send the form #10.1>  rejected','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517579239899,NULL,'com.company.office.entity.RequestStepAction','6492e365-f4cd-0fa5-91d6-6f8c253aaa34')
+INSERT INTO OFFICE_REQUEST_LOG VALUES('040a6e49-60c6-84b0-36cc-44598e6f80f7','2018-02-02 15:47:49.040000','john','2018-02-02 15:47:49.040000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','Action <Send the form #10.2>  approved','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517579244604,NULL,'com.company.office.entity.RequestStepAction','a2cf0592-6dd8-e7e9-de44-de07c0d6f2ce')
+INSERT INTO OFFICE_REQUEST_LOG VALUES('1bdb2d89-8427-0d6f-6301-505dc25643f5','2018-02-02 15:47:49.041000','john','2018-02-02 15:47:49.041000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','Action <Send the form #10.3>  approved','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517579260747,NULL,'com.company.office.entity.RequestStepAction','7470ca62-d4ad-1843-3ac8-6ab721fe7653')
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='6492e365-f4cd-0fa5-91d6-6f8c253aaa34'
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('6492e365-f4cd-0fa5-91d6-6f8c253aaa34','2018-02-02 15:30:14.701000','admin','2018-02-02 15:47:49.073000','john','fb500943-610c-9af5-7a96-740986d5422a','file','Send the form #10.1','ca30b1f0-acbe-3b8b-06fc-10a752f71f40','4a5da209-391d-c878-ce96-d9b57fd5c04e',NULL,NULL,NULL,1517578214540)
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='7470ca62-d4ad-1843-3ac8-6ab721fe7653'
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('7470ca62-d4ad-1843-3ac8-6ab721fe7653','2018-02-02 15:30:14.701000','admin','2018-02-02 15:47:49.073000','john','fb500943-610c-9af5-7a96-740986d5422a','file','Send the form #10.3','657ee3a4-0fc0-9e87-2ce6-01a3157e846f','1eec5f97-178c-f2a3-4612-c7e26f5ded9f',NULL,'2018-02-02','2018-02-02',1517578214542)
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='a2cf0592-6dd8-e7e9-de44-de07c0d6f2ce'
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('a2cf0592-6dd8-e7e9-de44-de07c0d6f2ce','2018-02-02 15:30:14.701000','admin','2018-02-02 15:47:49.073000','john','fb500943-610c-9af5-7a96-740986d5422a','file','Send the form #10.2','f071c89e-5817-00de-cf2f-1e4eeb4f7228','ddb2f7d4-1f61-5bea-dd4f-187d83a7f186',NULL,'2018-02-02','2018-02-02',1517578214541)
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='f3801a2a-5811-ce9f-b457-5553a5ddaa59'
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('f3801a2a-5811-ce9f-b457-5553a5ddaa59','2018-02-02 15:30:14.700000','admin','2018-02-02 15:47:49.073000','john','fb500943-610c-9af5-7a96-740986d5422a','message','Send additional applicant info',NULL,NULL,'111','2018-02-02','2018-02-02',1517578214539)
 COMMIT
 DELETE FROM SEC_USER_SETTING WHERE ID='f852ee13-4121-8c2a-fa1f-1358c1a78b71'
-INSERT INTO SEC_USER_SETTING VALUES('f852ee13-4121-8c2a-fa1f-1358c1a78b71',NULL,NULL,'4cbf025d-043d-1a6c-4fcf-85f79da9abe7','W','office$Request.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="split"> \u000a      <position value="50.0" unit="%"/> \u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="imageBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="stepBox"> \u000a      <groupBox expanded="false"/>\u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="initiator" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="closed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+INSERT INTO SEC_USER_SETTING VALUES('f852ee13-4121-8c2a-fa1f-1358c1a78b71',NULL,NULL,'4cbf025d-043d-1a6c-4fcf-85f79da9abe7','W','office$Request.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="split"> \u000a      <position value="28.135048" unit="%"/> \u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="imageBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="stepBox"> \u000a      <groupBox expanded="false"/>\u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="initiator" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="closed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+INSERT INTO SEC_USER_SETTING VALUES('c189e4e6-6414-472f-a51f-d527daf07118',NULL,NULL,'4cbf025d-043d-1a6c-4fcf-85f79da9abe7','W','office$RequestStepCommunication.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings>\u000a  <components>\u000a    <component name="questionBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a  </components>\u000a</settings>\u000a')
+COMMIT
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='fb500943-610c-9af5-7a96-740986d5422a'
+INSERT INTO OFFICE_REQUEST_STEP VALUES('fb500943-610c-9af5-7a96-740986d5422a','2018-02-02 15:48:11.645000','john','2018-02-02 15:30:14.695000','admin','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','Assigned to John Snow. Actions added','48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02',NULL,NULL,'approving','2018-02-09','2018-02-09','b8181249-bb9a-45dd-efdb-a0caad51b12c',1517578214538)
+DELETE FROM OFFICE_REQUEST WHERE ID='48292e3e-0769-6d3e-a11a-d5f2e35fc302'
+INSERT INTO OFFICE_REQUEST VALUES('48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02 15:30:14.670000','admin','11',11,NULL,'2018-02-02 15:48:11.645000','john','710eeb85-200a-518d-a7dc-f4caa9df36ad','11',NULL,'fb500943-610c-9af5-7a96-740986d5422a',1517578214604,NULL,NULL)
+INSERT INTO OFFICE_REQUEST_LOG VALUES('d1fac463-b493-f804-d905-4872d642f928','2018-02-02 15:48:11.610000','john','2018-02-02 15:48:11.610000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','Communication <\u0443\u0443 \u0446\u0443\u0439\u0446\u0443 \u0443\u043a\u0430 \u0443\u0430\u0443 \u0430\u0443...> created','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517579289885,NULL,'com.company.office.entity.RequestStepCommunication','6d6fb4fd-0e36-d493-f6ec-1ffb6304e48f')
+INSERT INTO OFFICE_REQUEST_STEP_COMMUNICATION VALUES('6d6fb4fd-0e36-d493-f6ec-1ffb6304e48f','2018-02-02 15:48:11.597000','john','2018-02-02 15:48:11.597000',NULL,'\u0443\u0443 \u0446\u0443\u0439\u0446\u0443 \u0443\u043a\u0430 \u0443\u0430\u0443 \u0430\u0443\u043a \u0430\u0446\u0443\u0430\u0446\u0443\u0430',NULL,NULL,NULL,'fb500943-610c-9af5-7a96-740986d5422a',1517579279849,'4cbf025d-043d-1a6c-4fcf-85f79da9abe7','710eeb85-200a-518d-a7dc-f4caa9df36ad',NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:13:21.774000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:48:20.104000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='fb500943-610c-9af5-7a96-740986d5422a'
+INSERT INTO OFFICE_REQUEST_STEP VALUES('fb500943-610c-9af5-7a96-740986d5422a','2018-02-02 15:49:11.593000','buba','2018-02-02 15:30:14.695000','admin','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','Assigned to John Snow. Actions added','48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02',NULL,NULL,'approving','2018-02-09','2018-02-09','b8181249-bb9a-45dd-efdb-a0caad51b12c',1517578214538)
+DELETE FROM OFFICE_REQUEST WHERE ID='48292e3e-0769-6d3e-a11a-d5f2e35fc302'
+INSERT INTO OFFICE_REQUEST VALUES('48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02 15:30:14.670000','admin','11',11,NULL,'2018-02-02 15:49:11.593000','buba','710eeb85-200a-518d-a7dc-f4caa9df36ad','11',NULL,'fb500943-610c-9af5-7a96-740986d5422a',1517578214604,NULL,NULL)
+INSERT INTO OFFICE_REQUEST_LOG VALUES('c9f45594-547a-c383-179d-f72d1b926b91','2018-02-02 15:49:11.552000','buba','2018-02-02 15:49:11.552000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','Action <Send the form #10.1>  submitted','710eeb85-200a-518d-a7dc-f4caa9df36ad','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',1517579349235,NULL,'com.company.office.entity.RequestStepAction','6492e365-f4cd-0fa5-91d6-6f8c253aaa34')
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='6492e365-f4cd-0fa5-91d6-6f8c253aaa34'
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('6492e365-f4cd-0fa5-91d6-6f8c253aaa34','2018-02-02 15:30:14.701000','admin','2018-02-02 15:49:11.593000','buba','fb500943-610c-9af5-7a96-740986d5422a','file','Send the form #10.1','ca30b1f0-acbe-3b8b-06fc-10a752f71f40','4a5da209-391d-c878-ce96-d9b57fd5c04e',NULL,'2018-02-02',NULL,1517578214540)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:14:21.774000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:49:20.104000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:15:21.775000',NULL,'localhost:8080/app-core',TRUE,NULL)
-COMMIT
-DELETE FROM SEC_USER_SETTING WHERE ID='0b656ef5-5853-160d-dd0b-366cf5aadc90'
-INSERT INTO SEC_USER_SETTING VALUES('0b656ef5-5853-160d-dd0b-366cf5aadc90',NULL,NULL,'4cbf025d-043d-1a6c-4fcf-85f79da9abe7','W','office$Request.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="split"> \u000a      <position value="48.445873" unit="%"/> \u000a    </component>  \u000a    <component name="filter"> \u000a      <defaultFilter/>  \u000a      <groupBoxExpanded>true</groupBoxExpanded> \u000a    </component>  \u000a    <component name="table"> \u000a      <columns>\u000a        <columns id="applicant" visible="true"/>\u000a        <columns id="applicantCode" visible="true"/>\u000a        <columns id="sn" visible="true"/>\u000a        <columns id="step.position" visible="true"/>\u000a        <columns id="step.state" visible="true"/>\u000a        <columns id="step.user" visible="true"/>\u000a      </columns>\u000a      <groupProperties/>\u000a    </component>  \u000a    <component name="stepsTable"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="position" visible="true"/>  \u000a        <columns id="state" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="submitted" visible="true"/>  \u000a        <columns id="approved" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="initiator" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="closed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:50:20.105000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:16:21.775000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:51:20.105000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:17:21.776000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:52:20.106000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:17:59.585000',NULL,'localhost:8080/app-core',FALSE,NULL)
-COMMIT
-DISCONNECT
-/*C35*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C36*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C37*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C38*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C40*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C39*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C41*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C42*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C43*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C44*/SET SCHEMA PUBLIC
-DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:21:19.297000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:53:20.106000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:22:19.296000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:54:20.107000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='fb500943-610c-9af5-7a96-740986d5422a'
+INSERT INTO OFFICE_REQUEST_STEP VALUES('fb500943-610c-9af5-7a96-740986d5422a','2018-02-02 15:55:04.870000','buba','2018-02-02 15:30:14.695000','admin','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','Assigned to John Snow. Actions added','48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02',NULL,NULL,'approving','2018-02-09','2018-02-09','b8181249-bb9a-45dd-efdb-a0caad51b12c',1517578214538)
+DELETE FROM OFFICE_REQUEST WHERE ID='48292e3e-0769-6d3e-a11a-d5f2e35fc302'
+INSERT INTO OFFICE_REQUEST VALUES('48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02 15:30:14.670000','admin','11',11,NULL,'2018-02-02 15:55:04.870000','buba','710eeb85-200a-518d-a7dc-f4caa9df36ad','11',NULL,'fb500943-610c-9af5-7a96-740986d5422a',1517578214604,NULL,NULL)
+INSERT INTO OFFICE_REQUEST_LOG VALUES('0dcf6c99-e145-e96b-8d35-93d2485e488c','2018-02-02 15:55:04.841000','buba','2018-02-02 15:55:04.841000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','Action <Send the form #10.1>  released','710eeb85-200a-518d-a7dc-f4caa9df36ad','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',1517579578386,NULL,'com.company.office.entity.RequestStepAction','6492e365-f4cd-0fa5-91d6-6f8c253aaa34')
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='6492e365-f4cd-0fa5-91d6-6f8c253aaa34'
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('6492e365-f4cd-0fa5-91d6-6f8c253aaa34','2018-02-02 15:30:14.701000','admin','2018-02-02 15:55:04.870000','buba','fb500943-610c-9af5-7a96-740986d5422a','file','Send the form #10.1','ca30b1f0-acbe-3b8b-06fc-10a752f71f40','4a5da209-391d-c878-ce96-d9b57fd5c04e',NULL,NULL,NULL,1517578214540)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:23:19.296000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:55:20.107000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:24:19.296000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:56:20.107000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='fb500943-610c-9af5-7a96-740986d5422a'
+INSERT INTO OFFICE_REQUEST_STEP VALUES('fb500943-610c-9af5-7a96-740986d5422a','2018-02-02 15:56:44.112000','buba','2018-02-02 15:30:14.695000','admin','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','Assigned to John Snow. Actions added','48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02',NULL,NULL,'approving','2018-02-09','2018-02-09','b8181249-bb9a-45dd-efdb-a0caad51b12c',1517578214538)
+DELETE FROM OFFICE_REQUEST WHERE ID='48292e3e-0769-6d3e-a11a-d5f2e35fc302'
+INSERT INTO OFFICE_REQUEST VALUES('48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02 15:30:14.670000','admin','11',11,NULL,'2018-02-02 15:56:44.112000','buba','710eeb85-200a-518d-a7dc-f4caa9df36ad','11',NULL,'fb500943-610c-9af5-7a96-740986d5422a',1517578214604,NULL,NULL)
+INSERT INTO OFFICE_REQUEST_LOG VALUES('e6e41ef5-710b-ee42-8874-73b84fc24bfe','2018-02-02 15:56:44.083000','buba','2018-02-02 15:56:44.083000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','Action <Send the form #10.1>  submitted','710eeb85-200a-518d-a7dc-f4caa9df36ad','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',1517579801473,NULL,'com.company.office.entity.RequestStepAction','6492e365-f4cd-0fa5-91d6-6f8c253aaa34')
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='6492e365-f4cd-0fa5-91d6-6f8c253aaa34'
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('6492e365-f4cd-0fa5-91d6-6f8c253aaa34','2018-02-02 15:30:14.701000','admin','2018-02-02 15:56:44.112000','buba','fb500943-610c-9af5-7a96-740986d5422a','file','Send the form #10.1','ca30b1f0-acbe-3b8b-06fc-10a752f71f40','4a5da209-391d-c878-ce96-d9b57fd5c04e',NULL,'2018-02-02',NULL,1517578214540)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:25:19.297000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:57:20.108000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:26:19.297000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:58:20.108000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:27:19.298000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 15:59:20.109000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM OFFICE_POSITION_USER WHERE ID='15922368-0681-04f9-d651-6181bbfeb70b'
+INSERT INTO OFFICE_POSITION_USER VALUES('15922368-0681-04f9-d651-6181bbfeb70b','2018-01-10 11:34:52.610000','admin','2018-02-02 16:00:12.659000','john','b8181249-bb9a-45dd-efdb-a0caad51b12c','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',0,2,1516096984066)
+COMMIT
+DELETE FROM OFFICE_POSITION_USER WHERE ID='40330730-d2b7-1a79-b246-3db2bd11f0de'
+INSERT INTO OFFICE_POSITION_USER VALUES('40330730-d2b7-1a79-b246-3db2bd11f0de','2018-01-10 11:41:22.568000','admin','2018-02-02 16:00:12.720000','john','7990cf83-fe0c-1073-69b0-44ed361e509a','b5a4cc07-0f34-e463-fbf4-25bdb36d5142',3,4,1516097000503)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:28:19.298000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:00:20.109000',NULL,'localhost:8080/app-core',TRUE,NULL)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:29:19.299000',NULL,'localhost:8080/app-core',TRUE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:01:20.110000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='fb500943-610c-9af5-7a96-740986d5422a'
+INSERT INTO OFFICE_REQUEST_STEP VALUES('fb500943-610c-9af5-7a96-740986d5422a','2018-02-02 16:01:42.343000','john','2018-02-02 15:30:14.695000','admin','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','Assigned to John Snow. Actions added','48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02',NULL,NULL,'approving','2018-02-09','2018-02-09','b8181249-bb9a-45dd-efdb-a0caad51b12c',1517578214538)
+DELETE FROM OFFICE_REQUEST WHERE ID='48292e3e-0769-6d3e-a11a-d5f2e35fc302'
+INSERT INTO OFFICE_REQUEST VALUES('48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02 15:30:14.670000','admin','11',11,NULL,'2018-02-02 16:01:42.343000','john','710eeb85-200a-518d-a7dc-f4caa9df36ad','11',NULL,'fb500943-610c-9af5-7a96-740986d5422a',1517578214604,NULL,NULL)
+INSERT INTO OFFICE_REQUEST_LOG VALUES('b894bfe8-9a73-b402-69de-ce59b5bdd935','2018-02-02 16:01:42.321000','john','2018-02-02 16:01:42.321000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','Action <Send the form #10.1>  rejected','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517580094959,NULL,'com.company.office.entity.RequestStepAction','6492e365-f4cd-0fa5-91d6-6f8c253aaa34')
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='6492e365-f4cd-0fa5-91d6-6f8c253aaa34'
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('6492e365-f4cd-0fa5-91d6-6f8c253aaa34','2018-02-02 15:30:14.701000','admin','2018-02-02 16:01:42.343000','john','fb500943-610c-9af5-7a96-740986d5422a','file','Send the form #10.1','ca30b1f0-acbe-3b8b-06fc-10a752f71f40','4a5da209-391d-c878-ce96-d9b57fd5c04e',NULL,NULL,NULL,1517578214540)
+COMMIT
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='fb500943-610c-9af5-7a96-740986d5422a'
+INSERT INTO OFFICE_REQUEST_STEP VALUES('fb500943-610c-9af5-7a96-740986d5422a','2018-02-02 16:02:02.521000','buba','2018-02-02 15:30:14.695000','admin','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','Assigned to John Snow. Actions added','48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02',NULL,NULL,'approving','2018-02-09','2018-02-09','b8181249-bb9a-45dd-efdb-a0caad51b12c',1517578214538)
+DELETE FROM OFFICE_REQUEST WHERE ID='48292e3e-0769-6d3e-a11a-d5f2e35fc302'
+INSERT INTO OFFICE_REQUEST VALUES('48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02 15:30:14.670000','admin','11',11,NULL,'2018-02-02 16:02:02.521000','buba','710eeb85-200a-518d-a7dc-f4caa9df36ad','11',NULL,'fb500943-610c-9af5-7a96-740986d5422a',1517578214604,NULL,NULL)
+INSERT INTO OFFICE_REQUEST_LOG VALUES('6b2e7ac6-451e-b76c-bfae-5e642dedea30','2018-02-02 16:02:02.497000','buba','2018-02-02 16:02:02.497000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','Action <Send the form #10.1>  submitted','710eeb85-200a-518d-a7dc-f4caa9df36ad','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',1517580121208,NULL,'com.company.office.entity.RequestStepAction','6492e365-f4cd-0fa5-91d6-6f8c253aaa34')
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='6492e365-f4cd-0fa5-91d6-6f8c253aaa34'
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('6492e365-f4cd-0fa5-91d6-6f8c253aaa34','2018-02-02 15:30:14.701000','admin','2018-02-02 16:02:02.521000','buba','fb500943-610c-9af5-7a96-740986d5422a','file','Send the form #10.1','ca30b1f0-acbe-3b8b-06fc-10a752f71f40','4a5da209-391d-c878-ce96-d9b57fd5c04e',NULL,'2018-02-02',NULL,1517578214540)
 COMMIT
 DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
-INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-01 13:29:27.845000',NULL,'localhost:8080/app-core',FALSE,NULL)
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:02:20.110000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='fb500943-610c-9af5-7a96-740986d5422a'
+INSERT INTO OFFICE_REQUEST_STEP VALUES('fb500943-610c-9af5-7a96-740986d5422a','2018-02-02 16:02:20.281000','john','2018-02-02 15:30:14.695000','admin','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','Assigned to John Snow. Actions added','48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02',NULL,NULL,'approving','2018-02-09','2018-02-09','b8181249-bb9a-45dd-efdb-a0caad51b12c',1517578214538)
+DELETE FROM OFFICE_REQUEST WHERE ID='48292e3e-0769-6d3e-a11a-d5f2e35fc302'
+INSERT INTO OFFICE_REQUEST VALUES('48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02 15:30:14.670000','admin','11',11,NULL,'2018-02-02 16:02:20.281000','john','710eeb85-200a-518d-a7dc-f4caa9df36ad','11',NULL,'fb500943-610c-9af5-7a96-740986d5422a',1517578214604,NULL,NULL)
+INSERT INTO OFFICE_REQUEST_LOG VALUES('dec6fc23-a9fc-886e-adab-2203531058e4','2018-02-02 16:02:20.256000','john','2018-02-02 16:02:20.256000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','Action <Send the form #10.1>  approved','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517580138815,NULL,'com.company.office.entity.RequestStepAction','6492e365-f4cd-0fa5-91d6-6f8c253aaa34')
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='6492e365-f4cd-0fa5-91d6-6f8c253aaa34'
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('6492e365-f4cd-0fa5-91d6-6f8c253aaa34','2018-02-02 15:30:14.701000','admin','2018-02-02 16:02:20.281000','john','fb500943-610c-9af5-7a96-740986d5422a','file','Send the form #10.1','ca30b1f0-acbe-3b8b-06fc-10a752f71f40','4a5da209-391d-c878-ce96-d9b57fd5c04e',NULL,'2018-02-02','2018-02-02',1517578214540)
+COMMIT
+INSERT INTO SEC_USER_SETTING VALUES('d3cfed4b-7b56-1bb7-497c-747d01878f69',NULL,NULL,'4cbf025d-043d-1a6c-4fcf-85f79da9abe7','W','office$Position.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings>\u000a  <components>\u000a    <component name="split">\u000a      <position value="50.0" unit="%"/>\u000a    </component>\u000a    <component name="filter">\u000a      <defaultFilter/>\u000a      <groupBoxExpanded>true</groupBoxExpanded>\u000a    </component>\u000a    <component name="table">\u000a      <columns>\u000a        <columns id="identifier" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="daysForSubmission" visible="true"/>\u000a        <columns id="daysForApproval" visible="true"/>\u000a      </columns>\u000a      <groupProperties/>\u000a    </component>\u000a    <component name="actionsTable">\u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a      </columns>\u000a    </component>\u000a    <component name="usersTable">\u000a      <columns>\u000a        <columns id="user" visible="true"/>\u000a        <columns id="requests" visible="true"/>\u000a        <columns id="threshold" visible="true"/>\u000a      </columns>\u000a    </component>\u000a  </components>\u000a</settings>\u000a')
+COMMIT
+DELETE FROM OFFICE_POSITION_USER WHERE ID='15922368-0681-04f9-d651-6181bbfeb70b'
+INSERT INTO OFFICE_POSITION_USER VALUES('15922368-0681-04f9-d651-6181bbfeb70b','2018-01-10 11:34:52.610000','admin','2018-02-02 16:03:01.897000','john','b8181249-bb9a-45dd-efdb-a0caad51b12c','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',-1,2,1516096984066)
+COMMIT
+DELETE FROM OFFICE_POSITION_USER WHERE ID='fe0b21ae-2f09-c5d0-946a-59109566deed'
+INSERT INTO OFFICE_POSITION_USER VALUES('fe0b21ae-2f09-c5d0-946a-59109566deed','2018-01-10 11:41:22.568000','admin','2018-02-02 16:03:01.954000','john','7990cf83-fe0c-1073-69b0-44ed361e509a','0c3b4a72-a188-8c56-20f6-646c21388181',4,5,1516096998073)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:03:20.110000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='d3cfed4b-7b56-1bb7-497c-747d01878f69'
+INSERT INTO SEC_USER_SETTING VALUES('d3cfed4b-7b56-1bb7-497c-747d01878f69',NULL,NULL,'4cbf025d-043d-1a6c-4fcf-85f79da9abe7','W','office$Position.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="split"> \u000a      <position value="50.0" unit="%"/> \u000a    </component>  \u000a    <component name="filter"> \u000a      <defaultFilter/>  \u000a      <groupBoxExpanded>true</groupBoxExpanded> \u000a    </component>  \u000a    <component name="table"> \u000a      <columns>\u000a        <columns id="identifier" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="daysForSubmission" visible="true"/>\u000a        <columns id="daysForApproval" visible="true"/>\u000a      </columns>\u000a      <groupProperties/>\u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="usersTable"> \u000a      <columns>\u000a        <columns id="user" visible="true"/>\u000a        <columns id="requests" visible="true"/>\u000a        <columns id="threshold" visible="true"/>\u000a      </columns>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM OFFICE_POSITION WHERE ID='7990cf83-fe0c-1073-69b0-44ed361e509a'
+INSERT INTO OFFICE_POSITION VALUES('7990cf83-fe0c-1073-69b0-44ed361e509a','2018-01-10 11:39:27.889000','admin','2018-02-02 16:03:56.541000','admin',20,'Position #2',7,10)
+DELETE FROM OFFICE_POSITION_USER WHERE ID='40330730-d2b7-1a79-b246-3db2bd11f0de'
+INSERT INTO OFFICE_POSITION_USER VALUES('40330730-d2b7-1a79-b246-3db2bd11f0de','2018-01-10 11:41:22.568000','admin','2018-02-02 16:03:56.541000','admin','7990cf83-fe0c-1073-69b0-44ed361e509a','b5a4cc07-0f34-e463-fbf4-25bdb36d5142',NULL,4,1516097000503)
+DELETE FROM OFFICE_POSITION_USER WHERE ID='fe0b21ae-2f09-c5d0-946a-59109566deed'
+INSERT INTO OFFICE_POSITION_USER VALUES('fe0b21ae-2f09-c5d0-946a-59109566deed','2018-01-10 11:41:22.568000','admin','2018-02-02 16:03:56.541000','admin','7990cf83-fe0c-1073-69b0-44ed361e509a','0c3b4a72-a188-8c56-20f6-646c21388181',NULL,5,1516096998073)
+COMMIT
+DELETE FROM OFFICE_POSITION WHERE ID='b8181249-bb9a-45dd-efdb-a0caad51b12c'
+INSERT INTO OFFICE_POSITION VALUES('b8181249-bb9a-45dd-efdb-a0caad51b12c','2018-01-10 11:33:51.009000','admin','2018-02-02 16:04:13.058000','admin',10,'Initial position',7,7)
+DELETE FROM OFFICE_POSITION_USER WHERE ID='15922368-0681-04f9-d651-6181bbfeb70b'
+INSERT INTO OFFICE_POSITION_USER VALUES('15922368-0681-04f9-d651-6181bbfeb70b','2018-01-10 11:34:52.610000','admin','2018-02-02 16:04:13.058000','admin','b8181249-bb9a-45dd-efdb-a0caad51b12c','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',NULL,2,1516096984066)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:04:20.111000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM OFFICE_POSITION WHERE ID='b8181249-bb9a-45dd-efdb-a0caad51b12c'
+INSERT INTO OFFICE_POSITION VALUES('b8181249-bb9a-45dd-efdb-a0caad51b12c','2018-01-10 11:33:51.009000','admin','2018-02-02 16:04:21.408000','admin',10,'Initial position',7,7)
+DELETE FROM OFFICE_POSITION_USER WHERE ID='15922368-0681-04f9-d651-6181bbfeb70b'
+INSERT INTO OFFICE_POSITION_USER VALUES('15922368-0681-04f9-d651-6181bbfeb70b','2018-01-10 11:34:52.610000','admin','2018-02-02 16:04:21.408000','admin','b8181249-bb9a-45dd-efdb-a0caad51b12c','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',1,2,1516096984066)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:05:20.111000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_PERMISSION WHERE ID='4037e8da-ba64-adf6-4490-c8df60b8db7c'
+INSERT INTO SEC_PERMISSION VALUES('4037e8da-ba64-adf6-4490-c8df60b8db7c','2018-01-09 11:47:16.437000','admin',2,'2018-01-09 11:47:16.437000',NULL,'2018-02-02 16:05:39.558000','admin',20,'office$RequestStepAction:create',0,'be0ada85-b10b-545c-8a47-a0ff81b2a9ff')
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('a0800bd0-f84a-a427-98cc-4006e5986ced','2018-02-02 16:05:39.598000','admin','60885987-1b61-4247-94c7-dff348347f93','Role ''workers''','http://localhost:8080/app/open?screen=sec$Role.edit&item=sec$Role-be0ada85-b10b-545c-8a47-a0ff81b2a9ff&params=item:sec$Role-be0ada85-b10b-545c-8a47-a0ff81b2a9ff','be0ada85-b10b-545c-8a47-a0ff81b2a9ff',NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:06:20.112000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_SCREEN_HISTORY VALUES('9d7e8721-8f3d-79c3-72b5-ac654b9fe09d','2018-02-02 16:06:21.889000','admin','60885987-1b61-4247-94c7-dff348347f93','Role ''registrator''','http://localhost:8080/app/open?screen=sec$Role.edit&item=sec$Role-7da89965-58a6-196e-a2c6-0d462547b673&params=item:sec$Role-7da89965-58a6-196e-a2c6-0d462547b673','7da89965-58a6-196e-a2c6-0d462547b673',NULL)
+COMMIT
+DELETE FROM OFFICE_POSITION_USER WHERE ID='15922368-0681-04f9-d651-6181bbfeb70b'
+INSERT INTO OFFICE_POSITION_USER VALUES('15922368-0681-04f9-d651-6181bbfeb70b','2018-01-10 11:34:52.610000','admin','2018-02-02 16:06:40.487000','john','b8181249-bb9a-45dd-efdb-a0caad51b12c','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',0,2,1516096984066)
+COMMIT
+DELETE FROM OFFICE_POSITION_USER WHERE ID='40330730-d2b7-1a79-b246-3db2bd11f0de'
+INSERT INTO OFFICE_POSITION_USER VALUES('40330730-d2b7-1a79-b246-3db2bd11f0de','2018-01-10 11:41:22.568000','admin','2018-02-02 16:06:40.548000','john','7990cf83-fe0c-1073-69b0-44ed361e509a','b5a4cc07-0f34-e463-fbf4-25bdb36d5142',1,4,1516097000503)
+COMMIT
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='fb500943-610c-9af5-7a96-740986d5422a'
+INSERT INTO OFFICE_REQUEST_STEP VALUES('fb500943-610c-9af5-7a96-740986d5422a','2018-02-02 16:06:40.622000','john','2018-02-02 15:30:14.695000','admin','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','Assigned to John Snow. Actions added','48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02','2018-02-02',NULL,'approving','2018-02-09','2018-02-09','b8181249-bb9a-45dd-efdb-a0caad51b12c',1517578214538)
+INSERT INTO OFFICE_REQUEST_STEP VALUES('d0376c18-c3b7-63cc-3f35-99f4ce701bd8','2018-02-02 16:06:40.586000',NULL,'2018-02-02 16:06:40.586000','john','b5a4cc07-0f34-e463-fbf4-25bdb36d5142','Assigned to Figaro Tam. Actions added','48292e3e-0769-6d3e-a11a-d5f2e35fc302',NULL,NULL,NULL,'waiting','2018-02-09',NULL,'7990cf83-fe0c-1073-69b0-44ed361e509a',1517580400520)
+INSERT INTO OFFICE_REQUEST_STEP VALUES('d0b113d5-ae27-41e0-da28-857d112c4fa8','2018-02-02 16:06:40.596000',NULL,'2018-02-02 16:06:40.596000','john',NULL,'Position #2, Suspended','48292e3e-0769-6d3e-a11a-d5f2e35fc302',NULL,NULL,NULL,'suspended',NULL,NULL,'7990cf83-fe0c-1073-69b0-44ed361e509a',1517580400512)
+DELETE FROM OFFICE_REQUEST WHERE ID='48292e3e-0769-6d3e-a11a-d5f2e35fc302'
+INSERT INTO OFFICE_REQUEST VALUES('48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02 15:30:14.670000','admin','11',11,NULL,'2018-02-02 16:06:40.622000','john','710eeb85-200a-518d-a7dc-f4caa9df36ad','11',NULL,'d0376c18-c3b7-63cc-3f35-99f4ce701bd8',1517578214604,NULL,NULL)
+INSERT INTO OFFICE_REQUEST_LOG VALUES('87dd03e7-9ba5-8b2d-f3a1-2f6579ae8ac6','2018-02-02 16:06:40.594000','john','2018-02-02 16:06:40.594000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','The new worker set: Figaro Tam','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','b5a4cc07-0f34-e463-fbf4-25bdb36d5142',1517580400537,NULL,'com.company.office.entity.RequestStep','d0376c18-c3b7-63cc-3f35-99f4ce701bd8')
+INSERT INTO OFFICE_REQUEST_LOG VALUES('337cf2e6-4c59-b403-da76-38ab5e7aada2','2018-02-02 16:06:40.591000','john','2018-02-02 16:06:40.591000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','The request has approved and moved to the new position','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517580400475,NULL,NULL,NULL)
+INSERT INTO OFFICE_REQUEST_LOG VALUES('b93be146-f54e-ea7a-febc-81afd94859a3','2018-02-02 16:06:40.593000','john','2018-02-02 16:06:40.593000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','The new worker set: Figaro Tam','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517580400537,NULL,'com.company.office.entity.RequestStep','d0376c18-c3b7-63cc-3f35-99f4ce701bd8')
+INSERT INTO OFFICE_REQUEST_LOG VALUES('e7b8db08-3c89-e195-19ef-672ca4fd1a4f','2018-02-02 16:06:40.592000','john','2018-02-02 16:06:40.592000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','The new position set: Position #2','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517580400513,NULL,'com.company.office.entity.RequestStep','d0b113d5-ae27-41e0-da28-857d112c4fa8')
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('adb6c264-2114-9567-7f05-5406f684368b','2018-02-02 16:06:40.581000','john','2018-02-02 16:06:40.581000',NULL,'d0376c18-c3b7-63cc-3f35-99f4ce701bd8','file','Send the form #20.1','ff75c16e-4478-5705-df6a-5e2ab29b1aea',NULL,NULL,NULL,NULL,1517580400520)
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('961cb4ea-cf0c-9af0-47bf-14563bbc59a1','2018-02-02 16:06:40.581000','john','2018-02-02 16:06:40.581000',NULL,'d0376c18-c3b7-63cc-3f35-99f4ce701bd8','file','Send the form #20.2','f9ed3cd8-382e-bbea-9fb2-ed85f947946f',NULL,NULL,NULL,NULL,1517580400521)
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('d8314e1e-2279-c19e-3a85-770e89114754','2018-02-02 16:06:40.580000','john','2018-02-02 16:06:40.580000',NULL,'d0376c18-c3b7-63cc-3f35-99f4ce701bd8','call','Call to clarify',NULL,NULL,NULL,NULL,NULL,1517580400522)
+COMMIT
+DELETE FROM OFFICE_POSITION_USER WHERE ID='40330730-d2b7-1a79-b246-3db2bd11f0de'
+INSERT INTO OFFICE_POSITION_USER VALUES('40330730-d2b7-1a79-b246-3db2bd11f0de','2018-01-10 11:41:22.568000','admin','2018-02-02 16:06:44.832000','john','7990cf83-fe0c-1073-69b0-44ed361e509a','b5a4cc07-0f34-e463-fbf4-25bdb36d5142',0,4,1516097000503)
+COMMIT
+DELETE FROM OFFICE_POSITION_USER WHERE ID='a4272a25-5338-af68-e55e-ef929bda5e99'
+INSERT INTO OFFICE_POSITION_USER VALUES('a4272a25-5338-af68-e55e-ef929bda5e99','2018-01-10 11:44:11.688000','admin','2018-02-02 16:06:44.881000','john','8cbc6e5f-5a0c-83d6-80aa-fdbc6e13046a','d0bf5ff8-affc-5eb9-d789-7a67b851825c',1,10,1516097009361)
+COMMIT
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='d0376c18-c3b7-63cc-3f35-99f4ce701bd8'
+INSERT INTO OFFICE_REQUEST_STEP VALUES('d0376c18-c3b7-63cc-3f35-99f4ce701bd8','2018-02-02 16:06:44.953000','john','2018-02-02 16:06:40.586000','john','b5a4cc07-0f34-e463-fbf4-25bdb36d5142','Assigned to Figaro Tam. Actions added','48292e3e-0769-6d3e-a11a-d5f2e35fc302',NULL,'2018-02-02',NULL,'waiting','2018-02-09',NULL,'7990cf83-fe0c-1073-69b0-44ed361e509a',1517580400520)
+INSERT INTO OFFICE_REQUEST_STEP VALUES('ad3db5c0-f4c5-1423-f0bf-dbce71eafd95','2018-02-02 16:06:44.927000',NULL,'2018-02-02 16:06:44.927000','john',NULL,'Position #3, Suspended','48292e3e-0769-6d3e-a11a-d5f2e35fc302',NULL,NULL,NULL,'suspended',NULL,NULL,'8cbc6e5f-5a0c-83d6-80aa-fdbc6e13046a',1517580404856)
+INSERT INTO OFFICE_REQUEST_STEP VALUES('73bf3f0b-a44c-6bd8-5a3f-0cd3dbdfc151','2018-02-02 16:06:44.918000',NULL,'2018-02-02 16:06:44.918000','john','d0bf5ff8-affc-5eb9-d789-7a67b851825c','Assigned to Mukaka Malumba. Actions added','48292e3e-0769-6d3e-a11a-d5f2e35fc302',NULL,NULL,NULL,'waiting','2018-02-16',NULL,'8cbc6e5f-5a0c-83d6-80aa-fdbc6e13046a',1517580404862)
+DELETE FROM OFFICE_REQUEST WHERE ID='48292e3e-0769-6d3e-a11a-d5f2e35fc302'
+INSERT INTO OFFICE_REQUEST VALUES('48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02 15:30:14.670000','admin','11',11,NULL,'2018-02-02 16:06:44.953000','john','710eeb85-200a-518d-a7dc-f4caa9df36ad','11',NULL,'73bf3f0b-a44c-6bd8-5a3f-0cd3dbdfc151',1517578214604,NULL,NULL)
+INSERT INTO OFFICE_REQUEST_LOG VALUES('a0a1469d-94c3-b63b-0d46-feef7dacdcbc','2018-02-02 16:06:44.923000','john','2018-02-02 16:06:44.923000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','The new position set: Position #3','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517580404856,NULL,'com.company.office.entity.RequestStep','ad3db5c0-f4c5-1423-f0bf-dbce71eafd95')
+INSERT INTO OFFICE_REQUEST_LOG VALUES('ffae7c03-7447-92c4-ec32-3517de337b98','2018-02-02 16:06:44.925000','john','2018-02-02 16:06:44.925000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','The new worker set: Mukaka Malumba','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','d0bf5ff8-affc-5eb9-d789-7a67b851825c',1517580404872,NULL,'com.company.office.entity.RequestStep','73bf3f0b-a44c-6bd8-5a3f-0cd3dbdfc151')
+INSERT INTO OFFICE_REQUEST_LOG VALUES('9c643aee-a997-a8ff-865d-a9104564e3ce','2018-02-02 16:06:44.924000','john','2018-02-02 16:06:44.924000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','The new worker set: Mukaka Malumba','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517580404872,NULL,'com.company.office.entity.RequestStep','73bf3f0b-a44c-6bd8-5a3f-0cd3dbdfc151')
+INSERT INTO OFFICE_REQUEST_LOG VALUES('abac0873-a1c9-6aa9-ba8f-6eb037e617d1','2018-02-02 16:06:44.922000','john','2018-02-02 16:06:44.922000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','The request has approved and moved to the new position','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517580404819,NULL,NULL,NULL)
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('aba9b916-a633-9ed2-181b-17e6fcf91018','2018-02-02 16:06:44.918000','john','2018-02-02 16:06:44.918000',NULL,'73bf3f0b-a44c-6bd8-5a3f-0cd3dbdfc151','message','The second message to clarify',NULL,NULL,NULL,NULL,NULL,1517580404863)
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('31b9ef14-b294-6467-16b3-78974b8266c2','2018-02-02 16:06:44.917000','john','2018-02-02 16:06:44.917000',NULL,'73bf3f0b-a44c-6bd8-5a3f-0cd3dbdfc151','file','Send the form #30.1','7cee583e-3953-cf98-f767-cafc844207f4',NULL,NULL,NULL,NULL,1517580404862)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:07:20.112000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:08:20.113000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:09:20.113000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:10:20.113000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:11:20.114000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:12:20.114000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:13:20.115000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:14:20.115000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:15:20.116000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:16:20.116000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:17:20.116000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:18:20.117000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='337cf2e6-4c59-b403-da76-38ab5e7aada2'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='87dd03e7-9ba5-8b2d-f3a1-2f6579ae8ac6'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='9c643aee-a997-a8ff-865d-a9104564e3ce'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='a0a1469d-94c3-b63b-0d46-feef7dacdcbc'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='abac0873-a1c9-6aa9-ba8f-6eb037e617d1'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='b93be146-f54e-ea7a-febc-81afd94859a3'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='e7b8db08-3c89-e195-19ef-672ca4fd1a4f'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='ffae7c03-7447-92c4-ec32-3517de337b98'
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:19:20.117000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:20:20.118000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:21:20.118000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='81045870-a989-88da-b890-81b7f97fb816'
+INSERT INTO SEC_USER_SETTING VALUES('81045870-a989-88da-b890-81b7f97fb816',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','office$Request.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="communicationsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="initiator" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="closed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="actionsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="statesBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="statesTable"> \u000a      <columns> \u000a        <columns id="createTs" width="180" visible="true"/>  \u000a        <columns id="step" width="267" visible="true"/>  \u000a        <columns id="user" width="279" visible="true"/>  \u000a        <columns id="description" width="534" visible="true"/>  \u000a        <columns id="createdBy" width="360" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="titleBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="currentBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="stepsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="stepsTable"> \u000a      <columns>\u000a        <columns id="state" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="submissionTerm" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approvalTerm" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a        <columns id="penalty" visible="true"/>\u000a        <columns id="moment" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="additionalBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="tableSteps"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="createdBy" visible="true"/>  \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="split"> \u000a      <position value="27.759914" unit="%"/> \u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="stepBox"> \u000a      <groupBox expanded="false"/>\u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="imageBox"> \u000a      <groupBox expanded="true"/>\u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:22:20.119000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:23:20.119000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:24:20.119000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='73bf3f0b-a44c-6bd8-5a3f-0cd3dbdfc151'
+INSERT INTO OFFICE_REQUEST_STEP VALUES('73bf3f0b-a44c-6bd8-5a3f-0cd3dbdfc151','2018-02-02 16:24:50.915000','admin','2018-02-02 16:06:44.918000','john','d0bf5ff8-affc-5eb9-d789-7a67b851825c','Assigned to Mukaka Malumba. Actions added','48292e3e-0769-6d3e-a11a-d5f2e35fc302',NULL,NULL,NULL,'waiting','2018-02-16',NULL,'8cbc6e5f-5a0c-83d6-80aa-fdbc6e13046a',1517580404862)
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='d0376c18-c3b7-63cc-3f35-99f4ce701bd8'
+INSERT INTO OFFICE_REQUEST_STEP VALUES('d0376c18-c3b7-63cc-3f35-99f4ce701bd8','2018-02-02 16:24:50.915000','admin','2018-02-02 16:06:40.586000','john','b5a4cc07-0f34-e463-fbf4-25bdb36d5142','Assigned to Figaro Tam. Actions added','48292e3e-0769-6d3e-a11a-d5f2e35fc302',NULL,'2018-02-02',NULL,'waiting','2018-02-09',NULL,'7990cf83-fe0c-1073-69b0-44ed361e509a',1517580400520)
+DELETE FROM OFFICE_REQUEST WHERE ID='48292e3e-0769-6d3e-a11a-d5f2e35fc302'
+INSERT INTO OFFICE_REQUEST VALUES('48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02 15:30:14.670000','admin','11',11,NULL,'2018-02-02 16:24:50.915000','admin','710eeb85-200a-518d-a7dc-f4caa9df36ad','11',NULL,'fb500943-610c-9af5-7a96-740986d5422a',1517578214604,NULL,NULL)
+INSERT INTO OFFICE_REQUEST_LOG VALUES('aa08dbc6-82a4-8459-945e-9222d1c565e5','2018-02-02 16:24:50.873000','admin','2018-02-02 16:24:50.873000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','The request edited','60885987-1b61-4247-94c7-dff348347f93','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517581490859,NULL,NULL,NULL)
+INSERT INTO OFFICE_REQUEST_LOG VALUES('0738bca3-3a71-c37f-a350-d7faaa04036f','2018-02-02 16:24:50.875000','admin','2018-02-02 16:24:50.875000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','The request edited','60885987-1b61-4247-94c7-dff348347f93','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',1517581490859,NULL,NULL,NULL)
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='73bf3f0b-a44c-6bd8-5a3f-0cd3dbdfc151'
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='aba9b916-a633-9ed2-181b-17e6fcf91018'
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='31b9ef14-b294-6467-16b3-78974b8266c2'
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='ad3db5c0-f4c5-1423-f0bf-dbce71eafd95'
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='d0376c18-c3b7-63cc-3f35-99f4ce701bd8'
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='adb6c264-2114-9567-7f05-5406f684368b'
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='961cb4ea-cf0c-9af0-47bf-14563bbc59a1'
+DELETE FROM OFFICE_REQUEST_STEP_ACTION WHERE ID='d8314e1e-2279-c19e-3a85-770e89114754'
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='d0b113d5-ae27-41e0-da28-857d112c4fa8'
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:25:20.120000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:26:20.120000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:27:20.121000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='0738bca3-3a71-c37f-a350-d7faaa04036f'
+DELETE FROM OFFICE_REQUEST_LOG WHERE ID='aa08dbc6-82a4-8459-945e-9222d1c565e5'
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:28:20.121000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='17fea1e0-4c6c-8ea1-b808-e68a5433fe9b'
+INSERT INTO SEC_USER_SETTING VALUES('17fea1e0-4c6c-8ea1-b808-e68a5433fe9b',NULL,NULL,'60885987-1b61-4247-94c7-dff348347f93','W','office$Request.browse','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="filter"> \u000a      <defaultFilter/>  \u000a      <groupBoxExpanded>true</groupBoxExpanded> \u000a    </component>  \u000a    <component name="requestsTable"> \u000a      <columns> \u000a        <columns id="applicant" visible="true"/>  \u000a        <columns id="sn" visible="true"/>  \u000a        <columns id="description" visible="true"/>  \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="state" visible="true"/>  \u000a        <columns id="penalty" width="50" visible="true"/> \u000a      </columns>  \u000a      <groupProperties/> \u000a    </component>  \u000a    <component name="detailsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="initiator" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="closed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="statesTable"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="createdBy" visible="true"/>  \u000a        <columns id="description" visible="true"/>  \u000a        <columns id="position" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="split"> \u000a      <position value="45.17685" unit="%"/> \u000a    </component>  \u000a    <component name="table"> \u000a      <columns>\u000a        <columns id="applicant" visible="true"/>\u000a        <columns id="applicantCode" visible="true"/>\u000a        <columns id="sn" visible="true"/>\u000a        <columns id="step.position" visible="true"/>\u000a        <columns id="step.state" visible="true"/>\u000a        <columns id="step.user" visible="true"/>\u000a      </columns>\u000a      <groupProperties/>\u000a    </component>  \u000a    <component name="stepsTable"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="position" visible="true"/>  \u000a        <columns id="state" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="submitted" visible="true"/>  \u000a        <columns id="approved" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="tableRequests"> \u000a      <columns> \u000a        <columns id="applicant" visible="true"/>  \u000a        <columns id="sn" visible="true"/>  \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/>  \u000a        <columns id="state" visible="true"/>  \u000a        <columns id="penalty" visible="true"/> \u000a      </columns>  \u000a      <groupProperties/> \u000a    </component>  \u000a    <component name="tableSteps"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="createdBy" visible="true"/>  \u000a        <columns id="step" visible="true"/>  \u000a        <columns id="user" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="tableActions"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="createdBy" visible="true"/>  \u000a        <columns id="type" visible="true"/>  \u000a        <columns id="deadline" visible="true"/>  \u000a        <columns id="submitted" visible="true"/>  \u000a        <columns id="approved" visible="true"/>  \u000a        <columns id="penalty" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="tableCommunications"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="createdBy" visible="true"/>  \u000a        <columns id="updateTs" visible="true"/>  \u000a        <columns id="updatedBy" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="stepActionsTable"> \u000a      <columns> \u000a        <columns id="type" visible="true"/>  \u000a        <columns id="submitted" visible="true"/>  \u000a        <columns id="approved" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="stepCommunicationsTable"> \u000a      <columns> \u000a        <columns id="createTs" visible="true"/>  \u000a        <columns id="updateTs" visible="true"/>  \u000a        <columns id="question" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="imageBox"> \u000a      <groupBox expanded="true"/> \u000a    </component> \u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM OFFICE_POSITION_USER WHERE ID='15922368-0681-04f9-d651-6181bbfeb70b'
+INSERT INTO OFFICE_POSITION_USER VALUES('15922368-0681-04f9-d651-6181bbfeb70b','2018-01-10 11:34:52.610000','admin','2018-02-02 16:29:00.910000','john','b8181249-bb9a-45dd-efdb-a0caad51b12c','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',-1,2,1516096984066)
+COMMIT
+DELETE FROM OFFICE_POSITION_USER WHERE ID='fe0b21ae-2f09-c5d0-946a-59109566deed'
+INSERT INTO OFFICE_POSITION_USER VALUES('fe0b21ae-2f09-c5d0-946a-59109566deed','2018-01-10 11:41:22.568000','admin','2018-02-02 16:29:00.959000','john','7990cf83-fe0c-1073-69b0-44ed361e509a','0c3b4a72-a188-8c56-20f6-646c21388181',1,5,1516096998073)
+COMMIT
+DELETE FROM OFFICE_REQUEST_STEP WHERE ID='fb500943-610c-9af5-7a96-740986d5422a'
+INSERT INTO OFFICE_REQUEST_STEP VALUES('fb500943-610c-9af5-7a96-740986d5422a','2018-02-02 16:29:01.023000','john','2018-02-02 15:30:14.695000','admin','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','Assigned to John Snow. Actions added','48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02','2018-02-02',NULL,'approving','2018-02-09','2018-02-09','b8181249-bb9a-45dd-efdb-a0caad51b12c',1517578214538)
+INSERT INTO OFFICE_REQUEST_STEP VALUES('8f830183-0d37-3b7d-5058-644cfffc37bb','2018-02-02 16:29:01.001000',NULL,'2018-02-02 16:29:01.001000','john',NULL,'Position #2, Suspended','48292e3e-0769-6d3e-a11a-d5f2e35fc302',NULL,NULL,NULL,'suspended',NULL,NULL,'7990cf83-fe0c-1073-69b0-44ed361e509a',1517581740931)
+INSERT INTO OFFICE_REQUEST_STEP VALUES('a9607c7a-92fd-3508-3349-174fd234d7d7','2018-02-02 16:29:00.993000',NULL,'2018-02-02 16:29:00.993000','john','0c3b4a72-a188-8c56-20f6-646c21388181','Assigned to Figaro Tut. Actions added','48292e3e-0769-6d3e-a11a-d5f2e35fc302',NULL,NULL,NULL,'waiting','2018-02-09',NULL,'7990cf83-fe0c-1073-69b0-44ed361e509a',1517581740938)
+DELETE FROM OFFICE_REQUEST WHERE ID='48292e3e-0769-6d3e-a11a-d5f2e35fc302'
+INSERT INTO OFFICE_REQUEST VALUES('48292e3e-0769-6d3e-a11a-d5f2e35fc302','2018-02-02 15:30:14.670000','admin','11',11,NULL,'2018-02-02 16:29:01.023000','john','710eeb85-200a-518d-a7dc-f4caa9df36ad','11',NULL,'a9607c7a-92fd-3508-3349-174fd234d7d7',1517578214604,NULL,NULL)
+INSERT INTO OFFICE_REQUEST_LOG VALUES('8a964b63-a965-5a44-0909-dc46e42a3b85','2018-02-02 16:29:00.998000','john','2018-02-02 16:29:00.998000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','The new position set: Position #2','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517581740932,NULL,'com.company.office.entity.RequestStep','8f830183-0d37-3b7d-5058-644cfffc37bb')
+INSERT INTO OFFICE_REQUEST_LOG VALUES('08a9b668-aeab-6238-aa18-cd341723a9ec','2018-02-02 16:29:00.999000','john','2018-02-02 16:29:00.999000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','The new worker set: Figaro Tut','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517581740949,NULL,'com.company.office.entity.RequestStep','a9607c7a-92fd-3508-3349-174fd234d7d7')
+INSERT INTO OFFICE_REQUEST_LOG VALUES('e8e3d9e9-1311-c187-cddd-e1e186e79be9','2018-02-02 16:29:00.997000','john','2018-02-02 16:29:00.997000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','The request has approved and moved to the new position','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','710eeb85-200a-518d-a7dc-f4caa9df36ad',1517581740898,NULL,NULL,NULL)
+INSERT INTO OFFICE_REQUEST_LOG VALUES('1af374af-8bdd-0bef-7c15-6432fe976be4','2018-02-02 16:29:01.000000','john','2018-02-02 16:29:01.000000',NULL,'48292e3e-0769-6d3e-a11a-d5f2e35fc302','The new worker set: Figaro Tut','4cbf025d-043d-1a6c-4fcf-85f79da9abe7','0c3b4a72-a188-8c56-20f6-646c21388181',1517581740949,NULL,'com.company.office.entity.RequestStep','a9607c7a-92fd-3508-3349-174fd234d7d7')
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('5c564dfa-0eb4-fff5-41f6-18edf4bb9d75','2018-02-02 16:29:00.986000','john','2018-02-02 16:29:00.986000',NULL,'a9607c7a-92fd-3508-3349-174fd234d7d7','call','Call to clarify',NULL,NULL,NULL,NULL,NULL,1517581740940)
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('c6f4eb5c-f917-a2a0-e2b7-0f5ad5bdedf6','2018-02-02 16:29:00.987000','john','2018-02-02 16:29:00.987000',NULL,'a9607c7a-92fd-3508-3349-174fd234d7d7','file','Send the form #20.2','f9ed3cd8-382e-bbea-9fb2-ed85f947946f',NULL,NULL,NULL,NULL,1517581740939)
+INSERT INTO OFFICE_REQUEST_STEP_ACTION VALUES('96ec8914-5080-b2bf-1cb6-0e3768ede99f','2018-02-02 16:29:00.986000','john','2018-02-02 16:29:00.986000',NULL,'a9607c7a-92fd-3508-3349-174fd234d7d7','file','Send the form #20.1','ff75c16e-4478-5705-df6a-5e2ab29b1aea',NULL,NULL,NULL,NULL,1517581740938)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='f852ee13-4121-8c2a-fa1f-1358c1a78b71'
+INSERT INTO SEC_USER_SETTING VALUES('f852ee13-4121-8c2a-fa1f-1358c1a78b71',NULL,NULL,'4cbf025d-043d-1a6c-4fcf-85f79da9abe7','W','office$Request.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="split"> \u000a      <position value="28.135048" unit="%"/> \u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="imageBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="stepBox"> \u000a      <groupBox expanded="false"/>\u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="initiator" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="closed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="stepsTable">\u000a      <columns>\u000a        <columns id="state" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="submissionTerm" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approvalTerm" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a        <columns id="penalty" visible="true"/>\u000a        <columns id="moment" visible="true"/>\u000a      </columns>\u000a    </component>\u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:29:20.122000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:30:20.122000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM OFFICE_POSITION WHERE ID='b8181249-bb9a-45dd-efdb-a0caad51b12c'
+INSERT INTO OFFICE_POSITION VALUES('b8181249-bb9a-45dd-efdb-a0caad51b12c','2018-01-10 11:33:51.009000','admin','2018-02-02 16:30:42.276000','admin',10,'Initial position',7,7)
+DELETE FROM OFFICE_POSITION_USER WHERE ID='15922368-0681-04f9-d651-6181bbfeb70b'
+INSERT INTO OFFICE_POSITION_USER VALUES('15922368-0681-04f9-d651-6181bbfeb70b','2018-01-10 11:34:52.610000','admin','2018-02-02 16:30:42.276000','admin','b8181249-bb9a-45dd-efdb-a0caad51b12c','4cbf025d-043d-1a6c-4fcf-85f79da9abe7',NULL,2,1516096984066)
+COMMIT
+DELETE FROM SEC_USER_SETTING WHERE ID='bd5c764f-684d-da90-342b-c9d8a3294936'
+INSERT INTO SEC_USER_SETTING VALUES('bd5c764f-684d-da90-342b-c9d8a3294936',NULL,NULL,'710eeb85-200a-518d-a7dc-f4caa9df36ad','W','office$Request.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings> \u000a  <components> \u000a    <component name="communicationsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="communicationsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="initiator" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="closed" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="actionsBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="actionsTable"> \u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="statesBox"> \u000a      <groupBox expanded="true"/> \u000a    </component>  \u000a    <component name="statesTable"> \u000a      <columns> \u000a        <columns id="date" visible="true"/>  \u000a        <columns id="position" visible="true"/>  \u000a        <columns id="description" visible="true"/> \u000a      </columns> \u000a    </component>  \u000a    <component name="split"> \u000a      <position value="27.867096" unit="%"/> \u000a    </component>  \u000a    <component name="logsTable"> \u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>  \u000a    <component name="stepBox"> \u000a      <groupBox expanded="false"/>\u000a    </component>  \u000a    <component name="requestBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="applicantBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="imageBox"> \u000a      <groupBox expanded="true"/>\u000a    </component>  \u000a    <component name="stepsTable">\u000a      <columns>\u000a        <columns id="state" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="submissionTerm" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approvalTerm" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a        <columns id="penalty" visible="true"/>\u000a        <columns id="moment" visible="true"/>\u000a      </columns>\u000a    </component>\u000a  </components> \u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:31:20.123000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+INSERT INTO SEC_USER_SETTING VALUES('e4b7c14a-89a5-6d41-8d62-33dc93a56915',NULL,NULL,'0c3b4a72-a188-8c56-20f6-646c21388181','W','office$Request.edit','<?xml version="1.0" encoding="UTF-8"?>\u000a\u000a<settings>\u000a  <components>\u000a    <component name="split">\u000a      <position value="28.188639" unit="%"/>\u000a    </component>\u000a    <component name="requestBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a    <component name="applicantBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a    <component name="imageBox">\u000a      <groupBox expanded="true"/>\u000a    </component>\u000a    <component name="stepBox">\u000a      <groupBox expanded="false"/>\u000a    </component>\u000a    <component name="actionsTable">\u000a      <columns>\u000a        <columns id="type" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="performed" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a      </columns>\u000a    </component>\u000a    <component name="communicationsTable">\u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="initiator" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="closed" visible="true"/>\u000a      </columns>\u000a    </component>\u000a    <component name="logsTable">\u000a      <columns>\u000a        <columns id="createTs" visible="true"/>\u000a        <columns id="sender" visible="true"/>\u000a        <columns id="recepient" visible="true"/>\u000a        <columns id="info" visible="true"/>\u000a      </columns>\u000a    </component>\u000a    <component name="stepsTable">\u000a      <columns>\u000a        <columns id="state" visible="true"/>\u000a        <columns id="description" visible="true"/>\u000a        <columns id="submissionTerm" visible="true"/>\u000a        <columns id="submitted" visible="true"/>\u000a        <columns id="approvalTerm" visible="true"/>\u000a        <columns id="approved" visible="true"/>\u000a        <columns id="penalty" visible="true"/>\u000a        <columns id="moment" visible="true"/>\u000a      </columns>\u000a    </component>\u000a  </components>\u000a</settings>\u000a')
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:32:20.123000',NULL,'localhost:8080/app-core',TRUE,NULL)
+COMMIT
+DELETE FROM SYS_SERVER WHERE ID='4c46db18-d154-7940-34f9-533bae754476'
+INSERT INTO SYS_SERVER VALUES('4c46db18-d154-7940-34f9-533bae754476','2017-12-18 11:08:43.869000',NULL,'2018-02-02 16:32:28.129000',NULL,'localhost:8080/app-core',FALSE,NULL)
 COMMIT
 DISCONNECT
