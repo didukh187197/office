@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://caption"
+        class="com.company.office.web.screens.DialogScreen"
+        messagesPack="com.company.office.web.screens">
+    <dialogMode forceDialog="true"
+                height="230"
+                width="400"/>
+    <layout expand="buttonsPanel"
+            spacing="true">
+        <label id="infoLabel"
+               width="100%"/>
+        <textArea id="answerText"
+                  required="true"
+                  width="100%"/>
+        <buttonsPanel id="buttonsPanel">
+            <button id="okBtn"
+                    caption="mainMsg://actions.Ok"
+                    icon="icons/ok.png"
+                    invoke="onOkBtnClick"/>
+            <button id="closeBtn"
+                    caption="mainMsg://actions.Cancel"
+                    description="Esc"
+                    icon="icons/cancel.png"
+                    invoke="onCloseBtnClick"/>
+        </buttonsPanel>
+    </layout>
+</window>

@@ -44,9 +44,11 @@
                 <groupTable id="table"
                             width="100%">
                     <actions>
-                        <action id="create"/>
+                        <action id="create"
+                                visible="false"/>
                         <action id="edit"/>
-                        <action id="remove"/>
+                        <action id="remove"
+                                visible="false"/>
                     </actions>
                     <columns>
                         <column id="applicant"/>
@@ -70,28 +72,43 @@
                                 action="table.remove"/>
                         <popupButton id="extraActionsBtn"
                                      caption="msg://extraActionsBtn"
-                                     enable="false">
+                                     enable="false"
+                                     visible="false">
                             <actions>
-                                <action id="findUser"
-                                        caption="msg://extraActionsBtn.findUser"
-                                        invoke="onFindUser"/>
-                                <action id="changeStep"
-                                        caption="msg://extraActionsBtn.changeStep"
-                                        invoke="onChangeStep"/>
-                                <action id="suspend"
-                                        caption="msg://extraActionsBtn.suspend"
-                                        invoke="onSuspend"/>
-                                <action id="resume"
-                                        caption="msg://extraActionsBtn.resume"
-                                        invoke="onResume"/>
+                                <action id="stop"
+                                        caption="msg://extraActionsBtn.stop"
+                                        invoke="onStop"
+                                        visible="false"/>
+                                <action id="start"
+                                        caption="msg://extraActionsBtn.start"
+                                        invoke="onStart"
+                                        visible="false"/>
                                 <action id="cancel"
                                         caption="msg://extraActionsBtn.cancel"
-                                        invoke="onCancel"/>
+                                        invoke="onCancel"
+                                        visible="false"/>
                                 <action id="archive"
                                         caption="msg://extraActionsBtn.archive"
-                                        invoke="onArchive"/>
+                                        invoke="onArchive"
+                                        visible="false"/>
                             </actions>
                         </popupButton>
+                        <hbox id="managerBox"
+                              spacing="true"
+                              visible="false">
+                            <button id="stopBtn"
+                                    action="extraActionsBtn.stop"
+                                    caption="msg://extraActionsBtn.stop"/>
+                            <button id="startBtn"
+                                    action="extraActionsBtn.start"
+                                    caption="msg://extraActionsBtn.start"/>
+                            <button id="cancelBtn"
+                                    action="extraActionsBtn.cancel"
+                                    caption="msg://extraActionsBtn.cancel"/>
+                            <button id="archiveBtn"
+                                    action="extraActionsBtn.archive"
+                                    caption="msg://extraActionsBtn.archive"/>
+                        </hbox>
                     </buttonsPanel>
                 </groupTable>
             </vbox>

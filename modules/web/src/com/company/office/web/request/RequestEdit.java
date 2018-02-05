@@ -381,8 +381,9 @@ public class RequestEdit extends AbstractEditor<Request> {
                             if (officeCommon.changeWorker(request)) {
                                 officeCommon.changePositionUserRequestCount(request.getStep().getPosition(), request.getStep().getUser(), 1);
                             }
-                            commitAndClose();
+
                             approved = true;
+                            commitAndClose();
                         }),
                         new DialogAction(DialogAction.Type.NO, Action.Status.PRIMARY)
                 }

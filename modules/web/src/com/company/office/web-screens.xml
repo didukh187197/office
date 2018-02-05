@@ -29,4 +29,6 @@
             template="com/company/office/web/request/request-browse.xml"/>
     <screen id="sec$User.edit"
             template="com/company/office/web/screens/ext-user-edit.xml"/>
+    <screen id="dialog-screen"
+            template="com/company/office/web/screens/dialog-screen.xml"/>
 </screen-config>

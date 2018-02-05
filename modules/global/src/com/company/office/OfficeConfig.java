@@ -15,10 +15,6 @@ public interface OfficeConfig extends Config {
     String getCompanyName();
     void setCompanyName(String name);
 
-    @Property("office.groups.commonGroup")
-    Group getCommonGroup();
-    void setCommonGroup(Group group);
-
     @Property("office.groups.managersGroup")
     Group getManagersGroup();
     void setManagersGroup(Group group);

@@ -3,7 +3,7 @@ package com.company.office.web.request;
 import com.company.office.entity.*;
 import com.company.office.common.OfficeTools;
 import com.company.office.web.officeweb.OfficeWeb;
-import com.haulmont.bali.util.ParamsMap;
+import com.company.office.web.screens.DialogScreen;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.components.actions.CreateAction;
@@ -12,8 +12,7 @@ import com.haulmont.cuba.gui.data.GroupDatasource;
 import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
 
 import javax.inject.Inject;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class RequestBrowse extends AbstractLookup {
 
@@ -78,6 +77,12 @@ public class RequestBrowse extends AbstractLookup {
         PopupButton extraActionsBtn = (PopupButton) getComponentNN("extraActionsBtn");
         Image image = (Image) getComponentNN("image");
 
+
+        List<State> workStates = new ArrayList<>();
+        workStates.add(State.Suspended);
+        workStates.add(State.Approving);
+        workStates.add(State.Waiting);
+
         requestsDs.addItemChangeListener(e -> {
             extraActionsBtn.setEnabled(false);
 
@@ -93,7 +98,11 @@ public class RequestBrowse extends AbstractLookup {
 
             if (!table.getSelected().isEmpty()) {
                 extraActionsBtn.setEnabled(true);
-                extraActionsBtn.getAction("findUser").setEnabled(e.getItem().getStep().getState().equals(State.Waiting));
+                State state = e.getItem().getStep().getState();
+                extraActionsBtn.getAction("stop").setVisible(workStates.contains(state));
+                extraActionsBtn.getAction("start").setVisible(state.equals(State.Stopped));
+                extraActionsBtn.getAction("cancel").setVisible(workStates.contains(state));
+                extraActionsBtn.getAction("archive").setVisible(state.equals(State.Closed));
             }
             focusOnStep();
         });
@@ -115,35 +124,26 @@ public class RequestBrowse extends AbstractLookup {
     }
 
     private void setUserInterface() {
-        if (officeTools.isAdmin())
+        if (officeTools.isAdmin()) {
+            table.getActionNN("create").setVisible(true);
+            table.getActionNN("remove").setVisible(true);
+            getComponentNN("extraActionsBtn").setVisible(true);
             return;
+        }
 
         switch (officeTools.getActiveGroupType()) {
             case Registrators:
-                getComponentNN("extraActionsBtn").setVisible(false);
-                table.getActionNN("remove").setVisible(false);
+                table.getActionNN("create").setVisible(true);
                 break;
-
             case Managers:
-                getComponentNN("extraActionsBtn").setVisible(true);
-                table.getActionNN("create").setVisible(false);
-                //table.getActionNN("edit").setEnabled(false);
-                table.getActionNN("remove").setVisible(false);
+                getComponentNN("managerBox").setVisible(true);
                 break;
-
             case Workers:
                 requestsDs.setQuery(String.format("select e from office$Request e where e.step.user.id = '%s' order by e.moment", officeTools.getActiveUser().getId()));
-                getComponentNN("extraActionsBtn").setVisible(false);
-                table.getActionNN("create").setVisible(false);
-                table.getActionNN("remove").setVisible(false);
                 tabSheet.setSelectedTab("stepsTab");
                 break;
-
             case Applicants:
                 requestsDs.setQuery(String.format("select e from office$Request e where e.applicant.id = '%s' order by e.moment", officeTools.getActiveUser().getId()));
-                getComponentNN("extraActionsBtn").setVisible(false);
-                table.getActionNN("create").setVisible(false);
-                table.getActionNN("remove").setVisible(false);
                 tabSheet.setSelectedTab("stepsTab");
                 break;
         }
@@ -180,58 +180,66 @@ public class RequestBrowse extends AbstractLookup {
         return checkBox;
     }
 
+    public void onStepBtnClick() {
+        if (requestsDs.getItem() == null)
+            return;
+
+        openEditor("office$RequestStep.edit", stepLookup.getValue(), WindowManager.OpenType.DIALOG);
+    }
+
     /*
     Browse actions methods
      */
-    public void onFindUser(Component source) {
+
+    private void doBrowseAction(String actionId, String title) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("title", title);
+        params.put("actionId", actionId);
+        DialogScreen dialogScreen = (DialogScreen) frame.openWindow("dialog-screen", WindowManager.OpenType.DIALOG, params);
+        dialogScreen.addCloseWithCommitListener(() -> {
+            switch (actionId) {
+                case "stop":
+                    officeWeb.showWarningMessage(frame, "stop: " + dialogScreen.getAnswer());
+                    break;
+                case "start":
+                    officeWeb.showWarningMessage(frame, "start: " + dialogScreen.getAnswer());
+                    break;
+                case "cancel":
+                    officeWeb.showWarningMessage(frame, "cancel: " + dialogScreen.getAnswer());
+                    break;
+                case "archive":
+                    officeWeb.showWarningMessage(frame, "archive: " + dialogScreen.getAnswer());
+                    break;
+                default:
+            }
+        });
     }
 
-    public void onChangeStep(Component source) {
+    public void onStop(Component source) {
+        doBrowseAction("stop", "Stop request");
     }
 
-    public void onSuspend(Component source) {
-    }
-
-    public void onResume(Component source) {
+    public void onStart(Component source) {
     }
 
     public void onCancel(Component source) {
-    }
-
-    private void showStep(Position position) {
-        if (position == null) {
-            officeWeb.showWarningMessage(this, "null");
-        } else {
-            officeWeb.showWarningMessage(this, position.getDescription());
-        }
+        doBrowseAction("cancel", "Cancel request");
     }
 
     public void onArchive(Component source) {
+
+
+        /*
         openLookup("positions-screen.xml",
                 items -> {
                     if (!items.isEmpty()) {
                         for (Object item : items) {
-                            showStep(((Position) item));
                         }
                     }
                 },
                 WindowManager.OpenType.DIALOG,
                 ParamsMap.of("selectedStep", requestsDs.getItem().getStep().getPosition())
         );
-    }
-
-
-    public void onStepBtnClick() {
-        if (requestsDs.getItem() == null)
-            return;
-
-        openEditor("office$RequestStep.edit", stepLookup.getValue(), WindowManager.OpenType.DIALOG);
-
-        /*
-        RequestStepEdit editor = (RequestStepEdit) openEditor("office$RequestStep.edit", requestsDs.getItem(), WindowManager.OpenType.DIALOG);
-        editor.addCloseWithCommitListener(() -> {
-            // do something
-        });
         */
     }
 }

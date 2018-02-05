@@ -66,12 +66,6 @@
                              optionsDatasource="groupsDs"
                              required="true"
                              width="100%"/>
-                <lookupField id="lookupCommonGroup"
-                             caption="msg://settingsDialog.common"
-                             nullOptionVisible="false"
-                             optionsDatasource="groupsDs"
-                             required="true"
-                             width="100%"/>
             </groupBox>
             <groupBox id="rolesBox"
                       caption="msg://settingsDialog.rolesBox"

@@ -1,15 +1,17 @@
 package com.company.office.web.officeweb;
 
+import com.company.office.web.screens.DialogScreen;
 import com.haulmont.cuba.core.entity.FileDescriptor;
 import com.haulmont.cuba.gui.ComponentsHelper;
-import com.haulmont.cuba.gui.components.FieldGroup;
-import com.haulmont.cuba.gui.components.Frame;
-import com.haulmont.cuba.gui.components.Table;
+import com.haulmont.cuba.gui.WindowManager;
+import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.export.ExportDisplay;
 import com.haulmont.cuba.gui.export.ExportFormat;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
+import java.util.HashMap;
+import java.util.Map;
 
 @Component("office_OfficeWeb")
 public class OfficeWeb {
@@ -18,7 +20,6 @@ public class OfficeWeb {
     private ExportDisplay exportDisplay;
 
     public void showWarningMessage(Frame frame, String msg) {
-        //showMessageDialog("", msg, MessageType.CONFIRMATION);
         frame.showNotification(msg, Frame.NotificationType.WARNING);
     }
 
@@ -45,6 +46,20 @@ public class OfficeWeb {
         if (file == null)
             return;
         exportDisplay.show(file, ExportFormat.OCTET_STREAM);
+    }
+
+    public String showDailogScreen(Frame frame, String title, String info) {
+        String res = null;
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("title", title);
+        params.put("info", info);
+        DialogScreen dialogScreen = (DialogScreen) frame.openWindow("dialog-screen", WindowManager.OpenType.DIALOG, params);
+        dialogScreen.addCloseWithCommitListener(() -> {
+            showWarningMessage(frame, dialogScreen.getAnswer());
+        });
+
+        return null;
     }
 
 }

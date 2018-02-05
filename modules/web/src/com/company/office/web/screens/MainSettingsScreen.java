@@ -31,9 +31,6 @@ public class MainSettingsScreen extends AbstractWindow {
     private LookupField lookupWorkersGroup;
 
     @Inject
-    private LookupField lookupCommonGroup;
-
-    @Inject
     private LookupField lookupManagersRole;
 
     @Inject
@@ -64,7 +61,6 @@ public class MainSettingsScreen extends AbstractWindow {
         initGroupLookup(lookupRegistratorsGroup, officeConfig.getRegistratorsGroup());
         initGroupLookup(lookupApplicantsGroup, officeConfig.getApplicantsGroup());
         initGroupLookup(lookupWorkersGroup, officeConfig.getWorkersGroup());
-        initGroupLookup(lookupCommonGroup, officeConfig.getCommonGroup());
 
         // Roles
         initRoleLookup(lookupManagersRole, officeConfig.getManagersRole());
@@ -126,11 +122,6 @@ public class MainSettingsScreen extends AbstractWindow {
                                 return;
                             }
 
-                            if (lookupCommonGroup.getValue() == null) {
-                                warnEmptyField("common", "group");
-                                return;
-                            }
-
                             //Roles
                             if (lookupManagersRole.getValue() == null) {
                                 warnEmptyField("managers", "role");
@@ -168,7 +159,6 @@ public class MainSettingsScreen extends AbstractWindow {
                             officeConfig.setRegistratorsGroup(lookupRegistratorsGroup.getValue());
                             officeConfig.setApplicantsGroup(lookupApplicantsGroup.getValue());
                             officeConfig.setWorkersGroup(lookupWorkersGroup.getValue());
-                            officeConfig.setCommonGroup(lookupCommonGroup.getValue());
 
                             officeConfig.setManagersRole(lookupManagersRole.getValue());
                             officeConfig.setRegistratorsRole(lookupRegistratorsRole.getValue());

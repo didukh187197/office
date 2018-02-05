@@ -31,7 +31,10 @@ public class OfficeCommon {
     private Messages messages;
 
     public void changePosition(Request request) {
-        RequestStep newStepByPosition = newStepByPosition(request);
+        Position position = getNextPosition(request.getStep());
+        State state = (position.equals(officeConfig.getFinalPosition())) ? State.Closed : State.Suspended;
+
+        RequestStep newStepByPosition = makeNewStep(request, position, state, null);
         request.setStep(newStepByPosition);
         request.getSteps().add(newStepByPosition);
         request.getLogs().add(
@@ -40,9 +43,15 @@ public class OfficeCommon {
     }
 
     public boolean changeWorker(Request request) {
-        RequestStep newStepByWorker = newStepByWorker(request);
+        if ((request.getStep() == null) || (request.getStep().getPosition() == null))
+            return false;
+
+        User worker = findFreePositionUser(request.getStep().getPosition());
+        if (worker == null)
+            return false;
+
+        RequestStep newStepByWorker = makeNewStep(request, request.getStep().getPosition(), State.Waiting, worker);
         if (newStepByWorker != null) {
-            User worker = newStepByWorker.getUser();
             request.setStep(newStepByWorker);
             request.getSteps().add(newStepByWorker);
             request.getLogs().add(
@@ -68,23 +77,6 @@ public class OfficeCommon {
         }
         requestLog.setInfo(info);
         return requestLog;
-    }
-
-    private RequestStep newStepByPosition(Request request) {
-        Position position = getNextPosition(request.getStep());
-        State state = (position.equals(officeConfig.getFinalPosition())) ? State.Closed : State.Suspended;
-        return makeNewStep(request, position, state, null);
-    }
-
-    private RequestStep newStepByWorker(Request request) {
-        if ((request.getStep() == null) || (request.getStep().getPosition() == null))
-            return null;
-
-        User worker = findFreePositionUser(request.getStep().getPosition());
-        if (worker == null)
-            return null;
-
-        return makeNewStep(request, request.getStep().getPosition(), State.Waiting, worker);
     }
 
     private User getLogRecepient(Request request) {
@@ -172,10 +164,7 @@ public class OfficeCommon {
     }
 
     public void changePositionUserRequestCount(Position position, User user, int count) {
-        if (user == null)
-            return;
-
-        if (position == null)
+        if ((user == null) || (position == null))
             return;
 
         LoadContext<PositionUser> loadContext = LoadContext.create(PositionUser.class)
