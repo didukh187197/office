@@ -148,10 +148,12 @@ public class RequestBrowse extends AbstractLookup {
                 break;
             case Workers:
                 requestsDs.setQuery(String.format("select e from office$Request e where e.step.user.id = '%s' order by e.moment", officeTools.getActiveUser().getId()));
+                getComponentNN("filter").setVisible(false);
                 tabSheet.setSelectedTab("stepsTab");
                 break;
             case Applicants:
                 requestsDs.setQuery(String.format("select e from office$Request e where e.applicant.id = '%s' order by e.moment", officeTools.getActiveUser().getId()));
+                getComponentNN("filter").setVisible(false);
                 tabSheet.setSelectedTab("stepsTab");
                 break;
         }
@@ -192,7 +194,7 @@ public class RequestBrowse extends AbstractLookup {
         if (requestsDs.getItem() == null)
             return;
 
-        openEditor("office$RequestStep.edit", stepLookup.getValue(), WindowManager.OpenType.DIALOG);
+        officeWeb.showStep(this, stepLookup.getValue());
     }
 
     // Browse actions methods
@@ -260,6 +262,6 @@ public class RequestBrowse extends AbstractLookup {
         Map<String, Object> params = new HashMap<>();
         params.put("selectedPosition", requestsDs.getItem().getStep().getPosition());
         PositionsScreen positionsScreen = (PositionsScreen) openWindow("positions-screen", WindowManager.OpenType.DIALOG, params);
-        positionsScreen.addCloseWithCommitListener(this::onStepBtnClick);
+        positionsScreen.addCloseWithCommitListener(() -> officeWeb.showStep(this, requestsDs.getItem().getStep()));
     }
 }

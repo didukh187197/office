@@ -70,11 +70,12 @@ public class RequestEdit extends AbstractEditor<Request> {
     }
 
     @Override
-    protected void postInit() {
-        if (PersistenceHelper.isNew(getItem())) {
-            getItem().setMoment(officeTools.getMoment());
-        }
+    protected void initNewItem(Request item) {
+        item.setMoment(officeTools.getMoment());
+    }
 
+    @Override
+    protected void postInit() {
         setUserInterface();
         showSubmitButton();
         showApproveBtn();
@@ -179,13 +180,14 @@ public class RequestEdit extends AbstractEditor<Request> {
     }
 
     private void setUserInterface() {
+        if (PersistenceHelper.isNew(getItem())) {
+            getComponentNN("stepInfoBtn").setVisible(false);
+        }
+
         if (officeTools.isAdmin()) {
             Table logsTable = (Table) getComponentNN("logsTable");
             logsTable.getAction("edit").setVisible(true);
             logsTable.getAction("remove").setVisible(true);
-            ((FieldGroup) getComponentNN("stepParamsFields")).setEditable(true);
-            ((FieldGroup) getComponentNN("stepDatesFields")).setEditable(true);
-            ((FieldGroup) getComponentNN("stepOtherFields")).setEditable(true);
             return;
         }
 
@@ -416,4 +418,8 @@ public class RequestEdit extends AbstractEditor<Request> {
         }
     }
 
+
+    public void onStepInfoBtnClick() {
+        officeWeb.showStep(this, getItem().getStep());
+    }
 }

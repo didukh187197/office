@@ -113,6 +113,10 @@
                         </fieldGroup>
                     </groupBox>
                 </vbox>
+                <linkButton id="stepInfoBtn"
+                            align="TOP_LEFT"
+                            caption="msg://stepInfoBtn"
+                            invoke="onStepInfoBtnClick"/>
                 <buttonsPanel id="buttonsPanel">
                     <button id="okBtn"
                             action="windowCommit"
@@ -137,44 +141,6 @@
                   expand="tabSheet"
                   height="100%"
                   margin="false,false,false,true">
-                <groupBox id="stepBox"
-                          caption="msg://stepBox"
-                          collapsable="true"
-                          collapsed="true"
-                          expand="stepOtherFields"
-                          orientation="horizontal"
-                          spacing="true"
-                          width="100%">
-                    <fieldGroup id="stepParamsFields"
-                                datasource="stepsDs"
-                                editable="false">
-                        <column width="250px">
-                            <field property="state"/>
-                            <field property="position"/>
-                            <field property="user"/>
-                        </column>
-                    </fieldGroup>
-                    <fieldGroup id="stepDatesFields"
-                                datasource="stepsDs"
-                                editable="false">
-                        <column width="120px">
-                            <field property="submissionTerm"/>
-                            <field property="submitted"/>
-                            <field property="approvalTerm"/>
-                            <field property="approved"/>
-                        </column>
-                    </fieldGroup>
-                    <fieldGroup id="stepOtherFields"
-                                datasource="stepsDs"
-                                editable="false">
-                        <column width="250px">
-                            <field property="description"
-                                   rows="3"/>
-                            <field property="penalty"
-                                   width="60px"/>
-                        </column>
-                    </fieldGroup>
-                </groupBox>
                 <tabSheet id="tabSheet">
                     <tab id="actionsTab"
                          caption="msg://com.company.office.entity/RequestStep.actions"

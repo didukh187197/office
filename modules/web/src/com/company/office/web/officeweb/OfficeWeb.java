@@ -1,7 +1,9 @@
 package com.company.office.web.officeweb;
 
+import com.company.office.entity.RequestStep;
 import com.haulmont.cuba.core.entity.FileDescriptor;
 import com.haulmont.cuba.gui.ComponentsHelper;
+import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.export.ExportDisplay;
 import com.haulmont.cuba.gui.export.ExportFormat;
@@ -40,6 +42,10 @@ public class OfficeWeb {
         if (file == null)
             return;
         exportDisplay.show(file, ExportFormat.OCTET_STREAM);
+    }
+
+    public void showStep(Frame frame, RequestStep step) {
+        frame.openEditor("office$RequestStep.edit", step, WindowManager.OpenType.DIALOG);
     }
 
 }

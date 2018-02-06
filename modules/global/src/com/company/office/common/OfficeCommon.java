@@ -30,6 +30,8 @@ public class OfficeCommon {
     @Inject
     private Messages messages;
 
+    private final String MSG_PACK = "com.company.office.web.request";
+
     public void changePosition(Request request) {
         Position position = getNextPosition(request.getStep());
         State state = (position.equals(officeConfig.getFinalPosition())) ? State.Closed : State.Suspended;
@@ -41,7 +43,7 @@ public class OfficeCommon {
                 newLogItem(
                         request,
                         request.getApplicant(),
-                        "The new position set: " + newStepByPosition.getPosition().getDescription(),
+                        messages.getMessage(MSG_PACK, "common.newPosition") + ": " + newStepByPosition.getPosition().getDescription(),
                         newStepByPosition
                 )
         );
@@ -58,7 +60,7 @@ public class OfficeCommon {
         RequestStep newStepByWorker = makeNewStep(request, request.getStep().getPosition(), State.Waiting, worker);
 
         if (newStepByWorker != null) {
-            String workerStr = "The new worker set: " + worker.getName();
+            String workerStr = messages.getMessage(MSG_PACK, "common.newWorker") + ": " + worker.getName();
             request.setStep(newStepByWorker);
             request.getSteps().add(newStepByWorker);
             request.getLogs().add(
@@ -84,7 +86,8 @@ public class OfficeCommon {
 
     public void changeState(Request request, State newState, String reason) {
         User oldUser = request.getStep().getUser();
-        String reasonStr = "The new state set: " + messages.getMessage(newState) + ". " + "Reason: " + reason;
+        String reasonStr = messages.getMessage(MSG_PACK, "common.newState") + ": "
+                + messages.getMessage(newState) + ". " + messages.getMessage(MSG_PACK, "common.reason") + ": " + reason;
 
         RequestStep newStepByState = makeNewStep(request, request.getStep().getPosition(), newState, null);
         request.setStep(newStepByState);
@@ -199,7 +202,8 @@ public class OfficeCommon {
             }
 
             requestStep.setSubmissionTerm( officeTools.addDaysToNow(position.getDaysForSubmission() ) );
-            requestStep.setDescription("Assigned to " + worker.getName() + (positionActions.size() != 0 ? ". Actions added" : ""));
+            requestStep.setDescription(messages.getMessage(MSG_PACK, "common.assignedTo") + " " + worker.getName() +
+                    (positionActions.size() != 0 ? ". " + messages.getMessage(MSG_PACK, "common.actionsAdded") : ""));
         }
         return requestStep;
     }

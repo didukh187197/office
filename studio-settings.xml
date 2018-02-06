@@ -7,4 +7,8 @@
         <hotDeployMapping>modules/web/src:conf/app</hotDeployMapping>
         <hotDeployMapping>modules/gui/src:conf/app</hotDeployMapping>
     </settings>
+    <functionalitySettings>
+        <functionality id="oneToOneIndex"
+                       state="ENABLE"/>
+    </functionalitySettings>
 </studio>
