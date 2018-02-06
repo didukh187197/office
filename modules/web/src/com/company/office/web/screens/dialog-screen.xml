@@ -4,13 +4,14 @@
         class="com.company.office.web.screens.DialogScreen"
         messagesPack="com.company.office.web.screens">
     <dialogMode forceDialog="true"
-                height="230"
+                height="250"
                 width="400"/>
     <layout expand="buttonsPanel"
             spacing="true">
         <label id="infoLabel"
                width="100%"/>
-        <textArea id="answerText"
+        <textArea id="reasonText"
+                  caption="msg://dialogScreen.reason"
                   required="true"
                   width="100%"/>
         <buttonsPanel id="buttonsPanel">

@@ -49,6 +49,10 @@
                         <action id="edit"/>
                         <action id="remove"
                                 visible="false"/>
+                        <action id="position"
+                                caption="msg://positionBtn"
+                                invoke="onPosition"
+                                trackSelection="true"/>
                     </actions>
                     <columns>
                         <column id="applicant"/>
@@ -109,6 +113,9 @@
                                     action="extraActionsBtn.archive"
                                     caption="msg://extraActionsBtn.archive"/>
                         </hbox>
+                        <linkButton id="positionBtn"
+                                    action="table.position"
+                                    align="MIDDLE_LEFT"/>
                     </buttonsPanel>
                 </groupTable>
             </vbox>

@@ -25,7 +25,7 @@ public class PositionBrowse extends EntityCombinedScreen {
     private FileUploadField templateField;
 
     @Inject
-    protected Messages messages;
+    private Messages messages;
 
     @Override
     public void init(Map<String, Object> params) {

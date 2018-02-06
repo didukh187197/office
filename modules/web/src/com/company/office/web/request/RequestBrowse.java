@@ -1,9 +1,11 @@
 package com.company.office.web.request;
 
+import com.company.office.common.OfficeCommon;
 import com.company.office.entity.*;
 import com.company.office.common.OfficeTools;
 import com.company.office.web.officeweb.OfficeWeb;
 import com.company.office.web.screens.DialogScreen;
+import com.company.office.web.screens.PositionsScreen;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.components.actions.CreateAction;
@@ -18,6 +20,9 @@ public class RequestBrowse extends AbstractLookup {
 
     @Inject
     private OfficeTools officeTools;
+
+    @Inject
+    private OfficeCommon officeCommon;
 
     @Inject
     private OfficeWeb officeWeb;
@@ -77,11 +82,14 @@ public class RequestBrowse extends AbstractLookup {
         PopupButton extraActionsBtn = (PopupButton) getComponentNN("extraActionsBtn");
         Image image = (Image) getComponentNN("image");
 
-
         List<State> workStates = new ArrayList<>();
         workStates.add(State.Suspended);
         workStates.add(State.Approving);
         workStates.add(State.Waiting);
+
+        List<State> archivedStates = new ArrayList<>();
+        archivedStates.add(State.Closed);
+        archivedStates.add(State.Cancelled);
 
         requestsDs.addItemChangeListener(e -> {
             extraActionsBtn.setEnabled(false);
@@ -102,7 +110,7 @@ public class RequestBrowse extends AbstractLookup {
                 extraActionsBtn.getAction("stop").setVisible(workStates.contains(state));
                 extraActionsBtn.getAction("start").setVisible(state.equals(State.Stopped));
                 extraActionsBtn.getAction("cancel").setVisible(workStates.contains(state));
-                extraActionsBtn.getAction("archive").setVisible(state.equals(State.Closed));
+                extraActionsBtn.getAction("archive").setVisible(archivedStates.contains(state));
             }
             focusOnStep();
         });
@@ -187,59 +195,71 @@ public class RequestBrowse extends AbstractLookup {
         openEditor("office$RequestStep.edit", stepLookup.getValue(), WindowManager.OpenType.DIALOG);
     }
 
-    /*
-    Browse actions methods
-     */
+    // Browse actions methods
 
-    private void doBrowseAction(String actionId, String title) {
+    private final String STOP_REQUEST = "stop", START_REQUEST = "start", CANCEL_REQUEST = "cancel", ARCHIVE_REQUEST = "archive";
+
+    private void doBrowseAction(String actionId) {
         Map<String, Object> params = new HashMap<>();
-        params.put("title", title);
         params.put("actionId", actionId);
-        DialogScreen dialogScreen = (DialogScreen) frame.openWindow("dialog-screen", WindowManager.OpenType.DIALOG, params);
+        DialogScreen dialogScreen = (DialogScreen) openWindow("dialog-screen", WindowManager.OpenType.DIALOG, params);
         dialogScreen.addCloseWithCommitListener(() -> {
+            Request request = requestsDs.getItem();
+            String reason = officeTools.left(dialogScreen.getReason(), 180);
+
             switch (actionId) {
-                case "stop":
-                    officeWeb.showWarningMessage(frame, "stop: " + dialogScreen.getAnswer());
+                case STOP_REQUEST:
+                    if (request.getStep().getUser() != null) {
+                        officeCommon.changePositionUserRequestCount(request.getStep().getPosition(), request.getStep().getUser(), -1);
+                    }
+                    officeCommon.changeState(request, State.Stopped, reason);
+                    officeWeb.showWarningMessage(this, getMessage("result.stopped"));
                     break;
-                case "start":
-                    officeWeb.showWarningMessage(frame, "start: " + dialogScreen.getAnswer());
+                case START_REQUEST:
+                    officeCommon.changeState(request, State.Suspended, reason);
+                    if (officeCommon.changeWorker(request)) {
+                        officeCommon.changePositionUserRequestCount(request.getStep().getPosition(), request.getStep().getUser(), 1);
+                    }
+                    officeWeb.showWarningMessage(this, getMessage("result.started"));
                     break;
-                case "cancel":
-                    officeWeb.showWarningMessage(frame, "cancel: " + dialogScreen.getAnswer());
+                case CANCEL_REQUEST:
+                    if (request.getStep().getUser() != null) {
+                        officeCommon.changePositionUserRequestCount(request.getStep().getPosition(), request.getStep().getUser(), -1);
+                    }
+                    officeCommon.changeState(request, State.Cancelled, reason);
+                    officeWeb.showWarningMessage(this, getMessage("result.cancelled"));
                     break;
-                case "archive":
-                    officeWeb.showWarningMessage(frame, "archive: " + dialogScreen.getAnswer());
+                case ARCHIVE_REQUEST:
+                    officeCommon.changeState(request, State.Archived, reason);
+                    officeWeb.showWarningMessage(this, getMessage("result.archived"));
                     break;
                 default:
             }
+            requestsDs.setItem(request);
+            getDsContext().commit();
         });
     }
 
-    public void onStop(Component source) {
-        doBrowseAction("stop", "Stop request");
+    public void onStop() {
+        doBrowseAction(STOP_REQUEST);
     }
 
-    public void onStart(Component source) {
+    public void onStart() {
+        doBrowseAction(START_REQUEST);
     }
 
-    public void onCancel(Component source) {
-        doBrowseAction("cancel", "Cancel request");
+    public void onCancel() {
+        doBrowseAction(CANCEL_REQUEST);
     }
 
-    public void onArchive(Component source) {
+    public void onArchive() {
+        doBrowseAction(ARCHIVE_REQUEST);
+    }
 
-
-        /*
-        openLookup("positions-screen.xml",
-                items -> {
-                    if (!items.isEmpty()) {
-                        for (Object item : items) {
-                        }
-                    }
-                },
-                WindowManager.OpenType.DIALOG,
-                ParamsMap.of("selectedStep", requestsDs.getItem().getStep().getPosition())
-        );
-        */
+    public void onPosition() {
+        Map<String, Object> params = new HashMap<>();
+        params.put("selectedPosition", requestsDs.getItem().getStep().getPosition());
+        PositionsScreen positionsScreen = (PositionsScreen) openWindow("positions-screen", WindowManager.OpenType.DIALOG, params);
+        positionsScreen.addCloseWithCommitListener(this::onStepBtnClick);
     }
 }

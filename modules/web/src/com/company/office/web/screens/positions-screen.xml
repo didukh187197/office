@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
-        caption="msg://caption"
+        caption="msg://positionsScreen.caption"
         class="com.company.office.web.screens.PositionsScreen"
         focusComponent="table"
         lookupComponent="table"
@@ -9,13 +9,13 @@
         <collectionDatasource id="positionsDs"
                               class="com.company.office.entity.Position">
             <query>
-                <![CDATA[select e from office$Step e order by e.identifier]]>
+                <![CDATA[select e from office$Position e order by e.identifier]]>
             </query>
         </collectionDatasource>
     </dsContext>
     <dialogMode forceDialog="true"
-                height="300"
-                width="400"/>
+                height="400"
+                width="600"/>
     <layout expand="table"
             spacing="true">
         <table id="table"
@@ -26,7 +26,18 @@
                 <column id="daysForSubmission"/>
                 <column id="daysForApproval"/>
             </columns>
-            <rows datasource="stepsDs"/>
+            <rows datasource="positionsDs"/>
         </table>
+        <buttonsPanel id="buttonsPanel">
+            <button id="okBtn"
+                    caption="msg://positionsScreen.okBtn"
+                    icon="icons/ok.png"
+                    invoke="onOkBtnClick"/>
+            <button id="closeBtn"
+                    caption="mainMsg://actions.Cancel"
+                    description="Esc"
+                    icon="icons/cancel.png"
+                    invoke="onCloseBtnClick"/>
+        </buttonsPanel>
     </layout>
 </window>

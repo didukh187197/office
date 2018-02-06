@@ -4,7 +4,6 @@ import com.haulmont.chile.core.datatypes.impl.EnumClass;
 
 import javax.annotation.Nullable;
 
-
 public enum GroupType implements EnumClass<String> {
 
     Registrators("registrators"),

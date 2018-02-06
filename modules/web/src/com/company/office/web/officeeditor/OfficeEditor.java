@@ -34,7 +34,7 @@ public class OfficeEditor<T extends Entity> extends AbstractEditor {
         }
 
         checkSystemTab();
-        setDialogWidth("fieldGroup");
+        getDialogOptions().setWidth(getComponentNN("fieldGroup").getWidth());
     }
 
     @Override
@@ -49,10 +49,6 @@ public class OfficeEditor<T extends Entity> extends AbstractEditor {
             tabSheet.getTab("tabSystem").setVisible(false);
             tabSheet.setTabsVisible(false);
         }
-    }
-
-    private void setDialogWidth(String componentName) {
-        getDialogOptions().setWidth(getComponentNN(componentName).getWidth());
     }
 
 }

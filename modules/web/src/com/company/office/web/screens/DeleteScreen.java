@@ -47,8 +47,8 @@ public class DeleteScreen extends EntityRestore {
         int k = 0;
 
         Object[] items = entitiesDs.getItems().toArray();
-        for (int i = 0; i < items.length; i++) {
-            StandardEntity entity = (StandardEntity) items[i];
+        for (Object item : items) {
+            StandardEntity entity = (StandardEntity) item;
             if (entity.getDeleteTs() != null) {
                 commitContext.addInstanceToRemove(entity);
                 k++;

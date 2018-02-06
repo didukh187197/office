@@ -11,23 +11,28 @@ public class DialogScreen extends AbstractWindow {
     private Label infoLabel;
 
     @Inject
-    private ResizableTextArea answerText;
+    private ResizableTextArea reasonText;
 
-    public String getAnswer() {
-        return answerText.getValue();
+    public String getReason() {
+        return reasonText.getValue();
     }
 
     @Override
     public void init(Map<String, Object> params) {
-        setCaption((String) params.get("title"));
+        String actionId = (String) params.get("actionId");
+        String actionName = getMessage("dialogScreen." + actionId);
+
+        String title = actionName.substring(0, 1).toUpperCase() + actionName.substring(1) + " " + getMessage("dialogScreen.request");
+        setCaption(title);
+
         infoLabel.setValue(
-                String.format(getMessage("dialogScreen.prompt"), params.get("actionId"))
+                String.format(getMessage("dialogScreen.prompt"), actionName)
         );
         infoLabel.setStyleName("dialog-prompt");
     }
 
     public void onOkBtnClick() {
-        if (answerText.getValue() == null) {
+        if (reasonText.getValue() == null) {
             showNotification(getMessage("dialogScreen.empty"), NotificationType.ERROR);
             return;
         }
@@ -37,9 +42,7 @@ public class DialogScreen extends AbstractWindow {
                 messages.getMainMessage("dialog.msg"),
                 MessageType.CONFIRMATION,
                 new Action[] {
-                        new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
-                            this.close(Window.COMMIT_ACTION_ID);
-                        }),
+                        new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> this.close(Window.COMMIT_ACTION_ID)),
                         new DialogAction(DialogAction.Type.NO, Action.Status.PRIMARY)
                 }
         );

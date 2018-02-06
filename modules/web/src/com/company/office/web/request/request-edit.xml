@@ -124,11 +124,11 @@
                             description="Esc"
                             icon="icons/cancel.png"/>
                     <button id="submitBtn"
-                            caption="msg://btnSubmit"
+                            caption="msg://submitBtn"
                             invoke="onSubmitBtnClick"
                             visible="false"/>
                     <button id="approveBtn"
-                            caption="msg://btnApprove"
+                            caption="msg://approveBtn"
                             invoke="onApproveBtnClick"
                             visible="false"/>
                 </buttonsPanel>

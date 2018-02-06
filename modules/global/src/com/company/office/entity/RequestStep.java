@@ -15,7 +15,6 @@ import com.haulmont.cuba.core.entity.Updatable;
 import com.haulmont.cuba.core.entity.Creatable;
 import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NumberFormat;
-import javax.persistence.OneToOne;
 import java.util.List;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;

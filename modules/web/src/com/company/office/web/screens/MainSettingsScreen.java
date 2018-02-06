@@ -49,7 +49,7 @@ public class MainSettingsScreen extends AbstractWindow {
     private LookupField lookupFinalPosition;
 
     @Inject
-    protected Messages messages;
+    private Messages messages;
 
     @Override
     public void init(Map<String, Object> params) {

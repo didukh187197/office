@@ -15,7 +15,6 @@ import com.haulmont.cuba.core.entity.BaseUuidEntity;
 import com.haulmont.cuba.core.entity.Creatable;
 import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 import com.haulmont.cuba.core.entity.Updatable;
-import java.util.UUID;
 import com.haulmont.cuba.security.entity.User;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;

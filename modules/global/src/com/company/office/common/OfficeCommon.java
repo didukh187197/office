@@ -3,10 +3,7 @@ package com.company.office.common;
 import com.company.office.OfficeConfig;
 import com.company.office.entity.*;
 import com.haulmont.cuba.core.entity.Entity;
-import com.haulmont.cuba.core.global.CommitContext;
-import com.haulmont.cuba.core.global.DataManager;
-import com.haulmont.cuba.core.global.LoadContext;
-import com.haulmont.cuba.core.global.Messages;
+import com.haulmont.cuba.core.global.*;
 import com.haulmont.cuba.security.entity.User;
 import org.springframework.stereotype.Component;
 
@@ -28,6 +25,9 @@ public class OfficeCommon {
     private DataManager dataManager;
 
     @Inject
+    private Metadata metadata;
+
+    @Inject
     private Messages messages;
 
     public void changePosition(Request request) {
@@ -38,12 +38,17 @@ public class OfficeCommon {
         request.setStep(newStepByPosition);
         request.getSteps().add(newStepByPosition);
         request.getLogs().add(
-                newLogItem(request, request.getApplicant(), "The new position set: " + newStepByPosition.getPosition().getDescription(), newStepByPosition)
+                newLogItem(
+                        request,
+                        request.getApplicant(),
+                        "The new position set: " + newStepByPosition.getPosition().getDescription(),
+                        newStepByPosition
+                )
         );
     }
 
     public boolean changeWorker(Request request) {
-        if ((request.getStep() == null) || (request.getStep().getPosition() == null))
+        if (request.getStep().getState().equals(State.Closed))
             return false;
 
         User worker = findFreePositionUser(request.getStep().getPosition());
@@ -51,22 +56,61 @@ public class OfficeCommon {
             return false;
 
         RequestStep newStepByWorker = makeNewStep(request, request.getStep().getPosition(), State.Waiting, worker);
+
         if (newStepByWorker != null) {
+            String workerStr = "The new worker set: " + worker.getName();
             request.setStep(newStepByWorker);
             request.getSteps().add(newStepByWorker);
             request.getLogs().add(
-                    newLogItem(request, request.getApplicant(), "The new worker set: " + worker.getName(), newStepByWorker)
+                    newLogItem(
+                            request,
+                            request.getApplicant(),
+                            workerStr,
+                            newStepByWorker
+                    )
             );
             request.getLogs().add(
-                    newLogItem(request, worker, "The new worker set: " + worker.getName(), newStepByWorker)
+                    newLogItem(
+                            request,
+                            worker,
+                            workerStr,
+                            newStepByWorker
+                    )
             );
             return true;
         }
         return false;
     }
 
+    public void changeState(Request request, State newState, String reason) {
+        User oldUser = request.getStep().getUser();
+        String reasonStr = "The new state set: " + messages.getMessage(newState) + ". " + "Reason: " + reason;
+
+        RequestStep newStepByState = makeNewStep(request, request.getStep().getPosition(), newState, null);
+        request.setStep(newStepByState);
+        request.getSteps().add(newStepByState);
+        request.getLogs().add(
+                newLogItem(
+                        request,
+                        request.getApplicant(),
+                        reasonStr,
+                        newStepByState
+                )
+        );
+        if (oldUser != null) {
+            request.getLogs().add(
+                    newLogItem(
+                            request,
+                            oldUser,
+                            reasonStr,
+                            newStepByState
+                    )
+            );
+        }
+    }
+
     public RequestLog newLogItem(Request request, User recepient, String info, Entity entity) {
-        RequestLog requestLog = new RequestLog();
+        RequestLog requestLog = metadata.create(RequestLog.class);
         requestLog.setRequest(request);
         requestLog.setMoment(officeTools.getMoment());
         requestLog.setSender(officeTools.getActiveUser());
@@ -95,10 +139,7 @@ public class OfficeCommon {
     }
 
     private Position getNextPosition(RequestStep step) {
-        if (step == null)
-            return officeConfig.getInitPosition();
-
-        if (step.getPosition() == null)
+        if ((step == null) || (step.getPosition() == null))
             return officeConfig.getInitPosition();
 
         Position position = step.getPosition();
@@ -127,7 +168,7 @@ public class OfficeCommon {
     }
 
     private RequestStep makeNewStep(Request request, Position position, State state, User worker) {
-        RequestStep requestStep = new RequestStep();
+        RequestStep requestStep = metadata.create(RequestStep.class);
         requestStep.setRequest(request);
         requestStep.setMoment(officeTools.getMoment());
         requestStep.setPosition(position);
@@ -140,7 +181,7 @@ public class OfficeCommon {
 
             List<PositionAction> positionActions = getPositionFromDB(position).getActions();
             for (PositionAction pa : positionActions) {
-                RequestStepAction requestStepAction = new RequestStepAction();
+                RequestStepAction requestStepAction = metadata.create(RequestStepAction.class);
                 requestStepAction.setRequestStep(requestStep);
                 requestStepAction.setMoment(tm++);
                 requestStepAction.setDescription(pa.getDescription());

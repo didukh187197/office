@@ -29,13 +29,13 @@ import java.util.*;
 public class RequestEdit extends AbstractEditor<Request> {
 
     @Inject
-    private OfficeWeb officeWeb;
+    private OfficeTools officeTools;
 
     @Inject
     private OfficeCommon officeCommon;
 
     @Inject
-    private OfficeTools officeTools;
+    private OfficeWeb officeWeb;
 
     @Inject
     private DataSupplier dataSupplier;
@@ -48,9 +48,6 @@ public class RequestEdit extends AbstractEditor<Request> {
 
     @Inject
     private FileUploadField uploadField;
-
-    @Inject
-    private Datasource<Request> requestDs;
 
     @Inject
     private Image image;
@@ -104,6 +101,7 @@ public class RequestEdit extends AbstractEditor<Request> {
         uploadField.addFileUploadErrorListener(event ->
                 showNotification("File upload error", NotificationType.HUMANIZED));
 
+        Datasource<RequestStepAction> requestDs = getDsContext().getNN("requestDs");
         requestDs.addItemPropertyChangeListener(event -> {
             if ("imageFile".equals(event.getProperty()))
                 updateImageButtons(event.getValue() != null);
@@ -204,7 +202,9 @@ public class RequestEdit extends AbstractEditor<Request> {
             case Managers:
             case Workers:
             case Applicants:
-                disableContainer("infoBox");
+                officeWeb.disableContainer(this, "infoBox");
+                getComponentNN("downloadImageBtn").setEnabled(false);
+                getComponentNN("clearImageBtn").setEnabled(false);
                 break;
             default:
         }
@@ -416,9 +416,4 @@ public class RequestEdit extends AbstractEditor<Request> {
         }
     }
 
-    private void disableContainer(String containerID) {
-        officeWeb.disableContainer(this, containerID);
-        getComponentNN("downloadImageBtn").setEnabled(false);
-        getComponentNN("clearImageBtn").setEnabled(false);
-    }
 }

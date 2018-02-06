@@ -2,6 +2,7 @@ package com.company.office.web.screens;
 
 import com.company.office.OfficeConfig;
 import com.company.office.common.OfficeTools;
+import com.haulmont.cuba.core.global.Metadata;
 import com.haulmont.cuba.gui.app.security.user.edit.UserEditor;
 import com.haulmont.cuba.gui.components.FieldGroup;
 import com.haulmont.cuba.gui.components.LookupPickerField;
@@ -20,6 +21,9 @@ public class ExtUserEditor extends UserEditor {
 
     @Inject
     private OfficeTools officeTools;
+
+    @Inject
+    private Metadata metadata;
 
     @Override
     public void init(Map<String, Object> params) {
@@ -66,7 +70,7 @@ public class ExtUserEditor extends UserEditor {
             rolesDs.removeItem(ur);
         }
 
-        UserRole userRole = new UserRole();
+        UserRole userRole = metadata.create(UserRole.class);
         userRole.setUser(getItem());
         switch (officeTools.getGroupType(getItem())) {
             case Registrators:

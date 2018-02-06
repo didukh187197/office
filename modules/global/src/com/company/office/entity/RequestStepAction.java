@@ -19,9 +19,6 @@ import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
 import com.haulmont.cuba.core.entity.Updatable;
-import com.haulmont.chile.core.annotations.NumberFormat;
-import com.haulmont.cuba.security.entity.User;
-import java.util.UUID;
 import com.haulmont.chile.core.annotations.NamePattern;
 
 @NamePattern("The action <%s> |description")
