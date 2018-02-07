@@ -5,7 +5,6 @@ import com.company.office.entity.*;
 import com.company.office.common.OfficeTools;
 import com.company.office.web.officeweb.OfficeWeb;
 import com.company.office.web.screens.DialogScreen;
-import com.company.office.web.screens.PositionsScreen;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.components.actions.CreateAction;
@@ -260,8 +259,7 @@ public class RequestBrowse extends AbstractLookup {
 
     public void onPosition() {
         Map<String, Object> params = new HashMap<>();
-        params.put("selectedPosition", requestsDs.getItem().getStep().getPosition());
-        PositionsScreen positionsScreen = (PositionsScreen) openWindow("positions-screen", WindowManager.OpenType.DIALOG, params);
-        positionsScreen.addCloseWithCommitListener(() -> officeWeb.showStep(this, requestsDs.getItem().getStep()));
+        params.put("selectedStep", requestsDs.getItem().getStep());
+        openWindow("positions-screen", WindowManager.OpenType.DIALOG, params);
     }
 }

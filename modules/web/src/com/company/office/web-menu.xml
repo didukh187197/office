@@ -9,6 +9,5 @@
     <menu id="service"
           insertBefore="administration">
         <item screen="delete-screen"/>
-        <item screen="dialog-screen"/>
     </menu>
 </menu-config>

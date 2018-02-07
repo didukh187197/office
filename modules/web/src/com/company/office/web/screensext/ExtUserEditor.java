@@ -1,4 +1,4 @@
-package com.company.office.web.screens;
+package com.company.office.web.screensext;
 
 import com.company.office.OfficeConfig;
 import com.company.office.common.OfficeTools;

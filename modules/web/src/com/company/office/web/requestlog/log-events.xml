@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://logEvents.caption"
+        class="com.company.office.web.requestlog.LogEvents"
+        messagesPack="com.company.office.web.requestlog">
+    <dsContext>
+        <groupDatasource id="inboxDs"
+                         class="com.company.office.entity.RequestLog"
+                         view="requestLog-view">
+            <query>
+                <![CDATA[select e from office$RequestLog e where e.recepient.id = :session$userId order by e.createTs]]>
+            </query>
+        </groupDatasource>
+        <groupDatasource id="outboxDs"
+                         class="com.company.office.entity.RequestLog"
+                         view="requestLog-view">
+            <query>
+                <![CDATA[select e from office$RequestLog e where e.sender.id = :session$userId]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout>
+        <tabSheet id="tabSheet"
+                  height="100%">
+            <tab id="inboxTab"
+                 caption="msg://logEvents.inbox"
+                 expand="inboxTable"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <groupTable id="inboxTable"
+                            width="100%">
+                    <actions>
+                        <action id="read"
+                                caption="msg://logEvents.read"
+                                invoke="onRead"
+                                trackSelection="true"/>
+                        <action id="unread"
+                                caption="msg://logEvents.unread"
+                                invoke="onUnread"
+                                trackSelection="true"
+                                visible="false"/>
+                    </actions>
+                    <columns>
+                        <column id="request"/>
+                        <column id="sender"/>
+                        <column id="createTs"
+                                align="CENTER"
+                                caption="mainMsg://field.created"/>
+                        <column id="read"
+                                align="CENTER"/>
+                        <column id="attach"
+                                align="CENTER"
+                                generator="generateAttachCell"
+                                width="50"/>
+                        <column id="info"/>
+                    </columns>
+                    <rows datasource="inboxDs"/>
+                    <buttonsPanel>
+                        <button id="readBtn"
+                                action="inboxTable.read"/>
+                        <button id="unreadBtn"
+                                action="inboxTable.unread"/>
+                        <button id="readAllBtn"
+                                caption="msg://logEvents.readAll"
+                                invoke="onReadAllBtnClick"/>
+                        <button id="unreadAllBtn"
+                                caption="msg://logEvents.unreadAll"
+                                invoke="onUnreadAllBtnClick"/>
+                    </buttonsPanel>
+                </groupTable>
+                <fieldGroup id="inboxFields"
+                            datasource="inboxDs">
+                    <column width="400px">
+                        <field property="info"
+                               rows="3"/>
+                    </column>
+                </fieldGroup>
+            </tab>
+            <tab id="outboxTab"
+                 caption="msg://logEvents.outbox"
+                 expand="outboxTable"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <groupTable id="outboxTable"
+                            width="100%">
+                    <columns>
+                        <column id="request"/>
+                        <column id="recepient"/>
+                        <column id="createTs"
+                                align="CENTER"
+                                caption="mainMsg://field.created"/>
+                        <column id="attach"
+                                align="CENTER"
+                                generator="generateAttachCell"
+                                width="50"/>
+                        <column id="info"/>
+                    </columns>
+                    <rows datasource="outboxDs"/>
+                </groupTable>
+                <fieldGroup id="outboxFields"
+                            datasource="outboxDs">
+                    <column width="400px">
+                        <field property="info"
+                               rows="3"/>
+                    </column>
+                </fieldGroup>
+            </tab>
+        </tabSheet>
+    </layout>
+</window>

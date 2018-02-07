@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
         caption="msg://positionsScreen.caption"
-        class="com.company.office.web.screens.PositionsScreen"
+        class="com.company.office.web.position.PositionsScreen"
         focusComponent="table"
         lookupComponent="table"
-        messagesPack="com.company.office.web.screens">
+        messagesPack="com.company.office.web.position">
     <dsContext>
         <collectionDatasource id="positionsDs"
                               class="com.company.office.entity.Position">
@@ -34,7 +34,7 @@
                     icon="icons/ok.png"
                     invoke="onOkBtnClick"/>
             <button id="closeBtn"
-                    caption="mainMsg://actions.Cancel"
+                    caption="msg://positionsScreen.closeBtn"
                     description="Esc"
                     icon="icons/cancel.png"
                     invoke="onCloseBtnClick"/>

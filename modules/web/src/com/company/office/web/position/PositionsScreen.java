@@ -1,6 +1,8 @@
-package com.company.office.web.screens;
+package com.company.office.web.position;
 
 import com.company.office.entity.Position;
+import com.company.office.entity.RequestStep;
+import com.company.office.web.officeweb.OfficeWeb;
 import com.haulmont.cuba.gui.WindowParam;
 import com.haulmont.cuba.gui.components.AbstractWindow;
 import com.haulmont.cuba.gui.components.Table;
@@ -14,21 +16,23 @@ import java.util.UUID;
 public class PositionsScreen extends AbstractWindow {
 
     @Inject
+    private OfficeWeb officeWeb;
+
+    @Inject
     private CollectionDatasource<Position, UUID> positionsDs;
 
     @WindowParam
-    private Position selectedPosition;
+    private RequestStep selectedStep;
 
     @Override
     public void init(Map<String, Object> params) {
-        if (selectedPosition != null) {
-            positionsDs.refresh();
-            ((Table) getComponentNN("table")).setSelected(selectedPosition);
-        }
+        Position selectedPosition = selectedStep.getPosition();
+        positionsDs.refresh();
+        ((Table) getComponentNN("table")).setSelected(selectedPosition);
     }
 
     public void onOkBtnClick() {
-        this.close(Window.COMMIT_ACTION_ID);
+        officeWeb.showStep(this, selectedStep);
     }
 
     public void onCloseBtnClick() {

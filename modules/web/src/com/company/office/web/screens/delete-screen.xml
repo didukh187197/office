@@ -3,7 +3,7 @@
         caption="msg://deleteScreen.caption"
         class="com.company.office.web.screens.DeleteScreen"
         extends="/com/haulmont/cuba/gui/app/core/restore/entity-restore.xml"
-        messagesPack="com.company.office.web.screens com.haulmont.cuba.gui.app.core.restore">
+        messagesPack="com.company.office.web.screens">
     <dialogMode height="600"
                 width="800"/>
     <layout>

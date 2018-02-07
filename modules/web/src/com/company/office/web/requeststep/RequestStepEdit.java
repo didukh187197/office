@@ -3,6 +3,7 @@ package com.company.office.web.requeststep;
 import com.company.office.common.OfficeTools;
 import com.company.office.entity.*;
 import com.company.office.web.officeeditor.OfficeEditor;
+import com.haulmont.cuba.gui.components.Button;
 import com.haulmont.cuba.gui.components.FieldGroup;
 import com.haulmont.cuba.gui.components.TextField;
 
@@ -33,7 +34,8 @@ public class RequestStepEdit extends OfficeEditor<RequestStep> {
         super.postInit();
 
         if (!officeTools.isAdmin()) {
-            getComponentNN("okBtn").setEnabled(false);
+            getComponentNN("okBtn").setVisible(false);
+            ((Button) getComponentNN("closeBtn")).setCaption(getMessage("closeBtn"));
             getComponentNN("tabSheet").setEnabled(false);
         }
 

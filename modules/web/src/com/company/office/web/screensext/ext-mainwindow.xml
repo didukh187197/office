@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
-        class="com.company.office.web.screens.ExtAppMainWindow"
+        class="com.company.office.web.screensext.ExtAppMainWindow"
         extends="/com/haulmont/cuba/web/app/mainwindow/mainwindow.xml"
-        messagesPack="com.company.office.web.screens"
+        messagesPack="com.company.office.web.screensext"
         xmlns:ext="http://schemas.haulmont.com/cuba/window-ext.xsd">
     <dsContext>
         <datasource id="groupDs"
@@ -10,5 +10,13 @@
     </dsContext>
     <dialogMode height="600"
                 width="800"/>
-    <layout/>
+    <layout>
+        <hbox id="titleBar">
+            <linkButton id="eventsBtn"
+                        align="MIDDLE_LEFT"
+                        caption="msg://mainWindow.logsBtn"
+                        ext:index="4"
+                        invoke="onEventsBtnClick"/>
+        </hbox>
+    </layout>
 </window>
