@@ -2,19 +2,25 @@ package com.company.office.web.requestlog;
 
 import com.company.office.common.OfficeCommon;
 import com.company.office.common.OfficeTools;
-import com.company.office.entity.GroupType;
-import com.company.office.entity.RequestLog;
+import com.company.office.entity.*;
+import com.company.office.web.officeweb.OfficeWeb;
+import com.haulmont.cuba.core.entity.Entity;
+import com.haulmont.cuba.core.global.DataManager;
+import com.haulmont.cuba.core.global.LoadContext;
+import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import com.haulmont.cuba.gui.components.actions.BaseAction;
 import com.haulmont.cuba.gui.data.GroupDatasource;
+import com.haulmont.cuba.gui.icons.CubaIcon;
 import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
-import com.vaadin.server.FontAwesome;
 
 public class LogEvents extends AbstractWindow {
 
@@ -23,6 +29,12 @@ public class LogEvents extends AbstractWindow {
 
     @Inject
     private OfficeCommon officeCommon;
+
+    @Inject
+    private OfficeWeb officeWeb;
+
+    @Inject
+    private DataManager dataManager;
 
     @Inject
     private ComponentsFactory componentsFactory;
@@ -45,8 +57,12 @@ public class LogEvents extends AbstractWindow {
     @Named("inboxTable.unread")
     private Action unreadAction;
 
+    private BaseAction markAction, attachAction;
+    private final String PREFIX = "com.company.office.entity.";
+
     @Override
     public void init(Map<String, Object> params) {
+        inboxTable.getColumn("mark").setCaption("");
         inboxTable.getColumn("attach").setCaption("");
         inboxTable.setStyleProvider((logItem, property) -> {
             if (property == null) {
@@ -65,10 +81,37 @@ public class LogEvents extends AbstractWindow {
         }
 
         inboxDs.addItemChangeListener(e -> {
+            if (e.getItem() == null)
+                return;
+
             boolean isRead = e.getItem().getRead() != null;
             readAction.setVisible(!isRead);
             unreadAction.setVisible(isRead);
         });
+
+        markAction = new BaseAction("markAction") {
+            @Override
+            public void actionPerform(Component component) {
+                if (inboxDs.getItem().getRead() == null) {
+                    inboxDs.getItem().setRead(officeTools.addDaysToNow(0));
+                } else {
+                    inboxDs.getItem().setRead(null);
+                }
+                getDsContext().commit();
+                checkUnread();
+            }
+        };
+
+        attachAction = new BaseAction("attachAction") {
+            @Override
+            public void actionPerform(Component component) {
+                GroupDatasource<RequestLog, UUID> workDs = (GroupDatasource<RequestLog, UUID>) ((Table) component.getParent()).getDatasource();
+                RequestLog log = workDs.getItem();
+                String attachType = log.getAttachType().replace(PREFIX, "");
+                UUID attachId = log.getAttachID();
+                showAttach(attachType, attachId);
+            }
+        };
     }
 
     @Override
@@ -76,15 +119,64 @@ public class LogEvents extends AbstractWindow {
         checkUnread();
     }
 
-    public Component generateAttachCell(RequestLog entity) {
-        Label label = componentsFactory.createComponent(Label.class);
-        label.setHtmlEnabled(true);
-        label.setValue(entity.getAttachType() != null ? FontAwesome.EXTERNAL_LINK.getHtml() : "");
-		return label;
+    private void showAttach(String attachType, UUID attachId) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("readOnly", true);
+
+        Entity item;
+        switch (attachType) {
+            case "RequestStep":
+                item = dataManager.load(
+                        LoadContext.create(RequestStep.class).setId(attachId).setView("requestStep-view")
+                );
+                break;
+            case "RequestStepAction":
+                item = dataManager.load(
+                        LoadContext.create(RequestStepAction.class).setId(attachId).setView("requestStepAction-view")
+                );
+                break;
+            case "RequestStepCommunication":
+                item = dataManager.load(
+                        LoadContext.create(RequestStepCommunication.class).setId(attachId).setView("requestStepCommunication-view")
+                );
+                break;
+            default: {
+                officeWeb.showErrorMessage(this, getMessage("logEvents.error.wrongAttachType"));
+                return;
+            }
+        }
+
+        if (item != null) {
+            openEditor(item, WindowManager.OpenType.DIALOG,params);
+        } else {
+             officeWeb.showErrorMessage(this, getMessage("logEvents.error.attachNotFound"));
+        }
+    }
+
+    public Component generateMarkCell(RequestLog log) {
+        LinkButton btn = componentsFactory.createComponent(LinkButton.class);
+        btn.setCaption("");
+        btn.setIconFromSet(log.getRead() != null ? CubaIcon.CHECK_CIRCLE_O : CubaIcon.CHECK_CIRCLE);
+        btn.setAction(markAction);
+        return btn;
+    }
+
+    public Component generateAttachCell(RequestLog log) {
+        if (log.getAttachType() != null) {
+            LinkButton btn = componentsFactory.createComponent(LinkButton.class);
+            btn.setCaption("");
+            btn.setIconFromSet(CubaIcon.EXTERNAL_LINK);
+            btn.setAction(attachAction);
+            return btn;
+        }
+        return null;
     }
 
     private void checkUnread() {
-        tabSheet.getTab("inboxTab").setCaption(getMessage("logEvents.inbox") + officeCommon.getUnreadLogsInfo());
+        long count = officeCommon.unreadLogsCount();
+        getComponentNN("readAllBtn").setEnabled(count != 0);
+        getComponentNN("unreadAllBtn").setEnabled(inboxDs.getItems().size() != count);
+        tabSheet.getTab("inboxTab").setCaption(getMessage("logEvents.inbox") + officeTools.unreadLogsInfo(count));
     }
 
     public void onRead() {
@@ -114,5 +206,12 @@ public class LogEvents extends AbstractWindow {
         }
         getDsContext().commit();
         checkUnread();
+    }
+
+    public void onEdit(Component component) {
+        GroupDatasource<RequestLog, UUID> workDs = (GroupDatasource<RequestLog, UUID>) ((Table) component).getDatasource();
+        Map<String, Object> params = new HashMap<>();
+        params.put("readOnly", true);
+        openEditor(workDs.getItem().getRequest(), WindowManager.OpenType.DIALOG.maximized(true),params);
     }
 }

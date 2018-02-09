@@ -31,7 +31,6 @@ public class OfficeCommon {
     private Messages messages;
 
     private final String REQUEST_MSG_PACK = "com.company.office.web.request";
-    private final String LOGS_MSG_PACK = "com.company.office.web.requestlog";
 
     public void changePosition(Request request) {
         Position position = getNextPosition(request.getStep());
@@ -259,14 +258,13 @@ public class OfficeCommon {
         return resPositionUser != null ? resPositionUser.getUser() : null;
     }
 
-    public String getUnreadLogsInfo() {
+    public long unreadLogsCount() {
         LoadContext<RequestLog> loadContext = LoadContext.create(RequestLog.class)
                 .setQuery(LoadContext.createQuery("select e from office$RequestLog e where e.recepient.id = :userId and e.read is null")
                         .setParameter("userId", officeTools.getActiveUser().getId())
                 )
                 .setView("_local");
-        long count = dataManager.getCount(loadContext);
-        return count == 0 ? "" : String.format(" (%s: %s)", messages.getMessage(LOGS_MSG_PACK, "logEvents.unreadLbl"), count);
+        return dataManager.getCount(loadContext);
     }
 
 }

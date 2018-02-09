@@ -62,10 +62,25 @@ public class RequestEdit extends AbstractEditor<Request> {
     private TabSheet tabSheet;
 
     @Inject
+    private Table<RequestStepAction> actionsTable;
+
+    @Inject
+    private Table<RequestStepCommunication> communicationsTable;
+
+    @Inject
+    private Table<RequestLog> logsTable;
+
+    @Inject
     private Messages messages;
+
+    private boolean readOnly = false;
 
     @Override
     public void init(Map<String, Object> params) {
+        if (params.containsKey("readOnly"))
+            readOnly = (boolean) params.get("readOnly");
+        if (readOnly)
+            return;
         addListeners();
     }
 
@@ -77,9 +92,14 @@ public class RequestEdit extends AbstractEditor<Request> {
     @Override
     protected void postInit() {
         setUserInterface();
+        displayImage();
+        if (readOnly) {
+            officeWeb.showWarningMessage(this, messages.getMainMessage("readonly"));
+            return;
+        }
+
         showSubmitButton();
         showApproveBtn();
-        displayImage();
         applicantField.getLookupAction().setLookupScreenOpenType(WindowManager.OpenType.DIALOG);
         updateImageButtons(getItem().getImageFile() != null);
     }
@@ -110,7 +130,6 @@ public class RequestEdit extends AbstractEditor<Request> {
     }
 
     private void addActionsListeners() {
-        Table actionsTable = (Table) getComponentNN("actionsTable");
         EditAction editStepActionAction = (EditAction) actionsTable.getActionNN("edit");
         Datasource<RequestStepAction> actionsDs = getDsContext().getNN("actionsDs");
 
@@ -132,7 +151,6 @@ public class RequestEdit extends AbstractEditor<Request> {
     }
 
     private void addCommunicationsListeners() {
-        Table communicationsTable = (Table) getComponentNN("communicationsTable");
         CreateAction createStepCommunicationAction = (CreateAction) communicationsTable.getActionNN("create");
         EditAction editStepCommunicationAction = (EditAction) communicationsTable.getActionNN("edit");
         RemoveAction removeStepCommunicationAction = (RemoveAction) communicationsTable.getActionNN("remove");
@@ -184,8 +202,27 @@ public class RequestEdit extends AbstractEditor<Request> {
             getComponentNN("stepInfoBtn").setVisible(false);
         }
 
+        if (readOnly) {
+            actionsTable.getAction("edit").setEnabled(false);
+            actionsTable.getButtonsPanel().setVisible(false);
+
+            communicationsTable.getAction("create").setEnabled(false);
+            communicationsTable.getAction("edit").setEnabled(false);
+            communicationsTable.getAction("remove").setEnabled(false);
+            communicationsTable.getButtonsPanel().setVisible(false);
+
+            logsTable.getAction("edit").setEnabled(false);
+            logsTable.getAction("remove").setEnabled(false);
+
+            tabSheet.getTab("stepsTab").setVisible(false);
+            tabSheet.getTab("systemTab").setVisible(false);
+
+            officeWeb.disableContainer(this, "infoBox");
+            getComponentNN("okBtn").setVisible(false);
+            return;
+        }
+
         if (officeTools.isAdmin()) {
-            Table logsTable = (Table) getComponentNN("logsTable");
             logsTable.getAction("edit").setVisible(true);
             logsTable.getAction("remove").setVisible(true);
             return;

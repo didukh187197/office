@@ -32,6 +32,8 @@
                 <groupTable id="inboxTable"
                             width="100%">
                     <actions>
+                        <action id="edit"
+                                invoke="onEdit"/>
                         <action id="read"
                                 caption="msg://logEvents.read"
                                 invoke="onRead"
@@ -43,6 +45,10 @@
                                 visible="false"/>
                     </actions>
                     <columns>
+                        <column id="mark"
+                                align="CENTER"
+                                generator="generateMarkCell"
+                                width="50"/>
                         <column id="request"/>
                         <column id="sender"/>
                         <column id="createTs"
@@ -85,6 +91,10 @@
                  spacing="true">
                 <groupTable id="outboxTable"
                             width="100%">
+                    <actions>
+                        <action id="edit"
+                                invoke="onEdit"/>
+                    </actions>
                     <columns>
                         <column id="request"/>
                         <column id="recepient"/>

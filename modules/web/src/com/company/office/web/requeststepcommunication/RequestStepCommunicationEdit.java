@@ -63,14 +63,7 @@ public class RequestStepCommunicationEdit extends OfficeEditor<RequestStepCommun
 
     @Override
     public void init(Map<String, Object> params) {
-        initiatorField.setEditable(false);
-
-        FileUploadField uploadQuestionFile = (FileUploadField) getComponentNN("uploadQuestionFile");
-        FileUploadField uploadAnswerFile = (FileUploadField) getComponentNN("uploadAnswerFile");
-        uploadQuestionFile.setUploadButtonCaption("");
-        uploadQuestionFile.setClearButtonCaption("");
-        uploadAnswerFile.setUploadButtonCaption("");
-        uploadAnswerFile.setClearButtonCaption("");
+        super.init(params);
     }
 
     @Override
@@ -82,6 +75,24 @@ public class RequestStepCommunicationEdit extends OfficeEditor<RequestStepCommun
     @Override
     protected void postInit() {
         super.postInit();
+
+        if (super.readOnly) {
+            getComponentNN("recepientBox").setVisible(false);
+            recepientField.setVisible(true);
+            disableContainer("tabSheet");
+            getComponentNN("closeBtn").setVisible(false);
+            setFileButtonsParams();
+            return;
+        }
+
+        initiatorField.setEditable(false);
+
+        FileUploadField uploadQuestionFile = (FileUploadField) getComponentNN("uploadQuestionFile");
+        FileUploadField uploadAnswerFile = (FileUploadField) getComponentNN("uploadAnswerFile");
+        uploadQuestionFile.setUploadButtonCaption("");
+        uploadQuestionFile.setClearButtonCaption("");
+        uploadAnswerFile.setUploadButtonCaption("");
+        uploadAnswerFile.setClearButtonCaption("");
 
         User activeUser = officeTools.getActiveUser();
         Component closeBtn = getComponentNN("closeBtn");
@@ -118,7 +129,7 @@ public class RequestStepCommunicationEdit extends OfficeEditor<RequestStepCommun
                 }
             }
         }
-        setButtonParams();
+        setFileButtonsParams();
     }
 
     @Override
@@ -192,7 +203,7 @@ public class RequestStepCommunicationEdit extends OfficeEditor<RequestStepCommun
         );
     }
 
-    private void setButtonParams() {
+    private void setFileButtonsParams() {
         getComponentNN("btnShowQuestionFile").setEnabled(getItem().getQuestionFile() != null);
         getComponentNN("btnShowAnswerFile").setEnabled(getItem().getAnswerFile() != null);
     }

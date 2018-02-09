@@ -26,18 +26,13 @@ public class RequestStepEdit extends OfficeEditor<RequestStep> {
 
     @Override
     public void init(Map<String, Object> params) {
+        super.init(params);
         penaltyField.setStyleName("name-field");
     }
 
     @Override
     protected void postInit() {
         super.postInit();
-
-        if (!officeTools.isAdmin()) {
-            getComponentNN("okBtn").setVisible(false);
-            ((Button) getComponentNN("closeBtn")).setCaption(getMessage("closeBtn"));
-            getComponentNN("tabSheet").setEnabled(false);
-        }
 
         List<State> workStates = new ArrayList();
         workStates.add(State.Waiting);
@@ -47,6 +42,12 @@ public class RequestStepEdit extends OfficeEditor<RequestStep> {
             penaltyField.setVisible(false);
             fieldGroupDates.setVisible(false);
             getDialogOptions().setHeight(getDialogOptions().getHeight() - 120);
+        }
+
+        if ((readOnly) || (!officeTools.isAdmin())) {
+            getComponentNN("okBtn").setVisible(false);
+            ((Button) getComponentNN("closeBtn")).setCaption(getMessage("closeBtn"));
+            getComponentNN("tabSheet").setEnabled(false);
         }
     }
 

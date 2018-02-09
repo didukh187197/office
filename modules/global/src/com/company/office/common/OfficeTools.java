@@ -86,4 +86,8 @@ public class OfficeTools {
         }
     }
 
+    public String unreadLogsInfo(long count) {
+        return count == 0 ? "" : String.format(" (+%s)", count);
+    }
+
 }

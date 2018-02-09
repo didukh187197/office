@@ -1,6 +1,7 @@
 package com.company.office.web.screensext;
 
 import com.company.office.common.OfficeCommon;
+import com.company.office.common.OfficeTools;
 import com.company.office.web.requestlog.LogEvents;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.LinkButton;
@@ -12,6 +13,9 @@ public class ExtAppMainWindow extends AppMainWindow {
 
     //@Inject
     //private UserSessionSource userSessionSource;
+
+    @Inject
+    private OfficeTools officeTools;
 
     @Inject
     private OfficeCommon officeCommon;
@@ -32,7 +36,7 @@ public class ExtAppMainWindow extends AppMainWindow {
     }
 
     private void setEventsBtnCaption() {
-        eventsBtn.setCaption(getMessage("mainWindow.logsBtn") + officeCommon.getUnreadLogsInfo());
+        eventsBtn.setCaption(getMessage("mainWindow.logsBtn") + officeTools.unreadLogsInfo(officeCommon.unreadLogsCount()));
     }
 
     public void onEventsBtnClick() {

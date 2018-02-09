@@ -13,7 +13,7 @@
             template="com/company/office/web/requestlog/request-log-edit.xml"/>
     <screen id="office$RequestStepAction.edit"
             template="com/company/office/web/requeststepaction/request-step-action-edit.xml"/>
-    <screen id="office$RequestStepCommunication.edit"
+        <screen id="office$RequestStepCommunication.edit"
             template="com/company/office/web/requeststepcommunication/request-step-communication-edit.xml"/>
     <screen id="office$Position.browse"
             template="com/company/office/web/position/position-browse.xml"/>

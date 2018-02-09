@@ -56,6 +56,8 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
 
     @Override
     public void init(Map<String, Object> params) {
+        super.init(params);
+
         addListeners();
     }
 
@@ -63,9 +65,6 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
     protected void postInit() {
         super.postInit();
 
-        if (typeField.getValue() == null) {
-            typeField.setValue(ActionType.sendFile);
-        }
         setUserInterface();
         processActionType(typeField.getValue());
     }
@@ -84,12 +83,19 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
 
     private void addListeners() {
         typeField.addValueChangeListener(e -> processActionType((ActionType) e.getValue()));
-        lookupTemplate.addValueChangeListener(e -> setButtonParams());
+        lookupTemplate.addValueChangeListener(e -> setFileButtonsParams());
     }
 
     private void setUserInterface() {
         uploadFile.setClearButtonCaption("");
         uploadFile.setUploadButtonCaption("");
+
+        if (super.readOnly) {
+            officeWeb.disableContainer(this, "tabMain");
+            officeWeb.disableContainer(this, "buttonsPanel");
+            getComponentNN("closeBtn").setEnabled(true);
+            return;
+        }
 
         if (!officeTools.isAdmin()) {
             typeField.setEnabled(false);
@@ -183,10 +189,10 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
                 messageField.setRequired(true);
                 break;
         }
-        setButtonParams();
+        setFileButtonsParams();
     }
 
-    private void setButtonParams() {
+    private void setFileButtonsParams() {
         getComponentNN("btnShowTemplate").setEnabled(getItem().getTemplate() != null);
         getComponentNN("btnShowFile").setEnabled(getItem().getTemplate() != null);
     }
