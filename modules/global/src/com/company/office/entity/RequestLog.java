@@ -16,6 +16,7 @@ import com.haulmont.cuba.security.entity.User;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.UUID;
+import com.haulmont.cuba.core.entity.annotation.Listeners;
 
 @Table(name = "OFFICE_REQUEST_LOG")
 @Entity(name = "office$RequestLog")

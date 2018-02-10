@@ -1,6 +1,7 @@
 package com.company.office.common;
 
 import com.company.office.OfficeConfig;
+import com.company.office.broadcast.LogCreateEvent;
 import com.company.office.entity.*;
 import com.haulmont.cuba.core.entity.Entity;
 import com.haulmont.cuba.core.global.*;
@@ -112,6 +113,9 @@ public class OfficeCommon {
         }
     }
 
+    @Inject
+    private Events events;
+
     public RequestLog newLogItem(Request request, User recepient, String info, Entity entity) {
         RequestLog requestLog = metadata.create(RequestLog.class);
         requestLog.setRequest(request);
@@ -123,6 +127,7 @@ public class OfficeCommon {
             requestLog.setAttachID((UUID) entity.getId());
         }
         requestLog.setInfo(info);
+        events.publish(new LogCreateEvent(requestLog));
         return requestLog;
     }
 
@@ -266,5 +271,7 @@ public class OfficeCommon {
                 .setView("_local");
         return dataManager.getCount(loadContext);
     }
+
+
 
 }
