@@ -212,6 +212,10 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
         return number;
     }
 
+    public String getSN() {
+        return series + "-" + number;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }

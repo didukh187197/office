@@ -34,11 +34,11 @@ public class RequestStepEdit extends OfficeEditor<RequestStep> {
     protected void postInit() {
         super.postInit();
 
-        List<State> workStates = new ArrayList();
+        List<State> workStates = new ArrayList<>();
         workStates.add(State.Waiting);
         workStates.add(State.Approving);
 
-        if (!workStates.contains(getItem().getState())) {
+        if ((!officeTools.isAdmin()) && (!workStates.contains(getItem().getState()))) {
             penaltyField.setVisible(false);
             fieldGroupDates.setVisible(false);
             getDialogOptions().setHeight(getDialogOptions().getHeight() - 120);

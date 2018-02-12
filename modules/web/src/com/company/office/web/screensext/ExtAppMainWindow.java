@@ -1,7 +1,7 @@
 package com.company.office.web.screensext;
 
-import com.company.office.broadcast.LogCreateEvent;
-import com.company.office.broadcast.LogCreateEventBroadcaster;
+import com.company.office.broadcast.LogsCreatedEvent;
+import com.company.office.broadcast.LogsCreatedEventBroadcaster;
 import com.company.office.common.OfficeCommon;
 import com.company.office.common.OfficeTools;
 import com.company.office.web.requestlog.LogEvents;
@@ -24,7 +24,7 @@ public class ExtAppMainWindow extends AppMainWindow {
     private OfficeCommon officeCommon;
 
     @Inject
-    private LogCreateEventBroadcaster broadcaster;
+    private LogsCreatedEventBroadcaster broadcaster;
 
     @Inject
     private BackgroundWorker backgroundWorker;
@@ -32,20 +32,12 @@ public class ExtAppMainWindow extends AppMainWindow {
     @Inject
     private LinkButton eventsBtn;
 
-    private Consumer<LogCreateEvent> messageHandler;
-
     @Override
     public void init(Map<String, Object> params) {
         super.init(params);
 
         UIAccessor uiAccessor = backgroundWorker.getUIAccessor();
-        messageHandler = event -> uiAccessor.access(() -> {
-            if (event.getLog().getRecepient().equals(officeTools.getActiveUser())) {
-                showNotification(event.getLog().getInfo(), NotificationType.TRAY);
-                setEventsBtnCaption();
-            }
-        });
-
+        Consumer<LogsCreatedEvent> messageHandler = event -> uiAccessor.access(this::setEventsBtnCaption);
         broadcaster.subscribe(messageHandler);
     }
 

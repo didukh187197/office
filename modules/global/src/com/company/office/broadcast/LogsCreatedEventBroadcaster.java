@@ -10,16 +10,16 @@ import java.util.List;
 import java.util.function.Consumer;
 
 @Component
-public class LogCreateEventBroadcaster {
-    public final List<WeakReference<Consumer<LogCreateEvent>>> subscriptions = new ArrayList<>();
+public class LogsCreatedEventBroadcaster {
+    public final List<WeakReference<Consumer<LogsCreatedEvent>>> subscriptions = new ArrayList<>();
 
     @EventListener
-    protected void onMessage(LogCreateEvent event) {
+    protected void onMessage(LogsCreatedEvent event) {
         synchronized (subscriptions) {
-            Iterator<WeakReference<Consumer<LogCreateEvent>>> iterator = subscriptions.iterator();
+            Iterator<WeakReference<Consumer<LogsCreatedEvent>>> iterator = subscriptions.iterator();
             while (iterator.hasNext()) {
-                WeakReference<Consumer<LogCreateEvent>> reference = iterator.next();
-                Consumer<LogCreateEvent> eventConsumer = reference.get();
+                WeakReference<Consumer<LogsCreatedEvent>> reference = iterator.next();
+                Consumer<LogsCreatedEvent> eventConsumer = reference.get();
                 if (eventConsumer == null) {
                     iterator.remove();
                 } else {
@@ -29,7 +29,7 @@ public class LogCreateEventBroadcaster {
         }
     }
 
-    public void subscribe(Consumer<LogCreateEvent> handler) {
+    public void subscribe(Consumer<LogsCreatedEvent> handler) {
         synchronized (subscriptions) {
             subscriptions.add(new WeakReference<>(handler));
         }

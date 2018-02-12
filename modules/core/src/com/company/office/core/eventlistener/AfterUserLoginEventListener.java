@@ -1,4 +1,4 @@
-package com.company.office.core;
+package com.company.office.core.eventlistener;
 
 import com.company.office.OfficeConfig;
 import com.haulmont.cuba.security.app.Authentication;

@@ -63,6 +63,7 @@
                         <column id="step.position"/>
                         <column id="step.state"/>
                         <column id="step.user"/>
+                        <column id="step.penalty"/>
                     </columns>
                     <rows datasource="requestsDs"/>
                     <rowsCount/>

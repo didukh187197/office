@@ -1,11 +1,13 @@
 package com.company.office.web.request;
 
+import com.company.office.broadcast.LogsCreatedEvent;
 import com.company.office.web.officeweb.OfficeWeb;
 import com.company.office.common.OfficeCommon;
 import com.company.office.common.OfficeTools;
 import com.company.office.entity.*;
 import com.haulmont.bali.util.ParamsMap;
 import com.haulmont.cuba.core.entity.FileDescriptor;
+import com.haulmont.cuba.core.global.Events;
 import com.haulmont.cuba.core.global.FileStorageException;
 import com.haulmont.cuba.core.global.Messages;
 import com.haulmont.cuba.core.global.PersistenceHelper;
@@ -74,6 +76,7 @@ public class RequestEdit extends AbstractEditor<Request> {
     private Messages messages;
 
     private boolean readOnly = false;
+    private int logsCount;
 
     @Override
     public void init(Map<String, Object> params) {
@@ -102,6 +105,8 @@ public class RequestEdit extends AbstractEditor<Request> {
         showApproveBtn();
         applicantField.getLookupAction().setLookupScreenOpenType(WindowManager.OpenType.DIALOG);
         updateImageButtons(getItem().getImageFile() != null);
+
+        logsCount = PersistenceHelper.isNew(getItem()) ? 0 : getItem().getLogs().size();
     }
 
     private void addListeners() {
@@ -269,6 +274,9 @@ public class RequestEdit extends AbstractEditor<Request> {
 
     private boolean moved = false;
 
+    @Inject
+    private Events events;
+
     @Override
     protected boolean preCommit() {
 
@@ -323,6 +331,11 @@ public class RequestEdit extends AbstractEditor<Request> {
                 default:
             }
         }
+
+        if (request.getLogs().size() != logsCount) {
+            events.publish(new LogsCreatedEvent(getMessage("request") + " " + request.getSN() + "\n" + getMessage("logs.created")));
+        }
+
         return true;
     }
 

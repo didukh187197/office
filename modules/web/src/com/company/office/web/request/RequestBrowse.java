@@ -108,7 +108,7 @@ public class RequestBrowse extends AbstractLookup {
                 State state = e.getItem().getStep().getState();
                 extraActionsBtn.getAction("stop").setVisible(workStates.contains(state));
                 extraActionsBtn.getAction("start").setVisible(state.equals(State.Stopped));
-                extraActionsBtn.getAction("cancel").setVisible(workStates.contains(state));
+                extraActionsBtn.getAction("cancel").setVisible(state.equals(State.Stopped));
                 extraActionsBtn.getAction("archive").setVisible(archivedStates.contains(state));
             }
             focusOnStep();
@@ -159,16 +159,7 @@ public class RequestBrowse extends AbstractLookup {
     }
 
     public Component snGenerator(Request request) {
-        String res = "";
-        if (request.getSeries() != null) {
-            res += request.getSeries() + "-";
-        }
-
-        if (request.getNumber() != null) {
-            res += request.getNumber();
-        }
-
-        return new Table.PlainTextCell(res);
+        return new Table.PlainTextCell(request.getSN());
     }
 
     public Component performedGenerator(RequestStepAction requestStepAction) {
@@ -224,14 +215,12 @@ public class RequestBrowse extends AbstractLookup {
                     officeWeb.showWarningMessage(this, getMessage("result.started"));
                     break;
                 case CANCEL_REQUEST:
-                    if (request.getStep().getUser() != null) {
-                        officeCommon.changePositionUserRequestCount(request.getStep().getPosition(), request.getStep().getUser(), -1);
-                    }
                     officeCommon.changeState(request, State.Cancelled, reason);
                     officeWeb.showWarningMessage(this, getMessage("result.cancelled"));
                     break;
                 case ARCHIVE_REQUEST:
                     officeCommon.changeState(request, State.Archived, reason);
+                    officeCommon.blockApplicant(request.getApplicant());
                     officeWeb.showWarningMessage(this, getMessage("result.archived"));
                     break;
                 default:
