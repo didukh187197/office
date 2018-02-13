@@ -2,6 +2,7 @@ package com.company.office.web.screens;
 
 import com.company.office.OfficeConfig;
 import com.company.office.entity.Position;
+import com.company.office.service.ShedulerService;
 import com.haulmont.cuba.core.global.Messages;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.security.entity.Group;
@@ -177,5 +178,12 @@ public class MainSettingsScreen extends AbstractWindow {
 
     public void onBtnCancelClick() {
         this.close("");
+    }
+
+    @Inject
+    private ShedulerService shedulerService;
+
+    public void onBtnProbaClick() {
+        shedulerService.checkProcessingDelay();
     }
 }

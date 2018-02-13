@@ -1,8 +1,9 @@
 package com.company.office.web.requestlog;
 
-import com.company.office.common.OfficeCommon;
+import com.company.office.common.RequestProcessing;
 import com.company.office.common.OfficeTools;
 import com.company.office.entity.*;
+import com.company.office.service.ToolsService;
 import com.company.office.web.officeweb.OfficeWeb;
 import com.haulmont.cuba.core.entity.Entity;
 import com.haulmont.cuba.core.global.DataManager;
@@ -28,10 +29,13 @@ public class LogEvents extends AbstractWindow {
     private OfficeTools officeTools;
 
     @Inject
-    private OfficeCommon officeCommon;
+    private RequestProcessing requestProcessing;
 
     @Inject
     private OfficeWeb officeWeb;
+
+    @Inject
+    private ToolsService toolsService;
 
     @Inject
     private DataManager dataManager;
@@ -173,7 +177,7 @@ public class LogEvents extends AbstractWindow {
     }
 
     private void checkUnread() {
-        long count = officeCommon.unreadLogsCount();
+        long count = toolsService.unreadLogsCount();
         getComponentNN("readAllBtn").setEnabled(count != 0);
         getComponentNN("unreadAllBtn").setEnabled(inboxDs.getItems().size() != count);
         tabSheet.getTab("inboxTab").setCaption(getMessage("logEvents.inbox") + officeTools.unreadLogsInfo(count));

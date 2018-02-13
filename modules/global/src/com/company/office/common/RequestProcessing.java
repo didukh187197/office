@@ -2,6 +2,7 @@ package com.company.office.common;
 
 import com.company.office.OfficeConfig;
 import com.company.office.entity.*;
+import com.company.office.service.ToolsService;
 import com.haulmont.cuba.core.entity.Entity;
 import com.haulmont.cuba.core.global.*;
 import com.haulmont.cuba.security.entity.User;
@@ -13,13 +14,16 @@ import java.util.List;
 import java.util.UUID;
 
 @Component("office_OfficeCommon")
-public class OfficeCommon {
+public class RequestProcessing {
 
     @Inject
     private OfficeConfig officeConfig;
 
     @Inject
     private OfficeTools officeTools;
+
+    @Inject
+    private ToolsService toolsService;
 
     @Inject
     private DataManager dataManager;
@@ -222,14 +226,8 @@ public class OfficeCommon {
 
         if (positionUser != null) {
             positionUser.setRequests(officeTools.getCountInt(positionUser.getRequests()) + count);
-            commitEntity(positionUser);
+            toolsService.commitEntity(positionUser);
         }
-    }
-
-    private void commitEntity(Entity entity) {
-        CommitContext commitContext = new CommitContext();
-        commitContext.addInstanceToCommit(entity);
-        dataManager.commit(commitContext);
     }
 
     private User findFreePositionUser(Position position) {
@@ -256,21 +254,6 @@ public class OfficeCommon {
             }
         }
         return resPositionUser != null ? resPositionUser.getUser() : null;
-    }
-
-    public long unreadLogsCount() {
-        LoadContext<RequestLog> loadContext = LoadContext.create(RequestLog.class)
-                .setQuery(LoadContext.createQuery("select e from office$RequestLog e where e.recepient.id = :userId and e.read is null")
-                        .setParameter("userId", officeTools.getActiveUser().getId())
-                )
-                .setView("_local");
-        return dataManager.getCount(loadContext);
-    }
-
-    public void blockApplicant(User applicant) {
-        User blockedUser =  dataManager.load(LoadContext.create(User.class).setId(applicant.getId()).setView("_local"));
-        blockedUser.setActive(false);
-        commitEntity(blockedUser);
     }
 
 }

@@ -2,8 +2,8 @@ package com.company.office.web.screensext;
 
 import com.company.office.broadcast.LogsCreatedEvent;
 import com.company.office.broadcast.LogsCreatedEventBroadcaster;
-import com.company.office.common.OfficeCommon;
 import com.company.office.common.OfficeTools;
+import com.company.office.service.ToolsService;
 import com.company.office.web.requestlog.LogEvents;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.LinkButton;
@@ -21,7 +21,7 @@ public class ExtAppMainWindow extends AppMainWindow {
     private OfficeTools officeTools;
 
     @Inject
-    private OfficeCommon officeCommon;
+    private ToolsService toolsService;
 
     @Inject
     private LogsCreatedEventBroadcaster broadcaster;
@@ -32,12 +32,20 @@ public class ExtAppMainWindow extends AppMainWindow {
     @Inject
     private LinkButton eventsBtn;
 
+    private Consumer<LogsCreatedEvent> messageHandler;
+    private long logsCount;
+
     @Override
     public void init(Map<String, Object> params) {
         super.init(params);
 
         UIAccessor uiAccessor = backgroundWorker.getUIAccessor();
-        Consumer<LogsCreatedEvent> messageHandler = event -> uiAccessor.access(this::setEventsBtnCaption);
+        messageHandler = event -> uiAccessor.access(() -> {
+            if (logsCount != toolsService.unreadLogsCount()) {
+                showNotification(getMessage("mainWindow.checkLogs"), NotificationType.TRAY);
+                setEventsBtnCaption();
+            }
+        });
         broadcaster.subscribe(messageHandler);
     }
 
@@ -52,7 +60,8 @@ public class ExtAppMainWindow extends AppMainWindow {
     }
 
     private void setEventsBtnCaption() {
-        eventsBtn.setCaption(getMessage("mainWindow.logsBtn") + officeTools.unreadLogsInfo(officeCommon.unreadLogsCount()));
+        logsCount = toolsService.unreadLogsCount();
+        eventsBtn.setCaption(getMessage("mainWindow.logsBtn") + officeTools.unreadLogsInfo(logsCount));
     }
 
     public void onEventsBtnClick() {

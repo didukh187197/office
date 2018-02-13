@@ -1,7 +1,7 @@
 package com.company.office.web.requeststepaction;
 
 import com.company.office.entity.*;
-import com.company.office.common.OfficeCommon;
+import com.company.office.common.RequestProcessing;
 import com.company.office.common.OfficeTools;
 import com.company.office.web.officeeditor.OfficeEditor;
 import com.company.office.web.officeweb.OfficeWeb;
@@ -20,7 +20,7 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
     private Request request;
 
     @Inject
-    private OfficeCommon officeCommon;
+    private RequestProcessing requestProcessing;
 
     @Inject
     private OfficeTools officeTools;
@@ -75,7 +75,7 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
 
         if (!closeFromExtraActions) {
             request.getLogs().add(
-                    officeCommon.newLogItem(request, null, makeName() + messages.getMainMessage("logs.edited"), getItem())
+                    requestProcessing.newLogItem(request, null, makeName() + messages.getMainMessage("logs.edited"), getItem())
             );
         }
         return true;
@@ -241,7 +241,7 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
                         new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
                             field.setValue(setValue ? new Date() : null);
                             request.getLogs().add(
-                                    officeCommon.newLogItem(request, null, makeName() + " " + info, getItem())
+                                    requestProcessing.newLogItem(request, null, makeName() + " " + info, getItem())
                             );
                             closeFromExtraActions = true;
                             commitAndClose();

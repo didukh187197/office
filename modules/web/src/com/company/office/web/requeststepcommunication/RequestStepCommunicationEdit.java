@@ -1,7 +1,7 @@
 package com.company.office.web.requeststepcommunication;
 
 import com.company.office.OfficeConfig;
-import com.company.office.common.OfficeCommon;
+import com.company.office.common.RequestProcessing;
 import com.company.office.common.OfficeTools;
 import com.company.office.entity.Request;
 import com.company.office.web.officeeditor.OfficeEditor;
@@ -26,7 +26,7 @@ public class RequestStepCommunicationEdit extends OfficeEditor<RequestStepCommun
     private OfficeConfig officeConfig;
 
     @Inject
-    private OfficeCommon officeCommon;
+    private RequestProcessing requestProcessing;
 
     @Inject
     private OfficeTools officeTools;
@@ -139,7 +139,7 @@ public class RequestStepCommunicationEdit extends OfficeEditor<RequestStepCommun
         if (!closeFromExtraActions) {
             String itemAction = newItem ? messages.getMainMessage("logs.created") : messages.getMainMessage("logs.edited");
             request.getLogs().add(
-                    officeCommon.newLogItem(request, getLogRecepient(), makeName() + itemAction, getItem())
+                    requestProcessing.newLogItem(request, getLogRecepient(), makeName() + itemAction, getItem())
             );
         }
         return true;
@@ -193,7 +193,7 @@ public class RequestStepCommunicationEdit extends OfficeEditor<RequestStepCommun
                         new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
                             closedField.setValue(new Date());
                             request.getLogs().add(
-                                    officeCommon.newLogItem(request, getLogRecepient(), makeName() + messages.getMainMessage("logs.closed"), getItem())
+                                    requestProcessing.newLogItem(request, getLogRecepient(), makeName() + messages.getMainMessage("logs.closed"), getItem())
                             );
                             closeFromExtraActions = true;
                             commitAndClose();

@@ -1,8 +1,9 @@
 package com.company.office.web.request;
 
-import com.company.office.common.OfficeCommon;
+import com.company.office.common.RequestProcessing;
 import com.company.office.entity.*;
 import com.company.office.common.OfficeTools;
+import com.company.office.service.ToolsService;
 import com.company.office.web.officeweb.OfficeWeb;
 import com.company.office.web.screens.DialogScreen;
 import com.haulmont.cuba.gui.WindowManager;
@@ -21,10 +22,13 @@ public class RequestBrowse extends AbstractLookup {
     private OfficeTools officeTools;
 
     @Inject
-    private OfficeCommon officeCommon;
+    private RequestProcessing requestProcessing;
 
     @Inject
     private OfficeWeb officeWeb;
+
+    @Inject
+    private ToolsService toolsService;
 
     @Inject
     private GroupDatasource<Request, UUID> requestsDs;
@@ -202,25 +206,25 @@ public class RequestBrowse extends AbstractLookup {
             switch (actionId) {
                 case STOP_REQUEST:
                     if (request.getStep().getUser() != null) {
-                        officeCommon.changePositionUserRequestCount(request.getStep().getPosition(), request.getStep().getUser(), -1);
+                        requestProcessing.changePositionUserRequestCount(request.getStep().getPosition(), request.getStep().getUser(), -1);
                     }
-                    officeCommon.changeState(request, State.Stopped, reason);
+                    requestProcessing.changeState(request, State.Stopped, reason);
                     officeWeb.showWarningMessage(this, getMessage("result.stopped"));
                     break;
                 case START_REQUEST:
-                    officeCommon.changeState(request, State.Suspended, reason);
-                    if (officeCommon.changeWorker(request)) {
-                        officeCommon.changePositionUserRequestCount(request.getStep().getPosition(), request.getStep().getUser(), 1);
+                    requestProcessing.changeState(request, State.Suspended, reason);
+                    if (requestProcessing.changeWorker(request)) {
+                        requestProcessing.changePositionUserRequestCount(request.getStep().getPosition(), request.getStep().getUser(), 1);
                     }
                     officeWeb.showWarningMessage(this, getMessage("result.started"));
                     break;
                 case CANCEL_REQUEST:
-                    officeCommon.changeState(request, State.Cancelled, reason);
+                    requestProcessing.changeState(request, State.Cancelled, reason);
                     officeWeb.showWarningMessage(this, getMessage("result.cancelled"));
                     break;
                 case ARCHIVE_REQUEST:
-                    officeCommon.changeState(request, State.Archived, reason);
-                    officeCommon.blockApplicant(request.getApplicant());
+                    requestProcessing.changeState(request, State.Archived, reason);
+                    toolsService.blockApplicant(request.getApplicant());
                     officeWeb.showWarningMessage(this, getMessage("result.archived"));
                     break;
                 default:

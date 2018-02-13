@@ -134,6 +134,9 @@
                     description="Esc"
                     icon="icons/cancel.png"
                     invoke="onBtnCancelClick"/>
+            <button id="btnProba"
+                    caption="Proba"
+                    invoke="onBtnProbaClick"/>
         </buttonsPanel>
     </layout>
 </window>

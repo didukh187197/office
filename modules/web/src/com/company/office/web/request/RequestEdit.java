@@ -2,7 +2,7 @@ package com.company.office.web.request;
 
 import com.company.office.broadcast.LogsCreatedEvent;
 import com.company.office.web.officeweb.OfficeWeb;
-import com.company.office.common.OfficeCommon;
+import com.company.office.common.RequestProcessing;
 import com.company.office.common.OfficeTools;
 import com.company.office.entity.*;
 import com.haulmont.bali.util.ParamsMap;
@@ -34,7 +34,7 @@ public class RequestEdit extends AbstractEditor<Request> {
     private OfficeTools officeTools;
 
     @Inject
-    private OfficeCommon officeCommon;
+    private RequestProcessing requestProcessing;
 
     @Inject
     private OfficeWeb officeWeb;
@@ -193,7 +193,7 @@ public class RequestEdit extends AbstractEditor<Request> {
             RequestStepCommunication removedCommunication = (RequestStepCommunication) e.toArray()[0];
             String name = String.format( getMessage("communication.name") + " ", officeTools.left(removedCommunication.getQuestion(),20) );
             getItem().getLogs().add(
-                    officeCommon.newLogItem(
+                    requestProcessing.newLogItem(
                             getItem(),
                             removedCommunication.getRecepient(),
                             name + messages.getMainMessage("logs.removed"),
@@ -296,7 +296,7 @@ public class RequestEdit extends AbstractEditor<Request> {
         if (PersistenceHelper.isNew(request)) {
             List<RequestLog> logs = new ArrayList<>();
             logs.add(
-                    officeCommon.newLogItem(request, request.getApplicant(), getMessage("result.created"), null)
+                    requestProcessing.newLogItem(request, request.getApplicant(), getMessage("result.created"), null)
             );
             request.setLogs(logs);
 
@@ -304,9 +304,9 @@ public class RequestEdit extends AbstractEditor<Request> {
             request.setSteps(steps);
 
             if (!moved) {
-                officeCommon.changePosition(request);
-                if (officeCommon.changeWorker(request)) {
-                    officeCommon.changePositionUserRequestCount(request.getStep().getPosition(), request.getStep().getUser(), 1);
+                requestProcessing.changePosition(request);
+                if (requestProcessing.changeWorker(request)) {
+                    requestProcessing.changePositionUserRequestCount(request.getStep().getPosition(), request.getStep().getUser(), 1);
                 }
                 moved = true;
             }
@@ -321,22 +321,26 @@ public class RequestEdit extends AbstractEditor<Request> {
                 case Managers:
                 case Registrators:
                     request.getLogs().add(
-                            officeCommon.newLogItem(request, request.getApplicant(), getMessage("result.edited"), null)
+                            requestProcessing.newLogItem(request, request.getApplicant(), getMessage("result.edited"), null)
                     );
                     if (request.getStep().getUser() != null) {
                         request.getLogs().add(
-                                officeCommon.newLogItem(request, request.getStep().getUser(), getMessage("result.edited"), null)
+                                requestProcessing.newLogItem(request, request.getStep().getUser(), getMessage("result.edited"), null)
                         );
                     }
                 default:
             }
         }
+        return true;
+    }
 
+    @Override
+    protected boolean postCommit(boolean committed, boolean close) {
+        Request request = getItem();
         if (request.getLogs().size() != logsCount) {
             events.publish(new LogsCreatedEvent(getMessage("request") + " " + request.getSN() + "\n" + getMessage("logs.created")));
         }
-
-        return true;
+        return super.postCommit(committed, close);
     }
 
     private void showSubmitButton() {
@@ -401,7 +405,7 @@ public class RequestEdit extends AbstractEditor<Request> {
                             requestStep.setApprovalTerm(officeTools.addDaysToNow(requestStep.getPosition().getDaysForSubmission()));
                             requestStep.setState(State.Approving);
                             request.getLogs().add(
-                                    officeCommon.newLogItem(request, requestStep.getUser(), getMessage("result.submitted"), null)
+                                    requestProcessing.newLogItem(request, requestStep.getUser(), getMessage("result.submitted"), null)
                             );
                             commitAndClose();
                         }),
@@ -423,15 +427,15 @@ public class RequestEdit extends AbstractEditor<Request> {
                         new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
                             Request request = getItem();
                             request.getLogs().add(
-                                    officeCommon.newLogItem(request, request.getApplicant(), getMessage("result.approved"), null)
+                                    requestProcessing.newLogItem(request, request.getApplicant(), getMessage("result.approved"), null)
                             );
                             RequestStep requestStep = request.getStep();
                             requestStep.setApproved(new Date());
 
-                            officeCommon.changePositionUserRequestCount(request.getStep().getPosition(), request.getStep().getUser(), -1);
-                            officeCommon.changePosition(request);
-                            if (officeCommon.changeWorker(request)) {
-                                officeCommon.changePositionUserRequestCount(request.getStep().getPosition(), request.getStep().getUser(), 1);
+                            requestProcessing.changePositionUserRequestCount(request.getStep().getPosition(), request.getStep().getUser(), -1);
+                            requestProcessing.changePosition(request);
+                            if (requestProcessing.changeWorker(request)) {
+                                requestProcessing.changePositionUserRequestCount(request.getStep().getPosition(), request.getStep().getUser(), 1);
                             }
 
                             approved = true;

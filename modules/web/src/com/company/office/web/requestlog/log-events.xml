@@ -8,14 +8,14 @@
                          class="com.company.office.entity.RequestLog"
                          view="requestLog-view">
             <query>
-                <![CDATA[select e from office$RequestLog e where e.recepient.id = :session$userId order by e.createTs]]>
+                <![CDATA[select e from office$RequestLog e where e.recepient.id = :session$userId order by e.createTs desc]]>
             </query>
         </groupDatasource>
         <groupDatasource id="outboxDs"
                          class="com.company.office.entity.RequestLog"
                          view="requestLog-view">
             <query>
-                <![CDATA[select e from office$RequestLog e where e.sender.id = :session$userId]]>
+                <![CDATA[select e from office$RequestLog e where e.sender.id = :session$userId  order by e.createTs desc]]>
             </query>
         </groupDatasource>
     </dsContext>
