@@ -62,6 +62,11 @@
           name="request-view">
         <property name="step"
                   view="requestStep-view">
+            <property name="user"
+                      view="_minimal">
+                <property name="group"
+                          view="_local"/>
+            </property>
         </property>
         <property name="applicant"
                   view="_minimal">

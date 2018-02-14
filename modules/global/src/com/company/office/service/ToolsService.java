@@ -8,6 +8,8 @@ public interface ToolsService {
     String NAME = "office_ToolsService";
 
     long unreadLogsCount();
-    void blockApplicant(User applicant);
+    void blockUser(User applicant);
     void commitEntity(Entity entity);
+    int getApplicantPenalty(User applicant);
+    int getWorkerPenalty(User worker);
 }

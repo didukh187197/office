@@ -1,9 +1,11 @@
 package com.company.office.web.screensext;
 
+import com.company.office.OfficeConfig;
 import com.company.office.broadcast.LogsCreatedEvent;
 import com.company.office.broadcast.LogsCreatedEventBroadcaster;
 import com.company.office.common.OfficeTools;
 import com.company.office.service.ToolsService;
+import com.company.office.web.officeweb.OfficeWeb;
 import com.company.office.web.requestlog.LogEvents;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.LinkButton;
@@ -18,10 +20,16 @@ import java.util.function.Consumer;
 public class ExtAppMainWindow extends AppMainWindow {
 
     @Inject
-    private OfficeTools officeTools;
+    private OfficeConfig officeConfig;
 
     @Inject
     private ToolsService toolsService;
+
+    @Inject
+    private OfficeTools officeTools;
+
+    @Inject
+    private OfficeWeb officeWeb;
 
     @Inject
     private LogsCreatedEventBroadcaster broadcaster;
@@ -56,6 +64,25 @@ public class ExtAppMainWindow extends AppMainWindow {
 
         if (!officeTools.isAdmin()) {
             openWindow("office$Request.browse", WindowManager.OpenType.NEW_TAB);
+        }
+
+        switch (officeTools.getActiveGroupType()) {
+            case Applicants:
+                int applicantPenalty = toolsService.getApplicantPenalty(officeTools.getActiveUser());
+                if (applicantPenalty != 0) {
+                    officeWeb.showWarningMessage(this,
+                            String.format(getMessage("mainWindow.warning.penalty"), applicantPenalty, officeConfig.getApplicantPenalty())
+                    );
+                }
+                break;
+            case Workers:
+                int workerPenalty = toolsService.getWorkerPenalty(officeTools.getActiveUser());
+                if (workerPenalty != 0) {
+                    officeWeb.showWarningMessage(this,
+                            String.format(getMessage("mainWindow.warning.penalty"), workerPenalty, officeConfig.getWorkerPenalty())
+                    );
+                }
+                break;
         }
     }
 

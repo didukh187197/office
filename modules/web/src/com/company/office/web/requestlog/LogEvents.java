@@ -69,11 +69,8 @@ public class LogEvents extends AbstractWindow {
         inboxTable.getColumn("mark").setCaption("");
         inboxTable.getColumn("attach").setCaption("");
         inboxTable.setStyleProvider((logItem, property) -> {
-            if (property == null) {
-                if (logItem.getRead() == null) {
-                    return "table-row-marked";
-                }
-            }
+            if ((property == null) && (logItem.getRead() == null))
+                return "table-row-marked";
             return null;
         });
 

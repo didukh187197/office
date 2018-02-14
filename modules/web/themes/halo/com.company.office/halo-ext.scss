@@ -4,8 +4,16 @@
 @mixin com_company_office-halo-ext {
   @include halo;
 
-  .name-field {
-    background-color: lightyellow;
+  .applicant-penalty {
+    /*font-weight: bold;*/
+    color: white;
+    background-color: indianred;
+  }
+
+  .worker-penalty  {
+    /*font-weight: bold;*/
+    color: black;
+    background-color: tomato;
   }
 
   .dialog-prompt {

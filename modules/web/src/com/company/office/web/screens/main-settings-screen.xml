@@ -124,6 +124,28 @@
                              required="true"/>
             </hbox>
         </groupBox>
+        <groupBox id="penaltiesBox"
+                  caption="msg://settingsDialog.penalties"
+                  orientation="horizontal"
+                  spacing="true"
+                  width="500px">
+            <hbox spacing="true">
+                <label align="MIDDLE_LEFT"
+                       value="msg://settingsDialog.applicantPenalty"/>
+                <maskedField id="applicantPenaltyFiled"
+                             mask="##"
+                             required="true"
+                             width="40px"/>
+            </hbox>
+            <hbox spacing="true">
+                <label align="MIDDLE_LEFT"
+                       value="msg://settingsDialog.workerPenalty"/>
+                <maskedField id="workerPenaltyFiled"
+                             mask="##"
+                             required="true"
+                             width="40px"/>
+            </hbox>
+        </groupBox>
         <buttonsPanel id="buttonsPanel">
             <button id="btnOk"
                     caption="mainMsg://actions.Ok"

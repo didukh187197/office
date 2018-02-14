@@ -27,12 +27,19 @@ public class RequestStepEdit extends OfficeEditor<RequestStep> {
     @Override
     public void init(Map<String, Object> params) {
         super.init(params);
-        penaltyField.setStyleName("name-field");
     }
 
     @Override
     protected void postInit() {
         super.postInit();
+
+        int penalty = officeTools.getCountInt(getItem().getPenalty());
+        if (penalty < 0) {
+            penaltyField.setStyleName("applicant-penalty");
+        } else
+            if (penalty > 0) {
+                penaltyField.setStyleName("worker-penalty");
+            }
 
         List<State> workStates = new ArrayList<>();
         workStates.add(State.Waiting);

@@ -56,14 +56,17 @@
                     </actions>
                     <columns>
                         <column id="applicant"/>
-                        <column id="applicantCode"/>
+                        <column id="applicantCode"
+                                align="CENTER"/>
                         <column id="sn"
+                                align="CENTER"
                                 caption="#"
                                 generator="snGenerator"/>
                         <column id="step.position"/>
                         <column id="step.state"/>
                         <column id="step.user"/>
-                        <column id="step.penalty"/>
+                        <column id="step.penalty"
+                                align="CENTER"/>
                     </columns>
                     <rows datasource="requestsDs"/>
                     <rowsCount/>
@@ -96,23 +99,25 @@
                                         caption="msg://extraActionsBtn.archive"
                                         invoke="onArchive"
                                         visible="false"/>
+                                <action id="reduce"
+                                        caption="msg://extraActionsBtn.reduce"
+                                        invoke="onReducePenalty"
+                                        visible="false"/>
                             </actions>
                         </popupButton>
                         <hbox id="managerBox"
                               spacing="true"
                               visible="false">
                             <button id="stopBtn"
-                                    action="extraActionsBtn.stop"
-                                    caption="msg://extraActionsBtn.stop"/>
+                                    action="extraActionsBtn.stop"/>
                             <button id="startBtn"
-                                    action="extraActionsBtn.start"
-                                    caption="msg://extraActionsBtn.start"/>
+                                    action="extraActionsBtn.start"/>
                             <button id="cancelBtn"
-                                    action="extraActionsBtn.cancel"
-                                    caption="msg://extraActionsBtn.cancel"/>
+                                    action="extraActionsBtn.cancel"/>
                             <button id="archiveBtn"
-                                    action="extraActionsBtn.archive"
-                                    caption="msg://extraActionsBtn.archive"/>
+                                    action="extraActionsBtn.archive"/>
+                            <button id="reduceBtn"
+                                    action="extraActionsBtn.reduce"/>
                         </hbox>
                         <linkButton id="positionBtn"
                                     action="table.position"

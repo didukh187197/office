@@ -2,7 +2,6 @@ package com.company.office.web.screens;
 
 import com.company.office.OfficeConfig;
 import com.company.office.entity.Position;
-import com.company.office.service.ShedulerService;
 import com.haulmont.cuba.core.global.Messages;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.security.entity.Group;
@@ -50,6 +49,12 @@ public class MainSettingsScreen extends AbstractWindow {
     private LookupField lookupFinalPosition;
 
     @Inject
+    private MaskedField applicantPenaltyFiled;
+
+    @Inject
+    private MaskedField workerPenaltyFiled;
+
+    @Inject
     private Messages messages;
 
     @Override
@@ -72,6 +77,10 @@ public class MainSettingsScreen extends AbstractWindow {
         // Positions
         initPositionLookup(lookupInitPosition, officeConfig.getInitPosition());
         initPositionLookup(lookupFinalPosition, officeConfig.getFinalPosition());
+
+        //Penalties
+        initPenaltyField(applicantPenaltyFiled, officeConfig.getApplicantPenalty());
+        initPenaltyField(workerPenaltyFiled, officeConfig.getWorkerPenalty());
     }
 
     private void initGroupLookup(LookupField lookup, Group value) {
@@ -89,9 +98,15 @@ public class MainSettingsScreen extends AbstractWindow {
             lookup.setValue(value);
     }
 
-    private void warnEmptyField(String lookupType, String lookupName) {
+    private void initPenaltyField(MaskedField field, Integer value) {
+        if (value != null)
+            field.setValue(value);
+    }
+
+    private void warnEmptyField(String fieldName, String fieldType) {
+        String second = fieldType.isEmpty() ? "" : getMessage("settingsDialog.type." + fieldType);
         showNotification(
-                String.format(getMessage("settingsDialog.warning.empty.msg"), getMessage("settingsDialog." + lookupName), getMessage("settingsDialog.type." + lookupType)),
+                String.format(getMessage("settingsDialog.warning.empty.msg"), getMessage("settingsDialog." + fieldName), second),
                 NotificationType.ERROR
         );
     }
@@ -154,6 +169,16 @@ public class MainSettingsScreen extends AbstractWindow {
                                 return;
                             }
 
+                            if (applicantPenaltyFiled.getValue() == null) {
+                                warnEmptyField("applicantPenalty", "");
+                                return;
+                            }
+
+                            if (workerPenaltyFiled.getValue() == null) {
+                                warnEmptyField("workerPenalty", "");
+                                return;
+                            }
+
                             officeConfig.setCompanyName(txtCompanyName.getValue());
 
                             officeConfig.setManagersGroup(lookupManagersGroup.getValue());
@@ -169,6 +194,9 @@ public class MainSettingsScreen extends AbstractWindow {
                             officeConfig.setInitPosition(lookupInitPosition.getValue());
                             officeConfig.setFinalPosition(lookupFinalPosition.getValue());
 
+                            officeConfig.setApplicantPenalty(Integer.parseInt(applicantPenaltyFiled.getValue()));
+                            officeConfig.setWorkerPenalty(Integer.parseInt(workerPenaltyFiled.getValue()));
+
                             this.close("");
                         }),
                         new DialogAction(DialogAction.Type.NO, Action.Status.PRIMARY)
@@ -180,10 +208,16 @@ public class MainSettingsScreen extends AbstractWindow {
         this.close("");
     }
 
+    // For testing purposes
     @Inject
-    private ShedulerService shedulerService;
+    private Button btnProba;
+
+    @Override
+    public void ready() {
+        btnProba.setVisible(false);
+    }
 
     public void onBtnProbaClick() {
-        shedulerService.checkProcessingDelay();
     }
+
 }

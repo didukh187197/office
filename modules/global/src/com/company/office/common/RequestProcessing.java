@@ -130,6 +130,37 @@ public class RequestProcessing {
         return requestLog;
     }
 
+    public void changePositionUserRequestCount(Position position, User user, int count) {
+        if ((user == null) || (position == null))
+            return;
+
+        LoadContext<PositionUser> loadContext = LoadContext.create(PositionUser.class)
+                .setQuery(LoadContext.createQuery("select pu from office$PositionUser pu where pu.position.id = :pos and pu.user.id = :usr")
+                        .setParameter("pos", position.getId())
+                        .setParameter("usr", user.getId())
+                )
+                .setView("positionUser-view");
+        PositionUser positionUser = dataManager.load(loadContext);
+
+        if (positionUser != null) {
+            positionUser.setRequests(officeTools.getCountInt(positionUser.getRequests()) + count);
+            toolsService.commitEntity(positionUser);
+        }
+    }
+
+    public void reducePenalty(Request request) {
+        RequestStep step = request.getStep();
+        int penalty = step.getPenalty();
+        if (penalty < 0) {
+            penalty++;
+            step.setPenalty(penalty == 0 ? null : penalty);
+        } else
+        if (penalty > 0) {
+            penalty--;
+            step.setPenalty(penalty == 0 ? null : penalty);
+        }
+    }
+
     private User getLogRecepient(Request request) {
         User recepient;
         switch (officeTools.getActiveGroupType()) {
@@ -210,24 +241,6 @@ public class RequestProcessing {
                     (positionActions.size() != 0 ? ". " + messages.getMessage(REQUEST_MSG_PACK, "common.actionsAdded") : ""));
         }
         return requestStep;
-    }
-
-    public void changePositionUserRequestCount(Position position, User user, int count) {
-        if ((user == null) || (position == null))
-            return;
-
-        LoadContext<PositionUser> loadContext = LoadContext.create(PositionUser.class)
-                .setQuery(LoadContext.createQuery("select pu from office$PositionUser pu where pu.position.id = :pos and pu.user.id = :usr")
-                        .setParameter("pos", position.getId())
-                        .setParameter("usr", user.getId())
-                )
-                .setView("positionUser-view");
-        PositionUser positionUser = dataManager.load(loadContext);
-
-        if (positionUser != null) {
-            positionUser.setRequests(officeTools.getCountInt(positionUser.getRequests()) + count);
-            toolsService.commitEntity(positionUser);
-        }
     }
 
     private User findFreePositionUser(Position position) {

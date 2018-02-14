@@ -15,6 +15,7 @@ public interface OfficeConfig extends Config {
     String getCompanyName();
     void setCompanyName(String name);
 
+    // Groups
     @Property("office.groups.managersGroup")
     Group getManagersGroup();
     void setManagersGroup(Group group);
@@ -55,5 +56,14 @@ public interface OfficeConfig extends Config {
     @Property("office.positions.finalPosition")
     Position getFinalPosition();
     void setFinalPosition(Position position);
+
+    // Penalties
+    @Property("office.penalty.applicant")
+    Integer getApplicantPenalty();
+    void setApplicantPenalty(Integer penalty);
+
+    @Property("office.penalty.worker")
+    Integer getWorkerPenalty();
+    void setWorkerPenalty(Integer penalty);
 
 }

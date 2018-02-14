@@ -142,6 +142,12 @@ public class RequestEdit extends AbstractEditor<Request> {
             if (officeTools.getActiveGroupType().equals(GroupType.Applicants)) {
                 if (actionsDs.getItem().getApproved() != null) {
                     officeWeb.showWarningMessage(this, getMessage("edit.action.alreadyApproved"));
+                    return false;
+                }
+
+                if ((getItem().getStep().getSubmitted() != null) && (actionsDs.getItem().getSubmitted() != null)) {
+                    officeWeb.showWarningMessage(this, getMessage("edit.action.alreadySubmitted"));
+                    return false;
                 }
             }
 
@@ -403,6 +409,7 @@ public class RequestEdit extends AbstractEditor<Request> {
                             RequestStep requestStep = request.getStep();
                             requestStep.setSubmitted(new Date());
                             requestStep.setApprovalTerm(officeTools.addDaysToNow(requestStep.getPosition().getDaysForSubmission()));
+                            requestStep.setPenalty(null);
                             requestStep.setState(State.Approving);
                             request.getLogs().add(
                                     requestProcessing.newLogItem(request, requestStep.getUser(), getMessage("result.submitted"), null)

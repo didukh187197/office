@@ -114,6 +114,7 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
         switch (officeTools.getActiveGroupType()) {
             case Managers:
                 officeWeb.disableContainer(this, "tabMain");
+                getComponentNN("okBtn").setEnabled(false);
                 break;
 
             case Workers:

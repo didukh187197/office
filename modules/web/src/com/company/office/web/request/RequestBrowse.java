@@ -47,6 +47,18 @@ public class RequestBrowse extends AbstractLookup {
 
     @Override
     public void init(Map<String, Object> params) {
+        table.setStyleProvider((request, property) -> {
+            if (property == null) {
+                int penalty = officeTools.getCountInt(request.getStep().getPenalty());
+                if (penalty < 0)
+                    return "applicant-penalty";
+
+                if (penalty > 0)
+                    return "worker-penalty";
+            }
+            return null;
+        });
+
         addListeners();
         setUserInterface();
     }
@@ -114,6 +126,7 @@ public class RequestBrowse extends AbstractLookup {
                 extraActionsBtn.getAction("start").setVisible(state.equals(State.Stopped));
                 extraActionsBtn.getAction("cancel").setVisible(state.equals(State.Stopped));
                 extraActionsBtn.getAction("archive").setVisible(archivedStates.contains(state));
+                extraActionsBtn.getAction("reduce").setVisible(officeTools.getCountInt(e.getItem().getStep().getPenalty()) != 0);
             }
             focusOnStep();
         });
@@ -158,6 +171,8 @@ public class RequestBrowse extends AbstractLookup {
                 requestsDs.setQuery(String.format("select e from office$Request e where e.applicant.id = '%s' order by e.moment", officeTools.getActiveUser().getId()));
                 getComponentNN("filter").setVisible(false);
                 tabSheet.setSelectedTab("stepsTab");
+                break;
+            case Others:
                 break;
         }
     }
@@ -224,7 +239,7 @@ public class RequestBrowse extends AbstractLookup {
                     break;
                 case ARCHIVE_REQUEST:
                     requestProcessing.changeState(request, State.Archived, reason);
-                    toolsService.blockApplicant(request.getApplicant());
+                    toolsService.blockUser(request.getApplicant());
                     officeWeb.showWarningMessage(this, getMessage("result.archived"));
                     break;
                 default:
@@ -255,4 +270,22 @@ public class RequestBrowse extends AbstractLookup {
         params.put("selectedStep", requestsDs.getItem().getStep());
         openWindow("positions-screen", WindowManager.OpenType.DIALOG, params);
     }
+
+    public void onReducePenalty() {
+        showOptionDialog(
+                "",
+                getMessage("extraActionsBtn.reduce") + "?",
+                MessageType.CONFIRMATION,
+                new Action[] {
+                        new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
+                            Request request = requestsDs.getItem();
+                            requestProcessing.reducePenalty(request);
+                            requestsDs.setItem(request);
+                            getDsContext().commit();
+                        }),
+                        new DialogAction(DialogAction.Type.NO, Action.Status.PRIMARY)
+                }
+        );
+    }
+
 }
