@@ -1,12 +1,15 @@
 package com.company.office.web.officeweb;
 
 import com.company.office.entity.RequestStep;
+import com.company.office.service.ShedulerService;
 import com.haulmont.cuba.core.entity.FileDescriptor;
+import com.haulmont.cuba.core.global.Messages;
 import com.haulmont.cuba.gui.ComponentsHelper;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.export.ExportDisplay;
 import com.haulmont.cuba.gui.export.ExportFormat;
+import com.haulmont.cuba.web.App;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
@@ -46,6 +49,28 @@ public class OfficeWeb {
 
     public void showStep(Frame frame, RequestStep step) {
         frame.openEditor("office$RequestStep.edit", step, WindowManager.OpenType.DIALOG);
+    }
+
+    //Admin methods
+    // Used from main menu
+    private final String MSG_PACK = "com.company.office.web.officeweb";
+
+    @Inject
+    private Messages messages;
+
+    @Inject
+    private ShedulerService shedulerService;
+
+    @SuppressWarnings("unused")
+    public void checkProcessingDelay() {
+        shedulerService.checkProcessingDelay();
+        showWarningMessage(App.getInstance().getTopLevelWindow().getFrame(), messages.getMessage(MSG_PACK, "checkRequests"));
+    }
+
+    @SuppressWarnings("unused")
+    public void setPositionUser() {
+        shedulerService.setPositionUser();
+        showWarningMessage(App.getInstance().getTopLevelWindow().getFrame(), messages.getMessage(MSG_PACK, "checkRequests"));
     }
 
 }

@@ -34,7 +34,7 @@ public class RequestProcessing {
     @Inject
     private Messages messages;
 
-    private final String REQUEST_MSG_PACK = "com.company.office.web.request";
+    private final String REQUEST_MSG_PACK = "com.company.office.common";
 
     public void changePosition(Request request) {
         Position position = getNextPosition(request.getStep());
@@ -47,7 +47,7 @@ public class RequestProcessing {
                 newLogItem(
                         request,
                         request.getApplicant(),
-                        messages.getMessage(REQUEST_MSG_PACK, "common.newPosition") + ": " + newStepByPosition.getPosition().getDescription(),
+                        messages.getMessage(REQUEST_MSG_PACK, "processing.newPosition") + ": " + newStepByPosition.getPosition().getDescription(),
                         newStepByPosition
                 )
         );
@@ -64,7 +64,7 @@ public class RequestProcessing {
         RequestStep newStepByWorker = makeNewStep(request, request.getStep().getPosition(), State.Waiting, worker);
 
         if (newStepByWorker != null) {
-            String workerStr = messages.getMessage(REQUEST_MSG_PACK, "common.newWorker") + ": " + worker.getName();
+            String workerStr = messages.getMessage(REQUEST_MSG_PACK, "processing.newWorker") + ": " + worker.getName();
             request.setStep(newStepByWorker);
             request.getSteps().add(newStepByWorker);
             request.getLogs().add(
@@ -90,8 +90,8 @@ public class RequestProcessing {
 
     public void changeState(Request request, State newState, String reason) {
         User oldUser = request.getStep().getUser();
-        String reasonStr = messages.getMessage(REQUEST_MSG_PACK, "common.newState") + ": "
-                + messages.getMessage(newState) + ". " + messages.getMessage(REQUEST_MSG_PACK, "common.reason") + ": " + reason;
+        String reasonStr = messages.getMessage(REQUEST_MSG_PACK, "processing.newState") + ": "
+                + messages.getMessage(newState) + ". " + messages.getMessage(REQUEST_MSG_PACK, "processing.reason") + ": " + reason;
 
         RequestStep newStepByState = makeNewStep(request, request.getStep().getPosition(), newState, null);
         request.setStep(newStepByState);
@@ -237,8 +237,8 @@ public class RequestProcessing {
             }
 
             requestStep.setSubmissionTerm( officeTools.addDaysToNow(position.getDaysForSubmission() ) );
-            requestStep.setDescription(messages.getMessage(REQUEST_MSG_PACK, "common.assignedTo") + " " + worker.getName() +
-                    (positionActions.size() != 0 ? ". " + messages.getMessage(REQUEST_MSG_PACK, "common.actionsAdded") : ""));
+            requestStep.setDescription(messages.getMessage(REQUEST_MSG_PACK, "processing.assignedTo") + " " + worker.getName() +
+                    (positionActions.size() != 0 ? ". " + messages.getMessage(REQUEST_MSG_PACK, "processing.actionsAdded") : ""));
         }
         return requestStep;
     }

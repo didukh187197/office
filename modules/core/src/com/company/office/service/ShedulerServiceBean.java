@@ -2,8 +2,10 @@ package com.company.office.service;
 
 import com.company.office.OfficeConfig;
 import com.company.office.common.OfficeTools;
+import com.company.office.common.RequestProcessing;
 import com.company.office.entity.Request;
 import com.company.office.entity.RequestStep;
+import com.company.office.entity.State;
 import com.haulmont.cuba.core.global.CommitContext;
 import com.haulmont.cuba.core.global.DataManager;
 import com.haulmont.cuba.core.global.LoadContext;
@@ -20,19 +22,23 @@ import java.util.Map;
 public class ShedulerServiceBean implements ShedulerService {
 
     @Inject
+    private ToolsService toolsService;
+
+    @Inject
     private OfficeConfig officeConfig;
 
     @Inject
     private OfficeTools officeTools;
 
     @Inject
-    private ToolsService toolsService;
+    private RequestProcessing requestProcessing;
 
     @Inject
     private DataManager dataManager;
 
     private Map<User, Integer> userPenalties = new HashMap<>();
 
+    @Override
     @Authenticated
     public void checkProcessingDelay() {
         long curDateMS = officeTools.addDaysToNow(0).getTime();
@@ -67,6 +73,27 @@ public class ShedulerServiceBean implements ShedulerService {
         }
         dataManager.commit(commitContext);
         tryToLockUsers();
+    }
+
+    @Override
+    @Authenticated
+    public void setPositionUser() {
+        CommitContext commitContext = new CommitContext();
+
+        LoadContext<Request> loadContext = LoadContext.create(Request.class)
+                .setQuery(LoadContext.createQuery("select e from office$Request e where e.step.state = :state")
+                        .setParameter("state", State.Suspended)
+                )
+                .setView("request-view");
+
+        List<Request> requests = dataManager.loadList(loadContext);
+        for (Request request: requests) {
+            if (requestProcessing.changeWorker(request)) {
+                commitContext.addInstanceToCommit(request);
+            }
+
+        }
+        dataManager.commit(commitContext);
     }
 
     private void storeUserPenaltyToMap(User user, int penalty) {

@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
-    <item insertBefore="administration"
+    <item id="requests"
+          insertBefore="administration"
           screen="office$Request.browse"/>
     <item insertBefore="administration"
           screen="office$Position.browse"/>
-    <item insertBefore="administration"
-          screen="main-settings-screen"/>
     <menu id="service"
           insertBefore="administration">
+        <item screen="main-settings-screen"/>
+        <separator/>
+        <item id="checkProcessingDelay"
+              bean="office_OfficeWeb"
+              beanMethod="checkProcessingDelay"/>
+        <item id="setPositionUser"
+              bean="office_OfficeWeb"
+              beanMethod="setPositionUser"/>
+        <separator/>
         <item screen="delete-screen"/>
     </menu>
 </menu-config>

@@ -7,6 +7,7 @@ import com.company.office.common.OfficeTools;
 import com.company.office.service.ToolsService;
 import com.company.office.web.officeweb.OfficeWeb;
 import com.company.office.web.requestlog.LogEvents;
+import com.haulmont.cuba.core.global.Messages;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.LinkButton;
 import com.haulmont.cuba.gui.executors.BackgroundWorker;
@@ -14,6 +15,7 @@ import com.haulmont.cuba.gui.executors.UIAccessor;
 import com.haulmont.cuba.web.app.mainwindow.AppMainWindow;
 
 import javax.inject.Inject;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
@@ -40,6 +42,9 @@ public class ExtAppMainWindow extends AppMainWindow {
     @Inject
     private LinkButton eventsBtn;
 
+    @Inject
+    private Messages messages;
+
     private Consumer<LogsCreatedEvent> messageHandler;
     private long logsCount;
 
@@ -62,10 +67,6 @@ public class ExtAppMainWindow extends AppMainWindow {
         super.ready();
         setEventsBtnCaption();
 
-        if (!officeTools.isAdmin()) {
-            openWindow("office$Request.browse", WindowManager.OpenType.NEW_TAB);
-        }
-
         switch (officeTools.getActiveGroupType()) {
             case Applicants:
                 int applicantPenalty = toolsService.getApplicantPenalty(officeTools.getActiveUser());
@@ -84,6 +85,54 @@ public class ExtAppMainWindow extends AppMainWindow {
                 }
                 break;
         }
+
+        String property = emptyProperty();
+        if (!property.isEmpty()) {
+            mainMenu.getMenuItem("requests").setVisible(false);
+            if (officeTools.isAdmin()) {
+                openWindow("main-settings-screen", WindowManager.OpenType.DIALOG);
+            } else {
+                officeWeb.showErrorMessage(this,
+                        String.format(getMessage("mainWindow.warning.emptySettings"), property)
+                );
+            }
+        } else {
+            if (!officeTools.isAdmin()) {
+                openWindow("office$Request.browse", WindowManager.OpenType.NEW_TAB);
+            }
+        }
+    }
+
+    private String emptyProperty() {
+        String res = "";
+        String MSG_PACK = "com.company.office.web.screens";
+        Map<String, Object> officeProperties = new HashMap<>();
+
+        String group = messages.getMessage(MSG_PACK, "settingsDialog.type.group");
+        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.managers") + group, officeConfig.getManagersGroup());
+        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.registrators") + group, officeConfig.getRegistratorsGroup());
+        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.applicants") + group, officeConfig.getApplicantsGroup());
+        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.workers") + group, officeConfig.getWorkersGroup());
+
+        String role = messages.getMessage(MSG_PACK, "settingsDialog.type.role");
+        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.managers") + role, officeConfig.getManagersRole());
+        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.registrators") + role, officeConfig.getRegistratorsRole());
+        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.applicants") + role, officeConfig.getApplicantsRole());
+        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.workers") + role, officeConfig.getWorkersRole());
+
+        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.initPosition"), officeConfig.getInitPosition());
+        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.finalPosition"), officeConfig.getFinalPosition());
+
+        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.applicantPenalty"), officeConfig.getApplicantPenalty());
+        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.workerPenalty"), officeConfig.getWorkerPenalty());
+
+        for (Map.Entry entry : officeProperties.entrySet()) {
+            if (entry.getValue() == null) {
+                res = (String) entry.getKey();
+                break;
+            }
+        }
+        return res;
     }
 
     private void setEventsBtnCaption() {
