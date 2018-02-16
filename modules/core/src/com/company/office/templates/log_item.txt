@@ -1,0 +1,4 @@
+${logItem.info} (${logItem.createTs?datetime})
+
+===
+Sent by Application Processing System

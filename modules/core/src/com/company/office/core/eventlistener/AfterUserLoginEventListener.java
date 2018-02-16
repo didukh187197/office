@@ -1,6 +1,7 @@
 package com.company.office.core.eventlistener;
 
 import com.company.office.OfficeConfig;
+import com.company.office.entity.State;
 import com.haulmont.cuba.security.app.Authentication;
 import com.haulmont.cuba.security.auth.events.UserLoggedInEvent;
 import com.haulmont.cuba.security.global.UserSession;
@@ -35,6 +36,8 @@ public class AfterUserLoginEventListener implements ApplicationListener<UserLogg
 
                 if (officeConfig.getWorkersGroup() != null)
                     userSession.setAttribute("workersGroupId", officeConfig.getWorkersGroup().getId());
+
+                userSession.setAttribute("archivedState", State.Archived);
 
                 return null;
             });

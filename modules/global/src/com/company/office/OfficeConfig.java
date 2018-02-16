@@ -5,6 +5,7 @@ import com.haulmont.cuba.core.config.Config;
 import com.haulmont.cuba.core.config.Property;
 import com.haulmont.cuba.core.config.Source;
 import com.haulmont.cuba.core.config.SourceType;
+import com.haulmont.cuba.core.config.defaults.DefaultBoolean;
 import com.haulmont.cuba.security.entity.Group;
 import com.haulmont.cuba.security.entity.Role;
 
@@ -14,6 +15,12 @@ public interface OfficeConfig extends Config {
     @Property("office.companyName")
     String getCompanyName();
     void setCompanyName(String name);
+
+    @Property("office.emailLogs")
+    @DefaultBoolean(false)
+
+    Boolean getEmailLogs();
+    void setEmailLogs(Boolean value);
 
     // Groups
     @Property("office.groups.managersGroup")

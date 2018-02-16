@@ -261,21 +261,7 @@ public class RequestEdit extends AbstractEditor<Request> {
     }
 
     public Component performedGenerator(RequestStepAction requestStepAction) {
-        CheckBox checkBox = componentsFactory.createComponent(CheckBox.class);
-
-        checkBox.setValue(false);
-
-        if (requestStepAction.getType() == ActionType.sendFile) {
-            if (requestStepAction.getFile() != null) {
-                checkBox.setValue(true);
-            }
-        } else
-        if (requestStepAction.getType() == ActionType.sendMessage) {
-            if (requestStepAction.getMessage() != null) {
-                checkBox.setValue(true);
-            }
-        }
-        return checkBox;
+        return officeWeb.getMarkForGenerator(requestStepAction);
     }
 
     private boolean moved = false;

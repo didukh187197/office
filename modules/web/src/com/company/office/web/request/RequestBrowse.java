@@ -10,8 +10,8 @@ import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.components.actions.CreateAction;
 import com.haulmont.cuba.gui.components.actions.EditAction;
+import com.haulmont.cuba.gui.data.CollectionDatasource;
 import com.haulmont.cuba.gui.data.GroupDatasource;
-import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
 
 import javax.inject.Inject;
 import java.util.*;
@@ -34,7 +34,7 @@ public class RequestBrowse extends AbstractLookup {
     private GroupDatasource<Request, UUID> requestsDs;
 
     @Inject
-    private ComponentsFactory componentsFactory;
+    private CollectionDatasource<RequestStepAction, UUID> actionsDs;
 
     @Inject
     private GroupTable<Request> table;
@@ -92,7 +92,7 @@ public class RequestBrowse extends AbstractLookup {
             return true;
         });
 
-        editAction.setAfterCommitHandler(e -> requestsDs.refresh());
+        editAction.setAfterCommitHandler(e -> this.close(""));
 
         PopupButton extraActionsBtn = (PopupButton) getComponentNN("extraActionsBtn");
         Image image = (Image) getComponentNN("image");
@@ -182,21 +182,7 @@ public class RequestBrowse extends AbstractLookup {
     }
 
     public Component performedGenerator(RequestStepAction requestStepAction) {
-        CheckBox checkBox = componentsFactory.createComponent(CheckBox.class);
-
-        checkBox.setValue(false);
-
-        if (requestStepAction.getType() == ActionType.sendFile) {
-            if (requestStepAction.getFile() != null) {
-                checkBox.setValue(true);
-            }
-        } else
-        if (requestStepAction.getType() == ActionType.sendMessage) {
-            if (requestStepAction.getMessage() != null) {
-                checkBox.setValue(true);
-            }
-        }
-        return checkBox;
+        return officeWeb.getMarkForGenerator(requestStepAction);
     }
 
     public void onStepBtnClick() {
@@ -246,6 +232,7 @@ public class RequestBrowse extends AbstractLookup {
             }
             requestsDs.setItem(request);
             getDsContext().commit();
+            requestsDs.refresh();
         });
     }
 

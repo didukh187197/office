@@ -1,6 +1,7 @@
 package com.company.office.web.officeweb;
 
 import com.company.office.entity.RequestStep;
+import com.company.office.entity.RequestStepAction;
 import com.company.office.service.ShedulerService;
 import com.haulmont.cuba.core.entity.FileDescriptor;
 import com.haulmont.cuba.core.global.Messages;
@@ -9,6 +10,8 @@ import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.export.ExportDisplay;
 import com.haulmont.cuba.gui.export.ExportFormat;
+import com.haulmont.cuba.gui.icons.CubaIcon;
+import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
 import com.haulmont.cuba.web.App;
 import org.springframework.stereotype.Component;
 
@@ -71,6 +74,23 @@ public class OfficeWeb {
     public void setPositionUser() {
         shedulerService.setPositionUser();
         showWarningMessage(App.getInstance().getTopLevelWindow().getFrame(), messages.getMessage(MSG_PACK, "checkRequests"));
+    }
+
+    @Inject
+    private ComponentsFactory componentsFactory;
+
+    public Label getMarkForGenerator(RequestStepAction requestStepAction) {
+        Label lbl = componentsFactory.createComponent(Label.class);
+        lbl.setValue("");
+        switch (requestStepAction.getType()) {
+            case sendFile:
+                lbl.setIconFromSet(requestStepAction.getFile() != null ? CubaIcon.CHECK_SQUARE_O : CubaIcon.SQUARE_O);
+                break;
+            case sendMessage:
+                lbl.setIconFromSet(requestStepAction.getMessage() != null ? CubaIcon.CHECK_SQUARE_O : CubaIcon.SQUARE_O);
+                break;
+        }
+        return lbl;
     }
 
 }

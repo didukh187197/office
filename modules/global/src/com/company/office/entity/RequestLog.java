@@ -18,6 +18,7 @@ import javax.persistence.TemporalType;
 import java.util.UUID;
 import com.haulmont.cuba.core.entity.annotation.Listeners;
 
+@Listeners("office_LogListener")
 @Table(name = "OFFICE_REQUEST_LOG")
 @Entity(name = "office$RequestLog")
 public class RequestLog extends BaseUuidEntity implements Updatable, Creatable {
