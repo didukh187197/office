@@ -1,4 +1,4 @@
-${logItem.info} (${logItem.createTs?datetime})
+${logItem.info} (${logItem.sender.name}) (${logItem.createTs?datetime})
 
 ===
 Sent by Application Processing System

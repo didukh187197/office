@@ -126,7 +126,7 @@ public class RequestProcessing {
             requestLog.setAttachType(entity.getClass().getName());
             requestLog.setAttachID((UUID) entity.getId());
         }
-        requestLog.setInfo(info + " (" + officeTools.getActiveUser().getName() + ")");
+        requestLog.setInfo(info);
         return requestLog;
     }
 

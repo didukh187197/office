@@ -89,10 +89,11 @@ public class RequestBrowse extends AbstractLookup {
                     }
                     break;
             }
+
             return true;
         });
 
-        editAction.setAfterCommitHandler(e -> this.close(""));
+        editAction.setAfterCommitHandler(e -> focusOnStep());
 
         PopupButton extraActionsBtn = (PopupButton) getComponentNN("extraActionsBtn");
         Image image = (Image) getComponentNN("image");
@@ -143,6 +144,7 @@ public class RequestBrowse extends AbstractLookup {
             return;
 
         if (requestsDs.getItem().getStep() != null) {
+            stepLookup.setValue(null);
             stepLookup.setValue(requestsDs.getItem().getStep());
         }
     }
