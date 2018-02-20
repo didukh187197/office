@@ -55,13 +55,9 @@
                                 trackSelection="true"/>
                     </actions>
                     <columns>
-                        <column id="applicant"/>
-                        <column id="applicantCode"
-                                align="CENTER"/>
-                        <column id="sn"
-                                align="CENTER"
-                                caption="#"
-                                generator="snGenerator"/>
+                        <column id="doc"
+                                caption="msg://request"
+                                generator="getDoc"/>
                         <column id="step.position"/>
                         <column id="step.state"/>
                         <column id="step.user"/>

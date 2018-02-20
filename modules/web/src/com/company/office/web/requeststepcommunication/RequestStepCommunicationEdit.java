@@ -147,22 +147,30 @@ public class RequestStepCommunicationEdit extends OfficeEditor<RequestStepCommun
 
     private void makeRecepientLookupOptions() {
         List<User> list = new ArrayList<>();
+        User worker = getItem().getRequestStep().getUser();
+
         switch (officeTools.getActiveGroupType()) {
             case Managers:
                 list.add(request.getApplicant());
-                list.add(getItem().getRequestStep().getUser());
+                if (worker != null) {
+                    list.add(worker);
+                }
                 break;
             case Workers:
                 list.add(request.getApplicant());
                 list.addAll(getManagers());
                 break;
             case Applicants:
-                list.add(getItem().getRequestStep().getUser());
+                if (worker != null) {
+                    list.add(worker);
+                }
                 list.addAll(getManagers());
                 break;
             default:
                 list.add(request.getApplicant());
-                list.add(getItem().getRequestStep().getUser());
+                if (worker != null) {
+                    list.add(worker);
+                }
                 list.addAll(getManagers());
         }
         recepientLookup.setOptionsList(list);

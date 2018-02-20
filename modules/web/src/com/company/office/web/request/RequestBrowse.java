@@ -93,7 +93,9 @@ public class RequestBrowse extends AbstractLookup {
             return true;
         });
 
-        editAction.setAfterCommitHandler(e -> focusOnStep());
+        editAction.setAfterCommitHandler(e -> {
+            focusOnStep();
+        });
 
         PopupButton extraActionsBtn = (PopupButton) getComponentNN("extraActionsBtn");
         Image image = (Image) getComponentNN("image");
@@ -179,8 +181,8 @@ public class RequestBrowse extends AbstractLookup {
         }
     }
 
-    public Component snGenerator(Request request) {
-        return new Table.PlainTextCell(request.getSN());
+    public Component getDoc(Request request) {
+        return new Table.PlainTextCell(request.getInstanceName());
     }
 
     public Component performedGenerator(RequestStepAction requestStepAction) {
@@ -195,7 +197,6 @@ public class RequestBrowse extends AbstractLookup {
     }
 
     // Browse actions methods
-
     private final String STOP_REQUEST = "stop", START_REQUEST = "start", CANCEL_REQUEST = "cancel", ARCHIVE_REQUEST = "archive";
 
     private void doBrowseAction(String actionId) {
@@ -223,6 +224,7 @@ public class RequestBrowse extends AbstractLookup {
                     break;
                 case CANCEL_REQUEST:
                     requestProcessing.changeState(request, State.Cancelled, reason);
+                    toolsService.blockUser(request.getApplicant());
                     officeWeb.showWarningMessage(this, getMessage("result.cancelled"));
                     break;
                 case ARCHIVE_REQUEST:

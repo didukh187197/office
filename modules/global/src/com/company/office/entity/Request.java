@@ -2,6 +2,8 @@ package com.company.office.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
+import com.haulmont.chile.core.annotations.MetaProperty;
 import com.haulmont.cuba.security.entity.User;
 import java.util.Date;
 import javax.persistence.Column;
@@ -21,7 +23,7 @@ import com.haulmont.cuba.core.entity.Updatable;
 import javax.persistence.OrderBy;
 import com.haulmont.cuba.core.entity.FileDescriptor;
 
-@NamePattern("%s, %s-%s|applicant,series,number")
+@NamePattern("%s-%s (%s)|series,number,applicant")
 @Table(name = "OFFICE_REQUEST")
 @Entity(name = "office$Request")
 public class Request extends BaseUuidEntity implements Creatable, Updatable {
@@ -85,6 +87,7 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
     @Column(name = "UPDATED_BY", length = 50)
     protected String updatedBy;
 
+
     public void setApplicantAddress(String applicantAddress) {
         this.applicantAddress = applicantAddress;
     }
@@ -101,7 +104,6 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
         return imageFile;
     }
 
-
     public void setMoment(Long moment) {
         this.moment = moment;
     }
@@ -109,7 +111,6 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
     public Long getMoment() {
         return moment;
     }
-
 
     public RequestStep getStep() {
         return step;
@@ -212,10 +213,6 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
         return number;
     }
 
-    public String getSN() {
-        return series + "-" + number;
-    }
-
     public void setDescription(String description) {
         this.description = description;
     }
@@ -223,5 +220,4 @@ public class Request extends BaseUuidEntity implements Creatable, Updatable {
     public String getDescription() {
         return description;
     }
-
 }

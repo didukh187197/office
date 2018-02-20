@@ -29,17 +29,15 @@ public class LogListener implements AfterInsertEntityListener<RequestLog> {
 
     @Override
     public void onAfterInsert(RequestLog log, Connection connection) {
-
         if (!officeConfig.getEmailLogs())
             return;
 
-        String senderEmail = log.getSender().getEmail();
         String recepientEmail = log.getRecepient().getEmail();
         if (recepientEmail != null) {
             EmailInfo emailInfo = new EmailInfo(
                     recepientEmail, // recipients
-                    messages.getMessage(MSG_PACK, "request") + " #" + log.getRequest().getSN(), // subject
-                    senderEmail, // if null - the "from" address will be taken from the "cuba.email.fromAddress" app property
+                    messages.getMessage(MSG_PACK, "request") + " " + log.getRequest().getInstanceName(), // subject
+                    log.getSender().getEmail(), // if null - the "from" address will be taken from the "cuba.email.fromAddress" app property
                     "com/company/office/templates/log_item.txt", // body template
                     Collections.singletonMap("logItem", log) // template parameters
             );

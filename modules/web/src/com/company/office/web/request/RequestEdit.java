@@ -330,7 +330,7 @@ public class RequestEdit extends AbstractEditor<Request> {
     protected boolean postCommit(boolean committed, boolean close) {
         Request request = getItem();
         if (request.getLogs().size() != logsCount) {
-            events.publish(new LogsCreatedEvent(getMessage("request") + " " + request.getSN() + "\n" + getMessage("logs.created")));
+            events.publish(new LogsCreatedEvent(getMessage("request") + " " + request.getInstanceName() + "\n" + getMessage("logs.created")));
         }
         return super.postCommit(committed, close);
     }
