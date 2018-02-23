@@ -2,17 +2,27 @@ package com.company.office.web.screens;
 
 import com.company.office.OfficeConfig;
 import com.company.office.entity.Position;
-import com.company.office.entity.State;
-import com.haulmont.chile.core.model.MetaClass;
-import com.haulmont.chile.core.model.Session;
 import com.haulmont.cuba.core.global.Messages;
-import com.haulmont.cuba.core.global.Metadata;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.security.entity.Group;
 import com.haulmont.cuba.security.entity.Role;
+import com.haulmont.yarg.formatters.factory.DefaultFormatterFactory;
+import com.haulmont.yarg.loaders.factory.DefaultLoaderFactory;
+import com.haulmont.yarg.loaders.impl.GroovyDataLoader;
+import com.haulmont.yarg.reporting.Reporting;
+import com.haulmont.yarg.reporting.RunParams;
+import com.haulmont.yarg.structure.Report;
+import com.haulmont.yarg.structure.xml.impl.DefaultXmlReader;
+import com.haulmont.yarg.util.groovy.DefaultScriptingImpl;
+import org.apache.commons.io.FileUtils;
 
 import javax.inject.Inject;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.nio.charset.Charset;
 import java.util.*;
+
+import static org.apache.commons.io.FileUtils.readFileToString;
 
 public class MainSettingsScreen extends AbstractWindow {
 
@@ -218,10 +228,24 @@ public class MainSettingsScreen extends AbstractWindow {
 
     @Override
     public void ready() {
-        btnProba.setVisible(false);
+        btnProba.setVisible(true);
     }
 
-    public void onBtnProbaClick() {
+    public void onBtnProbaClick() throws Exception {
+        String structure = "s:/Delo/CUBA/office/reports/sample/incomes.xml";
+        String output = "d:/temp/incomes.xlsx";
+
+        Report report = new DefaultXmlReader()
+                .parseXml(FileUtils.readFileToString(new File(structure), Charset.defaultCharset() ));
+
+        Reporting reporting = new Reporting();
+        reporting.setFormatterFactory(new DefaultFormatterFactory());
+        reporting.setLoaderFactory(
+                new DefaultLoaderFactory()
+                        .setGroovyDataLoader(new GroovyDataLoader(new DefaultScriptingImpl())));
+
+        reporting.runReport(
+                new RunParams(report), new FileOutputStream(output));
     }
 
 }

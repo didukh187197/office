@@ -11,6 +11,10 @@ buildscript {
             }
         }
         
+        maven {
+            url 'http://dl.bintray.com/cuba-platform/main'
+        }
+        
     }
     dependencies {
         classpath "com.haulmont.gradle:cuba-plugin:$cubaVersion"
@@ -55,6 +59,7 @@ configure([globalModule, coreModule, guiModule, webModule]) {
 
     dependencies {
         testCompile('junit:junit:4.12')
+        compile 'com.haulmont.yarg:yarg:2.0.11'
     }
 
     task sourceJar(type: Jar) {
@@ -85,7 +90,7 @@ configure(coreModule) {
         provided(servletApi)
         jdbc(hsql)
         testRuntime(hsql)
-
+        
     }
 
     task cleanConf(description: 'Cleans up conf directory') {
