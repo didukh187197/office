@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<report name="report">
+    <templates>
+        <template code="DEFAULT" documentName="request.docx" documentPath="s:/Delo/CUBA/office/reports/request/request.docx" outputType="pdf" outputNamePattern="request.docx"/>
+    </templates>
+    <rootBand name="Root" orientation="H">
+        <bands>
+            <band name="Main" orientation="H">
+                <queries>
+                    <query name="Main_QRY" type="groovy">
+                        <script>
+                            import com.company.office.entity.Request
+                            Request request = params['Request']
+                            return [ ['name' : request.getInstanceName(), 'code' : request.getApplicantCode(), 'email' : request.getApplicant().getEmail()] ]
+                        </script>
+                    </query>
+                </queries>
+            </band>
+            <band name="Steps" orientation="V">
+                <queries>
+                    <query name="Logs_QRY" type="groovy">
+                        <script>
+                            import com.company.office.entity.Request
+                            import com.company.office.entity.RequestStep
+
+                            def steps = []
+                            Request request = params['Request']
+                            for (RequestStep step : request.getSteps()) {
+                                steps.add(
+                                        'created' : step.getCreateTs().toLocaleString(),
+                                        'description' : step.getDescription()
+                                )
+                            }
+                            params['Steps'] = steps
+                        </script>
+                    </query>
+                </queries>
+            </band>
+            <band name="Logs" orientation="V">
+                <queries>
+                    <query name="Logs_QRY" type="groovy">
+                        <script>
+                            import com.company.office.entity.Request
+                            import com.company.office.entity.RequestLog
+
+                            def logs = []
+                            Request request = params['Request']
+                            for (RequestLog log : request.getLogs()) {
+                                logs.add(
+                                        'created' : log.getCreateTs().toLocaleString(),
+                                        'author' : log.getSender().getName(),
+                                        'recipient' : log.getRecepient().getName(),
+                                        'info' : log.getInfo()
+                                )
+                            }
+                            params['Logs'] = logs
+                        </script>
+                    </query>
+                </queries>
+            </band>
+        </bands>
+        <queries/>
+    </rootBand>
+</report>

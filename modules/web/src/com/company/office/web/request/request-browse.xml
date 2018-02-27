@@ -49,6 +49,10 @@
                         <action id="edit"/>
                         <action id="remove"
                                 visible="false"/>
+                        <action id="print"
+                                caption="msg://action.print"
+                                invoke="onPrint"
+                                trackSelection="true"/>
                         <action id="position"
                                 caption="msg://positionBtn"
                                 invoke="onPosition"
@@ -74,6 +78,8 @@
                                 action="table.edit"/>
                         <button id="removeBtn"
                                 action="table.remove"/>
+                        <button id="printBtn"
+                                action="table.print"/>
                         <popupButton id="extraActionsBtn"
                                      caption="msg://extraActionsBtn"
                                      enable="false"

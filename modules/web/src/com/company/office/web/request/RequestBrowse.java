@@ -6,14 +6,32 @@ import com.company.office.common.OfficeTools;
 import com.company.office.service.ToolsService;
 import com.company.office.web.officeweb.OfficeWeb;
 import com.company.office.web.screens.DialogScreen;
+import com.haulmont.cuba.core.entity.FileDescriptor;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.components.actions.CreateAction;
 import com.haulmont.cuba.gui.components.actions.EditAction;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
 import com.haulmont.cuba.gui.data.GroupDatasource;
+import com.haulmont.cuba.gui.export.ByteArrayDataProvider;
+import com.haulmont.cuba.gui.export.ExportDisplay;
+import com.haulmont.cuba.gui.export.ExportFormat;
+import com.haulmont.yarg.formatters.factory.DefaultFormatterFactory;
+import com.haulmont.yarg.loaders.factory.DefaultLoaderFactory;
+import com.haulmont.yarg.loaders.impl.GroovyDataLoader;
+import com.haulmont.yarg.reporting.ReportOutputDocument;
+import com.haulmont.yarg.reporting.Reporting;
+import com.haulmont.yarg.reporting.RunParams;
+import com.haulmont.yarg.structure.Report;
+import com.haulmont.yarg.structure.xml.impl.DefaultXmlReader;
+import com.haulmont.yarg.util.groovy.DefaultScriptingImpl;
+import org.apache.commons.io.FileUtils;
 
 import javax.inject.Inject;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.nio.charset.Charset;
 import java.util.*;
 
 public class RequestBrowse extends AbstractLookup {
@@ -279,4 +297,28 @@ public class RequestBrowse extends AbstractLookup {
         );
     }
 
+    @Inject
+    private ExportDisplay exportDisplay;
+
+    public void onPrint() throws Exception {
+        String structure = "s:/Delo/CUBA/office/reports/request/request.xml";
+        //String output = "d:/temp/request #" + requestsDs.getItem().getInstanceName() + ".pdf";
+        String output = "Request #" + requestsDs.getItem().getInstanceName() + ".pdf";
+
+        Report report = new DefaultXmlReader()
+                .parseXml(FileUtils.readFileToString(new File(structure), Charset.defaultCharset() ));
+
+        Reporting reporting = new Reporting();
+        reporting.setFormatterFactory(new DefaultFormatterFactory());
+        reporting.setLoaderFactory(
+                new DefaultLoaderFactory()
+                        .setGroovyDataLoader(new GroovyDataLoader(new DefaultScriptingImpl())));
+
+        ReportOutputDocument reportOutputDocument = reporting.runReport(
+                new RunParams(report).param("Request", requestsDs.getItem())//,
+                //new FileOutputStream(output)
+        );
+
+        exportDisplay.show(new ByteArrayDataProvider(reportOutputDocument.getContent()), output);
+    }
 }

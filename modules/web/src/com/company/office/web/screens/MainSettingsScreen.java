@@ -12,6 +12,7 @@ import com.haulmont.yarg.loaders.impl.GroovyDataLoader;
 import com.haulmont.yarg.reporting.Reporting;
 import com.haulmont.yarg.reporting.RunParams;
 import com.haulmont.yarg.structure.Report;
+import com.haulmont.yarg.structure.ReportParameter;
 import com.haulmont.yarg.structure.xml.impl.DefaultXmlReader;
 import com.haulmont.yarg.util.groovy.DefaultScriptingImpl;
 import org.apache.commons.io.FileUtils;

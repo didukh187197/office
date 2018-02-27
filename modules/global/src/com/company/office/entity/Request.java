@@ -3,7 +3,6 @@ package com.company.office.entity;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import com.haulmont.chile.core.annotations.MetaProperty;
 import com.haulmont.cuba.security.entity.User;
 import java.util.Date;
 import javax.persistence.Column;
