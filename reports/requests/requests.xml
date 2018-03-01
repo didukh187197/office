@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<report name="report">
+    <templates>
+        <template code="DEFAULT" documentName="requests.xlsx" documentPath="s:/Delo/CUBA/office/reports/requests/requests.xlsx" outputType="xlsx" outputNamePattern="requests.xlsx"/>
+    </templates>
+    <rootBand name="Root" orientation="H">
+        <bands>
+            <band name="Header" orientation="H">
+                <queries>
+                    <query name="Requests" type="groovy">
+                        <script>
+                            //return [['date' : (new java.text.SimpleDateFormat("dd.MM.yyyy")).format(new Date())]]
+                            return [['date' : String.format('%1$td.%1$tm.%1$tY', (new Date()))]]
+                        </script>
+                    </query>
+                </queries>
+            </band>
+            <band name="Requests" orientation="H">
+                <queries>
+                    <query name="Requests" type="groovy">
+                        <script>
+                            import com.company.office.entity.Request
+                            def list = []
+                            def i = 1
+                            for (Request request : params['RequestList']) {
+                                list.add(
+                                    'number' : i++,
+                                    'request' : request.getInstanceName(),
+                                    'step' : request.getStep().getDescription(),
+                                    'position' : request.getStep().getPosition().getDescription(),
+                                    'state' : request.getStep().getState(),
+                                    'user' : request.getStep().getUser() == null ? "" : request.getStep().getUser().getName()
+                                )
+                            }
+                            params['Requests'] = list
+                        </script>
+                    </query>
+                </queries>
+            </band>
+        </bands>
+        <queries/>
+    </rootBand>
+</report>

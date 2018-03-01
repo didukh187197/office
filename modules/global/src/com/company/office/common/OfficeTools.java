@@ -64,7 +64,7 @@ public class OfficeTools {
         return (new Date()).getTime();
     }
 
-    public Date addDaysToNow(Integer days) {
+        public Date addDaysToNow(Integer days) {
         GregorianCalendar calendar = new GregorianCalendar();
         calendar.add(Calendar.DAY_OF_YEAR, getCountInt(days));
         return calendar.getTime();

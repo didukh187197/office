@@ -19,7 +19,7 @@
             </band>
             <band name="Steps" orientation="V">
                 <queries>
-                    <query name="Logs_QRY" type="groovy">
+                    <query name="Steps_QRY" type="groovy">
                         <script>
                             import com.company.office.entity.Request
                             import com.company.office.entity.RequestStep
