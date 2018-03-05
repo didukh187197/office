@@ -5,6 +5,12 @@
           screen="office$Request.browse"/>
     <item insertBefore="administration"
           screen="office$Position.browse"/>
+    <menu id="reports"
+          insertBefore="administration">
+        <item id="requestsList"
+              bean="office_OfficeWeb"
+              beanMethod="requestsList"/>
+    </menu>
     <menu id="service"
           insertBefore="administration">
         <item screen="main-settings-screen"/>

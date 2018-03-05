@@ -12,7 +12,12 @@
                         <script>
                             import com.company.office.entity.Request
                             Request request = params['Request']
-                            return [ ['name' : request.getInstanceName(), 'code' : request.getApplicantCode(), 'email' : request.getApplicant().getEmail()] ]
+                            return [[
+                                             'name' : request.getInstanceName(),
+                                             'code' : request.getApplicantCode(),
+                                             'email' : request.getApplicant().getEmail(),
+                                             'step' : request.getStep().getDescription()
+                                     ]]
                         </script>
                     </query>
                 </queries>

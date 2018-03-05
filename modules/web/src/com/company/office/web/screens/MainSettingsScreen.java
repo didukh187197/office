@@ -1,32 +1,13 @@
 package com.company.office.web.screens;
 
 import com.company.office.OfficeConfig;
-import com.company.office.common.OfficeTools;
 import com.company.office.entity.Position;
-import com.company.office.entity.Request;
-import com.haulmont.cuba.core.global.AppBeans;
-import com.haulmont.cuba.core.global.DataManager;
-import com.haulmont.cuba.core.global.LoadContext;
 import com.haulmont.cuba.core.global.Messages;
 import com.haulmont.cuba.gui.components.*;
-import com.haulmont.cuba.gui.export.ByteArrayDataProvider;
-import com.haulmont.cuba.gui.export.ExportDisplay;
 import com.haulmont.cuba.security.entity.Group;
 import com.haulmont.cuba.security.entity.Role;
-import com.haulmont.yarg.formatters.factory.DefaultFormatterFactory;
-import com.haulmont.yarg.loaders.factory.DefaultLoaderFactory;
-import com.haulmont.yarg.loaders.impl.GroovyDataLoader;
-import com.haulmont.yarg.reporting.ReportOutputDocument;
-import com.haulmont.yarg.reporting.Reporting;
-import com.haulmont.yarg.reporting.RunParams;
-import com.haulmont.yarg.structure.Report;
-import com.haulmont.yarg.structure.xml.impl.DefaultXmlReader;
-import com.haulmont.yarg.util.groovy.DefaultScriptingImpl;
-import org.apache.commons.io.FileUtils;
 
 import javax.inject.Inject;
-import java.io.File;
-import java.nio.charset.Charset;
 import java.util.*;
 
 public class MainSettingsScreen extends AbstractWindow {
@@ -233,43 +214,9 @@ public class MainSettingsScreen extends AbstractWindow {
 
     @Override
     public void ready() {
-        btnProba.setVisible(true);
+        btnProba.setVisible(false);
     }
 
-    @Inject
-    private DataManager dataManager;
-
-    @Inject
-    private ExportDisplay exportDisplay;
-
-    public void onBtnProbaClick() throws Exception {
-        String structure = "s:/Delo/CUBA/office/reports/requests/requests.xml";
-        //String output = "d:/temp/requests.xlsx";
-        String output = "requests.xlsx";
-
-        AppBeans.get(OfficeTools.class).addDaysToNow(0);
-
-        LoadContext<Request> loadContext = LoadContext.create(Request.class)
-                .setQuery(LoadContext.createQuery("select e from office$Request e"))
-                .setView("request-view");
-
-        Report report = new DefaultXmlReader()
-                .parseXml(FileUtils.readFileToString(new File(structure), Charset.defaultCharset() ));
-
-        Reporting reporting = new Reporting();
-        reporting.setFormatterFactory(new DefaultFormatterFactory());
-        reporting.setLoaderFactory(
-                new DefaultLoaderFactory()
-                        .setGroovyDataLoader(new GroovyDataLoader(new DefaultScriptingImpl()))
-        )
-        ;
-
-        ReportOutputDocument reportOutputDocument = reporting.runReport(
-                new RunParams(report).param("RequestList", dataManager.loadList(loadContext))//,
-                //new FileOutputStream(output)
-        );
-
-        exportDisplay.show(new ByteArrayDataProvider(reportOutputDocument.getContent()), output);
-    }
+    public void onBtnProbaClick() {}
 
 }

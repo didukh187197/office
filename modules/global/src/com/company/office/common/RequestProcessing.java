@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@Component("office_OfficeCommon")
+@Component("office_RequestProcessing")
 public class RequestProcessing {
 
     @Inject

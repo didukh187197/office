@@ -1,21 +1,37 @@
 package com.company.office.web.officeweb;
 
+import com.company.office.entity.Request;
 import com.company.office.entity.RequestStep;
 import com.company.office.entity.RequestStepAction;
 import com.company.office.service.ShedulerService;
 import com.haulmont.cuba.core.entity.FileDescriptor;
+import com.haulmont.cuba.core.global.DataManager;
+import com.haulmont.cuba.core.global.LoadContext;
 import com.haulmont.cuba.core.global.Messages;
 import com.haulmont.cuba.gui.ComponentsHelper;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
+import com.haulmont.cuba.gui.export.ByteArrayDataProvider;
 import com.haulmont.cuba.gui.export.ExportDisplay;
 import com.haulmont.cuba.gui.export.ExportFormat;
 import com.haulmont.cuba.gui.icons.CubaIcon;
 import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
 import com.haulmont.cuba.web.App;
+import com.haulmont.yarg.formatters.factory.DefaultFormatterFactory;
+import com.haulmont.yarg.loaders.factory.DefaultLoaderFactory;
+import com.haulmont.yarg.loaders.impl.GroovyDataLoader;
+import com.haulmont.yarg.reporting.ReportOutputDocument;
+import com.haulmont.yarg.reporting.Reporting;
+import com.haulmont.yarg.reporting.RunParams;
+import com.haulmont.yarg.structure.Report;
+import com.haulmont.yarg.structure.xml.impl.DefaultXmlReader;
+import com.haulmont.yarg.util.groovy.DefaultScriptingImpl;
+import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
+import java.io.File;
+import java.nio.charset.Charset;
 
 @Component("office_OfficeWeb")
 public class OfficeWeb {
@@ -54,7 +70,24 @@ public class OfficeWeb {
         frame.openEditor("office$RequestStep.edit", step, WindowManager.OpenType.DIALOG);
     }
 
-    //Admin methods
+    @Inject
+    private ComponentsFactory componentsFactory;
+
+    public Label getMarkForGenerator(RequestStepAction requestStepAction) {
+        Label lbl = componentsFactory.createComponent(Label.class);
+        lbl.setValue("");
+        switch (requestStepAction.getType()) {
+            case sendFile:
+                lbl.setIconFromSet(requestStepAction.getFile() != null ? CubaIcon.CHECK_SQUARE_O : CubaIcon.SQUARE_O);
+                break;
+            case sendMessage:
+                lbl.setIconFromSet(requestStepAction.getMessage() != null ? CubaIcon.CHECK_SQUARE_O : CubaIcon.SQUARE_O);
+                break;
+        }
+        return lbl;
+    }
+
+    // Admin methods
     // Used from main menu
     private final String MSG_PACK = "com.company.office.web.officeweb";
 
@@ -76,21 +109,39 @@ public class OfficeWeb {
         showWarningMessage(App.getInstance().getTopLevelWindow().getFrame(), messages.getMessage(MSG_PACK, "checkRequests"));
     }
 
+    // Reports
     @Inject
-    private ComponentsFactory componentsFactory;
+    private DataManager dataManager;
 
-    public Label getMarkForGenerator(RequestStepAction requestStepAction) {
-        Label lbl = componentsFactory.createComponent(Label.class);
-        lbl.setValue("");
-        switch (requestStepAction.getType()) {
-            case sendFile:
-                lbl.setIconFromSet(requestStepAction.getFile() != null ? CubaIcon.CHECK_SQUARE_O : CubaIcon.SQUARE_O);
-                break;
-            case sendMessage:
-                lbl.setIconFromSet(requestStepAction.getMessage() != null ? CubaIcon.CHECK_SQUARE_O : CubaIcon.SQUARE_O);
-                break;
-        }
-        return lbl;
+    public void requestsList() throws Exception {
+        String structure = "s:/Delo/CUBA/office/reports/requests/requests.xml";
+        //String output = "d:/temp/requests.xlsx";
+        String output = "requests.xlsx";
+
+        LoadContext<Request> loadContext = LoadContext.create(Request.class)
+                .setQuery(LoadContext.createQuery("select e from office$Request e order by e.moment"))
+                .setView("request-view");
+
+        makeReport(structure, output, "RequestList", dataManager.loadList(loadContext));
+    }
+
+    public void makeReport(String structure, String output, String paramName, Object paramValue) throws Exception {
+        Report report = new DefaultXmlReader()
+                .parseXml(FileUtils.readFileToString(new File(structure), Charset.defaultCharset()));
+
+        Reporting reporting = new Reporting();
+        reporting.setFormatterFactory(new DefaultFormatterFactory());
+        reporting.setLoaderFactory(
+                new DefaultLoaderFactory()
+                        .setGroovyDataLoader(new GroovyDataLoader(new DefaultScriptingImpl()))
+        );
+
+        ReportOutputDocument reportOutputDocument = reporting.runReport(
+                new RunParams(report).param(paramName, paramValue)//,
+                //new FileOutputStream(output)
+        );
+
+        exportDisplay.show(new ByteArrayDataProvider(reportOutputDocument.getContent()), output);
     }
 
 }

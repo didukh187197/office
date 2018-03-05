@@ -6,6 +6,7 @@
     </templates>
     <rootBand name="Root" orientation="H">
         <bands>
+            <band name="Summary" orientation="H"/>
             <band name="Header" orientation="H">
                 <queries>
                     <query name="Requests" type="groovy">
@@ -27,7 +28,6 @@
                                 list.add(
                                     'number' : i++,
                                     'request' : request.getInstanceName(),
-                                    'step' : request.getStep().getDescription(),
                                     'position' : request.getStep().getPosition().getDescription(),
                                     'state' : request.getStep().getState(),
                                     'user' : request.getStep().getUser() == null ? "" : request.getStep().getUser().getName()
