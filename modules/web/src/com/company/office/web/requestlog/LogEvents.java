@@ -1,6 +1,5 @@
 package com.company.office.web.requestlog;
 
-import com.company.office.common.RequestProcessing;
 import com.company.office.common.OfficeTools;
 import com.company.office.entity.*;
 import com.company.office.service.ToolsService;
@@ -27,9 +26,6 @@ public class LogEvents extends AbstractWindow {
 
     @Inject
     private OfficeTools officeTools;
-
-    @Inject
-    private RequestProcessing requestProcessing;
 
     @Inject
     private OfficeWeb officeWeb;
@@ -131,7 +127,7 @@ public class LogEvents extends AbstractWindow {
                         LoadContext.create(RequestStep.class).setId(attachId).setView("requestStep-view")
                 );
                 break;
-            case "RequestStepAction":
+                case "RequestStepAction":
                 item = dataManager.load(
                         LoadContext.create(RequestStepAction.class).setId(attachId).setView("requestStepAction-view")
                 );
@@ -148,7 +144,7 @@ public class LogEvents extends AbstractWindow {
         }
 
         if (item != null) {
-            openEditor(item, WindowManager.OpenType.DIALOG,params);
+            openEditor(item, WindowManager.OpenType.DIALOG, params);
         } else {
              officeWeb.showErrorMessage(this, getMessage("logEvents.error.attachNotFound"));
         }
@@ -164,11 +160,13 @@ public class LogEvents extends AbstractWindow {
 
     public Component generateAttachCell(RequestLog log) {
         if (log.getAttachType() != null) {
-            LinkButton btn = componentsFactory.createComponent(LinkButton.class);
-            btn.setCaption("");
-            btn.setIconFromSet(CubaIcon.EXTERNAL_LINK);
-            btn.setAction(attachAction);
-            return btn;
+            if (!log.getAttachType().replace(PREFIX, "").equals("Request")) {
+                LinkButton btn = componentsFactory.createComponent(LinkButton.class);
+                btn.setCaption("");
+                btn.setIconFromSet(CubaIcon.EXTERNAL_LINK);
+                btn.setAction(attachAction);
+                return btn;
+            }
         }
         return null;
     }

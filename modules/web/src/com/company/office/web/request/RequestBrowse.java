@@ -11,6 +11,7 @@ import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.components.actions.CreateAction;
 import com.haulmont.cuba.gui.components.actions.EditAction;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
+import com.haulmont.cuba.gui.data.Datasource;
 import com.haulmont.cuba.gui.data.GroupDatasource;
 
 import javax.inject.Inject;
@@ -34,9 +35,6 @@ public class RequestBrowse extends AbstractLookup {
     private GroupDatasource<Request, UUID> requestsDs;
 
     @Inject
-    private CollectionDatasource<RequestStepAction, UUID> actionsDs;
-
-    @Inject
     private GroupTable<Request> table;
 
     @Inject
@@ -44,6 +42,9 @@ public class RequestBrowse extends AbstractLookup {
 
     @Inject
     private LookupField stepLookup;
+
+    @Inject
+    private LookupField logsParamsLookup;
 
     @Override
     public void init(Map<String, Object> params) {
@@ -58,6 +59,9 @@ public class RequestBrowse extends AbstractLookup {
             }
             return null;
         });
+
+        stepLookup.setTextInputAllowed(false);
+        officeWeb.makeLogsFilter((CollectionDatasource) getDsContext().getNN("logsDs"), logsParamsLookup, "requestsDs");
 
         addListeners();
         setUserInterface();
@@ -110,10 +114,11 @@ public class RequestBrowse extends AbstractLookup {
         archivedStates.add(State.Cancelled);
 
         requestsDs.addItemChangeListener(e -> {
-            extraActionsBtn.setEnabled(false);
-
             if ((e.getItem() == null) || (e.getItem().getStep() == null) || (e.getItem().getStep().getState() == null))
                 return;
+
+            stepLookup.setEnabled(true);
+            logsParamsLookup.setEnabled(true);
 
             if (e.getItem().getImageFile() != null) {
                 image.setSource(FileDescriptorResource.class).setFileDescriptor(e.getItem().getImageFile());

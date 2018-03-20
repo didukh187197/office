@@ -16,12 +16,12 @@ import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.components.actions.CreateAction;
 import com.haulmont.cuba.gui.components.actions.EditAction;
 import com.haulmont.cuba.gui.components.actions.RemoveAction;
+import com.haulmont.cuba.gui.data.CollectionDatasource;
 import com.haulmont.cuba.gui.data.DataSupplier;
 import com.haulmont.cuba.gui.data.Datasource;
 import com.haulmont.cuba.gui.export.ExportDisplay;
 import com.haulmont.cuba.gui.export.ExportFormat;
 import com.haulmont.cuba.gui.upload.FileUploadingAPI;
-import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
 import com.haulmont.cuba.security.entity.User;
 
 import javax.inject.Inject;
@@ -54,9 +54,6 @@ public class RequestEdit extends AbstractEditor<Request> {
     @Inject
     private Image image;
 
-    @Inject
-    private ComponentsFactory componentsFactory;
-
     @Named("fieldGroupApplicant.applicant")
     private PickerField applicantField;
 
@@ -73,6 +70,9 @@ public class RequestEdit extends AbstractEditor<Request> {
     private Table<RequestLog> logsTable;
 
     @Inject
+    private LookupField logsParamsLookup;
+
+    @Inject
     private Messages messages;
 
     private boolean readOnly = false;
@@ -80,10 +80,14 @@ public class RequestEdit extends AbstractEditor<Request> {
 
     @Override
     public void init(Map<String, Object> params) {
+        officeWeb.makeLogsFilter((CollectionDatasource) getDsContext().getNN("logsDs"), logsParamsLookup, "requestDs");
+
         if (params.containsKey("readOnly"))
             readOnly = (boolean) params.get("readOnly");
+
         if (readOnly)
             return;
+
         addListeners();
     }
 
@@ -288,7 +292,7 @@ public class RequestEdit extends AbstractEditor<Request> {
         if (PersistenceHelper.isNew(request)) {
             List<RequestLog> logs = new ArrayList<>();
             logs.add(
-                    requestProcessing.newLogItem(request, request.getApplicant(), getMessage("result.created"), null)
+                    requestProcessing.newLogItem(request, request.getApplicant(), getMessage("result.created"), request)
             );
             request.setLogs(logs);
 
@@ -398,7 +402,7 @@ public class RequestEdit extends AbstractEditor<Request> {
                             requestStep.setPenalty(null);
                             requestStep.setState(State.Approving);
                             request.getLogs().add(
-                                    requestProcessing.newLogItem(request, requestStep.getUser(), getMessage("result.submitted"), null)
+                                    requestProcessing.newLogItem(request, requestStep.getUser(), getMessage("result.submitted"), requestStep)
                             );
                             commitAndClose();
                         }),
@@ -419,18 +423,16 @@ public class RequestEdit extends AbstractEditor<Request> {
                 new Action[] {
                         new DialogAction(DialogAction.Type.YES, Action.Status.NORMAL).withHandler(e -> {
                             Request request = getItem();
-                            request.getLogs().add(
-                                    requestProcessing.newLogItem(request, request.getApplicant(), getMessage("result.approved"), null)
-                            );
                             RequestStep requestStep = request.getStep();
                             requestStep.setApproved(new Date());
-
+                            request.getLogs().add(
+                                    requestProcessing.newLogItem(request, request.getApplicant(), getMessage("result.approved"), requestStep)
+                            );
                             requestProcessing.changePositionUserRequestCount(request.getStep().getPosition(), request.getStep().getUser(), -1);
                             requestProcessing.changePosition(request);
                             if (requestProcessing.changeWorker(request)) {
                                 requestProcessing.changePositionUserRequestCount(request.getStep().getPosition(), request.getStep().getUser(), 1);
                             }
-
                             approved = true;
                             commitAndClose();
                         }),

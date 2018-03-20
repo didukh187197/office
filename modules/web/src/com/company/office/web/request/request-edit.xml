@@ -16,9 +16,16 @@
                 <collectionDatasource id="communicationsDs"
                                       property="communications"/>
             </collectionDatasource>
-            <collectionDatasource id="logsDs"
+            <collectionDatasource id="logsDs0"
                                   property="logs"/>
         </datasource>
+        <collectionDatasource id="logsDs"
+                              class="com.company.office.entity.RequestLog"
+                              view="requestLog-view">
+            <query>
+                <![CDATA[select e from office$RequestLog e where e.request.id = :ds$requestDs.id order by e.moment]]>
+            </query>
+        </collectionDatasource>
     </dsContext>
     <dialogMode height="600"
                 width="800"/>
@@ -209,6 +216,14 @@
                          expand="logsTable"
                          margin="true,false,false,false"
                          spacing="true">
+                        <hbox id="logsParamsBox"
+                              expand="logsParamsLookup"
+                              spacing="true"
+                              width="300px">
+                            <label align="MIDDLE_LEFT"
+                                   value="msg://logs.select"/>
+                            <lookupField id="logsParamsLookup"/>
+                        </hbox>
                         <table id="logsTable"
                                height="400px"
                                width="100%">

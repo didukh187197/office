@@ -11,6 +11,7 @@ import com.haulmont.cuba.core.global.Messages;
 import com.haulmont.cuba.gui.ComponentsHelper;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
+import com.haulmont.cuba.gui.data.CollectionDatasource;
 import com.haulmont.cuba.gui.export.ByteArrayDataProvider;
 import com.haulmont.cuba.gui.export.ExportDisplay;
 import com.haulmont.cuba.gui.export.ExportFormat;
@@ -32,6 +33,8 @@ import org.springframework.stereotype.Component;
 import javax.inject.Inject;
 import java.io.File;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 @Component("office_OfficeWeb")
 public class OfficeWeb {
@@ -68,6 +71,38 @@ public class OfficeWeb {
 
     public void showStep(Frame frame, RequestStep step) {
         frame.openEditor("office$RequestStep.edit", step, WindowManager.OpenType.DIALOG);
+    }
+
+    public void makeLogsFilter(CollectionDatasource logsDs, LookupField paramsLookup, String parentDs) {
+        paramsLookup.setOptionsList(new ArrayList<>(Arrays.asList("History", "Actions", "Communications", "Editing")));
+        paramsLookup.setTextInputAllowed(false);
+        paramsLookup.addValueChangeListener(e -> {
+            String query = String.format("select e from office$RequestLog e where e.request.id = :ds$%s.id ", parentDs);
+            if (e.getValue() != null) {
+                switch (e.getValue().toString()) {
+                    case "History":
+                        query += "and (e.attachType = 'com.company.office.entity.Request' or e.attachType = 'com.company.office.entity.RequestStep')";
+                        query += String.format("and (e.sender.id = :ds$%s.applicant.id or e.recepient.id = :ds$%s.applicant.id)", parentDs, parentDs);
+                        break;
+                    case "Actions":
+                        query += "and e.attachType = 'com.company.office.entity.RequestStepAction'";
+                        break;
+                    case "Communications":
+                        query += "and e.attachType = 'com.company.office.entity.RequestStepCommunication'";
+                        break;
+                    case "Editing":
+                        query += "and e.attachType is null";
+                        break;
+                    default: {
+                        showErrorMessage(null, "Wrong attach type!");
+                        return;
+                    }
+                }
+            }
+            query += " order by e.moment";
+            logsDs.setQuery(query);
+            logsDs.refresh();
+        });
     }
 
     @Inject
@@ -113,6 +148,7 @@ public class OfficeWeb {
     @Inject
     private DataManager dataManager;
 
+    @SuppressWarnings("unused")
     public void requestsList() throws Exception {
         String structure = "s:/Delo/CUBA/office/reports/requests/requests.xml";
         //String output = "d:/temp/requests.xlsx";
