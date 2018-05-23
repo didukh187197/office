@@ -4,8 +4,7 @@ import com.company.office.OfficeConfig;
 import com.company.office.entity.Position;
 import com.haulmont.cuba.core.global.Messages;
 import com.haulmont.cuba.gui.components.*;
-import com.haulmont.cuba.security.entity.Group;
-import com.haulmont.cuba.security.entity.Role;
+import com.haulmont.cuba.security.entity.*;
 
 import javax.inject.Inject;
 import java.util.*;
@@ -217,6 +216,8 @@ public class MainSettingsScreen extends AbstractWindow {
         btnProba.setVisible(false);
     }
 
-    public void onBtnProbaClick() {}
+    public void onBtnProbaClick() {
+    }
+
 
 }

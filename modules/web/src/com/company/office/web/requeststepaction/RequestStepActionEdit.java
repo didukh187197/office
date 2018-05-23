@@ -188,6 +188,12 @@ public class RequestStepActionEdit extends OfficeEditor<RequestStepAction> {
                 messageField.setVisible(true);
                 messageField.setRequired(true);
                 break;
+            default:
+                getComponentNN("boxFiles").setVisible(false);
+                lookupTemplate.setRequired(false);
+                uploadFile.setRequired(false);
+                messageField.setVisible(false);
+                messageField.setRequired(false);
         }
         setFileButtonsParams();
     }

@@ -3,10 +3,7 @@ package com.company.office.common;
 import com.company.office.OfficeConfig;
 import com.company.office.entity.*;
 import com.haulmont.cuba.core.global.*;
-import com.haulmont.cuba.security.entity.Group;
-import com.haulmont.cuba.security.entity.RoleType;
-import com.haulmont.cuba.security.entity.User;
-import com.haulmont.cuba.security.entity.UserRole;
+import com.haulmont.cuba.security.entity.*;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
@@ -49,10 +46,10 @@ public class OfficeTools {
     }
 
     public boolean isAdmin() {
-        List<UserRole> roles = getCurrentUser().getUserRoles();
         boolean superUser = false;
-        for (UserRole role: roles) {
-            if (role.getRole().getType().equals(RoleType.SUPER)) {
+        for (UserRole userRole: getCurrentUser().getUserRoles()) {
+            Role role = userRole.getRole();
+            if ((role != null) && role.getType().equals(RoleType.SUPER)) {
                 superUser = true;
                 break;
             }

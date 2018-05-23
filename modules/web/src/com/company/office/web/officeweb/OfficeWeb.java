@@ -35,9 +35,15 @@ import java.io.File;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 @Component("office_OfficeWeb")
 public class OfficeWeb {
+    private final String MSG_PACK = "com.company.office.web.officeweb";
+
+    @Inject
+    private Messages messages;
 
     @Inject
     private ExportDisplay exportDisplay;
@@ -74,23 +80,28 @@ public class OfficeWeb {
     }
 
     public void makeLogsFilter(CollectionDatasource logsDs, LookupField paramsLookup, String parentDs) {
-        paramsLookup.setOptionsList(new ArrayList<>(Arrays.asList("History", "Actions", "Communications", "Editing")));
+        String options[] = messages.getMessage(MSG_PACK, "logsFilter").split(",");
+        Map<String, String> map = new LinkedHashMap<>();
+        for (int i = 0; i < options.length ; i++) {
+            map.put(options[i], String.valueOf(i));
+        }
+        paramsLookup.setOptionsMap(map);
         paramsLookup.setTextInputAllowed(false);
         paramsLookup.addValueChangeListener(e -> {
             String query = String.format("select e from office$RequestLog e where e.request.id = :ds$%s.id ", parentDs);
             if (e.getValue() != null) {
                 switch (e.getValue().toString()) {
-                    case "History":
+                    case "0":
                         query += "and (e.attachType = 'com.company.office.entity.Request' or e.attachType = 'com.company.office.entity.RequestStep')";
                         query += String.format("and (e.sender.id = :ds$%s.applicant.id or e.recepient.id = :ds$%s.applicant.id)", parentDs, parentDs);
                         break;
-                    case "Actions":
+                    case "1":
                         query += "and e.attachType = 'com.company.office.entity.RequestStepAction'";
                         break;
-                    case "Communications":
+                    case "2":
                         query += "and e.attachType = 'com.company.office.entity.RequestStepCommunication'";
                         break;
-                    case "Editing":
+                    case "3":
                         query += "and e.attachType is null";
                         break;
                     default: {
@@ -124,11 +135,6 @@ public class OfficeWeb {
 
     // Admin methods
     // Used from main menu
-    private final String MSG_PACK = "com.company.office.web.officeweb";
-
-    @Inject
-    private Messages messages;
-
     @Inject
     private ShedulerService shedulerService;
 

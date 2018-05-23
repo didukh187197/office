@@ -29,7 +29,7 @@
                           spacing="true">
                     <fieldGroup id="fieldGroup"
                                 datasource="requestStepCommunicationDs">
-                        <column fieldCaptionWidth="70px"
+                        <column fieldCaptionWidth="80px"
                                 width="400px">
                             <field property="initiator"/>
                             <field property="question"
@@ -47,7 +47,7 @@
                         <label id="labelQuestionFile"
                                align="MIDDLE_CENTER"
                                value="msg://lblFile"
-                               width="70px"/>
+                               width="80px"/>
                         <upload id="uploadQuestionFile"
                                 clearButtonIcon="icons/remove.png"
                                 datasource="requestStepCommunicationDs"
@@ -67,7 +67,7 @@
                     <hbox id="recepientBox">
                         <label align="MIDDLE_CENTER"
                                value="msg://lblRecepient"
-                               width="75px"/>
+                               width="85px"/>
                         <lookupField id="recepientLookup"
                                      datasource="requestStepCommunicationDs"
                                      property="recepient"
@@ -78,7 +78,7 @@
                           spacing="true">
                         <fieldGroup id="fieldGroupAnswer"
                                     datasource="requestStepCommunicationDs">
-                            <column fieldCaptionWidth="70px"
+                            <column fieldCaptionWidth="80px"
                                     width="400px">
                                 <field editable="false"
                                        property="recepient"

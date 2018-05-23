@@ -15,7 +15,6 @@ import com.haulmont.cuba.gui.executors.UIAccessor;
 import com.haulmont.cuba.web.app.mainwindow.AppMainWindow;
 
 import javax.inject.Inject;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
@@ -104,35 +103,27 @@ public class ExtAppMainWindow extends AppMainWindow {
     }
 
     private String emptyProperty() {
-        String res = "";
         String MSG_PACK = "com.company.office.web.screens";
-        Map<String, Object> officeProperties = new HashMap<>();
 
         String group = messages.getMessage(MSG_PACK, "settingsDialog.type.group");
-        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.managers") + group, officeConfig.getManagersGroup());
-        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.registrators") + group, officeConfig.getRegistratorsGroup());
-        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.applicants") + group, officeConfig.getApplicantsGroup());
-        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.workers") + group, officeConfig.getWorkersGroup());
+        if (officeConfig.getManagersGroup() == null) return messages.getMessage(MSG_PACK, "settingsDialog.managers") + group;
+        if (officeConfig.getRegistratorsGroup() == null) return messages.getMessage(MSG_PACK, "settingsDialog.registrators") + group;
+        if (officeConfig.getApplicantsGroup() == null) return messages.getMessage(MSG_PACK, "settingsDialog.applicants") + group;
+        if (officeConfig.getWorkersGroup() == null) return messages.getMessage(MSG_PACK, "settingsDialog.workers") + group;
 
         String role = messages.getMessage(MSG_PACK, "settingsDialog.type.role");
-        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.managers") + role, officeConfig.getManagersRole());
-        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.registrators") + role, officeConfig.getRegistratorsRole());
-        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.applicants") + role, officeConfig.getApplicantsRole());
-        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.workers") + role, officeConfig.getWorkersRole());
+        if (officeConfig.getManagersRole() == null) return messages.getMessage(MSG_PACK, "settingsDialog.managers") + role;
+        if (officeConfig.getRegistratorsRole() == null) return messages.getMessage(MSG_PACK, "settingsDialog.registrators") + role;
+        if (officeConfig.getApplicantsRole() == null) return messages.getMessage(MSG_PACK, "settingsDialog.applicants") + role;
+        if (officeConfig.getWorkersRole() == null) return messages.getMessage(MSG_PACK, "settingsDialog.workers") + role;
 
-        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.initPosition"), officeConfig.getInitPosition());
-        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.finalPosition"), officeConfig.getFinalPosition());
+        if (officeConfig.getInitPosition() == null) return messages.getMessage(MSG_PACK, "settingsDialog.initPosition");
+        if (officeConfig.getFinalPosition() == null) return messages.getMessage(MSG_PACK, "settingsDialog.finalPosition");
 
-        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.applicantPenalty"), officeConfig.getApplicantPenalty());
-        officeProperties.put(messages.getMessage(MSG_PACK, "settingsDialog.workerPenalty"), officeConfig.getWorkerPenalty());
+        if (officeConfig.getApplicantPenalty() == null) return messages.getMessage(MSG_PACK, "settingsDialog.applicantPenalty");
+        if (officeConfig.getWorkerPenalty() == null) return messages.getMessage(MSG_PACK, "settingsDialog.workerPenalty");
 
-        for (Map.Entry entry : officeProperties.entrySet()) {
-            if (entry.getValue() == null) {
-                res = (String) entry.getKey();
-                break;
-            }
-        }
-        return res;
+        return "";
     }
 
     private void setEventsBtnCaption() {

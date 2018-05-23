@@ -66,6 +66,9 @@ public class ExtUserEditor extends UserEditor {
 
     @Override
     protected boolean preCommit() {
+        if (officeTools.isAdmin())
+            return super.preCommit();
+
         for (UserRole ur : new ArrayList<>(rolesDs.getItems())) {
             rolesDs.removeItem(ur);
         }

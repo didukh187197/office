@@ -42,7 +42,7 @@
                 </fieldGroup>
                 <fieldGroup id="fieldGroupDates"
                             datasource="requestStepActionDs">
-                    <column fieldCaptionWidth="80px"
+                    <column fieldCaptionWidth="105px"
                             width="130px">
                         <field property="submitted"/>
                     </column>
